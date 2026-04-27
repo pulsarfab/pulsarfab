@@ -1,0 +1,90 @@
+name: Build All Firmware
+
+# IMPORTANT: Keep CI targets in sync with firmware/Makefile!
+# When adding/removing firmware targets, update both:
+# - .github/workflows/build.yml (this file)
+# - firmware/Makefile (build and flash targets)
+#
+# Current STM32 targets:
+# - pulsardew (STM32G0B1KBU6)
+#
+# Current ESP32-S3 targets:
+# - pulsardewpro (ESP32-S3-MINI-1)
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build-stm32-pulsardew:
+    name: Build STM32 PulsarDew (G0B1)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          submodules: recursive
+
+      - name: Setup ARM GCC toolchain
+        uses: carlosperate/arm-none-eabi-gcc-action@v1
+        with:
+          release: '13.3.Rel1'
+
+      - name: Install dependencies
+        run: sudo apt-get update && sudo apt-get install -y cmake ninja-build
+
+      - name: Configure CMake
+        working-directory: firmware
+        run: |
+          mkdir -p build/pulsardew-g0b1
+          cd build/pulsardew-g0b1
+          cmake ../.. -G Ninja -DPROJECT=pulsardew -DMCU=STM32G0B1 -DCMAKE_BUILD_TYPE=Release
+
+      - name: Build firmware
+        working-directory: firmware/build/pulsardew-g0b1
+        run: ninja
+
+      - name: Display build info
+        working-directory: firmware/build/pulsardew-g0b1
+        run: |
+          ls -lh pulsardew/pulsardew.*
+          arm-none-eabi-size pulsardew/pulsardew.elf
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v7
+        with:
+          name: pulsardew-firmware
+          path: |
+            firmware/build/pulsardew-g0b1/pulsardew/pulsardew.elf
+            firmware/build/pulsardew-g0b1/pulsardew/pulsardew.bin
+            firmware/build/pulsardew-g0b1/pulsardew/pulsardew.hex
+          retention-days: 30
+
+  build-esp32s3-pulsardewpro:
+    name: Build ESP32-S3 PulsarDewPro
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Setup ESP-IDF
+        uses: espressif/esp-idf-ci-action@v1
+        with:
+          esp_idf_version: v5.4
+          target: esp32s3
+          path: firmware/pulsardewpro
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v7
+        with:
+          name: pulsardewpro-firmware
+          path: |
+            firmware/pulsardewpro/build/pulsardewpro.bin
+            firmware/pulsardewpro/build/bootloader/bootloader.bin
+            firmware/pulsardewpro/build/partition_table/partition-table.bin
+          retention-days: 30

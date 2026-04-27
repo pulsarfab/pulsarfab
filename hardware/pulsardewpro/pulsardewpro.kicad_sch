@@ -1,0 +1,14 @@
+(kicad_sch
+  (version 20231120)
+  (generator "eeschema")
+  (generator_version "9.0")
+  (uuid "a1b2c3d4-5e6f-7890-abcd-ef1234567890")
+  (paper "A4")
+  (title_block
+    (title "PulsarDewPro - WiFi Dew Heater Controller")
+    (company "PulsarFab")
+    (rev "0.1")
+  )
+  (lib_symbols)
+  (symbol_instances)
+)
