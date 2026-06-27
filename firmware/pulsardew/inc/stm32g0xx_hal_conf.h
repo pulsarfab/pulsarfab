@@ -23,6 +23,12 @@
 #define LSI_VALUE            32000UL
 #define HSI48_VALUE          48000000UL
 
+/* Value of the I2S external clock sources (I2S_CKIN pin). Unused on this
+ * board, but the RCC HAL references them unconditionally. Values match the
+ * ST stm32g0xx_hal_conf_template.h. */
+#define EXTERNAL_I2S1_CLOCK_VALUE  48000UL
+#define EXTERNAL_I2S2_CLOCK_VALUE  48000UL
+
 #define VDD_VALUE            3300UL
 #define TICK_INT_PRIORITY    3U
 #define USE_RTOS             0U

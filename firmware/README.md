@@ -8,6 +8,7 @@ Firmware for PulsarFab dew heater controllers — STM32G0 (USB) and ESP32-S3 (Wi
 |---------|-----|-------|-----|---------|-----------|--------|
 | **pulsardew** | STM32G0B1KBU6 | 128KB | 144KB | UFQFPN-32 | STM32 HAL + FreeRTOS | 🚧 Development |
 | **pulsardewpro** | ESP32-S3-MINI-1 | 8MB | 512KB | Module | ESP-IDF | 🚧 Development |
+| **crunchdefender** | STM32F405RGT6 | 1024KB | 192KB | LQFP-64 | STM32 HAL (dual USB) | 🌱 Bootstrapped |
 
 ## Project Structure
 
@@ -22,13 +23,20 @@ firmware/
 │   └── stm32g030.cmake       # STM32G030 MCU configuration
 ├── common/                     # Shared STM32 libraries and code
 │   ├── CMakeLists.txt         # Common library build config
-│   └── STM32CubeG0/           # ST HAL/LL drivers (submodule)
+│   ├── STM32CubeG0/           # ST HAL/LL drivers for G0 (submodule)
+│   └── STM32CubeF4/           # ST HAL/LL drivers for F4 (submodule)
 ├── shared/                     # Shared code between projects
 ├── pulsardew/                  # STM32G0B1 USB dew heater
 │   ├── src/                   # Source files
 │   ├── inc/                   # Header files
 │   ├── startup/               # Startup assembly
 │   ├── linker/                # Linker scripts
+│   └── CMakeLists.txt         # Project build config
+├── crunchdefender/             # STM32F405 dual-USB mount limit guard
+│   ├── src/                   # Source files
+│   ├── inc/                   # Header files (incl. stm32f4xx_hal_conf.h)
+│   ├── startup/               # Startup assembly (vector table)
+│   ├── linker/                # Linker script (1MB flash / 192KB RAM / 64KB CCM)
 │   └── CMakeLists.txt         # Project build config
 └── pulsardewpro/               # ESP32-S3 WiFi dew heater (ESP-IDF)
     ├── main/                  # Main application source
@@ -73,6 +81,29 @@ mkdir -p build/pulsardew-g0b1
 cd build/pulsardew-g0b1
 cmake ../.. -DPROJECT=pulsardew -DMCU=STM32G0B1 -DCMAKE_BUILD_TYPE=Release
 make -j$(nproc)
+```
+
+### CrunchDefender (STM32F405)
+
+```bash
+# Using Makefile targets (recommended)
+make crunchdefender-f405
+make flash-crunchdefender-f405
+
+# Or manually with CMake
+mkdir -p build/crunchdefender-f405
+cd build/crunchdefender-f405
+cmake ../.. -DPROJECT=crunchdefender -DMCU=STM32F405 -DCMAKE_BUILD_TYPE=Release
+make -j$(nproc)
+```
+
+**First-time setup:** the F4 HAL lives in `common/STM32CubeF4/` and needs
+to be added as a submodule before the firmware will compile:
+
+```bash
+git submodule add https://github.com/STMicroelectronics/STM32CubeF4.git \
+    firmware/common/STM32CubeF4
+git submodule update --init --recursive
 ```
 
 ### PulsarDewPro (ESP32-S3)

@@ -9,6 +9,8 @@
 .PHONY: help clean test reset
 .PHONY: pulsardew-g0b1
 .PHONY: flash-pulsardew-g0b1
+.PHONY: crunchdefender-f405
+.PHONY: flash-crunchdefender-f405
 .PHONY: pulsardewpro pulsardewpro-flash pulsardewpro-monitor
 
 # Default target
@@ -17,9 +19,11 @@ help:
 	@echo ""
 	@echo "STM32 Build Targets (using CMake + arm-none-eabi-gcc):"
 	@echo "  pulsardew-g0b1          Build pulsardew for STM32G0B1"
+	@echo "  crunchdefender-f405     Build crunchdefender for STM32F405"
 	@echo ""
 	@echo "STM32 Flash Targets (using st-flash):"
 	@echo "  flash-pulsardew-g0b1    Flash pulsardew"
+	@echo "  flash-crunchdefender-f405 Flash crunchdefender"
 	@echo "  reset                   Reset STM32 target"
 	@echo ""
 	@echo "ESP32-S3 Projects (using ESP-IDF):"
@@ -51,6 +55,18 @@ pulsardew-g0b1:
 flash-pulsardew-g0b1:
 	@echo "Flashing pulsardew for STM32G0B1..."
 	st-flash --reset write build/pulsardew-g0b1/pulsardew/pulsardew.bin 0x08000000
+
+crunchdefender-f405:
+	@echo "Building crunchdefender for STM32F405..."
+	@mkdir -p build/crunchdefender-f405
+	@cd build/crunchdefender-f405 && \
+		cmake ../.. -DPROJECT=crunchdefender -DMCU=STM32F405 -DCMAKE_BUILD_TYPE=Release && \
+		make -j$$(nproc)
+	@echo "Build complete: build/crunchdefender-f405/crunchdefender/crunchdefender.elf"
+
+flash-crunchdefender-f405:
+	@echo "Flashing crunchdefender for STM32F405..."
+	st-flash --reset write build/crunchdefender-f405/crunchdefender/crunchdefender.bin 0x08000000
 
 # Reset STM32 target
 reset:
@@ -84,3 +100,6 @@ clean:
 
 clean-pulsardew-g0b1:
 	@rm -rf build/pulsardew-g0b1
+
+clean-crunchdefender-f405:
+	@rm -rf build/crunchdefender-f405

@@ -7,6 +7,7 @@ name: Build All Firmware
 #
 # Current STM32 targets:
 # - pulsardew (STM32G0B1KBU6)
+# - crunchdefender (STM32F405RGT6)
 #
 # Current ESP32-S3 targets:
 # - pulsardewpro (ESP32-S3-MINI-1)
@@ -62,6 +63,51 @@ jobs:
             firmware/build/pulsardew-g0b1/pulsardew/pulsardew.elf
             firmware/build/pulsardew-g0b1/pulsardew/pulsardew.bin
             firmware/build/pulsardew-g0b1/pulsardew/pulsardew.hex
+          retention-days: 30
+
+  build-stm32-crunchdefender:
+    name: Build STM32 CrunchDefender (F405)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          submodules: recursive
+
+      - name: Setup ARM GCC toolchain
+        uses: carlosperate/arm-none-eabi-gcc-action@v1
+        with:
+          release: '13.3.Rel1'
+
+      - name: Install dependencies
+        run: sudo apt-get update && sudo apt-get install -y cmake ninja-build
+
+      - name: Configure CMake
+        working-directory: firmware
+        run: |
+          mkdir -p build/crunchdefender-f405
+          cd build/crunchdefender-f405
+          cmake ../.. -G Ninja -DPROJECT=crunchdefender -DMCU=STM32F405 -DCMAKE_BUILD_TYPE=Release
+
+      - name: Build firmware
+        working-directory: firmware/build/crunchdefender-f405
+        run: ninja
+
+      - name: Display build info
+        working-directory: firmware/build/crunchdefender-f405
+        run: |
+          ls -lh crunchdefender/crunchdefender.*
+          arm-none-eabi-size crunchdefender/crunchdefender.elf
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v7
+        with:
+          name: crunchdefender-firmware
+          path: |
+            firmware/build/crunchdefender-f405/crunchdefender/crunchdefender.elf
+            firmware/build/crunchdefender-f405/crunchdefender/crunchdefender.bin
+            firmware/build/crunchdefender-f405/crunchdefender/crunchdefender.hex
           retention-days: 30
 
   build-esp32s3-pulsardewpro:

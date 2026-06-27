@@ -1,6 +1,6 @@
 # PulsarFab
 
-Open-source astronomy hardware platform — dew heater controllers and accessories based on STM32 and ESP32-S3 microcontrollers.
+Open-source astronomy hardware platform — dew heater controllers, mount accessories, and other observatory gear based on STM32 and ESP32-S3 microcontrollers.
 
 ## Projects
 
@@ -8,6 +8,7 @@ Open-source astronomy hardware platform — dew heater controllers and accessori
 |---------|-------------|-----|-----------|-----------|--------|
 | **pulsardew** | USB dew heater controller | STM32G0B1KBU6 | 128KB/144KB | STM32 HAL + FreeRTOS | 🚧 In Development |
 | **pulsardewpro** | WiFi dew heater controller (ASCOM Alpaca) | ESP32-S3-MINI-1 | 8MB/512KB | ESP-IDF | 🚧 In Development |
+| **crunchdefender** | Skywatcher mount limit guard — inline USB host/device that interrupts motion before the OTA collides with the pier or cables crunch | STM32F405RGT6 | 1024KB/192KB | STM32 HAL | 🌱 Bootstrapped |
 
 ## Repository Structure
 
@@ -16,11 +17,13 @@ pulsarfab/
 ├── firmware/                 # All firmware projects (C/C++, Apache 2.0)
 │   ├── pulsardew/             # STM32G0B1 USB dew heater controller
 │   ├── pulsardewpro/          # ESP32-S3 WiFi dew heater (ASCOM Alpaca)
+│   ├── crunchdefender/        # STM32F405 mount limit guard (dual-USB)
 │   ├── common/                # Shared STM32 HAL and utilities
 │   └── shared/                # Shared protocol definitions and libraries
 ├── hardware/                 # PCB designs (CERN-OHL-S v2 + NC)
 │   ├── pulsardew/            # USB dew heater PCB
 │   ├── pulsardewpro/         # WiFi dew heater PCB
+│   ├── crunchdefender/       # Mount limit guard PCB
 │   └── lib/                  # Shared KiCad libraries
 ├── mechanical/               # 3D models (coming soon, CERN-OHL-S v2 + NC)
 └── LICENSE                   # Dual licensing information
@@ -49,6 +52,11 @@ See [firmware/README.md](firmware/README.md) for detailed installation instructi
 cd firmware
 make pulsardew-g0b1              # Build pulsardew (STM32G0B1)
 make flash-pulsardew-g0b1        # Flash via st-flash
+
+# STM32 mount limit guard
+cd firmware
+make crunchdefender-f405         # Build crunchdefender (STM32F405)
+make flash-crunchdefender-f405   # Flash via st-flash
 
 # ESP32-S3 WiFi dew heater
 cd firmware/pulsardewpro
@@ -95,6 +103,13 @@ idf.py flash                     # Flash via USB
 - WiFi 802.11 b/g/n
 - USB-OTG for programming
 - ASCOM Alpaca server
+
+### CrunchDefender (STM32F405RGT6)
+- 1024KB Flash, 192KB RAM (128KB SRAM + 64KB CCM)
+- ARM Cortex-M4F @ 168MHz with single-precision FPU
+- LQFP-64 package
+- **Two USB peripherals running concurrently** — OTG_FS as device (PA11/PA12) to the host PC, OTG_HS-in-FS-mode as host (PB14/PB15) to the Skywatcher hand controller
+- Sits inline on the USB link, parses position telemetry, intercepts motion commands when limits are exceeded
 
 ## License
 
