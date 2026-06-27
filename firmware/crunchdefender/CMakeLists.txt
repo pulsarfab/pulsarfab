@@ -1,12 +1,12 @@
-# PulsarDew - STM32G0B1 USB Dew Heater Controller
+# CrunchDefender - STM32F405 dual-USB mount limit guard
 
 set(PROJECT_SOURCES
     src/main.c
-    src/system_stm32g0xx.c
+    src/system_stm32f4xx.c
 )
 
 set(STARTUP_SOURCES
-    startup/startup_stm32g0b1xx.s
+    startup/startup_stm32f405xx.s
 )
 
 # Executable
@@ -26,16 +26,16 @@ target_include_directories(${PROJECT_NAME} PRIVATE
 
 # Link libraries
 target_link_libraries(${PROJECT_NAME} PRIVATE
-    stm32g0_hal
+    stm32f4_hal
 )
 
 # HAL configuration header is in this project's inc/
-target_include_directories(stm32g0_hal PRIVATE
+target_include_directories(stm32f4_hal PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/inc
 )
 
 # Linker script
-set(LINKER_SCRIPT ${CMAKE_CURRENT_SOURCE_DIR}/linker/STM32G0B1KBUx_FLASH.ld)
+set(LINKER_SCRIPT ${CMAKE_CURRENT_SOURCE_DIR}/linker/STM32F405RGTx_FLASH.ld)
 target_link_options(${PROJECT_NAME} PRIVATE
     -T${LINKER_SCRIPT}
     -Wl,-Map=${PROJECT_NAME}.map

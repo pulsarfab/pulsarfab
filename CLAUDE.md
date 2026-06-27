@@ -17,6 +17,13 @@ make reset                       # Reset STM32 target
 make test                        # Run unit tests
 ```
 
+### STM32 Firmware (crunchdefender)
+```bash
+cd firmware
+make crunchdefender-f405         # Build crunchdefender (STM32F405)
+make flash-crunchdefender-f405   # Flash via st-flash
+```
+
 ### ESP32-S3 Firmware (pulsardewpro)
 ```bash
 cd firmware/pulsardewpro
@@ -83,6 +90,7 @@ Both files have comments at the top reminding you to keep them synchronized.
 cd firmware
 make test                        # Run unit tests
 make pulsardew-g0b1              # Build STM32 pulsardew
+make crunchdefender-f405         # Build STM32 crunchdefender
 
 cd firmware/pulsardewpro
 idf.py build                     # Build ESP32-S3 pulsardewpro

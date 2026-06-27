@@ -1,0 +1,14 @@
+(kicad_sch
+  (version 20231120)
+  (generator "eeschema")
+  (generator_version "9.0")
+  (uuid "b2c3d4e5-6f78-9012-bcde-f12345678901")
+  (paper "A4")
+  (title_block
+    (title "CrunchDefender - Skywatcher Mount Limit Guard")
+    (company "PulsarFab")
+    (rev "0.1")
+  )
+  (lib_symbols)
+  (symbol_instances)
+)

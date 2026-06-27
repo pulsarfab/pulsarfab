@@ -20,7 +20,7 @@
 KICAD_CLI ?= kicad-cli
 
 # Add new PCB projects here.
-PROJECTS    := pulsardew pulsardewpro
+PROJECTS    := pulsardew pulsardewpro crunchdefender
 
 BOM_FIELDS  := $${ITEM_NUMBER},Reference,Value,Footprint,$${QUANTITY},LCSC,MPN,Manufacturer
 BOM_LABELS  := Item,Designator,Comment,Footprint,Qty,LCSC Part \#,MPN,Manufacturer

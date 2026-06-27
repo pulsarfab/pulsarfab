@@ -31,8 +31,10 @@ elseif(MCU STREQUAL "STM32G071")
     include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/stm32g071.cmake)
 elseif(MCU STREQUAL "STM32G030")
     include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/stm32g030.cmake)
+elseif(MCU STREQUAL "STM32F405")
+    include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/stm32f405.cmake)
 else()
-    message(FATAL_ERROR "Unknown MCU: ${MCU}. Supported: STM32G0B1, STM32G071, STM32G030")
+    message(FATAL_ERROR "Unknown MCU: ${MCU}. Supported: STM32G0B1, STM32G071, STM32G030, STM32F405")
 endif()
 
 # Define the project
