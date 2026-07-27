@@ -6,10 +6,6 @@ CONFIG_IDF_TARGET="esp32s3"
 # Flash size
 CONFIG_ESPTOOLPY_FLASHSIZE_8MB=y
 
-# WiFi
-CONFIG_ESP_WIFI_SSID=""
-CONFIG_ESP_WIFI_PASSWORD=""
-
 # HTTP server for ASCOM Alpaca
 CONFIG_HTTPD_MAX_REQ_HDR_LEN=1024
 CONFIG_HTTPD_MAX_URI_LEN=512
@@ -22,3 +18,11 @@ CONFIG_LOG_DEFAULT_LEVEL_INFO=y
 
 # USB CDC console
 CONFIG_ESP_CONSOLE_USB_CDC=y
+
+# Rust's `main` runs on the ESP-IDF main task, and Rust stack frames are
+# larger than C's. The 3.5 KB default is not enough once TLS and string
+# formatting are in play.
+CONFIG_ESP_MAIN_TASK_STACK_SIZE=20000
+
+# Halt on panic rather than rebooting, so the backtrace stays on screen.
+CONFIG_ESP_SYSTEM_PANIC_PRINT_HALT=y

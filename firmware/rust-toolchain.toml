@@ -1,0 +1,6 @@
+# Applies to the STM32 crates and to `shared`. pulsardewpro overrides this with
+# its own rust-toolchain.toml, because Xtensa needs Espressif's Rust fork.
+[toolchain]
+channel = "stable"
+components = ["rustfmt", "clippy"]
+targets = ["thumbv6m-none-eabi", "thumbv7em-none-eabihf"]

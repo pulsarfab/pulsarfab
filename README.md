@@ -6,20 +6,19 @@ Open-source astronomy hardware platform — dew heater controllers, mount access
 
 | Project | Description | MCU | Flash/RAM | Framework | Status |
 |---------|-------------|-----|-----------|-----------|--------|
-| **pulsardew** | USB dew heater controller | STM32G0B1KBU6 | 128KB/144KB | STM32 HAL + FreeRTOS | 🚧 In Development |
-| **pulsardewpro** | WiFi dew heater controller (ASCOM Alpaca) | ESP32-S3-MINI-1 | 8MB/512KB | ESP-IDF | 🚧 In Development |
-| **crunchdefender** | Skywatcher mount limit guard — inline USB host/device that interrupts motion before the OTA collides with the pier or cables crunch | STM32F405RGT6 | 1024KB/192KB | STM32 HAL | 🌱 Bootstrapped |
+| **pulsardew** | USB dew heater controller | STM32G0B1KBU6 | 128KB/144KB | Rust + Embassy | 🚧 In Development |
+| **pulsardewpro** | WiFi dew heater controller (ASCOM Alpaca) | ESP32-S3-MINI-1 | 8MB/512KB | Rust + esp-idf-svc | 🚧 In Development |
+| **crunchdefender** | Skywatcher mount limit guard — inline USB host/device that interrupts motion before the OTA collides with the pier or cables crunch | STM32F405RGT6 | 1024KB/192KB | Rust + Embassy | 🌱 Bootstrapped |
 
 ## Repository Structure
 
 ```
 pulsarfab/
-├── firmware/                 # All firmware projects (C/C++, Apache 2.0)
+├── firmware/                 # All firmware projects (Rust, Apache 2.0)
 │   ├── pulsardew/             # STM32G0B1 USB dew heater controller
 │   ├── pulsardewpro/          # ESP32-S3 WiFi dew heater (ASCOM Alpaca)
 │   ├── crunchdefender/        # STM32F405 mount limit guard (dual-USB)
-│   ├── common/                # Shared STM32 HAL and utilities
-│   └── shared/                # Shared protocol definitions and libraries
+│   └── shared/                # pulsarfab-shared: code common to all targets
 ├── hardware/                 # PCB designs (CERN-OHL-S v2 + NC)
 │   ├── pulsardew/            # USB dew heater PCB
 │   ├── pulsardewpro/         # WiFi dew heater PCB
@@ -33,15 +32,15 @@ pulsarfab/
 
 ### Prerequisites
 
-**For STM32 builds (pulsardew):**
-- ARM GCC toolchain: `arm-none-eabi-gcc`
-- CMake 3.20 or newer
-- Make or Ninja build tool
+**For STM32 builds (pulsardew, crunchdefender):**
+- Rust, via [rustup](https://rustup.rs) — `rust-toolchain.toml` does the rest
+- `probe-rs`, to flash and to read `defmt` logs: `cargo install probe-rs-tools`
+- ARM binutils, for `arm-none-eabi-size` and `-objcopy`
 
 **For ESP32-S3 builds (pulsardewpro):**
-- ESP-IDF v5.x
+- Espressif's Rust fork: `cargo install espup && espup install`
+- `cargo install ldproxy espflash`
 - Python 3.10+
-- uv (Python package manager)
 
 See [firmware/README.md](firmware/README.md) for detailed installation instructions.
 
@@ -51,17 +50,17 @@ See [firmware/README.md](firmware/README.md) for detailed installation instructi
 # STM32 USB dew heater
 cd firmware
 make pulsardew-g0b1              # Build pulsardew (STM32G0B1)
-make flash-pulsardew-g0b1        # Flash via st-flash
+make run-pulsardew-g0b1          # Flash and stream defmt logs
 
 # STM32 mount limit guard
 cd firmware
 make crunchdefender-f405         # Build crunchdefender (STM32F405)
-make flash-crunchdefender-f405   # Flash via st-flash
+make run-crunchdefender-f405     # Flash and stream defmt logs
 
 # ESP32-S3 WiFi dew heater
-cd firmware/pulsardewpro
-idf.py build                     # Build with ESP-IDF
-idf.py flash                     # Flash via USB
+cd firmware
+make pulsardewpro                # Build pulsardewpro (ESP32-S3)
+make pulsardewpro-flash          # Flash and monitor
 ```
 
 ## Key Features
@@ -77,7 +76,7 @@ idf.py flash                     # Flash via USB
 - Temperature/humidity sensor (SHT40 via I2C)
 - USB 2.0 FS device (CDC for serial control from PC)
 - Dew point calculation and automatic regulation
-- Compact STM32G0B1 design with FreeRTOS
+- Compact STM32G0B1 design, async control with Embassy
 
 ### PulsarDewPro (WiFi / ASCOM Alpaca)
 - 4 PWM heater channels with individual current sensing
@@ -86,7 +85,7 @@ idf.py flash                     # Flash via USB
 - ASCOM Alpaca REST API (ObservingConditions + Switch devices)
 - Web configuration UI
 - OTA firmware updates
-- ESP32-S3 with ESP-IDF
+- ESP32-S3, Rust on ESP-IDF
 
 ## Hardware
 
@@ -95,7 +94,7 @@ idf.py flash                     # Flash via USB
 - ARM Cortex-M0+ @ 64MHz
 - UFQFPN-32 package
 - USB 2.0 FS (HSI48 + CRS, no external crystal)
-- FreeRTOS real-time control
+- Async control with Embassy
 
 ### PulsarDewPro (ESP32-S3-MINI-1)
 - 8MB Flash, 512KB SRAM
@@ -140,7 +139,9 @@ Contributions are welcome! Please ensure:
 - [CERN-OHL-S v2](https://ohwr.org/cern_ohl_s_v2.txt)
 
 ### Tools
-- [uv Python Package Manager](https://github.com/astral-sh/uv)
+- [Embassy](https://embassy.dev) — async embedded Rust
+- [esp-rs](https://github.com/esp-rs) — Rust on Espressif chips
+- [probe-rs](https://probe.rs) — flashing and debugging
 
 ---
 

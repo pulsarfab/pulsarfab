@@ -1,0 +1,39 @@
+[package]
+name = "pulsardew"
+version = "0.1.0"
+edition = "2021"
+description = "USB dew heater controller firmware (STM32G0B1KBU6)"
+license = "Apache-2.0"
+
+[dependencies]
+pulsarfab-shared = { path = "../shared" }
+
+embassy-executor = { version = "0.10", features = ["platform-cortex-m", "executor-thread", "executor-interrupt", "defmt"] }
+embassy-stm32 = { version = "0.6", features = ["stm32g0b1kb", "memory-x", "time-driver-any", "exti", "unstable-pac", "defmt"] }
+embassy-time = { version = "0.5", features = ["tick-hz-32_768", "defmt", "defmt-timestamp-uptime"] }
+embassy-sync = { version = "0.8", features = ["defmt"] }
+embassy-futures = "0.1"
+
+cortex-m = { version = "0.7", features = ["inline-asm", "critical-section-single-core"] }
+cortex-m-rt = "0.7"
+
+defmt = "1.0"
+defmt-rtt = "1.0"
+panic-probe = { version = "1.0", features = ["print-defmt"] }
+
+# Cortex-M0+ has no atomic compare-and-swap; emulate it by disabling interrupts.
+portable-atomic = { version = "1", features = ["critical-section"] }
+
+[profile.dev]
+opt-level = "s"
+debug = 2
+lto = false
+incremental = true
+
+[profile.release]
+opt-level = "s"
+debug = 2       # keep symbols: they cost flash nothing and defmt/gdb need them
+lto = "fat"
+codegen-units = 1
+panic = "abort"
+overflow-checks = false

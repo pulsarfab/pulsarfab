@@ -1,0 +1,5 @@
+# The ESP32-S3 is an Xtensa part, and Xtensa is not an upstream Rust target.
+# `espup install` provides this "esp" toolchain — a Rust fork with the Xtensa
+# LLVM backend. See firmware/README.md for setup.
+[toolchain]
+channel = "esp"

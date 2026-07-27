@@ -1,0 +1,30 @@
+[package]
+name = "pulsardewpro"
+version = "0.1.0"
+edition = "2021"
+resolver = "2"
+description = "WiFi dew heater controller firmware, ASCOM Alpaca (ESP32-S3-MINI-1)"
+license = "Apache-2.0"
+
+[[bin]]
+name = "pulsardewpro"
+harness = false     # the ESP-IDF runtime provides its own entry point
+
+[dependencies]
+pulsarfab-shared = { path = "../shared" }
+
+esp-idf-svc = "0.52"
+log = "0.4"
+
+[build-dependencies]
+embuild = "0.33"
+
+[profile.dev]
+opt-level = "z"
+debug = true
+
+[profile.release]
+opt-level = "s"
+debug = 2       # keep symbols for the panic backtrace decoder
+lto = "fat"
+codegen-units = 1

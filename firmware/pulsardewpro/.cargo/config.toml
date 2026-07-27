@@ -1,0 +1,17 @@
+[build]
+target = "xtensa-esp32s3-espidf"
+
+[target.xtensa-esp32s3-espidf]
+linker = "ldproxy"
+runner = "espflash flash --monitor"
+# esp-idf-sys needs to know that this ESP-IDF uses 64-bit time_t.
+rustflags = ["--cfg", "espidf_time64"]
+
+[unstable]
+build-std = ["std", "panic_abort"]
+
+[env]
+MCU = "esp32s3"
+# ESP-IDF release that embuild checks out and builds against. Keep this in
+# step with .github/workflows/build.yml.
+ESP_IDF_VERSION = "v5.4"

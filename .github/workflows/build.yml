@@ -5,12 +5,12 @@ name: Build All Firmware
 # - .github/workflows/build.yml (this file)
 # - firmware/Makefile (build and flash targets)
 #
-# Current STM32 targets:
-# - pulsardew (STM32G0B1KBU6)
-# - crunchdefender (STM32F405RGT6)
+# Current STM32 targets (Rust + embassy):
+# - pulsardew (STM32G0B1KBU6, thumbv6m-none-eabi)
+# - crunchdefender (STM32F405RGT6, thumbv7em-none-eabihf)
 #
-# Current ESP32-S3 targets:
-# - pulsardewpro (ESP32-S3-MINI-1)
+# Current ESP32-S3 targets (Rust + esp-idf-svc):
+# - pulsardewpro (ESP32-S3-MINI-1, xtensa-esp32s3-espidf)
 
 on:
   push:
@@ -19,95 +19,96 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
+env:
+  CARGO_TERM_COLOR: always
+
 jobs:
-  build-stm32-pulsardew:
-    name: Build STM32 PulsarDew (G0B1)
+  shared:
+    name: Shared library (tests, fmt, clippy)
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v6
+      - uses: actions/checkout@v6
+
+      - uses: dtolnay/rust-toolchain@stable
         with:
-          submodules: recursive
+          components: rustfmt, clippy
 
-      - name: Setup ARM GCC toolchain
-        uses: carlosperate/arm-none-eabi-gcc-action@v1
+      - uses: Swatinem/rust-cache@v2
         with:
-          release: '13.3.Rel1'
+          workspaces: firmware/shared
 
-      - name: Install dependencies
-        run: sudo apt-get update && sudo apt-get install -y cmake ninja-build
+      - name: Check formatting
+        working-directory: firmware/shared
+        run: cargo fmt --check
 
-      - name: Configure CMake
-        working-directory: firmware
-        run: |
-          mkdir -p build/pulsardew-g0b1
-          cd build/pulsardew-g0b1
-          cmake ../.. -G Ninja -DPROJECT=pulsardew -DMCU=STM32G0B1 -DCMAKE_BUILD_TYPE=Release
+      - name: Clippy
+        working-directory: firmware/shared
+        run: cargo clippy --all-targets -- -D warnings
+
+      - name: Run tests
+        working-directory: firmware/shared
+        run: cargo test
+
+  build-stm32:
+    name: Build STM32 ${{ matrix.project }} (${{ matrix.mcu }})
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - project: pulsardew
+            mcu: G0B1
+            target: thumbv6m-none-eabi
+          - project: crunchdefender
+            mcu: F405
+            target: thumbv7em-none-eabihf
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.target }}
+          components: rustfmt, clippy
+
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: firmware/${{ matrix.project }}
+
+      # arm-none-eabi-size / -objcopy, for the size report and the .bin/.hex.
+      - name: Install binutils
+        run: sudo apt-get update && sudo apt-get install -y binutils-arm-none-eabi
+
+      - name: Check formatting
+        working-directory: firmware/${{ matrix.project }}
+        run: cargo fmt --check
+
+      - name: Clippy
+        working-directory: firmware/${{ matrix.project }}
+        run: cargo clippy --release -- -D warnings
 
       - name: Build firmware
-        working-directory: firmware/build/pulsardew-g0b1
-        run: ninja
+        working-directory: firmware/${{ matrix.project }}
+        run: cargo build --release
 
       - name: Display build info
-        working-directory: firmware/build/pulsardew-g0b1
+        working-directory: firmware/${{ matrix.project }}
         run: |
-          ls -lh pulsardew/pulsardew.*
-          arm-none-eabi-size pulsardew/pulsardew.elf
+          ELF=target/${{ matrix.target }}/release/${{ matrix.project }}
+          arm-none-eabi-objcopy -O binary "$ELF" "$ELF.bin"
+          arm-none-eabi-objcopy -O ihex "$ELF" "$ELF.hex"
+          arm-none-eabi-size "$ELF"
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v7
         with:
-          name: pulsardew-firmware
+          name: ${{ matrix.project }}-firmware
           path: |
-            firmware/build/pulsardew-g0b1/pulsardew/pulsardew.elf
-            firmware/build/pulsardew-g0b1/pulsardew/pulsardew.bin
-            firmware/build/pulsardew-g0b1/pulsardew/pulsardew.hex
-          retention-days: 30
-
-  build-stm32-crunchdefender:
-    name: Build STM32 CrunchDefender (F405)
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v6
-        with:
-          submodules: recursive
-
-      - name: Setup ARM GCC toolchain
-        uses: carlosperate/arm-none-eabi-gcc-action@v1
-        with:
-          release: '13.3.Rel1'
-
-      - name: Install dependencies
-        run: sudo apt-get update && sudo apt-get install -y cmake ninja-build
-
-      - name: Configure CMake
-        working-directory: firmware
-        run: |
-          mkdir -p build/crunchdefender-f405
-          cd build/crunchdefender-f405
-          cmake ../.. -G Ninja -DPROJECT=crunchdefender -DMCU=STM32F405 -DCMAKE_BUILD_TYPE=Release
-
-      - name: Build firmware
-        working-directory: firmware/build/crunchdefender-f405
-        run: ninja
-
-      - name: Display build info
-        working-directory: firmware/build/crunchdefender-f405
-        run: |
-          ls -lh crunchdefender/crunchdefender.*
-          arm-none-eabi-size crunchdefender/crunchdefender.elf
-
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v7
-        with:
-          name: crunchdefender-firmware
-          path: |
-            firmware/build/crunchdefender-f405/crunchdefender/crunchdefender.elf
-            firmware/build/crunchdefender-f405/crunchdefender/crunchdefender.bin
-            firmware/build/crunchdefender-f405/crunchdefender/crunchdefender.hex
+            firmware/${{ matrix.project }}/target/${{ matrix.target }}/release/${{ matrix.project }}
+            firmware/${{ matrix.project }}/target/${{ matrix.target }}/release/${{ matrix.project }}.bin
+            firmware/${{ matrix.project }}/target/${{ matrix.target }}/release/${{ matrix.project }}.hex
           retention-days: 30
 
   build-esp32s3-pulsardewpro:
@@ -115,22 +116,42 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v6
+      - uses: actions/checkout@v6
 
-      - name: Setup ESP-IDF
-        uses: espressif/esp-idf-ci-action@v1
+      # Espressif's Rust fork, the only one with an Xtensa backend. Also
+      # installs ldproxy, the linker wrapper that esp-idf-sys needs.
+      - uses: esp-rs/xtensa-toolchain@v1.6
         with:
-          esp_idf_version: v5.4
-          target: esp32s3
-          path: firmware/pulsardewpro
+          default: true
+          buildtargets: esp32s3
+          ldproxy: true
+
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: firmware/pulsardewpro
+
+      # embuild clones and builds ESP-IDF here; slow on a cold cache.
+      - name: Cache ESP-IDF
+        uses: actions/cache@v4
+        with:
+          path: firmware/pulsardewpro/.embuild
+          key: espidf-v5.4-${{ runner.os }}
+
+      - name: Check formatting
+        working-directory: firmware/pulsardewpro
+        run: cargo fmt --check
+
+      - name: Clippy
+        working-directory: firmware/pulsardewpro
+        run: cargo clippy --release -- -D warnings
+
+      - name: Build firmware
+        working-directory: firmware/pulsardewpro
+        run: cargo build --release
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v7
         with:
           name: pulsardewpro-firmware
-          path: |
-            firmware/pulsardewpro/build/pulsardewpro.bin
-            firmware/pulsardewpro/build/bootloader/bootloader.bin
-            firmware/pulsardewpro/build/partition_table/partition-table.bin
+          path: firmware/pulsardewpro/target/xtensa-esp32s3-espidf/release/pulsardewpro
           retention-days: 30

@@ -1,122 +1,171 @@
 # PulsarFab Firmware
 
-Firmware for PulsarFab dew heater controllers — STM32G0 (USB) and ESP32-S3 (WiFi/ASCOM Alpaca).
+Firmware for PulsarFab dew heater controllers and mount accessories, written in
+Rust. The STM32 targets use [Embassy](https://embassy.dev); the ESP32-S3 target
+uses [`esp-idf-svc`](https://github.com/esp-rs/esp-idf-svc), which is Rust on
+top of ESP-IDF.
 
 ## Projects
 
-| Project | MCU | Flash | RAM | Package | Framework | Status |
-|---------|-----|-------|-----|---------|-----------|--------|
-| **pulsardew** | STM32G0B1KBU6 | 128KB | 144KB | UFQFPN-32 | STM32 HAL + FreeRTOS | 🚧 Development |
-| **pulsardewpro** | ESP32-S3-MINI-1 | 8MB | 512KB | Module | ESP-IDF | 🚧 Development |
-| **crunchdefender** | STM32F405RGT6 | 1024KB | 192KB | LQFP-64 | STM32 HAL (dual USB) | 🌱 Bootstrapped |
+| Project | MCU | Flash | RAM | Package | Framework | Rust target | Status |
+|---------|-----|-------|-----|---------|-----------|-------------|--------|
+| **pulsardew** | STM32G0B1KBU6 | 128KB | 144KB | UFQFPN-32 | embassy-stm32 | `thumbv6m-none-eabi` | 🚧 Development |
+| **pulsardewpro** | ESP32-S3-MINI-1 | 8MB | 512KB | Module | esp-idf-svc (std) | `xtensa-esp32s3-espidf` | 🚧 Development |
+| **crunchdefender** | STM32F405RGT6 | 1024KB | 192KB | LQFP-64 | embassy-stm32 | `thumbv7em-none-eabihf` | 🌱 Bootstrapped |
+
+Each project is its own cargo package rather than one workspace, because each
+builds for a different target and pins a different toolchain.
 
 ## Project Structure
 
 ```
 firmware/
-├── CMakeLists.txt              # Top-level build configuration (STM32 only)
-├── Makefile                    # Convenience build/flash targets
-├── cmake/                      # Build system configuration (STM32)
-│   ├── arm-none-eabi.cmake    # ARM GCC toolchain
-│   ├── stm32g0b1.cmake       # STM32G0B1 MCU configuration
-│   ├── stm32g071.cmake       # STM32G071 MCU configuration
-│   └── stm32g030.cmake       # STM32G030 MCU configuration
-├── common/                     # Shared STM32 libraries and code
-│   ├── CMakeLists.txt         # Common library build config
-│   ├── STM32CubeG0/           # ST HAL/LL drivers for G0 (submodule)
-│   └── STM32CubeF4/           # ST HAL/LL drivers for F4 (submodule)
-├── shared/                     # Shared code between projects
+├── Makefile                    # Build, flash and check targets
+├── rust-toolchain.toml         # Stable, plus the two ARM targets
+├── shared/                     # pulsarfab-shared: no_std code common to all
+│   └── src/dewpoint.rs         # Dew point maths, unit-tested on the host
 ├── pulsardew/                  # STM32G0B1 USB dew heater
-│   ├── src/                   # Source files
-│   ├── inc/                   # Header files
-│   ├── startup/               # Startup assembly
-│   ├── linker/                # Linker scripts
-│   └── CMakeLists.txt         # Project build config
+│   ├── .cargo/config.toml      # Target, probe-rs runner, link args
+│   ├── src/clock.rs            # 16 MHz HSI -> 64 MHz SYSCLK
+│   └── src/main.rs
 ├── crunchdefender/             # STM32F405 dual-USB mount limit guard
-│   ├── src/                   # Source files
-│   ├── inc/                   # Header files (incl. stm32f4xx_hal_conf.h)
-│   ├── startup/               # Startup assembly (vector table)
-│   ├── linker/                # Linker script (1MB flash / 192KB RAM / 64KB CCM)
-│   └── CMakeLists.txt         # Project build config
-└── pulsardewpro/               # ESP32-S3 WiFi dew heater (ESP-IDF)
-    ├── main/                  # Main application source
-    ├── components/            # Custom ESP-IDF components
-    ├── CMakeLists.txt         # ESP-IDF project file
-    └── sdkconfig.defaults     # ESP-IDF configuration defaults
+│   ├── .cargo/config.toml
+│   ├── src/clock.rs            # 8 MHz HSE -> 168 MHz SYSCLK, 48 MHz USB
+│   ├── src/main.rs
+│   └── docs/                   # Skywatcher protocol notes
+└── pulsardewpro/               # ESP32-S3 WiFi dew heater (ASCOM Alpaca)
+    ├── .cargo/config.toml
+    ├── rust-toolchain.toml     # Overrides the parent: Xtensa needs the fork
+    ├── sdkconfig.defaults      # ESP-IDF configuration
+    └── src/main.rs
 ```
+
+The linker scripts, startup assembly and vendored ST HAL are gone.
+`embassy-stm32` generates the memory map from its `memory-x` feature, and
+`cortex-m-rt` provides the vector table and reset handler.
 
 ## Prerequisites
 
-### For STM32 Builds (pulsardew)
+### For the STM32 targets
 
-1. **ARM GCC Toolchain**: `arm-none-eabi-gcc`
+1. **Rust**, via [rustup](https://rustup.rs). `rust-toolchain.toml` pulls in the
+   right toolchain and both ARM targets on first build.
+
+2. **probe-rs**, to flash and to read `defmt` logs:
+
+   ```bash
+   cargo install probe-rs-tools
+   ```
+
+3. **ARM binutils**, for `arm-none-eabi-size` and `-objcopy`:
+   - Fedora: `sudo dnf install arm-none-eabi-binutils-cs`
+   - Ubuntu/Debian: `sudo apt install binutils-arm-none-eabi`
    - macOS: `brew install --cask gcc-arm-embedded`
-   - Ubuntu/Debian: `sudo apt install gcc-arm-none-eabi`
 
-2. **CMake**: Version 3.20 or newer
+4. **st-flash** (optional), if you would rather flash with an ST-Link than with
+   probe-rs.
 
-3. **Build tools**: `make` or `ninja`
+### For the ESP32-S3 target
 
-4. **st-flash**: For flashing via ST-Link
-   - macOS: `brew install stlink`
+The ESP32-S3 is an Xtensa part, and Xtensa is not an upstream Rust target. You
+need Espressif's Rust fork:
 
-### For ESP32-S3 Builds (pulsardewpro)
+```bash
+cargo install espup
+espup install
+source ~/export-esp.sh      # add this to your shell profile
+cargo install ldproxy espflash
+```
 
-1. **ESP-IDF**: Version 5.x
-   - Follow [ESP-IDF Getting Started](https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/get-started/)
+The first `cargo build` then clones and builds ESP-IDF v5.4 under
+`pulsardewpro/.embuild/`, which takes a while. Later builds reuse it.
 
-2. **Python 3.10+** with **uv**
+If the build stops with `This script was called from a virtual environment,
+can not create a virtual environment again`, some other tool has put a Python
+virtualenv on your `PATH` — PlatformIO's `~/.platformio/penv/bin` is the usual
+culprit. ESP-IDF builds its own virtualenv and will not nest one inside
+another. Drop the offending directory from `PATH` and build again.
 
 ## Building
 
-### PulsarDew (STM32G0B1)
+```bash
+make pulsardew-g0b1            # Build pulsardew
+make crunchdefender-f405       # Build crunchdefender
+make pulsardewpro              # Build pulsardewpro
+make help                      # Everything else
+```
+
+Or run cargo directly from any project directory — each `.cargo/config.toml`
+already sets the target:
 
 ```bash
-# Using Makefile targets (recommended)
-make pulsardew-g0b1
+cd pulsardew && cargo build --release
+```
+
+## Flashing
+
+`cargo run` flashes, resets and then streams `defmt` logs over RTT. Use this
+one, because otherwise the log output has nowhere to go:
+
+```bash
+make run-pulsardew-g0b1
+make run-crunchdefender-f405
+make pulsardewpro-flash        # espflash, then a serial monitor
+```
+
+To flash with an ST-Link instead, which converts the ELF to a raw binary first:
+
+```bash
 make flash-pulsardew-g0b1
-
-# Or manually with CMake
-mkdir -p build/pulsardew-g0b1
-cd build/pulsardew-g0b1
-cmake ../.. -DPROJECT=pulsardew -DMCU=STM32G0B1 -DCMAKE_BUILD_TYPE=Release
-make -j$(nproc)
-```
-
-### CrunchDefender (STM32F405)
-
-```bash
-# Using Makefile targets (recommended)
-make crunchdefender-f405
 make flash-crunchdefender-f405
-
-# Or manually with CMake
-mkdir -p build/crunchdefender-f405
-cd build/crunchdefender-f405
-cmake ../.. -DPROJECT=crunchdefender -DMCU=STM32F405 -DCMAKE_BUILD_TYPE=Release
-make -j$(nproc)
+make reset
 ```
 
-**First-time setup:** the F4 HAL lives in `common/STM32CubeF4/` and needs
-to be added as a submodule before the firmware will compile:
+## Logging
+
+The STM32 targets log through `defmt` over RTT. Formatting happens on the host,
+so a log line costs a few bytes of flash and a handful of cycles on the device.
+Set the level per build:
 
 ```bash
-git submodule add https://github.com/STMicroelectronics/STM32CubeF4.git \
-    firmware/common/STM32CubeF4
-git submodule update --init --recursive
+DEFMT_LOG=debug cargo run --release
 ```
 
-### PulsarDewPro (ESP32-S3)
+`pulsardewpro` logs through ESP-IDF's own logger; read it with `espflash monitor`
+or `make pulsardewpro-monitor`.
+
+## Checks
 
 ```bash
-cd pulsardewpro
-idf.py set-target esp32s3
-idf.py build
-idf.py flash monitor
+make test                  # Host unit tests for the shared crate
+make clippy                # Lint, warnings are errors
+make clippy-pulsardewpro   # Same for the ESP32-S3 target
+make fmt                   # Format every crate
+```
+
+The firmware crates are `no_std` and have no host target, so `make test` covers
+the shared crate only. Anything worth unit-testing belongs there.
+
+`make clippy` covers what the stable toolchain can build, so it still works
+without espup installed. CI lints `pulsardewpro` too, since it has the Xtensa
+toolchain anyway.
+
+## Debugging
+
+```bash
+cd pulsardew
+cargo embed --release          # cargo install cargo-embed
+```
+
+Or with GDB:
+
+```bash
+probe-rs gdb --chip STM32G0B1KBUx
+arm-none-eabi-gdb target/thumbv6m-none-eabi/release/pulsardew
+(gdb) target extended-remote :1337
 ```
 
 ## License
 
-This firmware is licensed under the **Apache License 2.0**. See [LICENSE](LICENSE) for the full license text.
-
-Copyright (c) 2025-2026 Yann Ramin
+This firmware is licensed under the **Apache License 2.0**. See [LICENSE](LICENSE)
+for the full license text.

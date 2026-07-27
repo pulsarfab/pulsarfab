@@ -1,0 +1,17 @@
+[package]
+name = "pulsarfab-shared"
+version = "0.1.0"
+edition = "2021"
+description = "Protocol and control code shared across PulsarFab firmware targets"
+license = "Apache-2.0"
+
+[dependencies]
+libm = "0.2"
+
+[features]
+default = []
+defmt = ["dep:defmt"]
+
+[dependencies.defmt]
+version = "1.0"
+optional = true

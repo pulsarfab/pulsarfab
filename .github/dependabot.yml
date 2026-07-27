@@ -3,16 +3,21 @@
 
 version: 2
 updates:
-  # Update Git submodules (STM32CubeG0)
-  - package-ecosystem: "gitsubmodule"
-    directory: "/"
+  # Update Cargo dependencies. Each firmware target is its own package rather
+  # than one workspace, so each needs listing.
+  - package-ecosystem: "cargo"
+    directories:
+      - "/firmware/shared"
+      - "/firmware/pulsardew"
+      - "/firmware/crunchdefender"
+      - "/firmware/pulsardewpro"
     schedule:
       interval: "weekly"
       day: "monday"
       time: "09:00"
     labels:
       - "dependencies"
-      - "submodules"
+      - "rust"
     commit-message:
       prefix: "deps"
       include: "scope"
