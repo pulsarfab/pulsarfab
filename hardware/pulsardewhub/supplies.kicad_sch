@@ -1,0 +1,2391 @@
+(kicad_sch (version 20260306) (generator "eeschema") (generator_version "10.0") (uuid "30cdaed1-41d6-537c-917e-3c275b788146") (paper "A3")
+(title_block (title "PulsarDew Hub - 5 V USB and 3.3 V logic supplies") (date "2026-10-03") (rev "0.1-draft") (company "PulsarFab"))
+(lib_symbols
+(symbol "Regulator_Switching:LMR33630ADDA"
+  (exclude_from_sim no)
+  (in_bom yes)
+  (on_board yes)
+  (in_pos_files yes)
+  (duplicate_pin_numbers_are_jumpers no)
+  (symbol "LMR33630ADDA_0_1"
+    (rectangle
+      (start -7.62 7.62)
+      (end 7.62 -7.62)
+      (stroke
+        (width 0.254)
+        (type default))
+      (fill
+        (type background))))
+  (symbol "LMR33630ADDA_1_1"
+    (pin power_in line
+      (at 0 -10.16 90)
+      (length 2.54)
+      (name "GND"
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (number "1"
+        (effects
+          (font
+            (size 1.27 1.27)))))
+    (pin power_in line
+      (at -10.16 5.08 0)
+      (length 2.54)
+      (name "VIN"
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (number "2"
+        (effects
+          (font
+            (size 1.27 1.27)))))
+    (pin input line
+      (at -10.16 0 0)
+      (length 2.54)
+      (name "EN"
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (number "3"
+        (effects
+          (font
+            (size 1.27 1.27)))))
+    (pin open_collector line
+      (at 10.16 -5.08 180)
+      (length 2.54)
+      (name "PG"
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (number "4"
+        (effects
+          (font
+            (size 1.27 1.27)))))
+    (pin input line
+      (at 10.16 -2.54 180)
+      (length 2.54)
+      (name "FB"
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (number "5"
+        (effects
+          (font
+            (size 1.27 1.27)))))
+    (pin power_out line
+      (at -10.16 -5.08 0)
+      (length 2.54)
+      (name "VCC"
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (number "6"
+        (effects
+          (font
+            (size 1.27 1.27)))))
+    (pin input line
+      (at 10.16 5.08 180)
+      (length 2.54)
+      (name "BOOT"
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (number "7"
+        (effects
+          (font
+            (size 1.27 1.27)))))
+    (pin output line
+      (at 10.16 2.54 180)
+      (length 2.54)
+      (name "SW"
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (number "8"
+        (effects
+          (font
+            (size 1.27 1.27)))))
+    (pin passive line
+      (at 0 -10.16 90)
+      (length 2.54)
+      (hide yes)
+      (name "GND"
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (number "9"
+        (effects
+          (font
+            (size 1.27 1.27))))))
+  (embedded_fonts no)
+  (property "Reference" "U"
+    (at 0 11.43 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (effects
+      (font
+        (size 1.27 1.27))))
+  (property "Value" "LMR33630ADDA"
+    (at 0 8.89 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (effects
+      (font
+        (size 1.27 1.27))))
+  (property "Footprint" "Package_SO:Texas_HSOP-8-1EP_3.9x4.9mm_P1.27mm_ThermalVias"
+    (at 0 -20.32 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
+    (effects
+      (font
+        (size 1.27 1.27))))
+  (property "Datasheet" "http://www.ti.com/lit/ds/symlink/lmr33630.pdf"
+    (at 0 -2.54 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
+    (effects
+      (font
+        (size 1.27 1.27))))
+  (property "Description" "Simple Switcher Synchronous Buck Regulator, Vin=3.8-36V, Iout=3A, F=400kHz, Adjustable output voltage, HSOP-8"
+    (at 0 0 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
+    (effects
+      (font
+        (size 1.27 1.27))))
+  (property "ki_keywords" "simple-switcher synchronous buck step-down voltage-regulator"
+    (at 0 0 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
+    (effects
+      (font
+        (size 1.27 1.27))))
+  (property "ki_fp_filters" "Texas*HSOP*1EP*"
+    (at 0 0 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
+    (effects
+      (font
+        (size 1.27 1.27)))))
+(symbol "Device:C"
+  (pin_numbers
+    (hide yes))
+  (pin_names
+    (offset 0.254))
+  (exclude_from_sim no)
+  (in_bom yes)
+  (on_board yes)
+  (in_pos_files yes)
+  (duplicate_pin_numbers_are_jumpers no)
+  (property "Reference" "C"
+    (at 0.635 2.54 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (property "Value" "C"
+    (at 0.635 -2.54 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (property "Footprint" ""
+    (at 0.9652 -3.81 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
+    (effects
+      (font
+        (size 1.27 1.27))))
+  (property "Datasheet" ""
+    (at 0 0 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
+    (effects
+      (font
+        (size 1.27 1.27))))
+  (property "Description" "Unpolarized capacitor"
+    (at 0 0 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
+    (effects
+      (font
+        (size 1.27 1.27))))
+  (property "ki_keywords" "cap capacitor"
+    (at 0 0 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
+    (effects
+      (font
+        (size 1.27 1.27))))
+  (property "ki_fp_filters" "C_*"
+    (at 0 0 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
+    (effects
+      (font
+        (size 1.27 1.27))))
+  (symbol "C_0_1"
+    (polyline
+      (pts
+        (xy -2.032 0.762)
+        (xy 2.032 0.762))
+      (stroke
+        (width 0.508)
+        (type default))
+      (fill
+        (type none)))
+    (polyline
+      (pts
+        (xy -2.032 -0.762)
+        (xy 2.032 -0.762))
+      (stroke
+        (width 0.508)
+        (type default))
+      (fill
+        (type none))))
+  (symbol "C_1_1"
+    (pin passive line
+      (at 0 3.81 270)
+      (length 2.794)
+      (name ""
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (number "1"
+        (effects
+          (font
+            (size 1.27 1.27)))))
+    (pin passive line
+      (at 0 -3.81 90)
+      (length 2.794)
+      (name ""
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (number "2"
+        (effects
+          (font
+            (size 1.27 1.27))))))
+  (embedded_fonts no))
+(symbol "Device:L"
+  (pin_numbers
+    (hide yes))
+  (pin_names
+    (offset 1.016)
+    (hide yes))
+  (exclude_from_sim no)
+  (in_bom yes)
+  (on_board yes)
+  (in_pos_files yes)
+  (duplicate_pin_numbers_are_jumpers no)
+  (property "Reference" "L"
+    (at -1.27 0 90)
+    (show_name no)
+    (do_not_autoplace no)
+    (effects
+      (font
+        (size 1.27 1.27))))
+  (property "Value" "L"
+    (at 1.905 0 90)
+    (show_name no)
+    (do_not_autoplace no)
+    (effects
+      (font
+        (size 1.27 1.27))))
+  (property "Footprint" ""
+    (at 0 0 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
+    (effects
+      (font
+        (size 1.27 1.27))))
+  (property "Datasheet" ""
+    (at 0 0 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
+    (effects
+      (font
+        (size 1.27 1.27))))
+  (property "Description" "Inductor"
+    (at 0 0 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
+    (effects
+      (font
+        (size 1.27 1.27))))
+  (property "ki_keywords" "inductor choke coil reactor magnetic"
+    (at 0 0 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
+    (effects
+      (font
+        (size 1.27 1.27))))
+  (property "ki_fp_filters" "Choke_* *Coil* Inductor_* L_*"
+    (at 0 0 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
+    (effects
+      (font
+        (size 1.27 1.27))))
+  (symbol "L_0_1"
+    (arc
+      (start 0 2.54)
+      (mid 0.6323 1.905)
+      (end 0 1.27)
+      (stroke
+        (width 0)
+        (type default))
+      (fill
+        (type none)))
+    (arc
+      (start 0 1.27)
+      (mid 0.6323 0.635)
+      (end 0 0)
+      (stroke
+        (width 0)
+        (type default))
+      (fill
+        (type none)))
+    (arc
+      (start 0 0)
+      (mid 0.6323 -0.635)
+      (end 0 -1.27)
+      (stroke
+        (width 0)
+        (type default))
+      (fill
+        (type none)))
+    (arc
+      (start 0 -1.27)
+      (mid 0.6323 -1.905)
+      (end 0 -2.54)
+      (stroke
+        (width 0)
+        (type default))
+      (fill
+        (type none))))
+  (symbol "L_1_1"
+    (pin passive line
+      (at 0 3.81 270)
+      (length 1.27)
+      (name "1"
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (number "1"
+        (effects
+          (font
+            (size 1.27 1.27)))))
+    (pin passive line
+      (at 0 -3.81 90)
+      (length 1.27)
+      (name "2"
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (number "2"
+        (effects
+          (font
+            (size 1.27 1.27))))))
+  (embedded_fonts no))
+(symbol "Device:R"
+  (pin_numbers
+    (hide yes))
+  (pin_names
+    (offset 0))
+  (exclude_from_sim no)
+  (in_bom yes)
+  (on_board yes)
+  (in_pos_files yes)
+  (duplicate_pin_numbers_are_jumpers no)
+  (property "Reference" "R"
+    (at 2.032 0 90)
+    (show_name no)
+    (do_not_autoplace no)
+    (effects
+      (font
+        (size 1.27 1.27))))
+  (property "Value" "R"
+    (at 0 0 90)
+    (show_name no)
+    (do_not_autoplace no)
+    (effects
+      (font
+        (size 1.27 1.27))))
+  (property "Footprint" ""
+    (at -1.778 0 90)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
+    (effects
+      (font
+        (size 1.27 1.27))))
+  (property "Datasheet" ""
+    (at 0 0 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
+    (effects
+      (font
+        (size 1.27 1.27))))
+  (property "Description" "Resistor"
+    (at 0 0 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
+    (effects
+      (font
+        (size 1.27 1.27))))
+  (property "ki_keywords" "R res resistor"
+    (at 0 0 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
+    (effects
+      (font
+        (size 1.27 1.27))))
+  (property "ki_fp_filters" "R_*"
+    (at 0 0 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
+    (effects
+      (font
+        (size 1.27 1.27))))
+  (symbol "R_0_1"
+    (rectangle
+      (start -1.016 -2.54)
+      (end 1.016 2.54)
+      (stroke
+        (width 0.254)
+        (type default))
+      (fill
+        (type none))))
+  (symbol "R_1_1"
+    (pin passive line
+      (at 0 3.81 270)
+      (length 1.27)
+      (name ""
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (number "1"
+        (effects
+          (font
+            (size 1.27 1.27)))))
+    (pin passive line
+      (at 0 -3.81 90)
+      (length 1.27)
+      (name ""
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (number "2"
+        (effects
+          (font
+            (size 1.27 1.27))))))
+  (embedded_fonts no))
+(symbol "power:PWR_FLAG"
+  (power global)
+  (pin_numbers
+    (hide yes))
+  (pin_names
+    (offset 0)
+    (hide yes))
+  (exclude_from_sim no)
+  (in_bom yes)
+  (on_board yes)
+  (in_pos_files yes)
+  (duplicate_pin_numbers_are_jumpers no)
+  (property "Reference" "#FLG"
+    (at 0 1.905 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
+    (effects
+      (font
+        (size 1.27 1.27))))
+  (property "Value" "PWR_FLAG"
+    (at 0 3.81 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (effects
+      (font
+        (size 1.27 1.27))))
+  (property "Footprint" ""
+    (at 0 0 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
+    (effects
+      (font
+        (size 1.27 1.27))))
+  (property "Datasheet" ""
+    (at 0 0 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
+    (effects
+      (font
+        (size 1.27 1.27))))
+  (property "Description" "Special symbol for telling ERC where power comes from"
+    (at 0 0 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
+    (effects
+      (font
+        (size 1.27 1.27))))
+  (property "ki_keywords" "flag power"
+    (at 0 0 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
+    (effects
+      (font
+        (size 1.27 1.27))))
+  (symbol "PWR_FLAG_0_0"
+    (pin power_out line
+      (at 0 0 90)
+      (length 0)
+      (name ""
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (number "1"
+        (effects
+          (font
+            (size 1.27 1.27))))))
+  (symbol "PWR_FLAG_0_1"
+    (polyline
+      (pts
+        (xy 0 0)
+        (xy 0 1.27)
+        (xy -1.016 1.905)
+        (xy 0 2.54)
+        (xy 1.016 1.905)
+        (xy 0 1.27))
+      (stroke
+        (width 0)
+        (type default))
+      (fill
+        (type none))))
+  (embedded_fonts no)))
+(text "DC SUPPLIES | LMR33630ADDA, 400 kHz | 5 V / 3 A + 3.3 V logic" (at 20.3200 16.5100 0) (effects (font (size 2 2)) (justify left top)) (uuid "d13916a8-9945-5d17-bb9f-8252f1c3f573"))
+(hierarchical_label "VIN" (shape input) (at 25.4000 35.5600 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "55853699-ff9c-5b2b-b8b3-bf88f05de81e"))
+(label "VIN"  (at 45.7200 35.5600 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "f8b90b4b-807d-52cb-8ad2-b98a3e548179"))
+(hierarchical_label "GND" (shape input) (at 25.4000 43.1800 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "2655ac30-5955-5ec5-8060-bdb740e32178"))
+(label "GND"  (at 45.7200 43.1800 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "d0089f2e-213a-5bc8-978b-5d0d701359ed"))
+(hierarchical_label "V5" (shape output) (at 25.4000 50.8000 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "83d545f2-c3d0-5730-b3fe-46e5930779cd"))
+(label "V5"  (at 45.7200 50.8000 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "465e4070-6f68-52cb-8483-77c9cfb39ea8"))
+(hierarchical_label "V3" (shape output) (at 25.4000 58.4200 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "12d57427-e1f4-5956-8779-205f155139aa"))
+(label "V3"  (at 45.7200 58.4200 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "eeb305fa-c7ff-5f91-bf49-b0781f6cd8e6"))
+(symbol
+  (lib_id "Regulator_Switching:LMR33630ADDA")
+  (at 134.62 60.96 0.0)
+  (unit 1)
+  (in_bom yes)
+  (on_board yes)
+  (dnp no)
+  (uuid "1eaef6ce-c722-5aa2-80be-70e58a847ad6")
+  (property "Reference" "U20"
+    (at 134.62 46.99 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))))
+  (property "Value" "LMR33630ADDA"
+    (at 134.62 49.53 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))))
+  (property "Footprint" "Package_SO:Texas_HSOP-8-1EP_3.9x4.9mm_P1.27mm"
+    (at 134.62 60.96 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/a9fc243185b3d8658039a6c3f8a8d047.pdf?productCode=C841384"
+    (at 134.62 60.96 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "LCSC" "C841384"
+    (at 134.62 60.96 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "MPN" "LMR33630ADDAR"
+    (at 134.62 60.96 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Manufacturer" "TI"
+    (at 134.62 60.96 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Source checked" "2026-10-03"
+    (at 134.62 60.96 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (pin "1"
+    (uuid "fe7b37e3-fdae-563f-8a24-6c29fadc3352"))
+  (pin "2"
+    (uuid "2571262e-474c-573d-a485-054ae37981d2"))
+  (pin "3"
+    (uuid "a5015705-cc3a-5dc3-8ac8-e7e571d1f750"))
+  (pin "4"
+    (uuid "d9e9cfca-9ad5-5b45-aaa6-09f1f38e6588"))
+  (pin "5"
+    (uuid "5c100467-8546-5717-ac4d-a0ea83b174bd"))
+  (pin "6"
+    (uuid "c358ad0f-8bf2-5e49-90e6-3bbdf8350b06"))
+  (pin "7"
+    (uuid "93c1da36-1bbb-5705-9b85-b8d373f69bd1"))
+  (pin "8"
+    (uuid "2c057cd5-993d-511f-a183-305f7cde11cc"))
+  (pin "9"
+    (uuid "64c5d864-14ae-5bbb-b788-6e201b042894"))
+  (instances
+    (project "pulsardewhub"
+      (path "/e52b73dc-d0d2-4d83-a7ea-224e97decc28/28e47541-bc20-5b6f-b9fc-ba7f1543b3d6"
+        (reference "U20")
+        (unit 1)))))
+(label "VIN"  (at 116.8400 55.8800 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "5b2b3d04-6b1d-5938-a77b-e520b670df3c"))
+(label "GND"  (at 134.6200 78.7400 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "f591be95-5561-53f9-b384-f49a2851cbd0"))
+(label "GND"  (at 134.6200 78.7400 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "f591be95-5561-53f9-b384-f49a2851cbd0"))
+(no_connect (at 144.7800 66.0400) (uuid "59f6fc02-7633-5b5c-892b-58e51cbe30d1"))
+(symbol
+  (lib_id "Device:C")
+  (at 83.82 78.74 0.0)
+  (unit 1)
+  (in_bom yes)
+  (on_board yes)
+  (dnp no)
+  (uuid "b70c7c30-f439-572e-ae73-c86ead74a2ad")
+  (property "Reference" "C20"
+    (at 88.9 76.2 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (property "Value" "10u / 50V"
+    (at 88.9 81.28 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (property "Footprint" "Capacitor_SMD:C_1210_3225Metric"
+    (at 83.82 78.74 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/e42a32c717cc8f47823b44fed272ab10.pdf?productCode=C138687"
+    (at 83.82 78.74 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "LCSC" "C138687"
+    (at 83.82 78.74 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "MPN" "CL32B106KBJNNNE"
+    (at 83.82 78.74 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Manufacturer" "Samsung Electro-Mechanics"
+    (at 83.82 78.74 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Source checked" "2026-10-03"
+    (at 83.82 78.74 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (pin "1"
+    (uuid "871668e7-a02d-5b6f-b80c-0a56862c66ec"))
+  (pin "2"
+    (uuid "b9f31b56-1a81-5623-8d26-4768cdfbf97f"))
+  (instances
+    (project "pulsardewhub"
+      (path "/e52b73dc-d0d2-4d83-a7ea-224e97decc28/28e47541-bc20-5b6f-b9fc-ba7f1543b3d6"
+        (reference "C20")
+        (unit 1)))))
+(label "VIN"  (at 83.8200 69.8500 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "9b1552b1-518a-5b7b-b431-27b2d689ab38"))
+(label "GND"  (at 83.8200 87.6300 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "1fce3b72-e2fa-503f-9720-f7223027428c"))
+(symbol
+  (lib_id "Device:C")
+  (at 104.14 78.74 0.0)
+  (unit 1)
+  (in_bom yes)
+  (on_board yes)
+  (dnp no)
+  (uuid "f3df8338-7c26-5285-a919-47eb6d798f5c")
+  (property "Reference" "C21"
+    (at 109.22 76.2 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (property "Value" "220n / 50V"
+    (at 109.22 81.28 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+    (at 104.14 78.74 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf?productCode=C64705"
+    (at 104.14 78.74 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "LCSC" "C64705"
+    (at 104.14 78.74 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "MPN" "CL10B224KB8NNNC"
+    (at 104.14 78.74 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Manufacturer" "Samsung Electro-Mechanics"
+    (at 104.14 78.74 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Source checked" "2026-10-03"
+    (at 104.14 78.74 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (pin "1"
+    (uuid "144246d0-e052-5ffc-a668-12b353b6f360"))
+  (pin "2"
+    (uuid "607f7bda-b1c8-5926-bae6-caa5924e4b95"))
+  (instances
+    (project "pulsardewhub"
+      (path "/e52b73dc-d0d2-4d83-a7ea-224e97decc28/28e47541-bc20-5b6f-b9fc-ba7f1543b3d6"
+        (reference "C21")
+        (unit 1)))))
+(label "VIN"  (at 104.1400 69.8500 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "fabcc139-3a04-5bf1-a471-4fa07e1ec25f"))
+(label "GND"  (at 104.1400 87.6300 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "b3b140ab-fee1-555b-a5ee-90e711fb1698"))
+(symbol
+  (lib_id "Device:C")
+  (at 119.38 91.44 0.0)
+  (unit 1)
+  (in_bom yes)
+  (on_board yes)
+  (dnp no)
+  (uuid "9feb141e-5efb-5cda-953c-aa33bd0167c1")
+  (property "Reference" "C22"
+    (at 124.46 88.9 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (property "Value" "1u / 50V"
+    (at 124.46 93.98 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+    (at 119.38 91.44 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf?productCode=C15849"
+    (at 119.38 91.44 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "LCSC" "C15849"
+    (at 119.38 91.44 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "MPN" "CL10A105KB8NNNC"
+    (at 119.38 91.44 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Manufacturer" "Samsung Electro-Mechanics"
+    (at 119.38 91.44 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Source checked" "2026-10-03"
+    (at 119.38 91.44 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (pin "1"
+    (uuid "fa7e4ea0-6e39-5954-b1b5-03e81a9bf681"))
+  (pin "2"
+    (uuid "2f4ea1bf-c8f1-5a0c-ac7e-b291f9ece95b"))
+  (instances
+    (project "pulsardewhub"
+      (path "/e52b73dc-d0d2-4d83-a7ea-224e97decc28/28e47541-bc20-5b6f-b9fc-ba7f1543b3d6"
+        (reference "C22")
+        (unit 1)))))
+(label "GND"  (at 119.3800 102.8700 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "24689df3-865b-5982-a667-68b30005b2b7"))
+(symbol
+  (lib_id "Device:C")
+  (at 165.1 48.26 90.0)
+  (unit 1)
+  (in_bom yes)
+  (on_board yes)
+  (dnp no)
+  (uuid "259bb7ec-5b3b-52a1-84e7-a51f8378eb16")
+  (property "Reference" "C23"
+    (at 165.1 41.91 90.0)
+    (effects
+      (font
+        (size 1.27 1.27))))
+  (property "Value" "100n"
+    (at 165.1 44.45 90.0)
+    (effects
+      (font
+        (size 1.27 1.27))))
+  (property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+    (at 165.1 48.26 90.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C14663"
+    (at 165.1 48.26 90.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "LCSC" "C14663"
+    (at 165.1 48.26 90.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "MPN" "CC0603KRX7R9BB104"
+    (at 165.1 48.26 90.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Manufacturer" "YAGEO"
+    (at 165.1 48.26 90.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Source checked" "2026-10-03"
+    (at 165.1 48.26 90.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (pin "1"
+    (uuid "0ee4bc1f-ced4-5440-8e35-0d7ccc5118a0"))
+  (pin "2"
+    (uuid "e77d7464-3c6a-5f4c-a474-0529023b5202"))
+  (instances
+    (project "pulsardewhub"
+      (path "/e52b73dc-d0d2-4d83-a7ea-224e97decc28/28e47541-bc20-5b6f-b9fc-ba7f1543b3d6"
+        (reference "C23")
+        (unit 1)))))
+(symbol
+  (lib_id "Device:L")
+  (at 213.36 58.42 90.0)
+  (unit 1)
+  (in_bom yes)
+  (on_board yes)
+  (dnp no)
+  (uuid "654728fe-084c-5bb4-a7da-572493b97c31")
+  (property "Reference" "L20"
+    (at 213.36 52.07 90.0)
+    (effects
+      (font
+        (size 1.27 1.27))))
+  (property "Value" "8.2u / 10A sat"
+    (at 213.36 54.61 90.0)
+    (effects
+      (font
+        (size 1.27 1.27))))
+  (property "Footprint" "pulsarfab:L_SXN_SMMS1050"
+    (at 213.36 58.42 90.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/d0d5acb256e849938d6708ba4d0d5b6c.pdf?productCode=C149543"
+    (at 213.36 58.42 90.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "LCSC" "C149543"
+    (at 213.36 58.42 90.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "MPN" "SMMS1050-8R2M"
+    (at 213.36 58.42 90.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Manufacturer" "Shun Xiang Nuo"
+    (at 213.36 58.42 90.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Source checked" "2026-10-03"
+    (at 213.36 58.42 90.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (pin "1"
+    (uuid "527bbe56-2e64-5e9c-bb82-3794060fbfe0"))
+  (pin "2"
+    (uuid "663e4029-a96b-5e07-a3f6-0d6402893952"))
+  (instances
+    (project "pulsardewhub"
+      (path "/e52b73dc-d0d2-4d83-a7ea-224e97decc28/28e47541-bc20-5b6f-b9fc-ba7f1543b3d6"
+        (reference "L20")
+        (unit 1)))))
+(label "V5"  (at 340.3600 58.4200 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "d829d26d-55fb-5ef6-9b22-b17cd4738680"))
+(symbol
+  (lib_id "Device:C")
+  (at 254.0 76.2 0.0)
+  (unit 1)
+  (in_bom yes)
+  (on_board yes)
+  (dnp no)
+  (uuid "6074d099-ce1c-5c4d-8c3f-1618d86c538f")
+  (property "Reference" "C24"
+    (at 259.08 73.66 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (property "Value" "22u / 25V"
+    (at 259.08 78.74 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
+    (at 254.0 76.2 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf?productCode=C12891"
+    (at 254.0 76.2 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "LCSC" "C12891"
+    (at 254.0 76.2 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "MPN" "CL31A226KAHNNNE"
+    (at 254.0 76.2 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Manufacturer" "Samsung Electro-Mechanics"
+    (at 254.0 76.2 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Source checked" "2026-10-03"
+    (at 254.0 76.2 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (pin "1"
+    (uuid "eca88aeb-6bef-5ae5-9b43-cad443a5f2ea"))
+  (pin "2"
+    (uuid "8b1aab97-bb55-519d-ac35-4f976ce5b7e8"))
+  (instances
+    (project "pulsardewhub"
+      (path "/e52b73dc-d0d2-4d83-a7ea-224e97decc28/28e47541-bc20-5b6f-b9fc-ba7f1543b3d6"
+        (reference "C24")
+        (unit 1)))))
+(label "GND"  (at 254.0000 87.6300 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "74f7e37a-b36e-5434-9c58-ca6632f1c852"))
+(symbol
+  (lib_id "Device:C")
+  (at 279.4 76.2 0.0)
+  (unit 1)
+  (in_bom yes)
+  (on_board yes)
+  (dnp no)
+  (uuid "907333dc-9a62-59bf-93a8-9becb175f2f8")
+  (property "Reference" "C25"
+    (at 284.48 73.66 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (property "Value" "22u / 25V"
+    (at 284.48 78.74 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
+    (at 279.4 76.2 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf?productCode=C12891"
+    (at 279.4 76.2 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "LCSC" "C12891"
+    (at 279.4 76.2 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "MPN" "CL31A226KAHNNNE"
+    (at 279.4 76.2 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Manufacturer" "Samsung Electro-Mechanics"
+    (at 279.4 76.2 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Source checked" "2026-10-03"
+    (at 279.4 76.2 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (pin "1"
+    (uuid "5173947c-706e-51f6-99e3-98e92769404b"))
+  (pin "2"
+    (uuid "82f0fd39-7b55-55a0-9b7e-7e6dfc3d9c00"))
+  (instances
+    (project "pulsardewhub"
+      (path "/e52b73dc-d0d2-4d83-a7ea-224e97decc28/28e47541-bc20-5b6f-b9fc-ba7f1543b3d6"
+        (reference "C25")
+        (unit 1)))))
+(label "GND"  (at 279.4000 87.6300 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "d485f3de-195a-5240-bc9a-42a3740774a9"))
+(symbol
+  (lib_id "Device:C")
+  (at 304.8 76.2 0.0)
+  (unit 1)
+  (in_bom yes)
+  (on_board yes)
+  (dnp no)
+  (uuid "a975c0d2-a86a-5a91-915b-9aac2f5ed820")
+  (property "Reference" "C26"
+    (at 309.88 73.66 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (property "Value" "22u / 25V"
+    (at 309.88 78.74 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
+    (at 304.8 76.2 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf?productCode=C12891"
+    (at 304.8 76.2 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "LCSC" "C12891"
+    (at 304.8 76.2 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "MPN" "CL31A226KAHNNNE"
+    (at 304.8 76.2 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Manufacturer" "Samsung Electro-Mechanics"
+    (at 304.8 76.2 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Source checked" "2026-10-03"
+    (at 304.8 76.2 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (pin "1"
+    (uuid "a749f730-5162-5963-84c1-b2b5df118d28"))
+  (pin "2"
+    (uuid "126cb717-5c95-5fcf-b50e-4a5164a7f47a"))
+  (instances
+    (project "pulsardewhub"
+      (path "/e52b73dc-d0d2-4d83-a7ea-224e97decc28/28e47541-bc20-5b6f-b9fc-ba7f1543b3d6"
+        (reference "C26")
+        (unit 1)))))
+(label "GND"  (at 304.8000 87.6300 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "b6e9a106-20d4-5367-9f5c-8294395945c7"))
+(symbol
+  (lib_id "Device:C")
+  (at 330.2 76.2 0.0)
+  (unit 1)
+  (in_bom yes)
+  (on_board yes)
+  (dnp no)
+  (uuid "63f2f3d7-91f2-5054-9297-108c5546d782")
+  (property "Reference" "C27"
+    (at 335.28 73.66 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (property "Value" "22u / 25V"
+    (at 335.28 78.74 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
+    (at 330.2 76.2 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf?productCode=C12891"
+    (at 330.2 76.2 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "LCSC" "C12891"
+    (at 330.2 76.2 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "MPN" "CL31A226KAHNNNE"
+    (at 330.2 76.2 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Manufacturer" "Samsung Electro-Mechanics"
+    (at 330.2 76.2 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Source checked" "2026-10-03"
+    (at 330.2 76.2 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (pin "1"
+    (uuid "6194aa2c-b013-5ffa-9305-d90dfee756de"))
+  (pin "2"
+    (uuid "19a66d41-53b5-57c7-a049-4f6edaa98b44"))
+  (instances
+    (project "pulsardewhub"
+      (path "/e52b73dc-d0d2-4d83-a7ea-224e97decc28/28e47541-bc20-5b6f-b9fc-ba7f1543b3d6"
+        (reference "C27")
+        (unit 1)))))
+(label "GND"  (at 330.2000 87.6300 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "ebf5585e-aa71-5294-9ec6-3537fe63e9ed"))
+(symbol
+  (lib_id "Device:R")
+  (at 213.36 86.36 0.0)
+  (unit 1)
+  (in_bom yes)
+  (on_board yes)
+  (dnp no)
+  (uuid "2e6eb60a-8fde-5001-b74a-c05a8011b216")
+  (property "Reference" "R20"
+    (at 218.44 83.82 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (property "Value" "100k"
+    (at 218.44 88.9 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+    (at 213.36 86.36 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25803"
+    (at 213.36 86.36 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "LCSC" "C25803"
+    (at 213.36 86.36 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "MPN" "0603WAF1003T5E"
+    (at 213.36 86.36 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Manufacturer" "UNI-ROYAL"
+    (at 213.36 86.36 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Source checked" "2026-10-03"
+    (at 213.36 86.36 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (pin "1"
+    (uuid "404d1654-b44f-5786-af90-d4191eb50bf9"))
+  (pin "2"
+    (uuid "48eed726-6bf9-50e7-b0f4-31fc5ea91ec7"))
+  (instances
+    (project "pulsardewhub"
+      (path "/e52b73dc-d0d2-4d83-a7ea-224e97decc28/28e47541-bc20-5b6f-b9fc-ba7f1543b3d6"
+        (reference "R20")
+        (unit 1)))))
+(symbol
+  (lib_id "Device:R")
+  (at 213.36 116.84 0.0)
+  (unit 1)
+  (in_bom yes)
+  (on_board yes)
+  (dnp no)
+  (uuid "7e8e788a-d458-5583-9855-7da0e3b4e3ff")
+  (property "Reference" "R21"
+    (at 218.44 114.3 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (property "Value" "24.9k"
+    (at 218.44 119.38 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+    (at 213.36 116.84 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25962"
+    (at 213.36 116.84 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "LCSC" "C25962"
+    (at 213.36 116.84 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "MPN" "0603WAF2492T5E"
+    (at 213.36 116.84 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Manufacturer" "UNI-ROYAL"
+    (at 213.36 116.84 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Source checked" "2026-10-03"
+    (at 213.36 116.84 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (pin "1"
+    (uuid "7028ec55-b2de-57e1-9fd6-3d6db116258c"))
+  (pin "2"
+    (uuid "46036e90-67f6-5582-96ef-6b12cbe31e62"))
+  (instances
+    (project "pulsardewhub"
+      (path "/e52b73dc-d0d2-4d83-a7ea-224e97decc28/28e47541-bc20-5b6f-b9fc-ba7f1543b3d6"
+        (reference "R21")
+        (unit 1)))))
+(label "GND"  (at 213.3600 128.2700 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "db48f60c-de13-5794-a546-4ca3997a3834"))
+(symbol
+  (lib_id "power:PWR_FLAG")
+  (at 355.6 58.42 0.0)
+  (unit 1)
+  (in_bom no)
+  (on_board no)
+  (dnp no)
+  (uuid "ff5f9cf4-601e-5f08-8aeb-750676445c84")
+  (property "Reference" "#FLG20"
+    (at 355.6 58.42 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Value" "PWR_FLAG"
+    (at 355.6 58.42 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Footprint" ""
+    (at 355.6 58.42 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Datasheet" ""
+    (at 355.6 58.42 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (pin "1"
+    (uuid "0f08c016-7eb6-5092-bcdb-b63dd1bb7379"))
+  (instances
+    (project "pulsardewhub"
+      (path "/e52b73dc-d0d2-4d83-a7ea-224e97decc28/28e47541-bc20-5b6f-b9fc-ba7f1543b3d6"
+        (reference "#FLG20")
+        (unit 1)))))
+(label "V5"  (at 355.6000 58.4200 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "198008ec-3c40-5300-873f-0027330fffa9"))
+(symbol
+  (lib_id "Regulator_Switching:LMR33630ADDA")
+  (at 134.62 177.8 0.0)
+  (unit 1)
+  (in_bom yes)
+  (on_board yes)
+  (dnp no)
+  (uuid "995c9c23-906e-53a9-bbb0-ffd7b5d62a54")
+  (property "Reference" "U30"
+    (at 134.62 163.83 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))))
+  (property "Value" "LMR33630ADDA"
+    (at 134.62 166.37 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))))
+  (property "Footprint" "Package_SO:Texas_HSOP-8-1EP_3.9x4.9mm_P1.27mm"
+    (at 134.62 177.8 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/a9fc243185b3d8658039a6c3f8a8d047.pdf?productCode=C841384"
+    (at 134.62 177.8 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "LCSC" "C841384"
+    (at 134.62 177.8 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "MPN" "LMR33630ADDAR"
+    (at 134.62 177.8 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Manufacturer" "TI"
+    (at 134.62 177.8 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Source checked" "2026-10-03"
+    (at 134.62 177.8 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (pin "1"
+    (uuid "d44fc30b-02b0-56d6-99ed-e003221d3783"))
+  (pin "2"
+    (uuid "84841cf7-1087-5448-8e87-9bdef5d59978"))
+  (pin "3"
+    (uuid "1712ada0-59fd-5517-be9b-1b53959072d3"))
+  (pin "4"
+    (uuid "680d10c7-b562-5fb3-8564-c0574ddbb862"))
+  (pin "5"
+    (uuid "940558f7-03e5-5247-a305-835d63ca3b82"))
+  (pin "6"
+    (uuid "fafac98e-ca04-523f-9a7d-2f1450571ffc"))
+  (pin "7"
+    (uuid "4f754ba7-a5ce-5ad5-8cb0-3196f42ee762"))
+  (pin "8"
+    (uuid "6ff0024f-d017-5292-9126-3e08ddfee36d"))
+  (pin "9"
+    (uuid "57659b4c-9704-57d9-b2c3-ef339f49da72"))
+  (instances
+    (project "pulsardewhub"
+      (path "/e52b73dc-d0d2-4d83-a7ea-224e97decc28/28e47541-bc20-5b6f-b9fc-ba7f1543b3d6"
+        (reference "U30")
+        (unit 1)))))
+(label "V5"  (at 116.8400 172.7200 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "a2db72f7-154d-536f-a51e-226e0dd7564b"))
+(label "GND"  (at 134.6200 195.5800 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "0c514302-11b7-5f9a-ae0f-66f16392dd97"))
+(label "GND"  (at 134.6200 195.5800 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "0c514302-11b7-5f9a-ae0f-66f16392dd97"))
+(no_connect (at 144.7800 182.8800) (uuid "0c4b8fc9-7711-50d3-9527-0ffc2652dcd6"))
+(symbol
+  (lib_id "Device:C")
+  (at 83.82 195.58 0.0)
+  (unit 1)
+  (in_bom yes)
+  (on_board yes)
+  (dnp no)
+  (uuid "7ca14718-bf12-544a-acb8-dfa5e618addb")
+  (property "Reference" "C30"
+    (at 88.9 193.04 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (property "Value" "10u / 50V"
+    (at 88.9 198.12 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (property "Footprint" "Capacitor_SMD:C_1210_3225Metric"
+    (at 83.82 195.58 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/e42a32c717cc8f47823b44fed272ab10.pdf?productCode=C138687"
+    (at 83.82 195.58 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "LCSC" "C138687"
+    (at 83.82 195.58 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "MPN" "CL32B106KBJNNNE"
+    (at 83.82 195.58 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Manufacturer" "Samsung Electro-Mechanics"
+    (at 83.82 195.58 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Source checked" "2026-10-03"
+    (at 83.82 195.58 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (pin "1"
+    (uuid "929e2039-cecd-5379-bc62-b4d348a27f65"))
+  (pin "2"
+    (uuid "afa01578-98a8-5b3f-bd8a-e6287b1e85f3"))
+  (instances
+    (project "pulsardewhub"
+      (path "/e52b73dc-d0d2-4d83-a7ea-224e97decc28/28e47541-bc20-5b6f-b9fc-ba7f1543b3d6"
+        (reference "C30")
+        (unit 1)))))
+(label "V5"  (at 83.8200 186.6900 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "9bd994c7-9c58-57af-b0dd-e34b8326a5ca"))
+(label "GND"  (at 83.8200 204.4700 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "946c9f6c-407f-5540-88a5-153275e3efb1"))
+(symbol
+  (lib_id "Device:C")
+  (at 104.14 195.58 0.0)
+  (unit 1)
+  (in_bom yes)
+  (on_board yes)
+  (dnp no)
+  (uuid "05b4fa3d-fb8b-5587-a9ef-b7eb6c9b2103")
+  (property "Reference" "C31"
+    (at 109.22 193.04 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (property "Value" "220n / 50V"
+    (at 109.22 198.12 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+    (at 104.14 195.58 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf?productCode=C64705"
+    (at 104.14 195.58 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "LCSC" "C64705"
+    (at 104.14 195.58 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "MPN" "CL10B224KB8NNNC"
+    (at 104.14 195.58 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Manufacturer" "Samsung Electro-Mechanics"
+    (at 104.14 195.58 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Source checked" "2026-10-03"
+    (at 104.14 195.58 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (pin "1"
+    (uuid "9a056f29-9442-5601-a925-caae76626ff6"))
+  (pin "2"
+    (uuid "f7e0f51d-0abd-5cca-bf6f-31af5fa5b410"))
+  (instances
+    (project "pulsardewhub"
+      (path "/e52b73dc-d0d2-4d83-a7ea-224e97decc28/28e47541-bc20-5b6f-b9fc-ba7f1543b3d6"
+        (reference "C31")
+        (unit 1)))))
+(label "V5"  (at 104.1400 186.6900 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "6447377e-f754-5415-81c7-3e14ff4b14c7"))
+(label "GND"  (at 104.1400 204.4700 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "4ffa6f39-e188-5f2a-afb9-5c9a2e171601"))
+(symbol
+  (lib_id "Device:C")
+  (at 119.38 208.28 0.0)
+  (unit 1)
+  (in_bom yes)
+  (on_board yes)
+  (dnp no)
+  (uuid "7d46038e-9852-5b76-862a-6611b77c3ac9")
+  (property "Reference" "C32"
+    (at 124.46 205.74 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (property "Value" "1u / 50V"
+    (at 124.46 210.82 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+    (at 119.38 208.28 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf?productCode=C15849"
+    (at 119.38 208.28 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "LCSC" "C15849"
+    (at 119.38 208.28 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "MPN" "CL10A105KB8NNNC"
+    (at 119.38 208.28 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Manufacturer" "Samsung Electro-Mechanics"
+    (at 119.38 208.28 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Source checked" "2026-10-03"
+    (at 119.38 208.28 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (pin "1"
+    (uuid "ea6eef76-3b14-50f8-b0af-fe55bab0dcba"))
+  (pin "2"
+    (uuid "d177e610-5aa3-5e1b-bbca-b48f35440bdc"))
+  (instances
+    (project "pulsardewhub"
+      (path "/e52b73dc-d0d2-4d83-a7ea-224e97decc28/28e47541-bc20-5b6f-b9fc-ba7f1543b3d6"
+        (reference "C32")
+        (unit 1)))))
+(label "GND"  (at 119.3800 219.7100 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "50c1d1ab-dfcb-5273-aa14-ff3f06a6149d"))
+(symbol
+  (lib_id "Device:C")
+  (at 165.1 165.1 90.0)
+  (unit 1)
+  (in_bom yes)
+  (on_board yes)
+  (dnp no)
+  (uuid "5f29d420-5a5d-502c-a993-14ab5ad56a1c")
+  (property "Reference" "C33"
+    (at 165.1 158.75 90.0)
+    (effects
+      (font
+        (size 1.27 1.27))))
+  (property "Value" "100n"
+    (at 165.1 161.29 90.0)
+    (effects
+      (font
+        (size 1.27 1.27))))
+  (property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+    (at 165.1 165.1 90.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C14663"
+    (at 165.1 165.1 90.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "LCSC" "C14663"
+    (at 165.1 165.1 90.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "MPN" "CC0603KRX7R9BB104"
+    (at 165.1 165.1 90.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Manufacturer" "YAGEO"
+    (at 165.1 165.1 90.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Source checked" "2026-10-03"
+    (at 165.1 165.1 90.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (pin "1"
+    (uuid "9f9a0a5a-1f28-55d0-b7c0-24ec59d0f786"))
+  (pin "2"
+    (uuid "f776ba80-761c-56e3-99fb-455b9ed6d52f"))
+  (instances
+    (project "pulsardewhub"
+      (path "/e52b73dc-d0d2-4d83-a7ea-224e97decc28/28e47541-bc20-5b6f-b9fc-ba7f1543b3d6"
+        (reference "C33")
+        (unit 1)))))
+(symbol
+  (lib_id "Device:L")
+  (at 213.36 175.26 90.0)
+  (unit 1)
+  (in_bom yes)
+  (on_board yes)
+  (dnp no)
+  (uuid "70f445f6-a205-5b8a-b167-9a7407aaf75c")
+  (property "Reference" "L30"
+    (at 213.36 168.91 90.0)
+    (effects
+      (font
+        (size 1.27 1.27))))
+  (property "Value" "6.8u / 12A sat"
+    (at 213.36 171.45 90.0)
+    (effects
+      (font
+        (size 1.27 1.27))))
+  (property "Footprint" "pulsarfab:L_SXN_SMMS1050"
+    (at 213.36 175.26 90.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/d0d5acb256e849938d6708ba4d0d5b6c.pdf?productCode=C149542"
+    (at 213.36 175.26 90.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "LCSC" "C149542"
+    (at 213.36 175.26 90.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "MPN" "SMMS1050-6R8M"
+    (at 213.36 175.26 90.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Manufacturer" "Shun Xiang Nuo"
+    (at 213.36 175.26 90.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Source checked" "2026-10-03"
+    (at 213.36 175.26 90.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (pin "1"
+    (uuid "92059c98-0cfc-5c32-801e-f874e623c0b9"))
+  (pin "2"
+    (uuid "f7f38d74-5f52-5fa4-8131-f3982a20a5fb"))
+  (instances
+    (project "pulsardewhub"
+      (path "/e52b73dc-d0d2-4d83-a7ea-224e97decc28/28e47541-bc20-5b6f-b9fc-ba7f1543b3d6"
+        (reference "L30")
+        (unit 1)))))
+(label "V3"  (at 340.3600 175.2600 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "d777f185-1eee-5687-bc7b-5b0d80cd0c7f"))
+(symbol
+  (lib_id "Device:C")
+  (at 254.0 193.04 0.0)
+  (unit 1)
+  (in_bom yes)
+  (on_board yes)
+  (dnp no)
+  (uuid "03239f97-3bde-5eea-89bd-38733ad05d1d")
+  (property "Reference" "C34"
+    (at 259.08 190.5 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (property "Value" "22u / 25V"
+    (at 259.08 195.58 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
+    (at 254.0 193.04 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf?productCode=C12891"
+    (at 254.0 193.04 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "LCSC" "C12891"
+    (at 254.0 193.04 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "MPN" "CL31A226KAHNNNE"
+    (at 254.0 193.04 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Manufacturer" "Samsung Electro-Mechanics"
+    (at 254.0 193.04 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Source checked" "2026-10-03"
+    (at 254.0 193.04 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (pin "1"
+    (uuid "b4316051-b1c7-5000-8c2b-3a094bb72980"))
+  (pin "2"
+    (uuid "9bfde3e7-e5c0-5b91-a16a-7e6ef00c8ad4"))
+  (instances
+    (project "pulsardewhub"
+      (path "/e52b73dc-d0d2-4d83-a7ea-224e97decc28/28e47541-bc20-5b6f-b9fc-ba7f1543b3d6"
+        (reference "C34")
+        (unit 1)))))
+(label "GND"  (at 254.0000 204.4700 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "8226e15a-7337-5e91-8a8a-0de67daf28b0"))
+(symbol
+  (lib_id "Device:C")
+  (at 279.4 193.04 0.0)
+  (unit 1)
+  (in_bom yes)
+  (on_board yes)
+  (dnp no)
+  (uuid "3bf115f6-dcec-5694-91ff-39b9ff6af093")
+  (property "Reference" "C35"
+    (at 284.48 190.5 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (property "Value" "22u / 25V"
+    (at 284.48 195.58 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
+    (at 279.4 193.04 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf?productCode=C12891"
+    (at 279.4 193.04 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "LCSC" "C12891"
+    (at 279.4 193.04 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "MPN" "CL31A226KAHNNNE"
+    (at 279.4 193.04 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Manufacturer" "Samsung Electro-Mechanics"
+    (at 279.4 193.04 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Source checked" "2026-10-03"
+    (at 279.4 193.04 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (pin "1"
+    (uuid "d9ec5eb1-5d2e-5249-8baa-8a83cf88ebbf"))
+  (pin "2"
+    (uuid "bda9c7e5-d8cb-55fc-9bd9-f8c9df89be27"))
+  (instances
+    (project "pulsardewhub"
+      (path "/e52b73dc-d0d2-4d83-a7ea-224e97decc28/28e47541-bc20-5b6f-b9fc-ba7f1543b3d6"
+        (reference "C35")
+        (unit 1)))))
+(label "GND"  (at 279.4000 204.4700 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "5f7fde3f-f07b-524d-b17c-852de4989a07"))
+(symbol
+  (lib_id "Device:C")
+  (at 304.8 193.04 0.0)
+  (unit 1)
+  (in_bom yes)
+  (on_board yes)
+  (dnp no)
+  (uuid "4857ca0a-54f8-51be-a10a-ed7678f00849")
+  (property "Reference" "C36"
+    (at 309.88 190.5 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (property "Value" "22u / 25V"
+    (at 309.88 195.58 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
+    (at 304.8 193.04 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf?productCode=C12891"
+    (at 304.8 193.04 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "LCSC" "C12891"
+    (at 304.8 193.04 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "MPN" "CL31A226KAHNNNE"
+    (at 304.8 193.04 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Manufacturer" "Samsung Electro-Mechanics"
+    (at 304.8 193.04 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Source checked" "2026-10-03"
+    (at 304.8 193.04 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (pin "1"
+    (uuid "24b9318a-2629-5ad0-81fd-58aa6b96c151"))
+  (pin "2"
+    (uuid "9373e16d-0b5a-5c36-8488-0c845db2742f"))
+  (instances
+    (project "pulsardewhub"
+      (path "/e52b73dc-d0d2-4d83-a7ea-224e97decc28/28e47541-bc20-5b6f-b9fc-ba7f1543b3d6"
+        (reference "C36")
+        (unit 1)))))
+(label "GND"  (at 304.8000 204.4700 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "8f779a88-38ea-54ff-ae97-8e506d82ea0d"))
+(symbol
+  (lib_id "Device:C")
+  (at 330.2 193.04 0.0)
+  (unit 1)
+  (in_bom yes)
+  (on_board yes)
+  (dnp no)
+  (uuid "ac6c8c2d-dbab-558e-a810-3948d5c813a7")
+  (property "Reference" "C37"
+    (at 335.28 190.5 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (property "Value" "22u / 25V"
+    (at 335.28 195.58 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
+    (at 330.2 193.04 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf?productCode=C12891"
+    (at 330.2 193.04 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "LCSC" "C12891"
+    (at 330.2 193.04 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "MPN" "CL31A226KAHNNNE"
+    (at 330.2 193.04 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Manufacturer" "Samsung Electro-Mechanics"
+    (at 330.2 193.04 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Source checked" "2026-10-03"
+    (at 330.2 193.04 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (pin "1"
+    (uuid "85639a5d-d2f5-55ca-86eb-371bbd08be60"))
+  (pin "2"
+    (uuid "ec651298-6ed8-53b0-bb61-dda185938731"))
+  (instances
+    (project "pulsardewhub"
+      (path "/e52b73dc-d0d2-4d83-a7ea-224e97decc28/28e47541-bc20-5b6f-b9fc-ba7f1543b3d6"
+        (reference "C37")
+        (unit 1)))))
+(label "GND"  (at 330.2000 204.4700 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "74a5f14c-aa43-5bec-a261-622de2bda6a3"))
+(symbol
+  (lib_id "Device:R")
+  (at 213.36 203.2 0.0)
+  (unit 1)
+  (in_bom yes)
+  (on_board yes)
+  (dnp no)
+  (uuid "bc07b6b2-b66b-5eaf-b309-3f05187f759f")
+  (property "Reference" "R30"
+    (at 218.44 200.66 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (property "Value" "100k"
+    (at 218.44 205.74 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+    (at 213.36 203.2 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25803"
+    (at 213.36 203.2 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "LCSC" "C25803"
+    (at 213.36 203.2 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "MPN" "0603WAF1003T5E"
+    (at 213.36 203.2 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Manufacturer" "UNI-ROYAL"
+    (at 213.36 203.2 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Source checked" "2026-10-03"
+    (at 213.36 203.2 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (pin "1"
+    (uuid "6b010e3b-ea04-5c40-a130-e8e837a72f9c"))
+  (pin "2"
+    (uuid "0cf98783-2840-5e34-b1d9-64937b833627"))
+  (instances
+    (project "pulsardewhub"
+      (path "/e52b73dc-d0d2-4d83-a7ea-224e97decc28/28e47541-bc20-5b6f-b9fc-ba7f1543b3d6"
+        (reference "R30")
+        (unit 1)))))
+(symbol
+  (lib_id "Device:R")
+  (at 213.36 233.68 0.0)
+  (unit 1)
+  (in_bom yes)
+  (on_board yes)
+  (dnp no)
+  (uuid "5eb7080a-8cb0-5516-805f-9722c4010e1e")
+  (property "Reference" "R31"
+    (at 218.44 231.14 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (property "Value" "43.2k"
+    (at 218.44 236.22 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+    (at 213.36 233.68 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C23053"
+    (at 213.36 233.68 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "LCSC" "C23053"
+    (at 213.36 233.68 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "MPN" "0603WAF4322T5E"
+    (at 213.36 233.68 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Manufacturer" "UNI-ROYAL"
+    (at 213.36 233.68 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Source checked" "2026-10-03"
+    (at 213.36 233.68 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (pin "1"
+    (uuid "6353634c-ffb1-5282-988e-f0e9fc24fabb"))
+  (pin "2"
+    (uuid "642f64b7-20d8-5c0f-a1e6-dc10dfff18b5"))
+  (instances
+    (project "pulsardewhub"
+      (path "/e52b73dc-d0d2-4d83-a7ea-224e97decc28/28e47541-bc20-5b6f-b9fc-ba7f1543b3d6"
+        (reference "R31")
+        (unit 1)))))
+(label "GND"  (at 213.3600 245.1100 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "a727053f-ad0e-5e16-a466-b71870411cdf"))
+(symbol
+  (lib_id "power:PWR_FLAG")
+  (at 355.6 175.26 0.0)
+  (unit 1)
+  (in_bom no)
+  (on_board no)
+  (dnp no)
+  (uuid "c0b27bff-e04f-5cef-be7b-d8ddfad25112")
+  (property "Reference" "#FLG21"
+    (at 355.6 175.26 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Value" "PWR_FLAG"
+    (at 355.6 175.26 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Footprint" ""
+    (at 355.6 175.26 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (property "Datasheet" ""
+    (at 355.6 175.26 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (hide yes)))
+  (pin "1"
+    (uuid "92ddbd92-d5c5-5535-8d35-cc36ec9c4c46"))
+  (instances
+    (project "pulsardewhub"
+      (path "/e52b73dc-d0d2-4d83-a7ea-224e97decc28/28e47541-bc20-5b6f-b9fc-ba7f1543b3d6"
+        (reference "#FLG21")
+        (unit 1)))))
+(label "V3"  (at 355.6000 175.2600 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "00fbe4f6-638f-5e21-825b-62bc7631ed16"))
+(text "Follow TI SNVSAN3F Table 9-2. 5 V uses nearest preferred 8.2 uH to the 8 uH example.\nPlace ceramic input/boot/VCC capacitors at the IC; keep SW copper compact and FB away from SW.\nUSB budget: 4 x 500 mA plus about 0.4 A for logic at full activity. Verify inductor saturation, MLCC bias,\ntransient response and regulator temperature before routing release." (at 25.4000 254.0000 0) (effects (font (size 1.27 1.27)) (justify left top)) (uuid "aa96103d-fb1b-52ec-8e68-0894c31b103e"))
+(wire (pts (xy 25.4000 35.5600) (xy 45.7200 35.5600)) (stroke (width 0) (type default)) (uuid "23c9a6c6-c54f-50ec-86d5-7a502ec97185"))
+(wire (pts (xy 25.4000 43.1800) (xy 45.7200 43.1800)) (stroke (width 0) (type default)) (uuid "74d62c68-d336-5d5a-bc17-3453e3c919b5"))
+(wire (pts (xy 25.4000 50.8000) (xy 45.7200 50.8000)) (stroke (width 0) (type default)) (uuid "673fd188-f380-5318-b94c-3d347335a332"))
+(wire (pts (xy 25.4000 58.4200) (xy 45.7200 58.4200)) (stroke (width 0) (type default)) (uuid "41c72f37-a527-5b40-ab65-37fdcf90cbdc"))
+(wire (pts (xy 83.8200 69.8500) (xy 83.8200 74.9300)) (stroke (width 0) (type default)) (uuid "82dbb4e7-ece6-5d41-9070-03eedb456000"))
+(wire (pts (xy 83.8200 82.5500) (xy 83.8200 87.6300)) (stroke (width 0) (type default)) (uuid "500bc49d-99ff-56ce-8451-d1dbe32ead8a"))
+(wire (pts (xy 83.8200 186.6900) (xy 83.8200 191.7700)) (stroke (width 0) (type default)) (uuid "adc03770-4135-5429-bc97-e4aecd853843"))
+(wire (pts (xy 83.8200 199.3900) (xy 83.8200 204.4700)) (stroke (width 0) (type default)) (uuid "33687c66-f6d8-5de9-a6d0-62de0d36b91d"))
+(wire (pts (xy 104.1400 69.8500) (xy 104.1400 74.9300)) (stroke (width 0) (type default)) (uuid "0166d45d-c82b-55ac-8066-dfe0066063b1"))
+(wire (pts (xy 104.1400 82.5500) (xy 104.1400 87.6300)) (stroke (width 0) (type default)) (uuid "1c54a7e3-b3c1-55be-8026-2597f7557421"))
+(wire (pts (xy 104.1400 186.6900) (xy 104.1400 191.7700)) (stroke (width 0) (type default)) (uuid "79e5927c-7f2a-5cd9-ad9a-10a9bfdd720e"))
+(wire (pts (xy 104.1400 199.3900) (xy 104.1400 204.4700)) (stroke (width 0) (type default)) (uuid "37f783ab-39f9-58ab-a937-8a47302c3392"))
+(wire (pts (xy 109.2200 55.8800) (xy 109.2200 60.9600)) (stroke (width 0) (type default)) (uuid "2b09b1e4-96ec-5ae4-b4bf-f119db32ec78"))
+(wire (pts (xy 109.2200 55.8800) (xy 116.8400 55.8800)) (stroke (width 0) (type default)) (uuid "e6852dd9-b7a3-5300-b0e3-c19c232ab322"))
+(wire (pts (xy 109.2200 60.9600) (xy 124.4600 60.9600)) (stroke (width 0) (type default)) (uuid "fb8292ac-fcb3-51f7-a496-f12c3bb6dd9a"))
+(wire (pts (xy 109.2200 172.7200) (xy 109.2200 177.8000)) (stroke (width 0) (type default)) (uuid "14185734-36a5-50b3-a38a-8417475a2ebd"))
+(wire (pts (xy 109.2200 172.7200) (xy 116.8400 172.7200)) (stroke (width 0) (type default)) (uuid "40d848dd-f832-56fb-a657-d8b9c74c854e"))
+(wire (pts (xy 109.2200 177.8000) (xy 124.4600 177.8000)) (stroke (width 0) (type default)) (uuid "485d62f6-cc19-5c6c-85e5-c9754c85cedd"))
+(wire (pts (xy 116.8400 55.8800) (xy 124.4600 55.8800)) (stroke (width 0) (type default)) (uuid "9b40d3a7-fefd-5c91-a8c1-14e5e51ec2c5"))
+(wire (pts (xy 116.8400 172.7200) (xy 124.4600 172.7200)) (stroke (width 0) (type default)) (uuid "16b4b2a8-deda-5645-9b3a-168fde537ade"))
+(wire (pts (xy 119.3800 66.0400) (xy 119.3800 87.6300)) (stroke (width 0) (type default)) (uuid "a82118c3-30ec-5c11-bf84-29f751abe071"))
+(wire (pts (xy 119.3800 66.0400) (xy 124.4600 66.0400)) (stroke (width 0) (type default)) (uuid "3846558d-abcc-5e6f-878d-38f4f5798764"))
+(wire (pts (xy 119.3800 95.2500) (xy 119.3800 102.8700)) (stroke (width 0) (type default)) (uuid "18c03da1-58ab-55a2-af6f-dad36d0f5956"))
+(wire (pts (xy 119.3800 182.8800) (xy 119.3800 204.4700)) (stroke (width 0) (type default)) (uuid "0eb1f728-9e10-529c-a667-a69f43827fd2"))
+(wire (pts (xy 119.3800 182.8800) (xy 124.4600 182.8800)) (stroke (width 0) (type default)) (uuid "222f393f-55a8-590a-8d7f-45a8b6ec5697"))
+(wire (pts (xy 119.3800 212.0900) (xy 119.3800 219.7100)) (stroke (width 0) (type default)) (uuid "6a3255cc-aed6-5e7d-adbd-075e6fee0fce"))
+(wire (pts (xy 134.6200 71.1200) (xy 134.6200 78.7400)) (stroke (width 0) (type default)) (uuid "07805db1-7d8e-5eaf-9d2d-455326064879"))
+(wire (pts (xy 134.6200 187.9600) (xy 134.6200 195.5800)) (stroke (width 0) (type default)) (uuid "f99f5745-e144-5ca0-901a-0053ab2ebb37"))
+(wire (pts (xy 144.7800 48.2600) (xy 144.7800 55.8800)) (stroke (width 0) (type default)) (uuid "23436dd6-60ea-595b-8eb2-06575ceb8c7e"))
+(wire (pts (xy 144.7800 48.2600) (xy 161.2900 48.2600)) (stroke (width 0) (type default)) (uuid "09b34dad-5564-5c54-8838-5894557a537c"))
+(wire (pts (xy 144.7800 58.4200) (xy 187.9600 58.4200)) (stroke (width 0) (type default)) (uuid "355a8386-9af0-5600-b800-5f387b8b0224"))
+(wire (pts (xy 144.7800 63.5000) (xy 177.8000 63.5000)) (stroke (width 0) (type default)) (uuid "939f0637-da19-57c2-b24b-5533910f81ec"))
+(wire (pts (xy 144.7800 165.1000) (xy 144.7800 172.7200)) (stroke (width 0) (type default)) (uuid "bfbbba42-93a1-5e0d-b1dd-62a42cd32acb"))
+(wire (pts (xy 144.7800 165.1000) (xy 161.2900 165.1000)) (stroke (width 0) (type default)) (uuid "06da64c3-9d9f-5021-ac3f-1b9c9d2b08d7"))
+(wire (pts (xy 144.7800 175.2600) (xy 187.9600 175.2600)) (stroke (width 0) (type default)) (uuid "01c2d75d-2a35-5077-83eb-4ad87e1795b6"))
+(wire (pts (xy 144.7800 180.3400) (xy 177.8000 180.3400)) (stroke (width 0) (type default)) (uuid "bf7d08ab-7371-50d0-9d2c-d7ea7d463f77"))
+(wire (pts (xy 168.9100 48.2600) (xy 187.9600 48.2600)) (stroke (width 0) (type default)) (uuid "e83d966e-a181-51f6-b677-c83c90f952c6"))
+(wire (pts (xy 168.9100 165.1000) (xy 187.9600 165.1000)) (stroke (width 0) (type default)) (uuid "85b481b6-87c8-5843-bcae-38240c0cfc19"))
+(wire (pts (xy 177.8000 63.5000) (xy 177.8000 101.6000)) (stroke (width 0) (type default)) (uuid "6804aaa8-2e8d-5c74-9330-fa9372182fec"))
+(wire (pts (xy 177.8000 101.6000) (xy 213.3600 101.6000)) (stroke (width 0) (type default)) (uuid "c60ad790-1962-5968-a08c-4143e98fddae"))
+(wire (pts (xy 177.8000 180.3400) (xy 177.8000 218.4400)) (stroke (width 0) (type default)) (uuid "54023bf3-ae88-53ed-b4bf-91d6547de644"))
+(wire (pts (xy 177.8000 218.4400) (xy 213.3600 218.4400)) (stroke (width 0) (type default)) (uuid "4b3e227e-38eb-5497-a729-0589b27b5918"))
+(wire (pts (xy 187.9600 48.2600) (xy 187.9600 58.4200)) (stroke (width 0) (type default)) (uuid "1d41f6fd-50d6-53b0-bea9-8ff98dcbc0bb"))
+(wire (pts (xy 187.9600 58.4200) (xy 209.5500 58.4200)) (stroke (width 0) (type default)) (uuid "ed672012-b790-59dc-b51d-2dd128c26a23"))
+(wire (pts (xy 187.9600 165.1000) (xy 187.9600 175.2600)) (stroke (width 0) (type default)) (uuid "5e33f457-18a8-5c4d-b352-20a80aa11599"))
+(wire (pts (xy 187.9600 175.2600) (xy 209.5500 175.2600)) (stroke (width 0) (type default)) (uuid "d7065d87-d6d3-58ba-81b6-8d6db2df2853"))
+(wire (pts (xy 213.3600 71.1200) (xy 213.3600 82.5500)) (stroke (width 0) (type default)) (uuid "0792aef5-ab5e-5dc4-95fd-bf47cadd5c56"))
+(wire (pts (xy 213.3600 71.1200) (xy 238.7600 71.1200)) (stroke (width 0) (type default)) (uuid "3a5781c3-5654-553c-b626-e9985c7a1bff"))
+(wire (pts (xy 213.3600 90.1700) (xy 213.3600 101.6000)) (stroke (width 0) (type default)) (uuid "f5da4cfa-ebfa-5a98-b087-14aa57e722f9"))
+(wire (pts (xy 213.3600 101.6000) (xy 213.3600 113.0300)) (stroke (width 0) (type default)) (uuid "df82acab-0ed5-5ad7-8c37-434e58baa436"))
+(wire (pts (xy 213.3600 120.6500) (xy 213.3600 128.2700)) (stroke (width 0) (type default)) (uuid "88538882-7765-50c0-b08a-030bd257c5b1"))
+(wire (pts (xy 213.3600 187.9600) (xy 213.3600 199.3900)) (stroke (width 0) (type default)) (uuid "b1ac0376-c985-5102-b3c2-bd621b073180"))
+(wire (pts (xy 213.3600 187.9600) (xy 238.7600 187.9600)) (stroke (width 0) (type default)) (uuid "2fe1eb4c-a804-50c1-89b2-9506156fc6b5"))
+(wire (pts (xy 213.3600 207.0100) (xy 213.3600 218.4400)) (stroke (width 0) (type default)) (uuid "14a2e770-5cb0-5139-8ada-5f42c5b07d5f"))
+(wire (pts (xy 213.3600 218.4400) (xy 213.3600 229.8700)) (stroke (width 0) (type default)) (uuid "4dfb8b90-3617-52a8-968c-b8f7fb3bd0d6"))
+(wire (pts (xy 213.3600 237.4900) (xy 213.3600 245.1100)) (stroke (width 0) (type default)) (uuid "3b5b13ed-2f28-50fe-ad98-0308799b64b7"))
+(wire (pts (xy 217.1700 58.4200) (xy 238.7600 58.4200)) (stroke (width 0) (type default)) (uuid "d835c904-29bb-519f-9435-492e03169bc9"))
+(wire (pts (xy 217.1700 175.2600) (xy 238.7600 175.2600)) (stroke (width 0) (type default)) (uuid "d8c44029-9767-5c4c-8c48-7e487df9869b"))
+(wire (pts (xy 238.7600 58.4200) (xy 238.7600 71.1200)) (stroke (width 0) (type default)) (uuid "9daa5d4a-3e69-5660-833e-96543420c97c"))
+(wire (pts (xy 238.7600 58.4200) (xy 254.0000 58.4200)) (stroke (width 0) (type default)) (uuid "43fe2247-eafb-59c9-a8e9-aed86171e475"))
+(wire (pts (xy 238.7600 175.2600) (xy 238.7600 187.9600)) (stroke (width 0) (type default)) (uuid "e60c35d0-6067-5bea-9c02-c86dc02e7f59"))
+(wire (pts (xy 238.7600 175.2600) (xy 254.0000 175.2600)) (stroke (width 0) (type default)) (uuid "eb4840d9-135c-5ba0-94db-9169504c8830"))
+(wire (pts (xy 254.0000 58.4200) (xy 254.0000 72.3900)) (stroke (width 0) (type default)) (uuid "ee7d3cf2-4343-54e0-bdca-acee3e638586"))
+(wire (pts (xy 254.0000 58.4200) (xy 279.4000 58.4200)) (stroke (width 0) (type default)) (uuid "2fbabdf4-eb11-5b44-be16-0f19590dc358"))
+(wire (pts (xy 254.0000 80.0100) (xy 254.0000 87.6300)) (stroke (width 0) (type default)) (uuid "a94c69ba-338d-5cf2-bd3b-4ed585031a38"))
+(wire (pts (xy 254.0000 175.2600) (xy 254.0000 189.2300)) (stroke (width 0) (type default)) (uuid "d6794119-0d8d-5c82-8bc8-66c27af75004"))
+(wire (pts (xy 254.0000 175.2600) (xy 279.4000 175.2600)) (stroke (width 0) (type default)) (uuid "bc58f2af-9379-5aa1-9aa0-bdaa523789aa"))
+(wire (pts (xy 254.0000 196.8500) (xy 254.0000 204.4700)) (stroke (width 0) (type default)) (uuid "5ef0f730-9064-5260-8df9-ffbcb7f5203d"))
+(wire (pts (xy 279.4000 58.4200) (xy 279.4000 72.3900)) (stroke (width 0) (type default)) (uuid "cf05edbc-538f-5e19-b46f-329b6db6b2fe"))
+(wire (pts (xy 279.4000 58.4200) (xy 304.8000 58.4200)) (stroke (width 0) (type default)) (uuid "cdfd9a20-6e0e-56a4-9bca-18693e319854"))
+(wire (pts (xy 279.4000 80.0100) (xy 279.4000 87.6300)) (stroke (width 0) (type default)) (uuid "09fdebaa-3443-5f1c-a5aa-fe531fd0c8ea"))
+(wire (pts (xy 279.4000 175.2600) (xy 279.4000 189.2300)) (stroke (width 0) (type default)) (uuid "6b228b22-e324-5467-8e3a-054338001be2"))
+(wire (pts (xy 279.4000 175.2600) (xy 304.8000 175.2600)) (stroke (width 0) (type default)) (uuid "735fe891-c64a-5a6b-a7d0-417b3be260e3"))
+(wire (pts (xy 279.4000 196.8500) (xy 279.4000 204.4700)) (stroke (width 0) (type default)) (uuid "ebf7a1eb-29dd-5bbc-845c-d921af9f18e7"))
+(wire (pts (xy 304.8000 58.4200) (xy 304.8000 72.3900)) (stroke (width 0) (type default)) (uuid "7e5bd5f8-ec70-57af-aedb-b97170bdb6ec"))
+(wire (pts (xy 304.8000 58.4200) (xy 330.2000 58.4200)) (stroke (width 0) (type default)) (uuid "a433af45-f7bd-5f57-949a-085d72cfc42f"))
+(wire (pts (xy 304.8000 80.0100) (xy 304.8000 87.6300)) (stroke (width 0) (type default)) (uuid "0c82989d-ca51-5d85-a427-787f0af4b0f1"))
+(wire (pts (xy 304.8000 175.2600) (xy 304.8000 189.2300)) (stroke (width 0) (type default)) (uuid "23105618-d98c-5cea-941e-e78f8a32f32b"))
+(wire (pts (xy 304.8000 175.2600) (xy 330.2000 175.2600)) (stroke (width 0) (type default)) (uuid "e3e69c09-a63a-50ec-9ac8-5d2baac04a4b"))
+(wire (pts (xy 304.8000 196.8500) (xy 304.8000 204.4700)) (stroke (width 0) (type default)) (uuid "7be048c9-fea1-5bb6-a7d7-af57e2a2a45b"))
+(wire (pts (xy 330.2000 58.4200) (xy 330.2000 72.3900)) (stroke (width 0) (type default)) (uuid "5c86aa80-3c28-5c74-a08d-6ee45bfdf41d"))
+(wire (pts (xy 330.2000 58.4200) (xy 340.3600 58.4200)) (stroke (width 0) (type default)) (uuid "87176d37-ed54-5008-be73-600d75e907a1"))
+(wire (pts (xy 330.2000 80.0100) (xy 330.2000 87.6300)) (stroke (width 0) (type default)) (uuid "66bb522e-b12e-5eac-8e56-ed772e191f3b"))
+(wire (pts (xy 330.2000 175.2600) (xy 330.2000 189.2300)) (stroke (width 0) (type default)) (uuid "2cd525eb-e579-52d2-8660-1a0727e3d839"))
+(wire (pts (xy 330.2000 175.2600) (xy 340.3600 175.2600)) (stroke (width 0) (type default)) (uuid "b6edd9a2-a10d-5241-9f74-aef9cf5275d6"))
+(wire (pts (xy 330.2000 196.8500) (xy 330.2000 204.4700)) (stroke (width 0) (type default)) (uuid "2ceaed8c-8788-5dc9-9068-d6dd452e7bfb"))
+(junction (at 187.9600 58.4200) (diameter 0) (color 0 0 0 0) (uuid "2c0b1782-2a96-52c8-90c2-029462ad0583"))
+(junction (at 187.9600 175.2600) (diameter 0) (color 0 0 0 0) (uuid "727af2d0-9da1-5599-815f-357ead114fbb"))
+(junction (at 213.3600 101.6000) (diameter 0) (color 0 0 0 0) (uuid "099ddbdf-0821-5392-a977-4ce426328876"))
+(junction (at 213.3600 218.4400) (diameter 0) (color 0 0 0 0) (uuid "a235247d-93ec-5c76-ac7c-eed444a7f64c"))
+(junction (at 238.7600 58.4200) (diameter 0) (color 0 0 0 0) (uuid "9a900ce1-02ca-5b8f-8cbf-fd791f1523f0"))
+(junction (at 238.7600 175.2600) (diameter 0) (color 0 0 0 0) (uuid "9149e53f-eccf-52a9-881d-cc805a247b33"))
+(junction (at 254.0000 58.4200) (diameter 0) (color 0 0 0 0) (uuid "76fe050e-683f-5461-9231-61dbd5227852"))
+(junction (at 254.0000 175.2600) (diameter 0) (color 0 0 0 0) (uuid "6bb8a35a-33cb-5534-be86-5e05d7eab143"))
+(junction (at 279.4000 58.4200) (diameter 0) (color 0 0 0 0) (uuid "87f8b32c-25f6-52c3-8cfc-5a305436ce65"))
+(junction (at 279.4000 175.2600) (diameter 0) (color 0 0 0 0) (uuid "49dfbff0-688c-52c5-86f9-bcc107a3106a"))
+(junction (at 304.8000 58.4200) (diameter 0) (color 0 0 0 0) (uuid "4e664037-a793-58c4-bdfe-fa10da75ae3b"))
+(junction (at 304.8000 175.2600) (diameter 0) (color 0 0 0 0) (uuid "aa29cff5-c3dd-5265-b35b-06cdce94a839"))
+(junction (at 330.2000 58.4200) (diameter 0) (color 0 0 0 0) (uuid "c3be99d8-8729-5385-89f7-23c32d40b717"))
+(junction (at 330.2000 175.2600) (diameter 0) (color 0 0 0 0) (uuid "ea0580e1-2743-5973-9560-e1cc02777fbb"))
+
+(embedded_fonts no)
+)

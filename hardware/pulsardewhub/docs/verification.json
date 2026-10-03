@@ -1,0 +1,137 @@
+{
+  "date": "2026-10-03",
+  "kicad_version": "10.0.6",
+  "status": "unrouted_floorplan_not_for_fabrication",
+  "erc": {
+    "errors": 0,
+    "warnings": 0,
+    "exclusions": 0
+  },
+  "exact_net_check": {
+    "components": 215,
+    "connected_nets": 130,
+    "intentional_no_connects": 45,
+    "all_expected_pins_matched": true
+  },
+  "pcb": {
+    "layers": 4,
+    "width_mm": 180,
+    "height_mm": 110,
+    "schematic_footprints": 215,
+    "mounting_holes": 4,
+    "fiducials": 3,
+    "tracks": 0,
+    "vias": 0,
+    "unconnected_items": 499,
+    "schematic_parity_issues": 0,
+    "violations": [
+      {
+        "type": "hole_clearance",
+        "description": "Hole clearance violation (board setup constraints hole clearance 0.2500 mm; actual 0.1944 mm)",
+        "items": [
+          {
+            "description": "Pad A1 [/GND] of J40 on F.Cu",
+            "pos": {
+              "x": 99.2,
+              "y": 57.08
+            },
+            "uuid": "62df82be-e580-4e30-afb0-5c4145b40d02"
+          },
+          {
+            "description": "NPTH pad of J40",
+            "pos": {
+              "x": 98.89,
+              "y": 56.005
+            },
+            "uuid": "1ff8f91a-56a7-4930-ab25-a41138b0de1c"
+          }
+        ]
+      },
+      {
+        "type": "hole_clearance",
+        "description": "Hole clearance violation (board setup constraints hole clearance 0.2500 mm; actual 0.1944 mm)",
+        "items": [
+          {
+            "description": "Pad B12 [/GND] of J40 on F.Cu",
+            "pos": {
+              "x": 99.2,
+              "y": 57.08
+            },
+            "uuid": "21bc0841-bca6-43b0-b426-6265f5327f14"
+          },
+          {
+            "description": "NPTH pad of J40",
+            "pos": {
+              "x": 98.89,
+              "y": 56.005
+            },
+            "uuid": "1ff8f91a-56a7-4930-ab25-a41138b0de1c"
+          }
+        ]
+      },
+      {
+        "type": "hole_clearance",
+        "description": "Hole clearance violation (board setup constraints hole clearance 0.2500 mm; actual 0.1944 mm)",
+        "items": [
+          {
+            "description": "Pad A12 [/GND] of J40 on F.Cu",
+            "pos": {
+              "x": 92.8,
+              "y": 57.08
+            },
+            "uuid": "3ed9d424-2766-4b28-8c67-055e82a5b637"
+          },
+          {
+            "description": "NPTH pad of J40",
+            "pos": {
+              "x": 93.11,
+              "y": 56.005
+            },
+            "uuid": "86827c0f-8566-4a7f-aa6d-bd8c6474ee42"
+          }
+        ]
+      },
+      {
+        "type": "hole_clearance",
+        "description": "Hole clearance violation (board setup constraints hole clearance 0.2500 mm; actual 0.1944 mm)",
+        "items": [
+          {
+            "description": "Pad B1 [/GND] of J40 on F.Cu",
+            "pos": {
+              "x": 92.8,
+              "y": 57.08
+            },
+            "uuid": "6d26d573-9313-483d-ab0d-5dd13216a13e"
+          },
+          {
+            "description": "NPTH pad of J40",
+            "pos": {
+              "x": 93.11,
+              "y": 56.005
+            },
+            "uuid": "86827c0f-8566-4a7f-aa6d-bd8c6474ee42"
+          }
+        ]
+      }
+    ]
+  },
+  "source_sha256": {
+    "pulsardewhub/controller.kicad_sch": "f73b74525974a928a536852ab5866fee5190567b13f4c6d1d4c1be11d4158e75",
+    "pulsardewhub/dc_outlet.kicad_sch": "7e33d24d83df6621ae7c42fabc4c2c49f4c795e45bd8c978aaff5178484a3e73",
+    "pulsardewhub/heaters.kicad_sch": "528601b7c957e9d7329f0db23ff5dcebdd1792307fb80bad207d625dd2c43a96",
+    "pulsardewhub/power_input.kicad_sch": "9dbff66a4936c77dae091c7933774b0800e9b7ba33fcb52afdbbe92c25f55e96",
+    "pulsardewhub/pulsardewhub.kicad_pcb": "8459bfa72b3d5aaf9698658b5951ee3cc1aee58eb697fc4f80146ac5bc4cbf78",
+    "pulsardewhub/pulsardewhub.kicad_pro": "a4c09e64ae8c7a8fdd154765e1e0b24f2085be8479e359d1c1acea2dd1cdb3ab",
+    "pulsardewhub/pulsardewhub.kicad_sch": "355b5c9c8ffe2e6e7226cf41ceadf38c8c1c385adfbb6935f8bcdff4e9e8d3a3",
+    "pulsardewhub/supplies.kicad_sch": "014a0bfad9db5b5ea2d3c435c34e1d40322118d031c4114342577f2bfa2d29b2",
+    "pulsardewhub/usb_hub.kicad_sch": "46d81a5b55a83f581e69c966bebe2dbc8b5f8aeca15c7d3ff333faf3965ee5b9",
+    "pulsardewhub/usb_port.kicad_sch": "5b33d1dacc95ede67921cf0c8913ab5a6866475540bafc726bf180340966ae09"
+  },
+  "limits": [
+    "No full-load thermal or physical tests",
+    "No SPICE simulator available",
+    "Four USB-C hole clearances unresolved",
+    "All 53 populated unique MPN lifecycle results unknown",
+    "Native GUI inspection blocked by locked Mac; rendered files inspected"
+  ]
+}

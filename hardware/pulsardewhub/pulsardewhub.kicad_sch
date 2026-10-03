@@ -1,0 +1,1290 @@
+(kicad_sch (version 20260306) (generator "eeschema") (generator_version "10.0") (uuid "e52b73dc-d0d2-4d83-a7ea-224e97decc28") (paper "A2")
+(title_block (title "PulsarDew Hub - System interconnect") (date "2026-10-03") (rev "0.1-draft") (company "PulsarFab"))
+(lib_symbols
+)
+(text "PULSARDEW HUB | 2 heaters + 4 monitored DC outlets + 4 USB 2.0 ports" (at 20.3200 16.5100 0) (effects (font (size 2.5 2.5)) (justify left top)) (uuid "77dc4b69-983e-5106-9239-543054506599"))
+(text "PROTOTYPE FLOORPLAN — routing, full-load thermal validation and new firmware are still required." (at 20.3200 24.1300 0) (effects (font (size 1.5 1.5)) (justify left top)) (uuid "2ab0ad11-74f7-538f-9f67-7aa90999185c"))
+(label "VIN"  (at 40.6400 53.3400 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "78f46b5f-a824-5ccf-b8be-660f3b3f9307"))
+(label "GND"  (at 40.6400 58.4200 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "397375e4-aca5-5a2a-a99f-a30615015513"))
+(sheet
+  (at 53.34 43.18)
+  (size 78.74 25.4)
+  (stroke
+    (width 0.1524)
+    (type default))
+  (fill
+    (color 0 0 0 0))
+  (uuid "78a7b3a0-5ca7-5d8b-b1b6-85a904073e9c")
+  (property "Sheetname" "Power input"
+    (at 53.34 40.64 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (property "Sheetfile" "power_input.kicad_sch"
+    (at 53.34 71.12 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (pin "VIN" output
+    (at 53.34 53.34 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "1dcd7836-cf93-5495-8f12-1009c3273c4d"))
+  (pin "GND" input
+    (at 53.34 58.42 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "cb25f4af-13c0-5269-9219-13c55ec4fc3e"))
+  (instances
+    (project "pulsardewhub"
+      (path "/e52b73dc-d0d2-4d83-a7ea-224e97decc28"
+        (page "2")))))
+(label "VIN"  (at 40.6400 114.3000 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "8b4c99ce-f0d2-5e18-8cef-30ae0193f73c"))
+(label "GND"  (at 40.6400 119.3800 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "3367365d-1e07-5c3c-8478-fc0d1f128f2b"))
+(label "V5"  (at 40.6400 124.4600 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "0ad9bc65-ac79-5740-b439-37595c26e7ab"))
+(label "V3"  (at 40.6400 129.5400 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "7afd5bc0-165c-526b-958d-2a0d80415571"))
+(sheet
+  (at 53.34 104.14)
+  (size 78.74 35.56)
+  (stroke
+    (width 0.1524)
+    (type default))
+  (fill
+    (color 0 0 0 0))
+  (uuid "28e47541-bc20-5b6f-b9fc-ba7f1543b3d6")
+  (property "Sheetname" "DC supplies"
+    (at 53.34 101.6 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (property "Sheetfile" "supplies.kicad_sch"
+    (at 53.34 142.24 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (pin "VIN" input
+    (at 53.34 114.3 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "4fc14dff-b105-5f5e-ba68-97bc7607c27c"))
+  (pin "GND" input
+    (at 53.34 119.38 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "589901df-3529-5dc8-83a2-24810b50d11a"))
+  (pin "V5" output
+    (at 53.34 124.46 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "be23f07e-f7f5-560f-9d4f-412d4501d6bb"))
+  (pin "V3" output
+    (at 53.34 129.54 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "3f18c18f-9c19-5f79-9c7b-aa78896e394c"))
+  (instances
+    (project "pulsardewhub"
+      (path "/e52b73dc-d0d2-4d83-a7ea-224e97decc28"
+        (page "3")))))
+(label "VIN"  (at 40.6400 198.1200 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "0b9c551e-577c-5ac2-acc4-526c1fee10bc"))
+(label "V5"  (at 40.6400 203.2000 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "ff907ae5-edd0-53ca-a6b3-e360ea5fb707"))
+(label "GND"  (at 40.6400 208.2800 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "c6302b75-e4d6-5e0a-ae84-af5801899980"))
+(label "HTR0"  (at 40.6400 213.3600 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "99a41b8a-b591-51a8-8a27-d6fdec9da420"))
+(label "HTR1"  (at 40.6400 218.4400 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "ef826337-6fad-57c4-bf0c-88e5b66ba815"))
+(label "V3"  (at 40.6400 223.5200 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "0aedc691-d441-5b57-b325-b02fa0315e0d"))
+(label "SCL"  (at 40.6400 228.6000 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "bec455c5-95dd-5159-8430-e63887240194"))
+(label "SDA"  (at 40.6400 233.6800 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "d0cd99c6-af21-5d5f-bc88-203d15cec3d1"))
+(sheet
+  (at 53.34 187.96)
+  (size 78.74 55.88)
+  (stroke
+    (width 0.1524)
+    (type default))
+  (fill
+    (color 0 0 0 0))
+  (uuid "a4ada411-c385-5919-a05f-9c21ad0555d3")
+  (property "Sheetname" "Heaters"
+    (at 53.34 185.42 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (property "Sheetfile" "heaters.kicad_sch"
+    (at 53.34 246.38 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (pin "VIN" input
+    (at 53.34 198.12 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "4671244c-598d-56b2-969c-e8a80889ccef"))
+  (pin "V5" input
+    (at 53.34 203.2 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "12df26aa-7870-5517-a1c3-b496d9935d55"))
+  (pin "GND" input
+    (at 53.34 208.28 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "f602c0d7-d647-5369-8730-5d7bf56ac66b"))
+  (pin "HTR0" input
+    (at 53.34 213.36 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "70c4756d-22d6-5a21-af14-2c6fc75eba4d"))
+  (pin "HTR1" input
+    (at 53.34 218.44 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "28df09c0-6e10-56d1-b009-d80a3d53d075"))
+  (pin "V3" input
+    (at 53.34 223.52 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "26e620e5-3a97-52b2-8344-2568868f8dbb"))
+  (pin "SCL" input
+    (at 53.34 228.6 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "7247f023-3880-514f-a758-ebfdf0436ac4"))
+  (pin "SDA" bidirectional
+    (at 53.34 233.68 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "728c6dd7-10af-5591-b60c-7a164505b8a9"))
+  (instances
+    (project "pulsardewhub"
+      (path "/e52b73dc-d0d2-4d83-a7ea-224e97decc28"
+        (page "4")))))
+(label "V3"  (at 208.2800 53.3400 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "bbbdbfe2-5007-5ddf-8355-c8f2d1a678fc"))
+(label "GND"  (at 208.2800 58.4200 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "1665c901-a243-594d-82d1-5633419cd0ed"))
+(label "HTR0"  (at 208.2800 63.5000 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "13780edd-9be1-544f-b101-2bb39389ccd2"))
+(label "HTR1"  (at 208.2800 68.5800 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "ab38cb8b-72ec-5409-8ea3-4d0b59c0a410"))
+(label "MCU_DP"  (at 208.2800 73.6600 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "19adfde4-aaf7-56dc-b77f-40ac588e0f76"))
+(label "MCU_DM"  (at 208.2800 78.7400 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "2549f2f9-6c26-5812-89ae-cfc97e1a44f6"))
+(label "USB_ATTACH"  (at 208.2800 83.8200 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "52876342-730e-5f6b-89e1-83d37cf6fcae"))
+(label "SCL"  (at 208.2800 88.9000 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "f566408b-c25c-5cd3-a80d-663a4a856fc7"))
+(label "SDA"  (at 208.2800 93.9800 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "ce92ad2d-9209-5435-94be-6bc7a63d05c4"))
+(label "DC_EN1"  (at 208.2800 99.0600 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "6238453c-9875-5d03-a032-6d39cffd0e96"))
+(label "IMON1"  (at 208.2800 104.1400 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "78297fa1-2abc-52d2-85db-7cf2295eb083"))
+(label "DC_FLT1"  (at 208.2800 109.2200 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "5b60a760-4884-5d80-85ce-c5ed916da921"))
+(label "DC_EN2"  (at 208.2800 114.3000 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "b0343d08-e81f-577b-a338-7dd1a6ccfad3"))
+(label "IMON2"  (at 208.2800 119.3800 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "eed4a6a1-e9f1-56ea-983c-60588b3d135b"))
+(label "DC_FLT2"  (at 208.2800 124.4600 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "a065bb11-4422-5c4e-9919-e08d8413bca9"))
+(label "DC_EN3"  (at 208.2800 129.5400 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "0181ea8a-082c-5c08-ba85-d10f408c5dd2"))
+(label "IMON3"  (at 208.2800 134.6200 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "a6f05937-5bbe-555b-b7ce-2c9fa64eeafd"))
+(label "DC_FLT3"  (at 208.2800 139.7000 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "2e458fb6-35cb-5116-a40f-910515882213"))
+(label "DC_EN4"  (at 208.2800 144.7800 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "d262b5cc-c7de-5bcf-a668-1c98226a6198"))
+(label "IMON4"  (at 208.2800 149.8600 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "7bcddfd9-2bbd-5173-9583-266b3b160f65"))
+(label "DC_FLT4"  (at 208.2800 154.9400 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "3d6ef057-31dc-5a9d-a1b7-2457b5346b61"))
+(sheet
+  (at 220.98 43.18)
+  (size 76.2 121.92)
+  (stroke
+    (width 0.1524)
+    (type default))
+  (fill
+    (color 0 0 0 0))
+  (uuid "913f425e-5e8a-5d36-84c5-331ae7ec30b1")
+  (property "Sheetname" "Controller"
+    (at 220.98 40.64 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (property "Sheetfile" "controller.kicad_sch"
+    (at 220.98 167.64 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (pin "V3" input
+    (at 220.98 53.34 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "326da4bc-0f7a-50c9-b4c6-bb86949f6c70"))
+  (pin "GND" input
+    (at 220.98 58.42 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "9e669946-07c5-5cb4-aa47-01d22191913d"))
+  (pin "HTR0" output
+    (at 220.98 63.5 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "0f7876f9-54f6-5cbb-9f3a-20dcfacae013"))
+  (pin "HTR1" output
+    (at 220.98 68.58 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "4bb5a6b1-ed85-508b-b4b9-bd7b422c92ea"))
+  (pin "MCU_DP" bidirectional
+    (at 220.98 73.66 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "31f01820-80dd-5783-981f-4d41e40300b9"))
+  (pin "MCU_DM" bidirectional
+    (at 220.98 78.74 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "7cee4ca4-cfcd-5119-9d9b-b7b06d73535d"))
+  (pin "USB_ATTACH" input
+    (at 220.98 83.82 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "24924bbf-b444-5e5f-bc02-d09e483ca020"))
+  (pin "SCL" output
+    (at 220.98 88.9 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "ca3413da-8f51-5bfc-b7bb-b0b0cf208a79"))
+  (pin "SDA" bidirectional
+    (at 220.98 93.98 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "888dfd13-47cc-59ea-be75-9caa84a9f8e4"))
+  (pin "DC_EN1" output
+    (at 220.98 99.06 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "7bdd7853-9b15-5a11-9dbb-b23e00d1b168"))
+  (pin "IMON1" input
+    (at 220.98 104.14 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "9d238ed8-e955-5b4a-bf14-858dc96f60f7"))
+  (pin "DC_FLT1" input
+    (at 220.98 109.22 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "f91f05c8-411b-5e3c-9735-7a823d4d8f0c"))
+  (pin "DC_EN2" output
+    (at 220.98 114.3 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "3f7bdd73-5fd8-5933-8ced-9183e90b09ca"))
+  (pin "IMON2" input
+    (at 220.98 119.38 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "461bf37a-8353-5bb4-aec8-aa608deea7e0"))
+  (pin "DC_FLT2" input
+    (at 220.98 124.46 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "f8713bf6-22c4-5d28-b52f-3bf9a79de8f2"))
+  (pin "DC_EN3" output
+    (at 220.98 129.54 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "eb7d5130-0fcb-50d3-8da5-8f3dff4db5b6"))
+  (pin "IMON3" input
+    (at 220.98 134.62 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "55d3f5ce-b353-5a93-9ceb-55bdfb614343"))
+  (pin "DC_FLT3" input
+    (at 220.98 139.7 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "90af4a43-a2d9-5bb1-bd93-2843d062e172"))
+  (pin "DC_EN4" output
+    (at 220.98 144.78 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "f893160d-1e94-535e-862a-cf4e2e03a042"))
+  (pin "IMON4" input
+    (at 220.98 149.86 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "1a35a577-a6a0-53d5-a1fb-909abcb0fea2"))
+  (pin "DC_FLT4" input
+    (at 220.98 154.94 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "0cd9cf72-2422-503a-bcc9-271dec65c88b"))
+  (instances
+    (project "pulsardewhub"
+      (path "/e52b73dc-d0d2-4d83-a7ea-224e97decc28"
+        (page "5")))))
+(label "V3"  (at 208.2800 200.6600 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "61b5ce1b-bbd8-5b88-8533-ffb3f97d52b6"))
+(label "GND"  (at 208.2800 205.7400 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "761cdbb6-a5c6-5c82-8bd4-1e4ee16b7ec1"))
+(label "MCU_DP"  (at 208.2800 210.8200 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "b3b4eccd-6265-5490-bf75-cf5ba3d8b5ab"))
+(label "MCU_DM"  (at 208.2800 215.9000 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "b6d24532-fb4b-5358-ae16-48a87446d477"))
+(label "USB_ATTACH"  (at 208.2800 220.9800 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "ef0dffad-e7e7-5f4e-ba8f-7e74ad3b9c51"))
+(label "USB1_DP"  (at 208.2800 226.0600 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "19ad499e-af07-5d87-97c0-6a240d23ff60"))
+(label "USB1_DM"  (at 208.2800 231.1400 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "3f756c97-5585-5874-a08a-ca82e682fc48"))
+(label "USB1_EN"  (at 208.2800 236.2200 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "6cd31f22-e62a-5c56-b730-1575f2b0efb8"))
+(label "USB1_OC"  (at 208.2800 241.3000 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "f36528ca-36c2-5919-b6df-2319e2c41193"))
+(label "USB2_DP"  (at 208.2800 246.3800 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "6d2841d9-d405-5950-b78e-9a29363fafd4"))
+(label "USB2_DM"  (at 208.2800 251.4600 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "75466f3e-b598-5ff2-af12-7cbc0a296a45"))
+(label "USB2_EN"  (at 208.2800 256.5400 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "5a53595c-c899-5570-a2f3-fe98bde5408a"))
+(label "USB2_OC"  (at 208.2800 261.6200 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "53ae8874-c338-5347-9e57-92ce50bdb6e4"))
+(label "USB3_DP"  (at 208.2800 266.7000 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "aac571f7-afa2-54e3-9204-982fcd6ae01f"))
+(label "USB3_DM"  (at 208.2800 271.7800 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "8f617df2-0b54-59e9-a837-cb40ed406b07"))
+(label "USB3_EN"  (at 208.2800 276.8600 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "a095c693-92ab-50f2-90ae-1882d97f8dd4"))
+(label "USB3_OC"  (at 208.2800 281.9400 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "17f963dd-df25-54fb-a089-f9b1c8e63f88"))
+(label "USB4_DP"  (at 208.2800 287.0200 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "526b782a-866d-51f3-ae85-050de2d4e870"))
+(label "USB4_DM"  (at 208.2800 292.1000 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "30f303ed-d80f-55cd-8e18-1e8eef46d760"))
+(label "USB4_EN"  (at 208.2800 297.1800 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "789aef36-5322-5111-ba27-546927cc08a2"))
+(label "USB4_OC"  (at 208.2800 302.2600 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "c0def91d-64e4-5d4a-9316-085562968adf"))
+(sheet
+  (at 220.98 190.5)
+  (size 76.2 121.92)
+  (stroke
+    (width 0.1524)
+    (type default))
+  (fill
+    (color 0 0 0 0))
+  (uuid "a23edc1e-f6da-5977-81de-579f1f2feb4f")
+  (property "Sheetname" "USB hub"
+    (at 220.98 187.96 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (property "Sheetfile" "usb_hub.kicad_sch"
+    (at 220.98 314.96 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (pin "V3" input
+    (at 220.98 200.66 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "f0dd5f8a-1f5b-58aa-8daa-d6aad93ddfed"))
+  (pin "GND" input
+    (at 220.98 205.74 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "153edbc1-4734-5ee0-9c07-f1917ff34c1b"))
+  (pin "MCU_DP" bidirectional
+    (at 220.98 210.82 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "b6b41a2b-bce6-560c-8f2c-12231ddce7c2"))
+  (pin "MCU_DM" bidirectional
+    (at 220.98 215.9 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "65e81114-3fc5-5713-941a-de44ad23e6db"))
+  (pin "USB_ATTACH" output
+    (at 220.98 220.98 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "ba9396d9-94ab-5564-8923-1171b8280217"))
+  (pin "USB1_DP" bidirectional
+    (at 220.98 226.06 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "d1ffae77-1ef1-557c-abd4-d88b24602192"))
+  (pin "USB1_DM" bidirectional
+    (at 220.98 231.14 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "79a46e34-22ac-59e2-828e-8e3c8d97126b"))
+  (pin "USB1_EN" output
+    (at 220.98 236.22 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "7082f8ab-6c87-54aa-b4a4-2cd10d93f790"))
+  (pin "USB1_OC" input
+    (at 220.98 241.3 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "31b96a6e-5450-5b85-9a92-35a589828e97"))
+  (pin "USB2_DP" bidirectional
+    (at 220.98 246.38 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "559457de-5ca5-52e5-87a2-ea44e0408904"))
+  (pin "USB2_DM" bidirectional
+    (at 220.98 251.46 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "4c8417d3-511f-5a18-9010-873673dc093d"))
+  (pin "USB2_EN" output
+    (at 220.98 256.54 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "bcb74dad-143a-5d7a-b897-808427409b81"))
+  (pin "USB2_OC" input
+    (at 220.98 261.62 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "85b63d8a-be34-571e-b2f8-3b6168e70275"))
+  (pin "USB3_DP" bidirectional
+    (at 220.98 266.7 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "742073a4-5bfc-5511-ac30-0b56d5600e60"))
+  (pin "USB3_DM" bidirectional
+    (at 220.98 271.78 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "fdc233fa-7425-514f-a9a7-df1329d87cd9"))
+  (pin "USB3_EN" output
+    (at 220.98 276.86 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "f7d6521e-a0e5-5242-9e9c-1cf185eaed90"))
+  (pin "USB3_OC" input
+    (at 220.98 281.94 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "ca8f8699-96cc-55cc-9894-b7701f584b5a"))
+  (pin "USB4_DP" bidirectional
+    (at 220.98 287.02 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "eb2513de-469a-55e0-b9d1-61ae1408d71b"))
+  (pin "USB4_DM" bidirectional
+    (at 220.98 292.1 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "addf743e-f699-5eeb-8cde-8163a2c57191"))
+  (pin "USB4_EN" output
+    (at 220.98 297.18 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "d2bda1b2-7ce0-55c2-8e91-195c5d031be8"))
+  (pin "USB4_OC" input
+    (at 220.98 302.26 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "8843cc2e-cb2a-5745-aa73-b61afbe88fec"))
+  (instances
+    (project "pulsardewhub"
+      (path "/e52b73dc-d0d2-4d83-a7ea-224e97decc28"
+        (page "6")))))
+(label "VIN"  (at 363.2200 53.3400 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "e924f935-8e76-5447-aa72-f558bd3f75b2"))
+(label "V3"  (at 363.2200 58.4200 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "ba7392d7-8b0c-552f-a91e-99ed35797ff8"))
+(label "GND"  (at 363.2200 63.5000 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "051372a3-7a63-5451-8a51-4a84ef3d8d9f"))
+(label "DC_EN1"  (at 363.2200 68.5800 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "3d6c09b7-3330-562c-8678-8b039c1f8553"))
+(label "IMON1"  (at 363.2200 73.6600 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "51f8769c-bfb4-5bfd-a915-c32aa582893a"))
+(label "DC_FLT1"  (at 363.2200 78.7400 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "5818be91-1353-5520-8cbd-b41d2537bdd5"))
+(sheet
+  (at 375.92 43.18)
+  (size 68.58 45.72)
+  (stroke
+    (width 0.1524)
+    (type default))
+  (fill
+    (color 0 0 0 0))
+  (uuid "d2e88470-12cd-59b9-9697-ccd8a806c624")
+  (property "Sheetname" "DC outlet 1"
+    (at 375.92 40.64 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (property "Sheetfile" "dc_outlet.kicad_sch"
+    (at 375.92 91.44 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (pin "VIN" input
+    (at 375.92 53.34 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "1ad1d882-30d6-5a22-be3c-4e65a24aef80"))
+  (pin "V3" input
+    (at 375.92 58.42 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "c9895625-cecb-5acb-9849-0cdceec4fee3"))
+  (pin "GND" input
+    (at 375.92 63.5 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "c93f0cbe-6e74-5de8-b15c-cdd3ecc255c5"))
+  (pin "ENABLE" input
+    (at 375.92 68.58 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "5e12af0a-566f-59cc-a56c-32eaf231a53a"))
+  (pin "CURRENT" output
+    (at 375.92 73.66 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "3dac28a1-f9e0-5b17-9979-886419ac77f4"))
+  (pin "FAULT" output
+    (at 375.92 78.74 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "887a50ee-eaf5-5e32-91c1-4ea5be7da068"))
+  (instances
+    (project "pulsardewhub"
+      (path "/e52b73dc-d0d2-4d83-a7ea-224e97decc28"
+        (page "7")))))
+(label "V5"  (at 497.8400 53.3400 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "dafcbd11-fad8-5997-84a4-0fb01a2aaa30"))
+(label "GND"  (at 497.8400 58.4200 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "f313d74c-73fc-5099-9d2e-d637a6715e5d"))
+(label "USB1_DP"  (at 497.8400 63.5000 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "5590ad3e-3404-556e-b307-abdb938f5301"))
+(label "USB1_DM"  (at 497.8400 68.5800 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "8c4baa37-c870-5178-8821-b7421f566904"))
+(label "USB1_EN"  (at 497.8400 73.6600 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "356cb09e-fa22-58a9-b7a1-8febf5f90852"))
+(label "USB1_OC"  (at 497.8400 78.7400 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "a900a116-1dc3-52cb-a0fe-225cac50cbf9"))
+(sheet
+  (at 510.54 43.18)
+  (size 63.5 45.72)
+  (stroke
+    (width 0.1524)
+    (type default))
+  (fill
+    (color 0 0 0 0))
+  (uuid "17c516fe-b5cd-5f55-8c87-0a8a39b35251")
+  (property "Sheetname" "USB port 1"
+    (at 510.54 40.64 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (property "Sheetfile" "usb_port.kicad_sch"
+    (at 510.54 91.44 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (pin "V5" input
+    (at 510.54 53.34 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "087a5913-4ce4-51f1-a82e-f1d25eb5743e"))
+  (pin "GND" input
+    (at 510.54 58.42 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "9dcfccc5-40f0-541e-84d1-8a3a83312bd2"))
+  (pin "DP" bidirectional
+    (at 510.54 63.5 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "8967cc9a-1116-52a1-ba2b-a2df865c925c"))
+  (pin "DM" bidirectional
+    (at 510.54 68.58 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "6e81bfd1-03d1-5f13-befe-888ecb83207d"))
+  (pin "ENABLE" input
+    (at 510.54 73.66 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "fc6f0e42-ae6d-5227-b6fd-3353030c1de3"))
+  (pin "OVERCURRENT" output
+    (at 510.54 78.74 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "ec52589a-fcfc-523d-b0f0-933c9aea296d"))
+  (instances
+    (project "pulsardewhub"
+      (path "/e52b73dc-d0d2-4d83-a7ea-224e97decc28"
+        (page "8")))))
+(label "VIN"  (at 363.2200 134.6200 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "da4933d6-a847-5e60-ae98-3ae77bc858e8"))
+(label "V3"  (at 363.2200 139.7000 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "2fe40c59-bcd2-528d-8017-e45ca9400f75"))
+(label "GND"  (at 363.2200 144.7800 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "eb0b49c8-f35c-58b4-b6b3-5909e8594d4b"))
+(label "DC_EN2"  (at 363.2200 149.8600 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "443981e6-7cb8-5ec4-a3e0-e8f8fa430f3f"))
+(label "IMON2"  (at 363.2200 154.9400 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "482f0001-7d71-5382-9d98-2e65c9fd83cc"))
+(label "DC_FLT2"  (at 363.2200 160.0200 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "5a7c89fd-ddda-55e4-a4d5-22877179a20c"))
+(sheet
+  (at 375.92 124.46)
+  (size 68.58 45.72)
+  (stroke
+    (width 0.1524)
+    (type default))
+  (fill
+    (color 0 0 0 0))
+  (uuid "f7c9f3d4-53db-5e2e-b01b-13937a8f3868")
+  (property "Sheetname" "DC outlet 2"
+    (at 375.92 121.92 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (property "Sheetfile" "dc_outlet.kicad_sch"
+    (at 375.92 172.72 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (pin "VIN" input
+    (at 375.92 134.62 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "65d35b59-fda3-5e72-8cfe-f415f4eb3e5c"))
+  (pin "V3" input
+    (at 375.92 139.7 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "0f624bd7-6d7e-50db-b280-b12670acf329"))
+  (pin "GND" input
+    (at 375.92 144.78 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "68fc8984-915a-5b55-9c3e-8ef4ca6ab53b"))
+  (pin "ENABLE" input
+    (at 375.92 149.86 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "c3bbe70f-4514-5880-8d68-f584cdf5581e"))
+  (pin "CURRENT" output
+    (at 375.92 154.94 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "ab59ddc7-361e-5d5c-9ad7-b6a9cd807c49"))
+  (pin "FAULT" output
+    (at 375.92 160.02 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "1b6d573d-2319-5c44-946b-48d0d1017a53"))
+  (instances
+    (project "pulsardewhub"
+      (path "/e52b73dc-d0d2-4d83-a7ea-224e97decc28"
+        (page "9")))))
+(label "V5"  (at 497.8400 134.6200 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "f3f3ef3a-4810-5682-bef0-0efd50fe9b08"))
+(label "GND"  (at 497.8400 139.7000 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "bbdea524-fa07-5104-8bf5-5e1a28ae0843"))
+(label "USB2_DP"  (at 497.8400 144.7800 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "ae9df0ae-f999-550e-a816-57e021795b08"))
+(label "USB2_DM"  (at 497.8400 149.8600 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "519498dd-23d2-58f6-9005-f44b60407e96"))
+(label "USB2_EN"  (at 497.8400 154.9400 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "aa0c67d1-bf6e-5835-8789-4460fdf2479e"))
+(label "USB2_OC"  (at 497.8400 160.0200 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "2824e518-b30b-533c-a9b7-22a952b7c117"))
+(sheet
+  (at 510.54 124.46)
+  (size 63.5 45.72)
+  (stroke
+    (width 0.1524)
+    (type default))
+  (fill
+    (color 0 0 0 0))
+  (uuid "acbe77a9-d84d-54b4-9841-742e50ba8b5b")
+  (property "Sheetname" "USB port 2"
+    (at 510.54 121.92 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (property "Sheetfile" "usb_port.kicad_sch"
+    (at 510.54 172.72 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (pin "V5" input
+    (at 510.54 134.62 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "46d8185a-f016-57ef-9f25-f390ed990e3e"))
+  (pin "GND" input
+    (at 510.54 139.7 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "966c8d9e-764d-51df-b2c3-db1c0b4ae72b"))
+  (pin "DP" bidirectional
+    (at 510.54 144.78 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "d299fdf0-e2cd-5fc5-a2f2-d8bfb8c50045"))
+  (pin "DM" bidirectional
+    (at 510.54 149.86 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "6e4c0a7b-21a8-5b4c-b956-28053a2ede29"))
+  (pin "ENABLE" input
+    (at 510.54 154.94 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "47ead377-acfd-539c-b90a-7db91c6b192e"))
+  (pin "OVERCURRENT" output
+    (at 510.54 160.02 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "30953ffd-d7bc-52eb-853c-84a6a6041806"))
+  (instances
+    (project "pulsardewhub"
+      (path "/e52b73dc-d0d2-4d83-a7ea-224e97decc28"
+        (page "10")))))
+(label "VIN"  (at 363.2200 215.9000 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "da62058a-e8c4-5433-8d34-d348836a171a"))
+(label "V3"  (at 363.2200 220.9800 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "f4c07847-62c2-59ed-8013-1daba98537e5"))
+(label "GND"  (at 363.2200 226.0600 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "0d03344a-c77c-5bb5-ab72-1842a368c182"))
+(label "DC_EN3"  (at 363.2200 231.1400 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "0f2b364c-f5f8-57ee-89a5-f4161ec46cf9"))
+(label "IMON3"  (at 363.2200 236.2200 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "7a89a580-dde3-5eaa-883b-bc1a429274ab"))
+(label "DC_FLT3"  (at 363.2200 241.3000 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "326e17bb-4a96-5d92-88b6-4267a21a523d"))
+(sheet
+  (at 375.92 205.74)
+  (size 68.58 45.72)
+  (stroke
+    (width 0.1524)
+    (type default))
+  (fill
+    (color 0 0 0 0))
+  (uuid "2e1dd9f2-93df-56e1-9333-15be01ef6ad7")
+  (property "Sheetname" "DC outlet 3"
+    (at 375.92 203.2 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (property "Sheetfile" "dc_outlet.kicad_sch"
+    (at 375.92 254.0 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (pin "VIN" input
+    (at 375.92 215.9 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "a934e830-96fe-527b-b7b2-2b142c3cfa5e"))
+  (pin "V3" input
+    (at 375.92 220.98 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "d5017572-75fc-545b-99cf-da2f944c4c3f"))
+  (pin "GND" input
+    (at 375.92 226.06 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "3fa2cfd5-b2d2-5050-a165-446c9367089e"))
+  (pin "ENABLE" input
+    (at 375.92 231.14 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "bdb6110c-c45d-5b77-8bc4-3f1ac28ddc0c"))
+  (pin "CURRENT" output
+    (at 375.92 236.22 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "e1b3149f-e4c4-5d85-9584-b8fc64d41475"))
+  (pin "FAULT" output
+    (at 375.92 241.3 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "1020fc25-d750-5067-b24c-d344ab24cc76"))
+  (instances
+    (project "pulsardewhub"
+      (path "/e52b73dc-d0d2-4d83-a7ea-224e97decc28"
+        (page "11")))))
+(label "V5"  (at 497.8400 215.9000 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "56204013-e454-5365-99be-1bf338976813"))
+(label "GND"  (at 497.8400 220.9800 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "c7aee66c-291a-5fb3-8df9-4c620f049206"))
+(label "USB3_DP"  (at 497.8400 226.0600 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "6e29f68a-824e-53ef-a60f-5cedf153254b"))
+(label "USB3_DM"  (at 497.8400 231.1400 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "073d573f-7a5e-5fac-bd83-424572b950d7"))
+(label "USB3_EN"  (at 497.8400 236.2200 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "230ce16b-2a5a-5d54-86f4-3854b6207587"))
+(label "USB3_OC"  (at 497.8400 241.3000 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "f584fcd2-df80-5f80-af94-63eb1d7f596a"))
+(sheet
+  (at 510.54 205.74)
+  (size 63.5 45.72)
+  (stroke
+    (width 0.1524)
+    (type default))
+  (fill
+    (color 0 0 0 0))
+  (uuid "2e31694f-924e-576a-a8da-a5af130957a1")
+  (property "Sheetname" "USB port 3"
+    (at 510.54 203.2 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (property "Sheetfile" "usb_port.kicad_sch"
+    (at 510.54 254.0 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (pin "V5" input
+    (at 510.54 215.9 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "2a87b0fe-aacb-5f52-8b58-0c116d04f908"))
+  (pin "GND" input
+    (at 510.54 220.98 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "7d33c4fc-f81d-59c6-a74f-46537a2e18b4"))
+  (pin "DP" bidirectional
+    (at 510.54 226.06 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "10404279-b1e5-5d6b-abb2-9e96448f2f27"))
+  (pin "DM" bidirectional
+    (at 510.54 231.14 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "3b3254c9-0347-5d51-964c-f981afdc4031"))
+  (pin "ENABLE" input
+    (at 510.54 236.22 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "b85dee0d-72af-5f85-8b4d-5da9f4661d4f"))
+  (pin "OVERCURRENT" output
+    (at 510.54 241.3 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "89403735-3b45-5733-9e98-35449b511e5a"))
+  (instances
+    (project "pulsardewhub"
+      (path "/e52b73dc-d0d2-4d83-a7ea-224e97decc28"
+        (page "12")))))
+(label "VIN"  (at 363.2200 297.1800 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "ee8b6d20-d4ed-5619-9cb3-6e63427e0968"))
+(label "V3"  (at 363.2200 302.2600 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "78c16f17-04b1-56aa-b703-4edab04f22dc"))
+(label "GND"  (at 363.2200 307.3400 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "839aad11-72ac-5e6f-ab98-d370b6e37b6b"))
+(label "DC_EN4"  (at 363.2200 312.4200 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "34ac9486-e7d8-5e3c-9de6-f7c91ac1b599"))
+(label "IMON4"  (at 363.2200 317.5000 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "0016271d-1bc3-5a2a-9c7c-4a3756b5a258"))
+(label "DC_FLT4"  (at 363.2200 322.5800 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "c45acd35-dabc-58eb-b237-211a9d9737d7"))
+(sheet
+  (at 375.92 287.02)
+  (size 68.58 45.72)
+  (stroke
+    (width 0.1524)
+    (type default))
+  (fill
+    (color 0 0 0 0))
+  (uuid "de8f2b8d-15bc-5d21-8284-735c8ddeff77")
+  (property "Sheetname" "DC outlet 4"
+    (at 375.92 284.48 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (property "Sheetfile" "dc_outlet.kicad_sch"
+    (at 375.92 335.28 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (pin "VIN" input
+    (at 375.92 297.18 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "9e21a1f9-fb51-5440-a05c-85f41b8bd21a"))
+  (pin "V3" input
+    (at 375.92 302.26 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "4d90a9b0-5420-5e58-8ad7-acae7d76893b"))
+  (pin "GND" input
+    (at 375.92 307.34 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "721449a7-67a7-5021-af26-0f546f5c1dd0"))
+  (pin "ENABLE" input
+    (at 375.92 312.42 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "4498c09f-081a-521c-8207-b0098ed10dd4"))
+  (pin "CURRENT" output
+    (at 375.92 317.5 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "e6048715-020b-535e-8ee6-7599c8e23e2c"))
+  (pin "FAULT" output
+    (at 375.92 322.58 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "d7d8447f-ccb6-5399-af4d-6decde173626"))
+  (instances
+    (project "pulsardewhub"
+      (path "/e52b73dc-d0d2-4d83-a7ea-224e97decc28"
+        (page "13")))))
+(label "V5"  (at 497.8400 297.1800 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "a2e0200f-13a4-57f9-a385-5fb931b62b51"))
+(label "GND"  (at 497.8400 302.2600 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "8ecb5831-5048-5d75-aff9-315ee9a66aab"))
+(label "USB4_DP"  (at 497.8400 307.3400 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "6c1ee32b-0cff-5a2f-86f3-94ee5cb98439"))
+(label "USB4_DM"  (at 497.8400 312.4200 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "a61d3bbd-84ac-5839-99be-3089eec97d4c"))
+(label "USB4_EN"  (at 497.8400 317.5000 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "21cd7390-317d-5d21-a35c-3d14c52f0443"))
+(label "USB4_OC"  (at 497.8400 322.5800 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "6bcb34bc-0f37-5662-a145-25b126ed3139"))
+(sheet
+  (at 510.54 287.02)
+  (size 63.5 45.72)
+  (stroke
+    (width 0.1524)
+    (type default))
+  (fill
+    (color 0 0 0 0))
+  (uuid "becd4dea-f771-5559-ac6f-e042bb4a2c0d")
+  (property "Sheetname" "USB port 4"
+    (at 510.54 284.48 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (property "Sheetfile" "usb_port.kicad_sch"
+    (at 510.54 335.28 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (pin "V5" input
+    (at 510.54 297.18 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "81a8a268-fb6f-5258-8eba-6f20f3802307"))
+  (pin "GND" input
+    (at 510.54 302.26 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "c252080e-928d-5578-9b6e-457d97ee2ca1"))
+  (pin "DP" bidirectional
+    (at 510.54 307.34 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "222d1e60-45bb-5d64-9bba-2a6958ade5ef"))
+  (pin "DM" bidirectional
+    (at 510.54 312.42 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "28bb85a0-20a5-5005-a395-8da54f72b160"))
+  (pin "ENABLE" input
+    (at 510.54 317.5 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "4dc06fdb-fb93-575f-a3a0-7532c052beda"))
+  (pin "OVERCURRENT" output
+    (at 510.54 322.58 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "d876d538-df2a-5c1f-a9f7-3987cd1bf7a0"))
+  (instances
+    (project "pulsardewhub"
+      (path "/e52b73dc-d0d2-4d83-a7ea-224e97decc28"
+        (page "14")))))
+(text "RATINGS TO VALIDATE\n12-20 V nominal input\n4 x 5 A DC outlet targets\n2 x 5 A heater targets\n25 A shared XT60 budget\n3.5 A continuous barrel budget\nUSB: 500 mA per port\nNo PWM on DC outlets" (at 25.4000 281.9400 0) (effects (font (size 1.5 1.5)) (justify left top)) (uuid "655ad456-87cd-5a24-8840-7ebc420b0b23"))
+(text "Same ground throughout.\nHigh-current and USB return paths\nare separated by placement.\nDo not backfeed DC outputs." (at 25.4000 353.0600 0) (effects (font (size 1.27 1.27)) (justify left top)) (uuid "c7225a9d-3261-540e-986d-d67a7b916deb"))
+(wire (pts (xy 17.7800 58.4200) (xy 17.7800 119.3800)) (stroke (width 0) (type default)) (uuid "ae7fc294-d71e-5f58-a3de-69bafcc1ba39"))
+(wire (pts (xy 17.7800 58.4200) (xy 40.6400 58.4200)) (stroke (width 0) (type default)) (uuid "abf74e8c-8bd0-5d2b-a614-dd903eef6efe"))
+(wire (pts (xy 17.7800 119.3800) (xy 17.7800 208.2800)) (stroke (width 0) (type default)) (uuid "4f955e40-6eed-5c78-9516-fb2a054710eb"))
+(wire (pts (xy 17.7800 119.3800) (xy 40.6400 119.3800)) (stroke (width 0) (type default)) (uuid "f568d923-b052-5749-ba7f-d197c65f6741"))
+(wire (pts (xy 17.7800 208.2800) (xy 40.6400 208.2800)) (stroke (width 0) (type default)) (uuid "e34bbdc6-7f6e-52cf-8863-965b6bceae42"))
+(wire (pts (xy 20.3200 53.3400) (xy 20.3200 114.3000)) (stroke (width 0) (type default)) (uuid "7e5411ae-0fa1-5d72-8b39-a2813fcba04b"))
+(wire (pts (xy 20.3200 53.3400) (xy 40.6400 53.3400)) (stroke (width 0) (type default)) (uuid "3e6a64f1-42fd-5437-b5ac-04346d841918"))
+(wire (pts (xy 20.3200 114.3000) (xy 20.3200 198.1200)) (stroke (width 0) (type default)) (uuid "c501a424-b25d-5f8e-95e6-592392d78b26"))
+(wire (pts (xy 20.3200 114.3000) (xy 40.6400 114.3000)) (stroke (width 0) (type default)) (uuid "c8960f67-0f67-5fb2-957f-7d7039374d19"))
+(wire (pts (xy 20.3200 198.1200) (xy 40.6400 198.1200)) (stroke (width 0) (type default)) (uuid "7ed17c56-16d0-564e-a9c1-00bfbe1b50c0"))
+(wire (pts (xy 25.4000 124.4600) (xy 25.4000 203.2000)) (stroke (width 0) (type default)) (uuid "f6fe649d-d13c-5f69-a593-6feaaf2f4a90"))
+(wire (pts (xy 25.4000 124.4600) (xy 40.6400 124.4600)) (stroke (width 0) (type default)) (uuid "30f32f12-43c1-550e-84c3-b588b2292da2"))
+(wire (pts (xy 25.4000 203.2000) (xy 40.6400 203.2000)) (stroke (width 0) (type default)) (uuid "d614ac50-c402-543b-a50e-2faa4769fdef"))
+(wire (pts (xy 27.9400 129.5400) (xy 27.9400 223.5200)) (stroke (width 0) (type default)) (uuid "d71a3f4b-c918-58a9-8295-a6e8465644b1"))
+(wire (pts (xy 27.9400 129.5400) (xy 40.6400 129.5400)) (stroke (width 0) (type default)) (uuid "698ec104-5531-5c33-9668-71cc500c4eab"))
+(wire (pts (xy 27.9400 223.5200) (xy 40.6400 223.5200)) (stroke (width 0) (type default)) (uuid "6bcfb77f-1585-5e7f-8db5-59a97d5a1b39"))
+(wire (pts (xy 40.6400 53.3400) (xy 53.3400 53.3400)) (stroke (width 0) (type default)) (uuid "616c589b-82cd-523b-9a41-4aaf63bdc273"))
+(wire (pts (xy 40.6400 58.4200) (xy 53.3400 58.4200)) (stroke (width 0) (type default)) (uuid "47b9e7c5-2bb1-505b-91e0-b99d82dea7a2"))
+(wire (pts (xy 40.6400 114.3000) (xy 53.3400 114.3000)) (stroke (width 0) (type default)) (uuid "ceb96ef6-39c9-51c9-97a9-9b61423979b0"))
+(wire (pts (xy 40.6400 119.3800) (xy 53.3400 119.3800)) (stroke (width 0) (type default)) (uuid "27deefcb-4bf5-5a57-8490-33f4f6a16432"))
+(wire (pts (xy 40.6400 124.4600) (xy 53.3400 124.4600)) (stroke (width 0) (type default)) (uuid "827dfc8b-97ce-5624-93f8-6dc838b81cb7"))
+(wire (pts (xy 40.6400 129.5400) (xy 53.3400 129.5400)) (stroke (width 0) (type default)) (uuid "c357c7b9-cde5-5b36-b27d-a0f7fe34caa8"))
+(wire (pts (xy 40.6400 198.1200) (xy 53.3400 198.1200)) (stroke (width 0) (type default)) (uuid "e213b939-20dc-5a02-a091-aaa477e02004"))
+(wire (pts (xy 40.6400 203.2000) (xy 53.3400 203.2000)) (stroke (width 0) (type default)) (uuid "24ea08c7-779b-5225-a6ab-83dab9258975"))
+(wire (pts (xy 40.6400 208.2800) (xy 53.3400 208.2800)) (stroke (width 0) (type default)) (uuid "fc21b499-5da2-54e1-a3a4-58aa46d76171"))
+(wire (pts (xy 40.6400 213.3600) (xy 53.3400 213.3600)) (stroke (width 0) (type default)) (uuid "52e9bae1-3064-5a27-9899-fe4e2b4737f4"))
+(wire (pts (xy 40.6400 218.4400) (xy 53.3400 218.4400)) (stroke (width 0) (type default)) (uuid "10ebfa46-3da7-5f89-8409-a9ba31249a16"))
+(wire (pts (xy 40.6400 223.5200) (xy 53.3400 223.5200)) (stroke (width 0) (type default)) (uuid "d614710c-c0ab-5bbb-936d-3f97b89420bd"))
+(wire (pts (xy 40.6400 228.6000) (xy 53.3400 228.6000)) (stroke (width 0) (type default)) (uuid "d35c20c5-70e1-5b33-8eea-787be6becd6f"))
+(wire (pts (xy 40.6400 233.6800) (xy 53.3400 233.6800)) (stroke (width 0) (type default)) (uuid "0ce642bc-efdc-5c8a-9011-bccf7e193824"))
+(wire (pts (xy 208.2800 53.3400) (xy 220.9800 53.3400)) (stroke (width 0) (type default)) (uuid "c58e1270-d7df-53d8-8cdf-fb57054a86f0"))
+(wire (pts (xy 208.2800 58.4200) (xy 220.9800 58.4200)) (stroke (width 0) (type default)) (uuid "d85c5304-9dbe-52f2-bfda-4c1959630f75"))
+(wire (pts (xy 208.2800 63.5000) (xy 220.9800 63.5000)) (stroke (width 0) (type default)) (uuid "b5b9c988-195b-54b1-9783-942f030e66fa"))
+(wire (pts (xy 208.2800 68.5800) (xy 220.9800 68.5800)) (stroke (width 0) (type default)) (uuid "4c24ba9b-5e91-5454-9e4c-535e2e112ebf"))
+(wire (pts (xy 208.2800 73.6600) (xy 220.9800 73.6600)) (stroke (width 0) (type default)) (uuid "7d892191-b1f9-5a58-8c4f-a6ac030643a5"))
+(wire (pts (xy 208.2800 78.7400) (xy 220.9800 78.7400)) (stroke (width 0) (type default)) (uuid "eb886b85-6103-5398-aed9-c3fc3fa12c98"))
+(wire (pts (xy 208.2800 83.8200) (xy 220.9800 83.8200)) (stroke (width 0) (type default)) (uuid "13f6bfa6-1410-5633-9c01-82179b0a63b5"))
+(wire (pts (xy 208.2800 88.9000) (xy 220.9800 88.9000)) (stroke (width 0) (type default)) (uuid "9c00c7bd-1d8a-54ba-97d8-8aaac6acc6c0"))
+(wire (pts (xy 208.2800 93.9800) (xy 220.9800 93.9800)) (stroke (width 0) (type default)) (uuid "bdbb926c-f77b-5e90-82c3-4a6a64da41e9"))
+(wire (pts (xy 208.2800 99.0600) (xy 220.9800 99.0600)) (stroke (width 0) (type default)) (uuid "cfb6519a-c95c-5d4e-a50f-d52ad952b706"))
+(wire (pts (xy 208.2800 104.1400) (xy 220.9800 104.1400)) (stroke (width 0) (type default)) (uuid "662f6543-f40b-5038-ac5c-5820f11f7ecc"))
+(wire (pts (xy 208.2800 109.2200) (xy 220.9800 109.2200)) (stroke (width 0) (type default)) (uuid "6140cb58-3da8-52d6-8bdb-cfc21a894c23"))
+(wire (pts (xy 208.2800 114.3000) (xy 220.9800 114.3000)) (stroke (width 0) (type default)) (uuid "fb1bcad6-26fd-5a72-a15c-9587095984c3"))
+(wire (pts (xy 208.2800 119.3800) (xy 220.9800 119.3800)) (stroke (width 0) (type default)) (uuid "786a1d64-24b2-59b4-9061-0b019e28d02e"))
+(wire (pts (xy 208.2800 124.4600) (xy 220.9800 124.4600)) (stroke (width 0) (type default)) (uuid "06976289-1667-5db1-8a7c-c31c63941767"))
+(wire (pts (xy 208.2800 129.5400) (xy 220.9800 129.5400)) (stroke (width 0) (type default)) (uuid "62949565-609b-5ce9-9fb3-47782b9d1915"))
+(wire (pts (xy 208.2800 134.6200) (xy 220.9800 134.6200)) (stroke (width 0) (type default)) (uuid "3c89e099-3080-592e-b4ec-a2240662f062"))
+(wire (pts (xy 208.2800 139.7000) (xy 220.9800 139.7000)) (stroke (width 0) (type default)) (uuid "beeac07d-76e1-54cf-8e9c-ddb2568bf7dd"))
+(wire (pts (xy 208.2800 144.7800) (xy 220.9800 144.7800)) (stroke (width 0) (type default)) (uuid "aed0da61-178b-5ea5-be6a-f3c7aa0a3e86"))
+(wire (pts (xy 208.2800 149.8600) (xy 220.9800 149.8600)) (stroke (width 0) (type default)) (uuid "4c33c0dc-883b-5e00-b0de-dae3ccf4a2ef"))
+(wire (pts (xy 208.2800 154.9400) (xy 220.9800 154.9400)) (stroke (width 0) (type default)) (uuid "9600450b-c663-5bf1-836e-fe0d636fda13"))
+(wire (pts (xy 208.2800 200.6600) (xy 220.9800 200.6600)) (stroke (width 0) (type default)) (uuid "0be87706-0658-5f8b-9d46-3ba5a71509a0"))
+(wire (pts (xy 208.2800 205.7400) (xy 220.9800 205.7400)) (stroke (width 0) (type default)) (uuid "18038c36-f63f-5cb6-ae66-b1d2485b64e0"))
+(wire (pts (xy 208.2800 210.8200) (xy 220.9800 210.8200)) (stroke (width 0) (type default)) (uuid "57e7a12b-8eb8-5477-b414-21787a03e714"))
+(wire (pts (xy 208.2800 215.9000) (xy 220.9800 215.9000)) (stroke (width 0) (type default)) (uuid "67bbc619-8e8a-58e0-9d4d-935b89671102"))
+(wire (pts (xy 208.2800 220.9800) (xy 220.9800 220.9800)) (stroke (width 0) (type default)) (uuid "f33fc017-68fa-5b85-8888-03bc6815fc7d"))
+(wire (pts (xy 208.2800 226.0600) (xy 220.9800 226.0600)) (stroke (width 0) (type default)) (uuid "0794664f-d229-5b96-a0fd-063b40733f97"))
+(wire (pts (xy 208.2800 231.1400) (xy 220.9800 231.1400)) (stroke (width 0) (type default)) (uuid "d8a7ab28-4ed7-5130-a984-0fa213a5df53"))
+(wire (pts (xy 208.2800 236.2200) (xy 220.9800 236.2200)) (stroke (width 0) (type default)) (uuid "70e10b19-6001-5761-b520-d85280aca182"))
+(wire (pts (xy 208.2800 241.3000) (xy 220.9800 241.3000)) (stroke (width 0) (type default)) (uuid "821b8703-f4a7-5007-9b10-80fa08307950"))
+(wire (pts (xy 208.2800 246.3800) (xy 220.9800 246.3800)) (stroke (width 0) (type default)) (uuid "a5f306d1-a81f-52c8-8916-77ce9bf52072"))
+(wire (pts (xy 208.2800 251.4600) (xy 220.9800 251.4600)) (stroke (width 0) (type default)) (uuid "8d158393-70a8-568c-93aa-006ab93a0cf5"))
+(wire (pts (xy 208.2800 256.5400) (xy 220.9800 256.5400)) (stroke (width 0) (type default)) (uuid "413e1270-e568-51ce-8f46-9a7fa97e2282"))
+(wire (pts (xy 208.2800 261.6200) (xy 220.9800 261.6200)) (stroke (width 0) (type default)) (uuid "93e961e4-4ed8-510f-ab9c-4f847052cb30"))
+(wire (pts (xy 208.2800 266.7000) (xy 220.9800 266.7000)) (stroke (width 0) (type default)) (uuid "3e1fda87-641a-5276-a6dd-9b80000b375f"))
+(wire (pts (xy 208.2800 271.7800) (xy 220.9800 271.7800)) (stroke (width 0) (type default)) (uuid "37b8b03f-cc7a-517f-ac8e-f9dbb2b4061f"))
+(wire (pts (xy 208.2800 276.8600) (xy 220.9800 276.8600)) (stroke (width 0) (type default)) (uuid "7523531e-8943-5ba4-933f-d11b5b0c452d"))
+(wire (pts (xy 208.2800 281.9400) (xy 220.9800 281.9400)) (stroke (width 0) (type default)) (uuid "d9d967e5-bd03-520b-aa2f-3460b0def3b9"))
+(wire (pts (xy 208.2800 287.0200) (xy 220.9800 287.0200)) (stroke (width 0) (type default)) (uuid "254ea905-7bed-5ac1-a052-46bcfd0808ea"))
+(wire (pts (xy 208.2800 292.1000) (xy 220.9800 292.1000)) (stroke (width 0) (type default)) (uuid "63e664cc-11b6-5ead-843c-0b645d6dfc03"))
+(wire (pts (xy 208.2800 297.1800) (xy 220.9800 297.1800)) (stroke (width 0) (type default)) (uuid "65458422-18e6-5d28-8e2d-b2a7009b740a"))
+(wire (pts (xy 208.2800 302.2600) (xy 220.9800 302.2600)) (stroke (width 0) (type default)) (uuid "853671e3-d887-5772-8371-83be13830cba"))
+(wire (pts (xy 363.2200 53.3400) (xy 375.9200 53.3400)) (stroke (width 0) (type default)) (uuid "75e9d539-72a0-5e9f-9cfe-a7d9ffcb968f"))
+(wire (pts (xy 363.2200 58.4200) (xy 375.9200 58.4200)) (stroke (width 0) (type default)) (uuid "bc3e4d96-6c18-5d1e-970f-63bdadc50622"))
+(wire (pts (xy 363.2200 63.5000) (xy 375.9200 63.5000)) (stroke (width 0) (type default)) (uuid "82c6492d-d7d0-5329-a02b-bf04f3a59ab1"))
+(wire (pts (xy 363.2200 68.5800) (xy 375.9200 68.5800)) (stroke (width 0) (type default)) (uuid "ec64c4ec-039e-502e-9b4f-8b43d0a5a6d1"))
+(wire (pts (xy 363.2200 73.6600) (xy 375.9200 73.6600)) (stroke (width 0) (type default)) (uuid "9897f4f5-1b58-5c4a-b583-e341c00914b9"))
+(wire (pts (xy 363.2200 78.7400) (xy 375.9200 78.7400)) (stroke (width 0) (type default)) (uuid "142a5b53-d438-5a2c-bc41-81d3ec86d4da"))
+(wire (pts (xy 363.2200 134.6200) (xy 375.9200 134.6200)) (stroke (width 0) (type default)) (uuid "0a24e4b3-0574-59f1-be67-bd625b338393"))
+(wire (pts (xy 363.2200 139.7000) (xy 375.9200 139.7000)) (stroke (width 0) (type default)) (uuid "002dcf9e-7f78-5d34-bfd6-8293b653d143"))
+(wire (pts (xy 363.2200 144.7800) (xy 375.9200 144.7800)) (stroke (width 0) (type default)) (uuid "0d6fcf61-cd7f-59e6-b3eb-095a43a5b5ed"))
+(wire (pts (xy 363.2200 149.8600) (xy 375.9200 149.8600)) (stroke (width 0) (type default)) (uuid "b42ee245-0b99-59f4-9235-e61e984b2720"))
+(wire (pts (xy 363.2200 154.9400) (xy 375.9200 154.9400)) (stroke (width 0) (type default)) (uuid "de1e7462-b8e2-56f2-9a5c-f41358744953"))
+(wire (pts (xy 363.2200 160.0200) (xy 375.9200 160.0200)) (stroke (width 0) (type default)) (uuid "b75b08f0-6ee0-5dd3-8e24-ad7c8f440604"))
+(wire (pts (xy 363.2200 215.9000) (xy 375.9200 215.9000)) (stroke (width 0) (type default)) (uuid "87d9f726-6de3-5062-a825-8f2430402d52"))
+(wire (pts (xy 363.2200 220.9800) (xy 375.9200 220.9800)) (stroke (width 0) (type default)) (uuid "06f393de-35f2-5201-8eca-95ce6837d077"))
+(wire (pts (xy 363.2200 226.0600) (xy 375.9200 226.0600)) (stroke (width 0) (type default)) (uuid "1fd60886-d10c-5b06-909a-f09ccc262ca7"))
+(wire (pts (xy 363.2200 231.1400) (xy 375.9200 231.1400)) (stroke (width 0) (type default)) (uuid "a2e5fab4-2530-5cab-a46b-2e336d94f547"))
+(wire (pts (xy 363.2200 236.2200) (xy 375.9200 236.2200)) (stroke (width 0) (type default)) (uuid "227ec64b-76bc-5a23-82c1-83914b27079f"))
+(wire (pts (xy 363.2200 241.3000) (xy 375.9200 241.3000)) (stroke (width 0) (type default)) (uuid "f0087754-cebe-5f48-aa50-ee00e6adc5f6"))
+(wire (pts (xy 363.2200 297.1800) (xy 375.9200 297.1800)) (stroke (width 0) (type default)) (uuid "c0ca6755-20a1-58bc-a37a-1c9a5fc8829f"))
+(wire (pts (xy 363.2200 302.2600) (xy 375.9200 302.2600)) (stroke (width 0) (type default)) (uuid "ea5593ec-a4bd-5cac-94ee-3ce68cf3575f"))
+(wire (pts (xy 363.2200 307.3400) (xy 375.9200 307.3400)) (stroke (width 0) (type default)) (uuid "746e620d-3a30-56af-afec-481a72b8f28e"))
+(wire (pts (xy 363.2200 312.4200) (xy 375.9200 312.4200)) (stroke (width 0) (type default)) (uuid "1d6fb923-8a6d-52b9-ac30-4e30b137a081"))
+(wire (pts (xy 363.2200 317.5000) (xy 375.9200 317.5000)) (stroke (width 0) (type default)) (uuid "8def62bd-598e-5ab3-89ce-a92395e116ce"))
+(wire (pts (xy 363.2200 322.5800) (xy 375.9200 322.5800)) (stroke (width 0) (type default)) (uuid "9b548b73-5f11-5e2c-badb-48c0b5bf711d"))
+(wire (pts (xy 497.8400 53.3400) (xy 510.5400 53.3400)) (stroke (width 0) (type default)) (uuid "ee2ec147-7f9d-504c-abb7-f828da95aacd"))
+(wire (pts (xy 497.8400 58.4200) (xy 510.5400 58.4200)) (stroke (width 0) (type default)) (uuid "66482bee-116c-54bd-9942-97761e5aee53"))
+(wire (pts (xy 497.8400 63.5000) (xy 510.5400 63.5000)) (stroke (width 0) (type default)) (uuid "47a6f93d-cf42-5c36-a639-f853764223d4"))
+(wire (pts (xy 497.8400 68.5800) (xy 510.5400 68.5800)) (stroke (width 0) (type default)) (uuid "8f38c376-1d2d-54eb-b6ed-7a14e9f77a8f"))
+(wire (pts (xy 497.8400 73.6600) (xy 510.5400 73.6600)) (stroke (width 0) (type default)) (uuid "b22e46b9-bf34-5623-8084-095ce545c658"))
+(wire (pts (xy 497.8400 78.7400) (xy 510.5400 78.7400)) (stroke (width 0) (type default)) (uuid "68a780b3-9a71-5a34-aec3-1e834a2e38b8"))
+(wire (pts (xy 497.8400 134.6200) (xy 510.5400 134.6200)) (stroke (width 0) (type default)) (uuid "3e37f0fa-9d71-592d-aacb-d496cc69200c"))
+(wire (pts (xy 497.8400 139.7000) (xy 510.5400 139.7000)) (stroke (width 0) (type default)) (uuid "02d536e3-c68b-5c24-826b-8fe991463942"))
+(wire (pts (xy 497.8400 144.7800) (xy 510.5400 144.7800)) (stroke (width 0) (type default)) (uuid "fcefe65f-8a2b-5add-a2c8-887761b18b92"))
+(wire (pts (xy 497.8400 149.8600) (xy 510.5400 149.8600)) (stroke (width 0) (type default)) (uuid "eca51916-030f-5750-a312-82d40d39c940"))
+(wire (pts (xy 497.8400 154.9400) (xy 510.5400 154.9400)) (stroke (width 0) (type default)) (uuid "a77692cc-0fad-5a17-b4ec-f9d773250339"))
+(wire (pts (xy 497.8400 160.0200) (xy 510.5400 160.0200)) (stroke (width 0) (type default)) (uuid "ff2376bd-6e3c-5a2f-8245-625ca3ca4852"))
+(wire (pts (xy 497.8400 215.9000) (xy 510.5400 215.9000)) (stroke (width 0) (type default)) (uuid "bb856354-82e5-533e-a6a4-f531f1b86345"))
+(wire (pts (xy 497.8400 220.9800) (xy 510.5400 220.9800)) (stroke (width 0) (type default)) (uuid "db83effe-85e5-533c-9d6a-f2530fdba61a"))
+(wire (pts (xy 497.8400 226.0600) (xy 510.5400 226.0600)) (stroke (width 0) (type default)) (uuid "ca5920b5-8511-553e-a1e6-b593415d8e50"))
+(wire (pts (xy 497.8400 231.1400) (xy 510.5400 231.1400)) (stroke (width 0) (type default)) (uuid "43a5e108-2f96-5f22-834c-82945a8153ce"))
+(wire (pts (xy 497.8400 236.2200) (xy 510.5400 236.2200)) (stroke (width 0) (type default)) (uuid "93ee3aa3-36a2-5e3f-b92f-efa30fbe728e"))
+(wire (pts (xy 497.8400 241.3000) (xy 510.5400 241.3000)) (stroke (width 0) (type default)) (uuid "a6b5dc28-539c-5972-896e-5a453d4d5a3a"))
+(wire (pts (xy 497.8400 297.1800) (xy 510.5400 297.1800)) (stroke (width 0) (type default)) (uuid "bd1d9165-ada1-50a0-b132-aec6839e8ec0"))
+(wire (pts (xy 497.8400 302.2600) (xy 510.5400 302.2600)) (stroke (width 0) (type default)) (uuid "0c98cdcc-2ad1-5a04-bc01-f32665ca5cc4"))
+(wire (pts (xy 497.8400 307.3400) (xy 510.5400 307.3400)) (stroke (width 0) (type default)) (uuid "4f2b583b-b50f-5f8e-9020-16958b9e9af0"))
+(wire (pts (xy 497.8400 312.4200) (xy 510.5400 312.4200)) (stroke (width 0) (type default)) (uuid "bf56db53-2146-59d3-9a9e-9ce2da332e21"))
+(wire (pts (xy 497.8400 317.5000) (xy 510.5400 317.5000)) (stroke (width 0) (type default)) (uuid "5d0860cd-933e-5e57-8770-bb91773e959e"))
+(wire (pts (xy 497.8400 322.5800) (xy 510.5400 322.5800)) (stroke (width 0) (type default)) (uuid "670a971c-1eeb-5033-bef7-59f641d4861e"))
+(junction (at 17.7800 119.3800) (diameter 0) (color 0 0 0 0) (uuid "1ae7d0b9-185d-5f20-90a9-7b78c7b5a5ac"))
+(junction (at 20.3200 114.3000) (diameter 0) (color 0 0 0 0) (uuid "34865c58-4e85-58b5-abed-6638f04ee308"))
+(sheet_instances (path "/" (page "1")))
+(embedded_fonts no)
+)

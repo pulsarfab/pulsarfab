@@ -24,7 +24,7 @@
 KICAD_CLI ?= kicad-cli
 
 # Add new PCB projects here.
-PROJECTS    := pulsardew pulsardewpro crunchdefender
+PROJECTS    := pulsardew pulsardewhub pulsardewpro crunchdefender
 
 BOM_FIELDS  := $${ITEM_NUMBER},Reference,Value,Footprint,$${QUANTITY},LCSC,MPN,Manufacturer
 BOM_LABELS  := Item,Designator,Comment,Footprint,Qty,LCSC Part \#,MPN,Manufacturer
@@ -35,6 +35,7 @@ JLC_SCRIPT  := $(SCRIPTS_DIR)/jlcpcb-package.sh
 .PHONY: all docs jlc clean-docs clean-jlc help
 .PHONY: verify-pulsardew
 .PHONY: verify-floorplan-pulsardew
+.PHONY: verify-pulsardewhub verify-floorplan-pulsardewhub verify-release-pulsardewhub
 .PHONY: $(foreach p,$(PROJECTS),docs-$(p) images-$(p) bom-$(p) jlc-$(p) gen-$(p) check-$(p) render-$(p))
 
 all: docs
@@ -45,6 +46,18 @@ verify-pulsardew: pulsardew/pulsardew.kicad_sch
 
 verify-floorplan-pulsardew: pulsardew/pulsardew.kicad_pcb
 	@KICAD_CLI=$(KICAD_CLI) python3 $(SCRIPTS_DIR)/verify-floorplan.py $<
+
+verify-pulsardewhub: pulsardewhub/pulsardewhub.kicad_sch
+	@KICAD_CLI=$(KICAD_CLI) python3 $(SCRIPTS_DIR)/verify-pulsardewhub.py
+
+verify-floorplan-pulsardewhub: pulsardewhub/pulsardewhub.kicad_pcb
+	@KICAD_CLI=$(KICAD_CLI) python3 $(SCRIPTS_DIR)/verify-floorplan.py $<
+
+# A floorplan/BOM is useful for review, but must not produce a fabrication package.
+verify-release-pulsardewhub: verify-pulsardewhub pulsardewhub/pulsardewhub.kicad_pcb
+	@KICAD_CLI=$(KICAD_CLI) python3 $(SCRIPTS_DIR)/verify-floorplan.py --require-routed pulsardewhub/pulsardewhub.kicad_pcb
+
+jlc-pulsardewhub: verify-release-pulsardewhub
 
 help:
 	@echo "PulsarFab hardware makefile"
@@ -61,6 +74,8 @@ help:
 	@echo "  gen-<project>      Regenerate schematic from scripts/<project>.schgen.py"
 	@echo "  check-<project>    Sanity-check schematic (comps/footprints/dups/ERC)"
 	@echo "  verify-pulsardew   Strict ERC, exact net membership and footprint-pad checks"
+	@echo "  verify-pulsardewhub  Strict ERC and complete expanded-board net checks"
+	@echo "  verify-floorplan-pulsardewhub  DRC/parity review (fails on unresolved clearances)"
 	@echo "  render-<project>   Render schematic sheets to PNG for visual review"
 	@echo "  clean-docs         Remove generated docs"
 	@echo "  clean-jlc          Remove generated JLCPCB packages"
@@ -92,11 +107,11 @@ images-$(1): $$($(1)_SCH) $$($(1)_PCB)
 	@echo "[$(1)] Schematic SVGs"
 	$$(KICAD_CLI) sch export svg -o $$($(1)_IMG)/ $$($(1)_SCH)
 	@echo "[$(1)] PCB top SVG"
-	$$(KICAD_CLI) pcb export svg -o $$($(1)_IMG)/pcb-top.svg \
+	$$(KICAD_CLI) pcb export svg --mode-single --exclude-drawing-sheet -o $$($(1)_IMG)/pcb-top.svg \
 	    --layers "F.Cu,F.Silkscreen,F.Mask,Edge.Cuts" \
 	    --page-size-mode 2 $$($(1)_PCB)
 	@echo "[$(1)] PCB bottom SVG (mirrored)"
-	$$(KICAD_CLI) pcb export svg -o $$($(1)_IMG)/pcb-bottom.svg \
+	$$(KICAD_CLI) pcb export svg --mode-single --exclude-drawing-sheet -o $$($(1)_IMG)/pcb-bottom.svg \
 	    --layers "B.Cu,B.Silkscreen,B.Mask,Edge.Cuts" \
 	    --mirror --page-size-mode 2 $$($(1)_PCB)
 	@echo "[$(1)] 3D renders"
@@ -111,7 +126,7 @@ bom-$(1): $$($(1)_SCH)
 	    --output $$($(1)_BOM) \
 	    --fields '$$(BOM_FIELDS)' \
 	    --labels '$$(BOM_LABELS)' \
-	    --group-by 'Value,Footprint' \
+	    --group-by 'Value,Footprint,LCSC,MPN' \
 	    --exclude-dnp \
 	    $$($(1)_SCH)
 

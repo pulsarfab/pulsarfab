@@ -1,0 +1,132 @@
+{
+  "date": "2026-10-03",
+  "note": "Hashes identify local manufacturer-document copies reviewed during design. Linked documents may change. PDFs are not bundled. Use part-specific catalog URLs and the manufacturer references in README. The 451 fuse family covers both 5A and 7A; the inductor family covers 6.8uH and 8.2uH.",
+  "documents": [
+    {
+      "reviewed_file": "usb2517.pdf",
+      "lcsc": "C1521556",
+      "mpn": "USB2517-JZX",
+      "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/91d9ee3f35bf91e09515bc08ab5bdea0.pdf?productCode=C1521556",
+      "sha256": "de3a58b7966803c9a591fc1f8ab6a587cfe8647a3f373c4080dc0cf2af2ab418"
+    },
+    {
+      "reviewed_file": "tps2663-en.pdf",
+      "lcsc": "C2866319",
+      "mpn": "TPS26631PWPR",
+      "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/1e673a9d3411456469018b12bc5dcb14.pdf?productCode=C2866319",
+      "sha256": "bb61314ace65ed37684bd07f541fc676081d7cf81cb24020e7c5c2065bfe16b2"
+    },
+    {
+      "reviewed_file": "lm74700.pdf",
+      "lcsc": "C2941042",
+      "mpn": "LM74700QDBVRQ1",
+      "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/447cabab1808fa061ec80788e97d5328.pdf?productCode=C2941042",
+      "sha256": "e16b3a8c0023201fafa5825436f5f2dd6f885b92b84e65602b3f50d741c58b6f"
+    },
+    {
+      "reviewed_file": "csd18540.pdf",
+      "lcsc": "C86513",
+      "mpn": "CSD18540Q5B",
+      "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/45425ebd9f23a1198c031b3c2fd5a108.pdf?productCode=C86513",
+      "sha256": "2e43c4a2ac82af8a089be0a9e413282326f8d7857254ac07390b458deca854e0"
+    },
+    {
+      "reviewed_file": "tc4427.pdf",
+      "lcsc": "C624944",
+      "mpn": "TC4427AVOA713",
+      "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/b1bb95f87e1c4d3da15b0b7bdd20fce8.pdf?productCode=C624944",
+      "sha256": "914979223ca0c5aef9ed07ec88e719d70f7859b82d0deba6f61aaa5e7e238e0f"
+    },
+    {
+      "reviewed_file": "lmr33630.pdf",
+      "lcsc": "C841384",
+      "mpn": "LMR33630ADDAR",
+      "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/a9fc243185b3d8658039a6c3f8a8d047.pdf?productCode=C841384",
+      "sha256": "3b0920a4e56a0b3f5f214a6317d3c06cff6e541e5054024adc31c30acc50c04a"
+    },
+    {
+      "reviewed_file": "tps2553.pdf",
+      "lcsc": "C55266",
+      "mpn": "TPS2553DBVR",
+      "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/3f52aa0e50da4026aed12c215a8c407a.pdf?productCode=C55266",
+      "sha256": "88e453700cea2b263cdb5b44fce1e883e0f6d3b975457f879ac1423eeea42071"
+    },
+    {
+      "reviewed_file": "tps3808.pdf",
+      "lcsc": "C43698",
+      "mpn": "TPS3808G33DBVR",
+      "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/11f32af539b24342abd293a76f2241d9.pdf?productCode=C43698",
+      "sha256": "52446728d1e14cefc5246cf8a3f337bc8ddd41600661d80bdada364091cb808d"
+    },
+    {
+      "reviewed_file": "usb4105.pdf",
+      "lcsc": "C3020560",
+      "mpn": "USB4105-GF-A",
+      "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/76718c6dacc0a6125953c12b5ebc82df.pdf?productCode=C3020560",
+      "sha256": "0ff2526fc28bbfdcb46a61fd394454be865854212c677e5aa55fc305368a01b1"
+    },
+    {
+      "reviewed_file": "dcj200.pdf",
+      "lcsc": "C5280493",
+      "mpn": "DCJ200-10-A-K1-K",
+      "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/9e28732f65d9d59bee76802895b2add9.pdf?productCode=C5280493",
+      "sha256": "990ba338c8b5d3c19ca75cf564f6192f640a32503b0e8de35c67b3a973355ae9"
+    },
+    {
+      "reviewed_file": "fuse30.pdf",
+      "lcsc": "C553917",
+      "mpn": "S1032-F-30.0A",
+      "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/a325524594d89b598a3518fc8c90e44b.pdf?productCode=C553917",
+      "sha256": "94fc1d3cc4fac934e5a444c94bdf85e5c0453ac36a9a16faad50b75b3a1e1f31"
+    },
+    {
+      "reviewed_file": "fuse5.pdf",
+      "lcsc": "C99548",
+      "mpn": "0451007.MRL",
+      "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/3fbc960e37544fdb8613bc5ae8d5f03a.pdf?productCode=C99548",
+      "sha256": "41be7c770dbb21817bf23f21f908fd07b6f20e2cfac66b876302cba3c75c767f"
+    },
+    {
+      "reviewed_file": "inductor.pdf",
+      "lcsc": "C149543",
+      "mpn": "SMMS1050-8R2M",
+      "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/d0d5acb256e849938d6708ba4d0d5b6c.pdf?productCode=C149543",
+      "sha256": "0651e464291e20ea4c04ba1f23451e13c863c5c418aff7cb72191e569fe269af"
+    },
+    {
+      "reviewed_file": "cap150.pdf",
+      "lcsc": "C970688",
+      "mpn": "RVT1A151M0605 150UF 10V",
+      "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/f0a865b841864fb1f67292a6eb3bf84a.pdf?productCode=C970688",
+      "sha256": "4d792c822bc945ce5872a3f5bcdeb4ed4dd707555ff5d0c1c2f7f00528be9aaa"
+    },
+    {
+      "reviewed_file": "cap470.pdf",
+      "lcsc": "C106703",
+      "mpn": "ERS1VM471G16OT",
+      "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/8c66fb21bbd21f0bcbbdf88fdf292042.pdf?productCode=C106703",
+      "sha256": "821d8c3bcdcaecf782c97890fc83d3c922100eaf080be72d5ae3d27673ad4d24"
+    },
+    {
+      "reviewed_file": "terminal.pdf",
+      "lcsc": "C474952",
+      "mpn": "KF128-5.08-2P-AA",
+      "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/29da5b9f86f95d4ff856cbb6af0595a9.pdf?productCode=C474952",
+      "sha256": "4781221a025b068464bce493173984ac1e90efb9db90c1433e1e448ea9bdaead"
+    },
+    {
+      "reviewed_file": "shunt.pdf",
+      "lcsc": "C2994640",
+      "mpn": "HoLLR2512-3W-2mR-1%",
+      "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/a6c04b348627a06d1c2e9d73fb46c6ff.pdf?productCode=C2994640",
+      "sha256": "5dac9ede82062791abe6128aa7cad87c1422993820fbd21efa33dbea2ce04005"
+    },
+    {
+      "reviewed_file": "header.pdf",
+      "lcsc": "C492404",
+      "mpn": "PZ254V-11-05P",
+      "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/3b85a1cdf6ed945f2e278f00c1e42442.pdf?productCode=C492404",
+      "sha256": "d4cb67e0fd15267bd26f8e782f79b44bc2c8e05fd2ac63c5a88712860c9aacd0"
+    }
+  ]
+}
