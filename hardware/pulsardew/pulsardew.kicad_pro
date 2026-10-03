@@ -98,8 +98,40 @@
   },
   "sheets": [
     [
-      "e63e39d7-6ac0-4ffd-8aa3-1841a4541b55",
-      "Root"
+      "4235aaa6-671a-4985-9062-abb1f1decfe0",
+      "pulsardew"
+    ],
+    [
+      "776ed70f-80c6-53e9-9e99-1ad3c8b58863",
+      "Controller"
+    ],
+    [
+      "f9f5b1ec-ea80-40eb-8d42-f6d06b66bf6f",
+      "Heater Ch0"
+    ],
+    [
+      "e12d350b-443b-4386-bca5-5a8b2520e443",
+      "Heater Ch1"
+    ],
+    [
+      "f8fdc6b1-2029-433c-972b-c440c0e867b6",
+      "Heater Ch2"
+    ],
+    [
+      "9c18fa08-0dd2-4584-bc5a-23ebe8f3048e",
+      "Heater Ch3"
+    ],
+    [
+      "5904daad-2014-409b-b793-5cfc79889424",
+      "Current Sense"
+    ],
+    [
+      "7f075bce-4e5e-4c62-bbee-f57595917d26",
+      "LDO 3.3V"
+    ],
+    [
+      "1d7637f7-c2a7-419b-888c-418928f6650f",
+      "SHT40"
     ]
   ],
   "text_variables": {}

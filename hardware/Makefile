@@ -33,9 +33,14 @@ SCRIPTS_DIR := scripts
 JLC_SCRIPT  := $(SCRIPTS_DIR)/jlcpcb-package.sh
 
 .PHONY: all docs jlc clean-docs clean-jlc help
+.PHONY: verify-pulsardew
 .PHONY: $(foreach p,$(PROJECTS),docs-$(p) images-$(p) bom-$(p) jlc-$(p) gen-$(p) check-$(p) render-$(p))
 
 all: docs
+
+# Strict electrical checks for the completed PulsarDew schematic.
+verify-pulsardew: pulsardew/pulsardew.kicad_sch
+	@KICAD_CLI=$(KICAD_CLI) python3 $(SCRIPTS_DIR)/verify-pulsardew.py
 
 help:
 	@echo "PulsarFab hardware makefile"
@@ -51,6 +56,7 @@ help:
 	@echo "  jlc-<project>      JLCPCB zip for one PCB"
 	@echo "  gen-<project>      Regenerate schematic from scripts/<project>.schgen.py"
 	@echo "  check-<project>    Sanity-check schematic (comps/footprints/dups/ERC)"
+	@echo "  verify-pulsardew   Strict ERC, exact net membership and footprint-pad checks"
 	@echo "  render-<project>   Render schematic sheets to PNG for visual review"
 	@echo "  clean-docs         Remove generated docs"
 	@echo "  clean-jlc          Remove generated JLCPCB packages"

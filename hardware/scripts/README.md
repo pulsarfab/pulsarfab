@@ -9,6 +9,7 @@ macOS app bundle (`/Applications/KiCad/KiCad.app/...`).
 | `<project>.schgen.py` | `make gen-<project>` | Regenerate the hierarchical schematic from a data manifest. |
 | `kschgen.py` | - | Generic generation engine imported by the `*.schgen.py` manifests. |
 | `kicad-sch-check.py` | `make check-<project>` | Sanity-check a schematic: component count, missing footprints, duplicate refs, ERC tally. Exits non-zero on a structural problem. |
+| `verify-pulsardew.py` | `make verify-pulsardew` | Strict ERC plus exact electrical net membership, repeated-channel isolation, intentional no-connects, and footprint pad coverage. |
 | `kicad-sch-render.sh` | `make render-<project>` | Render schematic sheet(s) to PNG for a quick visual review. |
 | `jlcpcb-package.sh` | `make jlc-<project>` | Gerbers + drill + BOM + CPL -> JLCPCB zip. |
 
@@ -42,6 +43,10 @@ A new board: copy an existing `*.schgen.py` from a sibling project, change the
 `PROJECTS` in the `Makefile`. No engine changes needed.
 
 ## Notes
+
+- PulsarDew revision 0.2 is a fully connected, manually maintained schematic;
+  see `../pulsardew/README.md` for its pin map, verification and remaining
+  hardware review items. Use `verify-pulsardew` for its strict electrical checks.
 
 - `kicad-sch-render.sh` converts SVG to PNG with the first available of
   `rsvg-convert` / `inkscape` / `cairosvg` / macOS `qlmanage`. Output goes to a
