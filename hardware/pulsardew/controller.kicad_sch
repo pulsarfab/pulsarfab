@@ -1747,7 +1747,7 @@
       (font
         (size 1.27 1.27))
       (hide yes)))
-  (property "Datasheet" "https://www.usb.org/sites/default/files/documents/usb_type-c.zip"
+  (property "Datasheet" "https://gct.co/files/drawings/usb4105.pdf"
     (at 190.5 66.04 0.0)
     (effects
       (font
@@ -1759,13 +1759,13 @@
       (font
         (size 1.27 1.27))
       (hide yes)))
-  (property "LCSC" "C2927039"
+  (property "LCSC" "C3020560"
     (at 190.5 66.04 0.0)
     (effects
       (font
         (size 1.27 1.27))
       (hide yes)))
-  (property "MPN" "USB-TYPE-C-019"
+  (property "MPN" "USB4105-GF-A"
     (at 190.5 66.04 0.0)
     (effects
       (font
@@ -1809,7 +1809,13 @@
     (project "pulsardew"
       (path "/4235aaa6-671a-4985-9062-abb1f1decfe0/776ed70f-80c6-53e9-9e99-1ad3c8b58863"
         (reference "J1")
-        (unit 1)))))
+        (unit 1))))(property "Manufacturer" "GCT"
+  (at 190.5 66.04 0.0)
+  (effects
+    (font
+      (size 1.27 1.27))
+    (hide yes)))
+	)
 (symbol
   (lib_id "Device:R")
   (at 223.52 45.72 90.0)

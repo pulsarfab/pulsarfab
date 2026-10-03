@@ -8502,7 +8502,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.usb.org/sites/default/files/documents/usb_type-c.zip"
+		(property "Datasheet" "https://gct.co/files/drawings/usb4105.pdf"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -8528,7 +8528,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C2927039"
+		(property "LCSC" "C3020560"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -8541,7 +8541,7 @@
 				)
 			)
 		)
-		(property "MPN" "USB-TYPE-C-019"
+		(property "MPN" "USB4105-GF-A"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -8551,6 +8551,17 @@
 				(font
 					(size 1 1)
 					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "GCT"
+			(at 0 0 0)
+			(layer "F.SilkS")
+			(hide yes)
+			(uuid "1965a6f1-5092-4780-b207-399dbf1db4c1")
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 			)
 		)
@@ -11309,7 +11320,7 @@
 				)
 			)
 		)
-		(property "Value" "DC-005 2.0mm"
+		(property "Value" "DCJ200 / 2.0mm / 5A"
 			(at 0 15.5 270)
 			(layer "F.Fab")
 			(hide yes)
@@ -11321,7 +11332,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://gct.co/files/drawings/dcj200.pdf"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -11347,7 +11358,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C2880546"
+		(property "LCSC" "C5280493"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -11360,7 +11371,7 @@
 				)
 			)
 		)
-		(property "MPN" "DC-005K-5A-2.0"
+		(property "MPN" "DCJ200-10-A-K1-K"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -11370,6 +11381,17 @@
 				(font
 					(size 1 1)
 					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "GCT"
+			(at 0 0 0)
+			(layer "F.SilkS")
+			(hide yes)
+			(uuid "43404807-1b17-49a3-aef5-315193c38afd")
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 			)
 		)
