@@ -1,12 +1,13 @@
 # PulsarFab
 
-Open-source astronomy hardware platform — dew heater controllers, mount accessories, and other observatory gear based on STM32 and ESP32-S3 microcontrollers.
+Open-source astronomy hardware platform — dew heater controllers, power distribution and USB hubs, mount accessories, and other observatory gear based on STM32 and ESP32-S3 microcontrollers.
 
 ## Projects
 
 | Project | Description | MCU | Flash/RAM | Framework | Status |
 |---------|-------------|-----|-----------|-----------|--------|
 | **pulsardew** | USB dew heater controller | STM32G0B1KBU6 | 128KB/144KB | STM32 HAL + FreeRTOS | 🚧 In Development |
+| **[PulsarPower](hardware/pulsardewhub/README.md)** | Power distribution, two dew heaters and four-port USB 2.0 hub | STM32G0B1KBU6 | 128KB/144KB | Firmware adaptation pending | 🚧 Connected schematic / unrouted floorplan |
 | **pulsardewpro** | WiFi dew heater controller (ASCOM Alpaca) | ESP32-S3-MINI-1 | 8MB/512KB | ESP-IDF | 🚧 In Development |
 | **crunchdefender** | Skywatcher mount limit guard — inline USB host/device that interrupts motion before the OTA collides with the pier or cables crunch | STM32F405RGT6 | 1024KB/192KB | STM32 HAL | 🌱 Bootstrapped |
 
@@ -22,6 +23,7 @@ pulsarfab/
 │   └── shared/                # Shared protocol definitions and libraries
 ├── hardware/                 # PCB designs (CERN-OHL-S v2 + NC)
 │   ├── pulsardew/            # USB dew heater PCB
+│   ├── pulsardewhub/         # PulsarPower power / dew / USB hub PCB
 │   ├── pulsardewpro/         # WiFi dew heater PCB
 │   ├── crunchdefender/       # Mount limit guard PCB
 │   └── lib/                  # Shared KiCad libraries
@@ -87,6 +89,23 @@ idf.py flash                     # Flash via USB
 - Web configuration UI
 - OTA firmware updates
 - ESP32-S3 with ESP-IDF
+
+### PulsarPower (Power / Dew / USB)
+- Four independently switched, current-monitored DC outlets, **5 A service target each**
+- Positive-side DC switching with grounded returns; static on/off, no PWM on DC outlets
+- Two PWM dew heater channels
+- Four external USB 2.0 ports, **500 mA per port**, plus an internal connection to the controller
+- **12–18 V nominal input**, with alternative XT60 or barrel assembly options
+- **25 A shared XT60 continuous target**; barrel option has a **3.5 A provisional continuous budget**
+- **5 V / 3 A regulator** shared by USB and onboard electronics; not 3 A per USB port
+
+PulsarDew remains the original dedicated dew controller. **PulsarPower** is the
+expanded product, previously called **PulsarDew Hub** during development. Its
+KiCad files and Makefile targets currently retain the `pulsardewhub` identifier.
+The 0.2 draft has a connected schematic and an unrouted four-layer floorplan;
+current ratings require routing and prototype qualification, and firmware
+adaptation is pending. See the [PulsarPower design README](hardware/pulsardewhub/README.md)
+for the power budget, schematic, floorplan and remaining release work.
 
 ## Hardware
 

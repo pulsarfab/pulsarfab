@@ -1,5 +1,9 @@
 # PulsarDew schematic
 
+PulsarDew is the original four-channel dew heater controller. For the expanded
+product with switched DC power outlets, two heaters and a USB hub, see
+**[PulsarPower](../pulsardewhub/README.md)** (formerly PulsarDew Hub).
+
 Open `pulsardew.kicad_pro` in KiCad 10, then open its root schematic. Revision
 0.2 is a connected nine-page hierarchy: system wiring, controller, current
 monitor, logic supply, SHT40, and four instances of the heater driver.

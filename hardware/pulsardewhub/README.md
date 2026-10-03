@@ -1,4 +1,10 @@
-# PulsarDew Hub — connected schematic and PCB floorplan
+# PulsarPower — power distribution, dew control and USB hub
+
+**PulsarPower** is the expanded power product derived from the original
+**[PulsarDew](../pulsardew/README.md)** dew heater controller. It combines four
+switched DC outlets, two dew heaters and a four-port USB 2.0 hub. Earlier design
+documents call it **PulsarDew Hub**; the directory, KiCad filenames and Makefile
+targets currently retain `pulsardewhub` as their internal project identifier.
 
 Revision **0.2-draft**, reviewed with KiCad 10.0.6 on 2026-10-03. Open
 `pulsardewhub.kicad_pro` in KiCad. This is a separate design derived from
@@ -25,6 +31,11 @@ Review the [14-page schematic PDF](docs/schematic.pdf) and
 | DC outlets | Four center-positive **2.0 mm** barrel sockets, 5 A service target each; independent high-side switch, analog current monitor and power-good signal |
 | Heater outputs | Two screw terminals, 5 A target each; fused positive pin 1 and PWM switched return pin 2 |
 | USB | Four USB-A downstream ports, 500 mA service per port; USB-C upstream data connection |
+
+The **5 V regulator is rated for 3 A total**. Four USB ports reserve 2 A at
+500 mA each; a provisional 0.4 A equivalent budget for onboard logic/support
+leaves about 0.6 A margin. This is a design budget pending thermal and transient
+testing, not an additional external 5 V output rating.
 
 **Populate one input path only. Do not fit/connect both inputs.** J11 and F11
 are DNP in the default XT60 assembly. There is no isolation between the two
