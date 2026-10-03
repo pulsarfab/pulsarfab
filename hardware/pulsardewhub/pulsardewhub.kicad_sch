@@ -1,5 +1,5 @@
 (kicad_sch (version 20260306) (generator "eeschema") (generator_version "10.0") (uuid "e52b73dc-d0d2-4d83-a7ea-224e97decc28") (paper "A2")
-(title_block (title "PulsarDew Hub - System interconnect") (date "2026-10-03") (rev "0.1-draft") (company "PulsarFab"))
+(title_block (title "PulsarDew Hub - System interconnect") (date "2026-10-03") (rev "0.2-draft") (company "PulsarFab"))
 (lib_symbols
 )
 (text "PULSARDEW HUB | 2 heaters + 4 monitored DC outlets + 4 USB 2.0 ports" (at 20.3200 16.5100 0) (effects (font (size 2.5 2.5)) (justify left top)) (uuid "77dc4b69-983e-5106-9239-543054506599"))
@@ -202,16 +202,16 @@
 (label "SDA"  (at 208.2800 93.9800 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "ce92ad2d-9209-5435-94be-6bc7a63d05c4"))
 (label "DC_EN1"  (at 208.2800 99.0600 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "6238453c-9875-5d03-a032-6d39cffd0e96"))
 (label "IMON1"  (at 208.2800 104.1400 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "78297fa1-2abc-52d2-85db-7cf2295eb083"))
-(label "DC_FLT1"  (at 208.2800 109.2200 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "5b60a760-4884-5d80-85ce-c5ed916da921"))
+(label "DC_PG1"  (at 208.2800 109.2200 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "ebbfbd86-08c2-596f-a3d9-740e8d3f052d"))
 (label "DC_EN2"  (at 208.2800 114.3000 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "b0343d08-e81f-577b-a338-7dd1a6ccfad3"))
 (label "IMON2"  (at 208.2800 119.3800 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "eed4a6a1-e9f1-56ea-983c-60588b3d135b"))
-(label "DC_FLT2"  (at 208.2800 124.4600 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "a065bb11-4422-5c4e-9919-e08d8413bca9"))
+(label "DC_PG2"  (at 208.2800 124.4600 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "a94597c6-d57a-58c2-b136-f19b074b372b"))
 (label "DC_EN3"  (at 208.2800 129.5400 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "0181ea8a-082c-5c08-ba85-d10f408c5dd2"))
 (label "IMON3"  (at 208.2800 134.6200 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "a6f05937-5bbe-555b-b7ce-2c9fa64eeafd"))
-(label "DC_FLT3"  (at 208.2800 139.7000 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "2e458fb6-35cb-5116-a40f-910515882213"))
+(label "DC_PG3"  (at 208.2800 139.7000 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "e76ed10f-7f2f-5ce5-8b41-de223cd0f9bf"))
 (label "DC_EN4"  (at 208.2800 144.7800 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "d262b5cc-c7de-5bcf-a668-1c98226a6198"))
 (label "IMON4"  (at 208.2800 149.8600 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "7bcddfd9-2bbd-5173-9583-266b3b160f65"))
-(label "DC_FLT4"  (at 208.2800 154.9400 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "3d6ef057-31dc-5a9d-a1b7-2457b5346b61"))
+(label "DC_PG4"  (at 208.2800 154.9400 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "12079323-fc2b-5b23-af0b-a5c9fa4ee66b"))
 (sheet
   (at 220.98 43.18)
   (size 76.2 121.92)
@@ -310,13 +310,13 @@
         (size 1.27 1.27))
       (justify left))
     (uuid "9d238ed8-e955-5b4a-bf14-858dc96f60f7"))
-  (pin "DC_FLT1" input
+  (pin "DC_PG1" input
     (at 220.98 109.22 180.0)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "f91f05c8-411b-5e3c-9735-7a823d4d8f0c"))
+    (uuid "06054d68-e252-57d3-b392-438adac2c6d6"))
   (pin "DC_EN2" output
     (at 220.98 114.3 180.0)
     (effects
@@ -331,13 +331,13 @@
         (size 1.27 1.27))
       (justify left))
     (uuid "461bf37a-8353-5bb4-aec8-aa608deea7e0"))
-  (pin "DC_FLT2" input
+  (pin "DC_PG2" input
     (at 220.98 124.46 180.0)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "f8713bf6-22c4-5d28-b52f-3bf9a79de8f2"))
+    (uuid "1684801b-1511-5933-bc60-b979e3d3ad24"))
   (pin "DC_EN3" output
     (at 220.98 129.54 180.0)
     (effects
@@ -352,13 +352,13 @@
         (size 1.27 1.27))
       (justify left))
     (uuid "55d3f5ce-b353-5a93-9ceb-55bdfb614343"))
-  (pin "DC_FLT3" input
+  (pin "DC_PG3" input
     (at 220.98 139.7 180.0)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "90af4a43-a2d9-5bb1-bd93-2843d062e172"))
+    (uuid "36d48567-5392-5f33-ac7b-e9240a6349ae"))
   (pin "DC_EN4" output
     (at 220.98 144.78 180.0)
     (effects
@@ -373,13 +373,13 @@
         (size 1.27 1.27))
       (justify left))
     (uuid "1a35a577-a6a0-53d5-a1fb-909abcb0fea2"))
-  (pin "DC_FLT4" input
+  (pin "DC_PG4" input
     (at 220.98 154.94 180.0)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "0cd9cf72-2422-503a-bcc9-271dec65c88b"))
+    (uuid "09d1943d-3f68-5ead-97ca-5097ea122ecd"))
   (instances
     (project "pulsardewhub"
       (path "/e52b73dc-d0d2-4d83-a7ea-224e97decc28"
@@ -582,7 +582,7 @@
 (label "GND"  (at 363.2200 63.5000 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "051372a3-7a63-5451-8a51-4a84ef3d8d9f"))
 (label "DC_EN1"  (at 363.2200 68.5800 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "3d6c09b7-3330-562c-8678-8b039c1f8553"))
 (label "IMON1"  (at 363.2200 73.6600 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "51f8769c-bfb4-5bfd-a915-c32aa582893a"))
-(label "DC_FLT1"  (at 363.2200 78.7400 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "5818be91-1353-5520-8cbd-b41d2537bdd5"))
+(label "DC_PG1"  (at 363.2200 78.7400 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "8513db1d-39b2-5e7e-a20e-d81395ca7b49"))
 (sheet
   (at 375.92 43.18)
   (size 68.58 45.72)
@@ -639,13 +639,13 @@
         (size 1.27 1.27))
       (justify left))
     (uuid "3dac28a1-f9e0-5b17-9979-886419ac77f4"))
-  (pin "FAULT" output
+  (pin "PGOOD" output
     (at 375.92 78.74 180.0)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "887a50ee-eaf5-5e32-91c1-4ea5be7da068"))
+    (uuid "252c6ba1-85fb-510c-bac1-757f2d84bcd8"))
   (instances
     (project "pulsardewhub"
       (path "/e52b73dc-d0d2-4d83-a7ea-224e97decc28"
@@ -728,7 +728,7 @@
 (label "GND"  (at 363.2200 144.7800 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "eb0b49c8-f35c-58b4-b6b3-5909e8594d4b"))
 (label "DC_EN2"  (at 363.2200 149.8600 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "443981e6-7cb8-5ec4-a3e0-e8f8fa430f3f"))
 (label "IMON2"  (at 363.2200 154.9400 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "482f0001-7d71-5382-9d98-2e65c9fd83cc"))
-(label "DC_FLT2"  (at 363.2200 160.0200 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "5a7c89fd-ddda-55e4-a4d5-22877179a20c"))
+(label "DC_PG2"  (at 363.2200 160.0200 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "db517d19-e71f-52b9-ae15-a2a2adbcacc0"))
 (sheet
   (at 375.92 124.46)
   (size 68.58 45.72)
@@ -785,13 +785,13 @@
         (size 1.27 1.27))
       (justify left))
     (uuid "ab59ddc7-361e-5d5c-9ad7-b6a9cd807c49"))
-  (pin "FAULT" output
+  (pin "PGOOD" output
     (at 375.92 160.02 180.0)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "1b6d573d-2319-5c44-946b-48d0d1017a53"))
+    (uuid "1bebd7c1-dcf2-51a6-a08b-6239acb5b83b"))
   (instances
     (project "pulsardewhub"
       (path "/e52b73dc-d0d2-4d83-a7ea-224e97decc28"
@@ -874,7 +874,7 @@
 (label "GND"  (at 363.2200 226.0600 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "0d03344a-c77c-5bb5-ab72-1842a368c182"))
 (label "DC_EN3"  (at 363.2200 231.1400 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "0f2b364c-f5f8-57ee-89a5-f4161ec46cf9"))
 (label "IMON3"  (at 363.2200 236.2200 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "7a89a580-dde3-5eaa-883b-bc1a429274ab"))
-(label "DC_FLT3"  (at 363.2200 241.3000 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "326e17bb-4a96-5d92-88b6-4267a21a523d"))
+(label "DC_PG3"  (at 363.2200 241.3000 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "7ff6a87b-9855-5d82-a30f-69fc7f20aba9"))
 (sheet
   (at 375.92 205.74)
   (size 68.58 45.72)
@@ -931,13 +931,13 @@
         (size 1.27 1.27))
       (justify left))
     (uuid "e1b3149f-e4c4-5d85-9584-b8fc64d41475"))
-  (pin "FAULT" output
+  (pin "PGOOD" output
     (at 375.92 241.3 180.0)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "1020fc25-d750-5067-b24c-d344ab24cc76"))
+    (uuid "54072e46-a65c-52ec-8995-cab37d5089fc"))
   (instances
     (project "pulsardewhub"
       (path "/e52b73dc-d0d2-4d83-a7ea-224e97decc28"
@@ -1020,7 +1020,7 @@
 (label "GND"  (at 363.2200 307.3400 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "839aad11-72ac-5e6f-ab98-d370b6e37b6b"))
 (label "DC_EN4"  (at 363.2200 312.4200 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "34ac9486-e7d8-5e3c-9de6-f7c91ac1b599"))
 (label "IMON4"  (at 363.2200 317.5000 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "0016271d-1bc3-5a2a-9c7c-4a3756b5a258"))
-(label "DC_FLT4"  (at 363.2200 322.5800 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "c45acd35-dabc-58eb-b237-211a9d9737d7"))
+(label "DC_PG4"  (at 363.2200 322.5800 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "8684b239-8fad-5a17-8a03-a07b19fe590b"))
 (sheet
   (at 375.92 287.02)
   (size 68.58 45.72)
@@ -1077,13 +1077,13 @@
         (size 1.27 1.27))
       (justify left))
     (uuid "e6048715-020b-535e-8ee6-7599c8e23e2c"))
-  (pin "FAULT" output
+  (pin "PGOOD" output
     (at 375.92 322.58 180.0)
     (effects
       (font
         (size 1.27 1.27))
       (justify left))
-    (uuid "d7d8447f-ccb6-5399-af4d-6decde173626"))
+    (uuid "16d639b6-d3cf-5b7f-85bc-0994846b0b42"))
   (instances
     (project "pulsardewhub"
       (path "/e52b73dc-d0d2-4d83-a7ea-224e97decc28"
@@ -1161,7 +1161,7 @@
     (project "pulsardewhub"
       (path "/e52b73dc-d0d2-4d83-a7ea-224e97decc28"
         (page "14")))))
-(text "RATINGS TO VALIDATE\n12-20 V nominal input\n4 x 5 A DC outlet targets\n2 x 5 A heater targets\n25 A shared XT60 budget\n3.5 A continuous barrel budget\nUSB: 500 mA per port\nNo PWM on DC outlets" (at 25.4000 281.9400 0) (effects (font (size 1.5 1.5)) (justify left top)) (uuid "655ad456-87cd-5a24-8840-7ebc420b0b23"))
+(text "RATINGS TO VALIDATE\n12-18 V nominal input\n4 x 5 A DC outlet targets\n2 x 5 A heater targets\n25 A shared XT60 budget\n3.5 A continuous barrel budget\nUSB: 500 mA per port\nNo PWM on DC outlets" (at 25.4000 281.9400 0) (effects (font (size 1.5 1.5)) (justify left top)) (uuid "01650d46-4b4a-56c1-a8f5-69c4dee463d4"))
 (text "Same ground throughout.\nHigh-current and USB return paths\nare separated by placement.\nDo not backfeed DC outputs." (at 25.4000 353.0600 0) (effects (font (size 1.27 1.27)) (justify left top)) (uuid "c7225a9d-3261-540e-986d-d67a7b916deb"))
 (wire (pts (xy 17.7800 58.4200) (xy 17.7800 119.3800)) (stroke (width 0) (type default)) (uuid "ae7fc294-d71e-5f58-a3de-69bafcc1ba39"))
 (wire (pts (xy 17.7800 58.4200) (xy 40.6400 58.4200)) (stroke (width 0) (type default)) (uuid "abf74e8c-8bd0-5d2b-a614-dd903eef6efe"))

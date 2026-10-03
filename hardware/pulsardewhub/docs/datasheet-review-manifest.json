@@ -10,13 +10,6 @@
       "sha256": "de3a58b7966803c9a591fc1f8ab6a587cfe8647a3f373c4080dc0cf2af2ab418"
     },
     {
-      "reviewed_file": "tps2663-en.pdf",
-      "lcsc": "C2866319",
-      "mpn": "TPS26631PWPR",
-      "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/1e673a9d3411456469018b12bc5dcb14.pdf?productCode=C2866319",
-      "sha256": "bb61314ace65ed37684bd07f541fc676081d7cf81cb24020e7c5c2065bfe16b2"
-    },
-    {
       "reviewed_file": "lm74700.pdf",
       "lcsc": "C2941042",
       "mpn": "LM74700QDBVRQ1",
@@ -127,6 +120,41 @@
       "mpn": "PZ254V-11-05P",
       "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/3b85a1cdf6ed945f2e278f00c1e42442.pdf?productCode=C492404",
       "sha256": "d4cb67e0fd15267bd26f8e782f79b44bc2c8e05fd2ac63c5a88712860c9aacd0"
+    },
+    {
+      "reviewed_file": "tps25982.pdf",
+      "lcsc": "C2155765",
+      "mpn": "TPS259827ONRGET",
+      "datasheet_url": "https://www.ti.com/lit/ds/symlink/tps25982.pdf",
+      "sha256": "655c21dbf6b91a3c98b7ab26cd3bf0020d3eb7d765f411c71030d22fa4b6bc1f"
+    },
+    {
+      "reviewed_file": "tps3700.pdf",
+      "lcsc": "C33002",
+      "mpn": "TPS3700DDCR",
+      "datasheet_url": "https://www.ti.com/lit/ds/symlink/tps3700.pdf",
+      "sha256": "3bb7daed20b154bf22ded78e23269c6437eb587400b89bce0f543813df94ebf0"
+    },
+    {
+      "reviewed_file": "C22452.pdf",
+      "lcsc": "C22452",
+      "mpn": "SS54",
+      "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/3d29bdcdc3c46ec127d6db22edd72e83.pdf?productCode=C22452",
+      "sha256": "d90558a8db9d6ea0e8712c740ffea6d9c106544653faf724af75f1ab276dee66"
+    },
+    {
+      "reviewed_file": "C438102.pdf",
+      "lcsc": "C438102",
+      "mpn": "SMCJ18A",
+      "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/30c536fe584d45c8d03dea9ed65a638b.pdf?productCode=C438102",
+      "sha256": "2d0d84c94c8e56f9bf2fb6f46266a699226ec71e565110795798ae25d12762fc"
+    },
+    {
+      "reviewed_file": "C353379.pdf",
+      "lcsc": "C353379",
+      "mpn": "SMBJ18A",
+      "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/e9ed405dd94e697d37ae30ddb40fefa5.pdf?productCode=C353379",
+      "sha256": "11a0cb29fa635344f99349867b20a7c8e2d6dd8995f1f3eeb747e8935239c4b2"
     }
   ]
 }

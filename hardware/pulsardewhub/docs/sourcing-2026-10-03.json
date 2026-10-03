@@ -1,0 +1,76 @@
+{
+  "checked_date": "2026-10-03",
+  "scope": "Parts introduced in the TPS259827 outlet revision; JLCPCB page metadata, not reservations. LCSC and mirror inventory are not substituted.",
+  "parts": [
+    {
+      "lcsc": "C2155765",
+      "mpn": "TPS259827ONRGET",
+      "source_url": "https://jlcpcb.com/partdetail/TPS259827ONRGET/C2155765",
+      "displayed_stock": 762,
+      "available_without_preorder": 665
+    },
+    {
+      "lcsc": "C33002",
+      "mpn": "TPS3700DDCR",
+      "source_url": "https://jlcpcb.com/partdetail/TPS3700DDCR/C33002",
+      "displayed_stock": 14776,
+      "available_without_preorder": 14518
+    },
+    {
+      "lcsc": "C22452",
+      "mpn": "SS54",
+      "source_url": "https://jlcpcb.com/partdetail/SS54/C22452",
+      "displayed_stock": 2393322,
+      "available_without_preorder": 2321224
+    },
+    {
+      "lcsc": "C438102",
+      "mpn": "SMCJ18A",
+      "source_url": "https://jlcpcb.com/partdetail/SMCJ18A/C438102",
+      "displayed_stock": 2734,
+      "available_without_preorder": 2698
+    },
+    {
+      "lcsc": "C22919",
+      "mpn": "0603WAF2490T5E",
+      "source_url": "https://jlcpcb.com/partdetail/0603WAF2490T5E/C22919",
+      "displayed_stock": 40844,
+      "available_without_preorder": 25475
+    },
+    {
+      "lcsc": "C23253",
+      "mpn": "0603WAF8200T5E",
+      "source_url": "https://jlcpcb.com/partdetail/0603WAF8200T5E/C23253",
+      "displayed_stock": 1095973,
+      "available_without_preorder": 1028439
+    },
+    {
+      "lcsc": "C22961",
+      "mpn": "0603WAF2203T5E",
+      "source_url": "https://jlcpcb.com/partdetail/0603WAF2203T5E/C22961",
+      "displayed_stock": 1440699,
+      "available_without_preorder": 1373918
+    },
+    {
+      "lcsc": "C23178",
+      "mpn": "0603WAF4703T5E",
+      "source_url": "https://jlcpcb.com/partdetail/0603WAF4703T5E/C23178",
+      "displayed_stock": 1454486,
+      "available_without_preorder": 1343473
+    },
+    {
+      "lcsc": "C1621",
+      "mpn": "CL10B472KB8NNNC",
+      "source_url": "https://jlcpcb.com/partdetail/CL10B472KB8NNNC/C1621",
+      "displayed_stock": 517416,
+      "available_without_preorder": 507415
+    },
+    {
+      "lcsc": "C353379",
+      "mpn": "SMBJ18A",
+      "source_url": "https://jlcpcb.com/partdetail/SMBJ18A/C353379",
+      "displayed_stock": 56880,
+      "available_without_preorder": 56667
+    }
+  ]
+}

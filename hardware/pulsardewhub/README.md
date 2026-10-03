@@ -1,6 +1,6 @@
 # PulsarDew Hub — connected schematic and PCB floorplan
 
-Revision **0.1-draft**, reviewed with KiCad 10.0.6 on 2026-10-03. Open
+Revision **0.2-draft**, reviewed with KiCad 10.0.6 on 2026-10-03. Open
 `pulsardewhub.kicad_pro` in KiCad. This is a separate design derived from
 PulsarDew, with **two PWM heaters, four individually switched and current-monitored
 DC outlets, and four external USB 2.0 ports**. DC outlets use static on/off GPIO;
@@ -19,10 +19,10 @@ Review the [14-page schematic PDF](docs/schematic.pdf) and
 
 | Item | Design target / constraint |
 | --- | --- |
-| Input | **12–20 V nominal**, provisionally retained from the original design |
+| Input | **12–18 V nominal**, as selected for this revision |
 | XT60 configuration | Fit J10 + F10; **25 A shared continuous target**, pending thermal/copper validation |
 | Barrel configuration | Fit J11 + F11 instead; **5 A absolute total ceiling**, **3.5 A provisional continuous budget** after fuse derating |
-| DC outlets | Four center-positive **2.0 mm** barrel sockets, 5 A service target each; independent high-side switch, analog current monitor and fault signal |
+| DC outlets | Four center-positive **2.0 mm** barrel sockets, 5 A service target each; independent high-side switch, analog current monitor and power-good signal |
 | Heater outputs | Two screw terminals, 5 A target each; fused positive pin 1 and PWM switched return pin 2 |
 | USB | Four USB-A downstream ports, 500 mA service per port; USB-C upstream data connection |
 
@@ -47,11 +47,11 @@ Repeated sheets have distinct references and net identities.
 
 | Sheet | Circuit |
 | --- | --- |
-| Power input | Alternative fused inputs, LM74700 + CSD18540 reverse-polarity/reverse-current stage, SMCJ20A TVS, 470 µF bulk |
+| Power input | Alternative fused inputs, LM74700 + CSD18540 reverse-polarity/reverse-current stage, SMCJ18A TVS, 470 µF bulk |
 | DC supplies | LMR33630 bucks: input to approximately 5.02 V, then 5 V to approximately 3.31 V |
 | Controller | STM32G0B1KBU6, SWD/reset, SHT40, I2C pull-ups, ADC filters and GPIO connections |
 | Heaters | TC4427A active-high gate driver, two AOD4184A switches, individual fuses/clamps, combined-current INA226 and 2 mΩ shunt |
-| DC outlet ×4 | TPS26631, UV/OV dividers, current limit, IMON filter, latch-off control, fault pull-up and output clamp |
+| DC outlet ×4 | TPS259827ONRGET circuit breaker, TPS3700 hardware UV/OV inhibit, IMON filter, latch-off, PG pull-up, input TVS and output Schottky clamp |
 | USB hub | USB2517, 24 MHz crystal, reset supervisor, configuration straps, protected USB-C upstream connection |
 | USB port ×4 | TPS2553 current-limited VBUS switch, USBLC6 ESD, USB-A socket, 150 µF bulk and ceramic bypass |
 
@@ -64,7 +64,7 @@ connection to the board's 5 V supply. The selected 150 µF ±20% downstream
 capacitors retain at least 120 µF at nominal tolerance.
 
 The LM74700 input circuit is not an overvoltage disconnect. Do not apply more
-than 20 V nominal; the TVS is for transients, not sustained excess input voltage.
+than 18 V nominal; the TVS is for transients, not sustained excess input voltage.
 DC output switches have no external reverse-blocking FET, so **do not backfeed
 the DC outlets**. Heater return pins must not be connected directly to ground.
 
@@ -75,7 +75,7 @@ the DC outlets**. Heater return pins must not be connected directly to ground.
 | Heater 0 / 1 | PA0 / PA1, pads 7 / 8, active-high PWM |
 | DC enable 1 / 2 / 3 / 4 | PB0 / PB1 / PB2 / PB9, pads 15 / 16 / 17 / 1; static GPIO only |
 | DC current ADC 1–4 | PA4–PA7, pads 11–14 |
-| DC fault 1 / 2 / 3 / 4 | PB3 / PB4 / PB5 / PC6, pads 27 / 28 / 29 / 20; active low |
+| DC power-good 1 / 2 / 3 / 4 | PB3 / PB4 / PB5 / PC6, pads 27 / 28 / 29 / 20; high = output ready |
 | USB D− / D+ | PA11 / PA12, pads 22 / 23, internal hub port 1 |
 | USB attach permission | PA9, pad 19, hub port 1 PWR output |
 | I2C SCL / SDA | PB6 / PB7, pads 30 / 31; INA226 0x40, SHT40 0x44 |
@@ -84,26 +84,54 @@ the DC outlets**. Heater return pins must not be connected directly to ground.
 The original firmware is not a drop-in image: heater polarity and channel count,
 ADC inputs, outlet GPIO and hub attachment behavior have changed. Disable the
 MCU UCPD dead-battery function on PA9, and detach USB whenever USB_ATTACH is low.
-Initialize heater and DC enables low. DC faults latch off until explicitly
-reset through the enable signal; do not repeatedly auto-retry a short circuit.
+Initialize heater and DC enables low. Overcurrent/thermal faults latch off until
+reset through the enable signal; do not repeatedly retry a short circuit.
+`DC_PG1..4` replaces the former `DC_FLT1..4` labels on the same MCU pins. PG low
+also means disabled, starting, or voltage-inhibited. Qualify PG against the
+commanded state and allow startup settling. The voltage window is an automatic
+hardware inhibit: recovery can re-enable a still-asserted GPIO and can reset a
+latched fault by pulling EN low. Firmware should deassert ENABLE after an
+unexpected PG loss if an explicit user restart is required.
 
 Heater inputs and gates have pull-downs, and the new non-inverting driver
 addresses the original driver's dependence on a live 3.3 V rail for default-off
 behavior. Validate startup, brownout and loss of each rail on hardware; this is
 not a certified safety shutdown. The INA226 measures **combined heater current**;
-the four DC currents are measured independently through TPS26631 IMON outputs.
+the four DC currents are measured independently through TPS259827 IMON outputs.
 
-With an 8.2 kΩ IMON resistor, the nominal ADC slope is approximately
-**0.2288 V/A** (1.144 V at 5 A). Use calibration and fault status; the monitor has
-finite accuracy and is not a precision power meter. The 3.3 kΩ ILIM resistor
-sets approximately **5.45 A nominal**, with an estimated **5.02–5.90 A** range
-including IC and resistor tolerances. TPS26631 permits a timed approximately
-2× overload pulse: it is not an instantaneous 5 A clamp. The ADC divider choice
-preserves headroom during this overload behavior.
+With an 820 Ω IMON resistor, the nominal ADC slope is **0.20172 V/A**
+(**1.009 V at 5 A**). The 10 kΩ / 10 nF filter has a nominal 100 µs time constant;
+include the monitor source impedance in ADC acquisition-time settings. TI
+specifies gain limits of 238.6–253.4 µA/A for 3 A to the set limit and ambient
+up to 75°C; low-current accuracy and calibration need prototype validation.
+
+A 249 Ω, 1% ILIM resistor gives **5.97 A nominal** using TI equation 4. This is
+an overload trip threshold for a **5 A service target**, not a precise 5 A clamp.
+TI publishes full-temperature threshold limits at selected resistor values,
+not 249 Ω; the 5 A minimum no-trip margin is **not yet guaranteed**. Measure it
+across supply and temperature before release. ITIMER is open for the fastest
+normal overload response. Severe shorts use a separate fast trip around 2.1×
+the setpoint. RETRY_DLY, NRETRY and LDSTRT are grounded; load handshake is disabled
+and overcurrent/thermal shutdown latches off. The 4.7 nF slew capacitor targets
+about 0.979 V/ms, or 18.4 ms at 18 V; verify startup with actual capacitive loads.
+
+Each TPS3700 monitors VIN independently of firmware and clamps the switch enable
+through open-drain outputs. Nominal thresholds are **9.2 V rising UV** and
+**19.2 V rising OV**, using 220 kΩ/10 kΩ and 470 kΩ/10 kΩ dividers. OV tolerances
+are approximately 18.62–19.78 V including 1% resistors and comparator threshold
+limits; input leakage adds less than 8 mV. The 10 kΩ GPIO series resistor avoids
+output contention; 100 kΩ at the switch enable requests OFF during reset.
+This inhibits the DC outputs; it does not disconnect VIN from the ICs, bucks or
+heaters, and is not protection against arbitrary sustained excess input voltage.
+
+**−15°C minimum switch junction temperature is accepted for this design.** The
+TPS25982 Rev. D datasheet changed this limit in May 2026. Upper junction limit is
+125°C; board ambient limits still require thermal qualification. Do not substitute
+a TPS259822/3/4 variant: their fixed overvoltage cutoff is below the full 18 V range.
 
 ## PCB floorplan and routing intent
 
-The floorplan contains 215 schematic footprints, four M3 holes and three
+The floorplan contains 223 schematic footprints, four M3 holes and three
 fiducials. Mount centers are 4 mm from the edges (172 × 102 mm spacing).
 USB connectors occupy the top edge; their switches, ESD devices and bulk caps
 are nearby. The hub is behind the downstream ports with the MCU to its left.
@@ -115,8 +143,11 @@ sensing element and separation from the major heat sources.
 Use L2 as a continuous ground reference. Reserve the lower central corridor
 for wide input/return copper and keep high-current returns out of signal/ADC
 paths. Use Kelvin connections at the heater shunt. Add exposed-pad thermal
-vias and pours at the four TPS26631 devices, power FETs and bucks. Route the
+vias and pours at the four TPS259827 devices, power FETs and bucks. Route the
 actual buck input hot loops compactly, away from crystal, USB and ADC wiring.
+For TPS259827, **pad 25 is VIN; pad 26 is GND**. The large pad must not be tied
+to the ground plane. Keep both pads thermally coupled and use VIN-connected vias
+on pad 25. Place the SMBJ18A and SS54 close to the protected IN/OUT pins.
 
 The netclasses are **starting geometry**, not validated ratings: 8 mm input
 bus, 3 mm DC/heater routes, 0.6 mm low-voltage power, 0.2 mm sense and provisional
@@ -139,8 +170,8 @@ make bom-pulsardewhub
 ```
 
 The electrical check passes with **zero ERC errors, warnings or exclusions**.
-It independently checks all **130 connected nets, 45 intentional no-connects,
-215 component identities**, critical values, rail isolation, GPIO assignments
+It independently checks all **130 connected nets, 33 intentional no-connects,
+223 component identities**, critical values, rail isolation, GPIO assignments
 and footprint pad coverage. KiCad PCB parity reports zero mismatches and there
 are zero courtyard overlaps. See [review details](docs/design-review.md).
 
@@ -152,25 +183,32 @@ unconnected PCB items**. `make jlc-pulsardewhub` is blocked by strict ERC, DRC,
 parity and routing checks, so this draft cannot accidentally generate a package
 through that target.
 
-At 5 A, each TPS26631 dissipates about 0.78 W using its typical 31 mΩ on-resistance,
-or about 1.25 W at 50 mΩ. Four loaded outlets alone can dissipate several watts.
+At 5 A, each TPS259827 dissipates about **0.0675 W typical / 0.1125 W using
+maximum hot on-resistance**, or about 0.27–0.45 W across four switches, excluding
+quiescent loss. These are conduction calculations, not measured temperatures.
 Thermal validation, current-carrying copper, USB signal integrity, EMC/ESD,
-connector temperatures, assembly pad geometry and firmware behavior remain
-release work. No SPICE or physical testing has been performed.
+connector temperatures, assembly pad geometry and firmware remain release work.
+SMCJ18A/SMBJ18A have a 29.2 V specified pulse clamp versus the eFuse's 30 V
+absolute maximum: layout inductance, temperature and pulse energy leave little
+margin and must be checked on hardware. SS54 clamps negative output transients;
+its pulse energy/current capability also needs load-specific validation.
+No SPICE or physical testing has been performed.
 
 ## Sourcing and footprint review
 
-[JLCPCB BOM](jlcpcb_bom.csv) includes the default 213 populated schematic parts.
+[JLCPCB BOM](jlcpcb_bom.csv) includes the default 221 populated schematic parts.
 [Full review BOM](parts-review.csv) also includes the two DNP input-option parts.
 [Parts catalog](parts-catalog.json) records 54 exact LCSC codes, MPNs and datasheet
 links. These are sourcing candidates, not reserved stock or confirmation that
 every through-hole part is supported by a particular JLC assembly tier.
-USB1046 connector availability deserves early rechecking. Automated lifecycle
-lookup returned unknown for all 53 populated unique parts; it is not evidence
-of active production. Check lifecycle and stock before procurement.
+USB1046 connector availability deserves early rechecking. The original 0.1
+lifecycle audit returned unknown for all 53 populated unique parts. It is historical evidence, not a current lifecycle audit. Check lifecycle
+and stock before procurement. TPS259827ONRGET is C2155765; JLCPCB showed 665
+available without preorder on 2026-10-03, not reserved inventory.
 
-Custom footprints in `../lib/footprints.pretty` include the TI PWP0020T exposed
-pad (**2.96 × 2.96 mm**), S1032 fuse, SMMS1050 inductors, RVT 6.3 mm capacitor
+Custom footprints in `../lib/footprints.pretty` include the TI RGE0024M two-pad
+QFN (**pad 25: 2.7 × 1.45 mm VIN; pad 26: 2.7 × 0.85 mm GND**), S1032 fuse,
+SMMS1050 inductors, RVT 6.3 mm capacitor
 and KF128 5.08 mm terminal. Dimensions and pin mappings were checked against
 manufacturer documents; record a second footprint review before fabrication.
 The three `*_Edge` connector footprints derive from the KiCad 10 library: AMASS
@@ -189,7 +227,7 @@ Use KiCad directly for subsequent routing and treat the native PCB as authoritat
 ## Primary references
 
 - [Microchip USB2517 datasheet](https://ww1.microchip.com/downloads/en/DeviceDoc/00001598C.pdf)
-- [TI TPS2663 family](https://www.ti.com/lit/ds/symlink/tps2663.pdf), [TPS2553](https://www.ti.com/lit/ds/symlink/tps2553.pdf)
+- [TI TPS25982 Rev. D](https://www.ti.com/lit/ds/symlink/tps25982.pdf), [TPS3700](https://www.ti.com/lit/ds/symlink/tps3700.pdf), [TPS2553](https://www.ti.com/lit/ds/symlink/tps2553.pdf)
 - [TI LM74700-Q1](https://www.ti.com/lit/ds/symlink/lm74700-q1.pdf), [CSD18540Q5B](https://www.ti.com/lit/ds/symlink/csd18540q5b.pdf)
 - [TI LMR33630](https://www.ti.com/lit/ds/symlink/lmr33630.pdf), [TPS3808](https://www.ti.com/lit/ds/symlink/tps3808.pdf), [INA226](https://www.ti.com/lit/ds/symlink/ina226.pdf)
 - [ST STM32G0B1](https://www.st.com/resource/en/datasheet/stm32g0b1me.pdf), [USBLC6-2](https://www.st.com/resource/en/datasheet/usblc6-2.pdf)

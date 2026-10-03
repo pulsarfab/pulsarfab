@@ -24,3 +24,11 @@ These footprint derivatives retain that license and exception.
 The other PulsarDew Hub custom footprints were drawn from the manufacturer
 documents listed in `pulsardewhub/docs/datasheet-review-manifest.json`.
 They remain subject to physical pad and assembly-process review before fabrication.
+
+## TPS25982 RGE0024M land pattern
+
+`TI_RGE0024M_VQFN24_2EP_4x4mm` is drawn from TI drawing 4223975/B,
+RGE0024M, in the TPS25982 Rev. D datasheet (land-pattern and stencil pages).
+Pad 25 is input power and pad 26 is ground; they must remain separate. The
+footprint has the TI example copper/paste dimensions without embedded vias.
+Select plated/filled/capped thermal vias during routing and assembly review.

@@ -1,5 +1,5 @@
 (kicad_sch (version 20260306) (generator "eeschema") (generator_version "10.0") (uuid "a70c1b65-fea1-5d01-bdd2-637624c2e5a8") (paper "A3")
-(title_block (title "PulsarDew Hub - Two default-off heater outputs") (date "2026-10-03") (rev "0.1-draft") (company "PulsarFab"))
+(title_block (title "PulsarDew Hub - Two default-off heater outputs") (date "2026-10-03") (rev "0.2-draft") (company "PulsarFab"))
 (lib_symbols
 (symbol "Driver_FET:TC4427xOA"
   (exclude_from_sim no)

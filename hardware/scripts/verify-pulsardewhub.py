@@ -61,9 +61,9 @@ def expected_nets():
 
     comp("U1", {1:"DC_EN4",2:None,3:None,4:"V3",5:"GND",6:"NRST",7:"HTR0",8:"HTR1",
                 9:None,10:None,11:"IMON1",12:"IMON2",13:"IMON3",14:"IMON4",15:"DC_EN1",
-                16:"DC_EN2",17:"DC_EN3",18:None,19:"USB_ATTACH",20:"DC_FLT4",21:None,
-                22:"MCU_DM",23:"MCU_DP",24:"SWDIO",25:"SWCLK",26:None,27:"DC_FLT1",
-                28:"DC_FLT2",29:"DC_FLT3",30:"SCL",31:"SDA",32:None,33:"GND"})
+                16:"DC_EN2",17:"DC_EN3",18:None,19:"USB_ATTACH",20:"DC_PG4",21:None,
+                22:"MCU_DM",23:"MCU_DP",24:"SWDIO",25:"SWCLK",26:None,27:"DC_PG1",
+                28:"DC_PG2",29:"DC_PG3",30:"SCL",31:"SDA",32:None,33:"GND"})
     comp("U2", {1:"SDA",2:"SCL",3:"V3",4:"GND"})
     comp("J1", {1:"V3",2:"SWDIO",3:"SWCLK",4:"NRST",5:"GND"})
     pair("R1","V3","SCL");pair("R2","V3","SDA")
@@ -87,14 +87,15 @@ def expected_nets():
 
     for i in range(1,5):
         b=i*100; n=lambda suffix:f"DC{i}_{suffix}"
-        comp(f"U{b+1}",{1:"VIN",2:"VIN",3:"VIN",4:None,5:None,6:"VIN",7:n("UVLO"),8:n("OVP"),
-             9:"GND",10:n("DVDT"),11:n("ILIM"),12:None,13:f"DC_EN{i}",14:n("RAW"),15:f"DC_FLT{i}",
-             16:n("PGTH"),17:None,18:n("OUT"),19:n("OUT"),20:n("OUT"),21:"GND"})
-        for off,a,z in [(1,"VIN",n("UVLO")),(2,n("UVLO"),"GND"),(3,"VIN",n("OVP")),(4,n("OVP"),"GND"),
-             (5,f"DC_EN{i}","GND"),(6,"V3",f"DC_FLT{i}"),(7,n("ILIM"),"GND"),(8,n("RAW"),"GND"),
-             (9,n("RAW"),f"IMON{i}"),(10,n("OUT"),n("PGTH")),(11,n("PGTH"),"GND")]:pair(f"R{b+off}",a,z)
-        for off,a in [(1,"VIN"),(2,n("OUT")),(3,n("DVDT")),(4,f"IMON{i}")]:pair(f"C{b+off}",a)
-        barrel(f"J{b+1}",n("OUT"));pair(f"D{b+1}",n("OUT"))
+        comp(f"U{b+1}",{**{p:"VIN" for p in [1,2,3,16,25]},
+             **{p:"GND" for p in [4,5,14,26,10,11,12]},**{p:n("OUT") for p in range(17,25)},
+             6:n("EN_SW"),7:None,8:n("ILIM"),9:n("RAW"),13:f"DC_PG{i}",15:n("DVDT")})
+        comp(f"U{b+2}",{1:n("EN_SW"),2:"GND",3:n("UV"),4:n("OV"),5:"V3",6:n("EN_SW")})
+        for off,a,z in [(1,"VIN",n("UV")),(2,n("UV"),"GND"),(3,"VIN",n("OV")),(4,n("OV"),"GND"),
+             (5,n("EN_SW"),"GND"),(6,"V3",f"DC_PG{i}"),(7,n("ILIM"),"GND"),(8,n("RAW"),"GND"),
+             (9,n("RAW"),f"IMON{i}"),(10,f"DC_EN{i}",n("EN_SW"))]:pair(f"R{b+off}",a,z)
+        for off,a in [(1,"VIN"),(2,n("OUT")),(3,n("DVDT")),(4,f"IMON{i}"),(5,"V3")]:pair(f"C{b+off}",a)
+        barrel(f"J{b+1}",n("OUT"));pair(f"D{b+1}",n("OUT"));pair(f"D{b+2}","VIN")
 
     for i,b in enumerate([500,600,700,800],1):
         vbus,ilim = f"USB{i}_VBUS",f"USB{i}_ILIM"
@@ -156,17 +157,28 @@ def verify(netlist):
     require(checked==set(actual),f"unreviewed nets: {set(actual)-checked}")
     require(set(comps)=={p.split('.')[0] for members in expected.values() for p in members},"unexpected component inventory")
 
-    # Numeric design intent and BOM identity; units are encoded deliberately.
+    # Independent manufacturer pin map above includes EP25=VIN and EP26=GND.
     for i in range(1,5):
         b=i*100
-        for ref,value in [(f"R{b+5}","10k"),(f"R{b+7}","3.3k / 1%"),(f"R{b+8}","8.2k / 1%")]:
+        for ref,value in [(f"R{b+1}","220k"),(f"R{b+2}","10k"),(f"R{b+3}","470k"),(f"R{b+4}","10k"),
+                (f"R{b+5}","100k"),(f"R{b+7}","249 / 1%"),(f"R{b+8}","820 / 1%"),
+                (f"R{b+9}","10k"),(f"R{b+10}","10k"),(f"C{b+3}","4.7n / 50V"),(f"D{b+1}","SS54"),(f"D{b+2}","SMBJ18A")]:
             require(comps[ref].findtext("value")==value,f"{ref}: changed protection/current scaling")
-        require(comps[f"U{b+1}"].findtext("footprint")=="pulsarfab:TI_PWP0020T_EP2.96x2.96mm","TPS26631 exposed-pad footprint mismatch")
+        require(comps[f"U{b+1}"].findtext("footprint")=="pulsarfab:TI_RGE0024M_VQFN24_2EP_4x4mm","TPS25982 two-pad footprint mismatch")
+        f={x.attrib["name"]:x.text for x in comps[f"U{b+1}"].findall("fields/field")}
+        require(f.get("MPN")=="TPS259827ONRGET" and f.get("LCSC")=="C2155765","wrong voltage/breaker variant")
+        f={x.attrib["name"]:x.text for x in comps[f"U{b+2}"].findall("fields/field")}
+        require(f.get("MPN")=="TPS3700DDCR","voltage window monitor mismatch")
+    require(comps["D10"].findtext("value")=="SMCJ18A","input TVS must be the 18 V version")
     for b in [500,600,700,800]:
         require(comps[f"C{b+2}"].findtext("value")=="150u / 10V / 20%","USB VBUS minimum capacitance")
         require(comps[f"R{b+1}"].findtext("value")=="43.2k / 1%","USB current-limit resistor")
-    require(18000/(3300*1.01)*.93>5,"DC current-limit minimum must support 5 A")
-    require(27.9e-6*8200*1.01*1.06*(18000/(3300*.99)*1.07)*2<3.1,"ADC range at 2x overload")
+    # Eq.4 nominal only: the datasheet does not guarantee full-temperature limits at 249 ohms.
+    require(5.9 < 1460/249+.11 < 6.1,"nominal breaker threshold")
+    require(253.4e-6*820*1.01*15<3.2,"ADC monitor range screening up to 15 A")
+    ov_min=.396*(1+470e3*.99/(10e3*1.01));ov_max=.404*(1+470e3*1.01/(10e3*.99))
+    require(ov_min>18 and ov_max<20,"OV threshold worst-case tolerance window")
+    require(3.2*100e3*.99/(10e3*1.01+100e3*.99)>1.23,"enabled logic-high margin")
     require(25230/(43.2*1.01)**1.016>500,"USB current-limit minimum")
 
     # Pin-pad coverage is separate from physical land-pattern qualification.

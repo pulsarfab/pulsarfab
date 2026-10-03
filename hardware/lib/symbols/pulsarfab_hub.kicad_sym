@@ -1,51 +1,51 @@
 (kicad_symbol_lib
   (version 20241209)
   (generator kicad_symbol_editor)
-  (symbol "TPS26631PWP"
+  (symbol "TPS259827ONRGE"
     (pin_names
       (offset 0.508))
     (in_bom yes)
     (on_board yes)
     (property "Reference" "U"
-      (at 0.0 35.56 0.0)
+      (at 0.0 36.83 0.0)
       (effects
         (font
           (size 1.27 1.27))))
-    (property "Value" "TPS26631PWP"
-      (at 0.0 35.56 0.0)
+    (property "Value" "TPS259827ONRGE"
+      (at 0.0 36.83 0.0)
       (effects
         (font
           (size 1.27 1.27))))
-    (property "Footprint" "pulsarfab:TI_PWP0020T_EP2.96x2.96mm"
-      (at 0.0 35.56 0.0)
+    (property "Footprint" "pulsarfab:TI_RGE0024M_VQFN24_2EP_4x4mm"
+      (at 0.0 36.83 0.0)
       (effects
         (font
           (size 1.27 1.27))
         (hide yes)))
-    (property "Datasheet" "https://www.ti.com/lit/ds/symlink/tps2663.pdf"
-      (at 0.0 35.56 0.0)
+    (property "Datasheet" "https://www.ti.com/lit/ds/symlink/tps25982.pdf"
+      (at 0.0 36.83 0.0)
       (effects
         (font
           (size 1.27 1.27))
         (hide yes)))
-    (property "Description" "TPS26631PWP; pin mapping checked against manufacturer datasheet"
-      (at 0.0 35.56 0.0)
+    (property "Description" "TPS259827ONRGE; pin mapping checked against manufacturer datasheet"
+      (at 0.0 36.83 0.0)
       (effects
         (font
           (size 1.27 1.27))
         (hide yes)))
-    (symbol "TPS26631PWP_0_1"
+    (symbol "TPS259827ONRGE_0_1"
       (rectangle
-        (start -15.24 30.48)
-        (end 15.24 -30.48)
+        (start -15.24 31.75)
+        (end 15.24 -31.75)
         (stroke
           (width 0.254)
           (type default))
         (fill
           (type background))))
-    (symbol "TPS26631PWP_1_1"
+    (symbol "TPS259827ONRGE_1_1"
       (pin power_in line
-        (at -17.78 25.4 0.0)
+        (at -17.78 27.94 0.0)
         (length 2.54)
         (name "IN"
           (effects
@@ -56,7 +56,7 @@
             (font
               (size 1.0 1.0)))))
       (pin power_in line
-        (at -17.78 20.32 0.0)
+        (at -17.78 24.13 0.0)
         (length 2.54)
         (name "IN"
           (effects
@@ -67,7 +67,7 @@
             (font
               (size 1.0 1.0)))))
       (pin power_in line
-        (at -17.78 15.24 0.0)
+        (at -17.78 20.32 0.0)
         (length 2.54)
         (name "IN"
           (effects
@@ -78,9 +78,31 @@
             (font
               (size 1.0 1.0)))))
       (pin power_in line
-        (at -17.78 10.16 0.0)
+        (at -17.78 16.51 0.0)
         (length 2.54)
-        (name "IN_SYS"
+        (name "IN"
+          (effects
+            (font
+              (size 1.0 1.0))))
+        (number "16"
+          (effects
+            (font
+              (size 1.0 1.0)))))
+      (pin power_in line
+        (at -17.78 12.7 0.0)
+        (length 2.54)
+        (name "EP_IN"
+          (effects
+            (font
+              (size 1.0 1.0))))
+        (number "25"
+          (effects
+            (font
+              (size 1.0 1.0)))))
+      (pin input line
+        (at -17.78 8.89 0.0)
+        (length 2.54)
+        (name "EN_UVLO"
           (effects
             (font
               (size 1.0 1.0))))
@@ -88,43 +110,10 @@
           (effects
             (font
               (size 1.0 1.0)))))
-      (pin input line
+      (pin power_in line
         (at -17.78 5.08 0.0)
         (length 2.54)
-        (name "UVLO"
-          (effects
-            (font
-              (size 1.0 1.0))))
-        (number "7"
-          (effects
-            (font
-              (size 1.0 1.0)))))
-      (pin input line
-        (at -17.78 0.0 0.0)
-        (length 2.54)
-        (name "OVP"
-          (effects
-            (font
-              (size 1.0 1.0))))
-        (number "8"
-          (effects
-            (font
-              (size 1.0 1.0)))))
-      (pin input line
-        (at -17.78 -5.08 0.0)
-        (length 2.54)
-        (name "SHDN"
-          (effects
-            (font
-              (size 1.0 1.0))))
-        (number "13"
-          (effects
-            (font
-              (size 1.0 1.0)))))
-      (pin output line
-        (at -17.78 -10.16 0.0)
-        (length 2.54)
-        (name "B_GATE"
+        (name "GND"
           (effects
             (font
               (size 1.0 1.0))))
@@ -132,10 +121,10 @@
           (effects
             (font
               (size 1.0 1.0)))))
-      (pin output line
-        (at -17.78 -15.24 0.0)
+      (pin power_in line
+        (at -17.78 1.27 0.0)
         (length 2.54)
-        (name "DRV"
+        (name "GND"
           (effects
             (font
               (size 1.0 1.0))))
@@ -144,29 +133,40 @@
             (font
               (size 1.0 1.0)))))
       (pin power_in line
-        (at -17.78 -20.32 0.0)
+        (at -17.78 -2.54 0.0)
         (length 2.54)
         (name "GND"
           (effects
             (font
               (size 1.0 1.0))))
-        (number "9"
+        (number "14"
           (effects
             (font
               (size 1.0 1.0)))))
       (pin power_in line
-        (at -17.78 -25.4 0.0)
+        (at -17.78 -6.35 0.0)
         (length 2.54)
         (name "EP_GND"
           (effects
             (font
               (size 1.0 1.0))))
-        (number "21"
+        (number "26"
           (effects
             (font
               (size 1.0 1.0)))))
       (pin power_out line
-        (at 17.78 25.4 180.0)
+        (at 17.78 27.94 180.0)
+        (length 2.54)
+        (name "OUT"
+          (effects
+            (font
+              (size 1.0 1.0))))
+        (number "17"
+          (effects
+            (font
+              (size 1.0 1.0)))))
+      (pin passive line
+        (at 17.78 24.13 180.0)
         (length 2.54)
         (name "OUT"
           (effects
@@ -188,7 +188,7 @@
             (font
               (size 1.0 1.0)))))
       (pin passive line
-        (at 17.78 15.24 180.0)
+        (at 17.78 16.51 180.0)
         (length 2.54)
         (name "OUT"
           (effects
@@ -198,47 +198,69 @@
           (effects
             (font
               (size 1.0 1.0)))))
-      (pin input line
-        (at 17.78 10.16 180.0)
+      (pin passive line
+        (at 17.78 12.7 180.0)
         (length 2.54)
-        (name "PGTH"
+        (name "OUT"
           (effects
             (font
               (size 1.0 1.0))))
-        (number "16"
+        (number "21"
           (effects
             (font
               (size 1.0 1.0)))))
-      (pin open_collector line
+      (pin passive line
+        (at 17.78 8.89 180.0)
+        (length 2.54)
+        (name "OUT"
+          (effects
+            (font
+              (size 1.0 1.0))))
+        (number "22"
+          (effects
+            (font
+              (size 1.0 1.0)))))
+      (pin passive line
         (at 17.78 5.08 180.0)
         (length 2.54)
-        (name "PGOOD"
+        (name "OUT"
           (effects
             (font
               (size 1.0 1.0))))
-        (number "17"
+        (number "23"
+          (effects
+            (font
+              (size 1.0 1.0)))))
+      (pin passive line
+        (at 17.78 1.27 180.0)
+        (length 2.54)
+        (name "OUT"
+          (effects
+            (font
+              (size 1.0 1.0))))
+        (number "24"
           (effects
             (font
               (size 1.0 1.0)))))
       (pin open_collector line
-        (at 17.78 0.0 180.0)
+        (at 17.78 -2.54 180.0)
         (length 2.54)
-        (name "~{FLT}"
+        (name "PG"
           (effects
             (font
               (size 1.0 1.0))))
-        (number "15"
+        (number "13"
           (effects
             (font
               (size 1.0 1.0)))))
       (pin output line
-        (at 17.78 -5.08 180.0)
+        (at 17.78 -6.35 180.0)
         (length 2.54)
         (name "IMON"
           (effects
             (font
               (size 1.0 1.0))))
-        (number "14"
+        (number "9"
           (effects
             (font
               (size 1.0 1.0)))))
@@ -249,14 +271,36 @@
           (effects
             (font
               (size 1.0 1.0))))
-        (number "11"
+        (number "8"
           (effects
             (font
               (size 1.0 1.0)))))
       (pin passive line
-        (at 17.78 -15.24 180.0)
+        (at 17.78 -13.97 180.0)
         (length 2.54)
         (name "dVdT"
+          (effects
+            (font
+              (size 1.0 1.0))))
+        (number "15"
+          (effects
+            (font
+              (size 1.0 1.0)))))
+      (pin passive line
+        (at 17.78 -17.78 180.0)
+        (length 2.54)
+        (name "ITIMER"
+          (effects
+            (font
+              (size 1.0 1.0))))
+        (number "7"
+          (effects
+            (font
+              (size 1.0 1.0)))))
+      (pin passive line
+        (at 17.78 -21.59 180.0)
+        (length 2.54)
+        (name "RETRY_DLY"
           (effects
             (font
               (size 1.0 1.0))))
@@ -264,14 +308,134 @@
           (effects
             (font
               (size 1.0 1.0)))))
-      (pin input line
-        (at 17.78 -20.32 180.0)
+      (pin passive line
+        (at 17.78 -25.4 180.0)
         (length 2.54)
-        (name "MODE"
+        (name "NRETRY"
+          (effects
+            (font
+              (size 1.0 1.0))))
+        (number "11"
+          (effects
+            (font
+              (size 1.0 1.0)))))
+      (pin input line
+        (at 17.78 -29.21 180.0)
+        (length 2.54)
+        (name "LDSTRT"
           (effects
             (font
               (size 1.0 1.0))))
         (number "12"
+          (effects
+            (font
+              (size 1.0 1.0)))))))
+  (symbol "TPS3700DDC"
+    (pin_names
+      (offset 0.508))
+    (in_bom yes)
+    (on_board yes)
+    (property "Reference" "U"
+      (at 0.0 17.78 0.0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Value" "TPS3700DDC"
+      (at 0.0 17.78 0.0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Footprint" "Package_TO_SOT_SMD:SOT-23-6"
+      (at 0.0 17.78 0.0)
+      (effects
+        (font
+          (size 1.27 1.27))
+        (hide yes)))
+    (property "Datasheet" "https://www.ti.com/lit/ds/symlink/tps3700.pdf"
+      (at 0.0 17.78 0.0)
+      (effects
+        (font
+          (size 1.27 1.27))
+        (hide yes)))
+    (property "Description" "TPS3700DDC; pin mapping checked against manufacturer datasheet"
+      (at 0.0 17.78 0.0)
+      (effects
+        (font
+          (size 1.27 1.27))
+        (hide yes)))
+    (symbol "TPS3700DDC_0_1"
+      (rectangle
+        (start -15.24 12.7)
+        (end 15.24 -12.7)
+        (stroke
+          (width 0.254)
+          (type default))
+        (fill
+          (type background))))
+    (symbol "TPS3700DDC_1_1"
+      (pin power_in line
+        (at -17.78 7.62 0.0)
+        (length 2.54)
+        (name "VDD"
+          (effects
+            (font
+              (size 1.0 1.0))))
+        (number "5"
+          (effects
+            (font
+              (size 1.0 1.0)))))
+      (pin input line
+        (at -17.78 2.54 0.0)
+        (length 2.54)
+        (name "INA+"
+          (effects
+            (font
+              (size 1.0 1.0))))
+        (number "3"
+          (effects
+            (font
+              (size 1.0 1.0)))))
+      (pin input line
+        (at -17.78 -2.54 0.0)
+        (length 2.54)
+        (name "INB-"
+          (effects
+            (font
+              (size 1.0 1.0))))
+        (number "4"
+          (effects
+            (font
+              (size 1.0 1.0)))))
+      (pin power_in line
+        (at -17.78 -7.62 0.0)
+        (length 2.54)
+        (name "GND"
+          (effects
+            (font
+              (size 1.0 1.0))))
+        (number "2"
+          (effects
+            (font
+              (size 1.0 1.0)))))
+      (pin open_collector line
+        (at 17.78 7.62 180.0)
+        (length 2.54)
+        (name "OUTA"
+          (effects
+            (font
+              (size 1.0 1.0))))
+        (number "1"
+          (effects
+            (font
+              (size 1.0 1.0)))))
+      (pin open_collector line
+        (at 17.78 2.54 180.0)
+        (length 2.54)
+        (name "OUTB"
+          (effects
+            (font
+              (size 1.0 1.0))))
+        (number "6"
           (effects
             (font
               (size 1.0 1.0)))))))

@@ -1,5 +1,5 @@
 (kicad_sch (version 20260306) (generator "eeschema") (generator_version "10.0") (uuid "30cdaed1-41d6-537c-917e-3c275b788146") (paper "A3")
-(title_block (title "PulsarDew Hub - 5 V USB and 3.3 V logic supplies") (date "2026-10-03") (rev "0.1-draft") (company "PulsarFab"))
+(title_block (title "PulsarDew Hub - 5 V USB and 3.3 V logic supplies") (date "2026-10-03") (rev "0.2-draft") (company "PulsarFab"))
 (lib_symbols
 (symbol "Regulator_Switching:LMR33630ADDA"
   (exclude_from_sim no)

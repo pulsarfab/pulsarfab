@@ -1,4 +1,4 @@
-# PulsarDew Hub design review — 2026-10-03
+# PulsarDew Hub design review (0.2-draft) — 2026-10-03
 
 **Verdict:** connected schematic and editable placement draft; **not ready for
 fabrication**. The native board has 499 unconnected items and four unresolved
@@ -11,22 +11,22 @@ routing, thermal verification and prototype tests. No enclosure has been chosen.
 | --- | --- |
 | Unrouted board | Raw PCB / KiCad DRC: zero tracks and vias, no ground fills, 499 unconnected items. Route power, ground, signals and thermal vias before fabrication. |
 | USB-C locating holes | KiCad DRC: four hole-to-ground-pad gaps of 0.1944 mm versus the 0.25 mm rule. Stock USB4105 geometry and GCT drawing were reviewed; reconcile the land pattern with assembly/fabricator limits. Do not suppress the errors. |
-| Full-load current and heat | Inference/calculation: four 5 A TPS26631 paths dissipate roughly 3.1–5 W together before regulator/heater/input losses. Copper and enclosure cooling are not modeled. |
-| Firmware differs from original | Raw schematic: two active-high heaters, four new enable/fault/ADC interfaces and internal hub connection. Update and test firmware before applying loads. |
-| Supply and load constraints | Provisional 12–20 V input, 25 A shared XT60 target, 3.5 A continuous barrel target. Six 5 A loads simultaneously exceed the budget. Validate startup, overload, cable and connector temperature. |
+| Full-load current and heat | Inference/calculation: four 5 A TPS259827 paths dissipate roughly 0.27–0.45 W together, excluding quiescent loss before regulator/heater/input losses. Copper and enclosure cooling are not modeled. |
+| Firmware differs from original | Raw schematic: two active-high heaters, four new enable/power-good/ADC interfaces and internal hub connection. Update and test firmware before applying loads. |
+| Supply and load constraints | Selected 12–18 V input, 25 A shared XT60 target, 3.5 A continuous barrel target. Six 5 A loads simultaneously exceed the budget. Validate startup, overload, cable and connector temperature. |
 | Procurement and assembly | Exact source candidates are populated, but stock, lifecycle, through-hole assembly availability and custom land patterns require release review. |
 
 ## What was checked
 
 KiCad CLI 10.0.6 ERC passes with **zero errors, warnings and exclusions**.
 `verify-pulsardewhub.py` independently specifies every expected component pin and
-compares complete net membership: **215 components, 130 connected nets and 45
+compares complete net membership: **223 components, 130 connected nets and 33
 intentional no-connects**. It also checks critical resistor/capacitor choices,
 source fields, and that every schematic pin exists in its assigned footprint.
 This is raw-file connectivity evidence, not proof of analog behavior.
 
 PCB DRC confirms **zero schematic parity errors, zero courtyard overlaps and
-zero footprint-library mismatches**. The board has 215 schematic footprints,
+zero footprint-library mismatches**. The board has 223 schematic footprints,
 four mounting holes and three fiducials. Native net assignments retain the
 sheet-instance UUID links. Critical power-pin mappings, USB pairs, connector
 polarity and exposed-pad geometry were manually compared with the manufacturer
@@ -37,7 +37,9 @@ rendered inspection succeeded independently; GUI inspection remains a handoff it
 
 The independent net checker was also challenged with temporary corrupted
 netlists: a missing upstream USB pin, shorted DC outlets, and reversed XT60
-polarity were all rejected. No source design files were altered by those checks.
+polarity were all rejected. In 0.2, tying exposed pad 25 to ground, selecting the
+16.9 V cutoff variant, and disconnecting the OV inhibit were also rejected.
+No source design files were altered by those checks.
 
 ## Manual datasheet review basis
 
@@ -49,7 +51,9 @@ part-specific catalog. Some catalog URLs point to a family document.
 | Components | Manufacturer document section / reviewed detail |
 | --- | --- |
 | U40 USB2517 | Microchip DS00001598C, pin descriptions, configuration straps, non-removable/disabled ports and 64-QFN package drawing. Ports 1–5 used; 6/7 disabled; independent 1.8 V output capacitors. |
-| U101/U201/U301/U401 TPS26631 | TI TPS2663 datasheet, pin functions, current limit/IMON, mode selection, UVLO/OVP and PWP0020T mechanical drawing. MODE open selects latch-off; EP is 2.96 mm square. SHDN has 10 kΩ pull-down. |
+| U101/U201/U301/U401 TPS259827ONRGET | TI SLVSEI3D Rev. D, pins, equation 4, IMON, latch-off, PG and RGE0024M drawings. Pad 25 is VIN (2.7 × 1.45 mm); pad 26 is GND (2.7 × 0.85 mm), with independent paste windows. ITIMER open; RETRY_DLY/NRETRY/LDSTRT grounded. |
+| U102/U202/U302/U402 TPS3700 | TI SBVS187G pins, comparator thresholds, UVLO/POR and open-drain behavior. VDD on 3.3 V; both outputs clamp EN_SW; separate UV/OV sense dividers. |
+| D10 / outlet Dxx1/Dxx2 | Jingdao SMCJ18A/SMBJ18A family tables: 18 V stand-off, 29.2 V rated pulse clamp. MDD SS54: 5 A, 40 V, 0.55 V maximum forward drop at 5 A. Input transient and negative output clamp roles checked; bench surge energy qualification is open. |
 | U10 / Q10 | TI LM74700-Q1 pin functions/application circuit and CSD18540Q5B terminal diagram. Correct anode/cathode/gate path, charge-pump capacitor and physical source/drain pad mapping. |
 | U20/U30 LMR33630 | TI pin functions, output-voltage design and application sections. VIN, EN, BOOT/SW, VCC, FB, ground/EP and passive network connections. Input bypasses adjacent to IC in floorplan; routing still pending. |
 | U501/U601/U701/U801 TPS2553 | TI pin functions/current-limit resistor section. Active-high enable, open-drain fault, input/output and ILIM assignments; 43.2 kΩ target limit around 0.60 A. |
@@ -71,9 +75,8 @@ part-specific catalog. Some catalog URLs point to a family document.
 
 The upstream USB host rail is isolated from V5 and VIN in the exact-net model.
 The heater shunt cannot be bypassed in that model; all four DC OUT nets and
-their ADC/enable/fault nets are distinct. No-connects are explicit, including
-unused MCU GPIO, hub ports, PG outputs, TPS26631 MODE and optional reverse-FET
-driver pins. A no-connect marker is not used to silence an unexamined power pin.
+their ADC/enable/power-good nets are distinct. No-connects are explicit, including
+unused MCU GPIO, hub ports and TPS259827 ITIMER pins. A no-connect marker is not used to silence an unexamined power pin.
 
 ## Power and signal calculations
 
@@ -82,21 +85,41 @@ driver pins. A no-connect marker is not used to silence an unexamined power pin.
   0.4 A equivalent logic/support budget leave about 0.6 A below the 3 A 5 V
   regulator rating. This is an estimate; check efficiency, transient loads and
   effective output capacitance at bias.
-- DC UVLO/OVP divider estimates: about 9.38 V and 21.12 V. The latter protects
-  the DC outputs; it does not disconnect the input from the bucks or heaters.
-- IMON: `27.9 µA/A × 8.2k = 0.22878 V/A`. At the estimated 5.90 A limit and
-  a 2× pulse, nominal monitor voltage is 2.70 V, with margin for stated gain
-  and resistor tolerances below the 3.3 V ADC rail. Calibration is required.
-- ADC filter: 1 kΩ / 10 nF gives about 15.9 kHz nominal corner frequency.
-  Configure ADC sampling time for the complete monitor/filter source impedance.
+- DC voltage window: 0.4 V × (1 + 220k/10k) = 9.2 V UV; 0.4 V ×
+  (1 + 470k/10k) = 19.2 V OV. Worst-case OV is about 18.62–19.78 V with
+  1% resistors and 396–404 mV threshold; input leakage adds under 8 mV.
+- Enable logic: 10k series/100k pulldown gives about 3.0 V from a 3.3 V GPIO,
+  above the 1.23 V maximum rising threshold. TPS3700 sinks under 0.34 mA and
+  specifies VOL ≤0.25 V, below the eFuse's shutdown/reset range. Loss of V3
+  makes OUTA low down to the monitor's POR region; pulldown and GPIO default-off
+  behavior must still be tested through startup/brownout.
+- IMON: 246 µA/A × 820 Ω = 0.20172 V/A, 1.0086 V at 5 A. At 15 A,
+  253.4 µA/A × 828.2 Ω = 3.148 V is a screening calculation. The published
+  gain limits apply at 3 A up to ILIM and TA ≤75°C; this does not guarantee
+  monitor behavior during a short transient. The 10k/10n filter is 100 µs,
+  about 1.59 kHz; ADC acquisition time must include source impedance.
+- Breaker threshold: 1460/249 + 0.11 = 5.973 A nominal. There is no published
+  guaranteed full-temperature min/max specifically at 249 Ω. A ±15% screening
+  assumption plus 1% resistor gives approximately 5.027–6.936 A, but must not be
+  presented as a guaranteed operating range. Qualification must establish 5 A
+  no-trip service and bounded overload trip. ITIMER open requests the fastest
+  breaker response; separate short-circuit fast trip is nominally 2.1× ILIM.
+- dVdt: 4600 pF/4700 pF = 0.979 V/ms; 18 V rise takes about 18.4 ms nominal.
+  Capacitive load/inrush, resistive-load dissipation during startup and SOA
+  remain prototype checks. No load-handshake dependency is present.
 - Heater shunt: 2 mΩ gives 20 mV and 0.2 W at 10 A. Driver supply load and
   current-monitor calibration must be included in firmware interpretation.
 - USB differential impedance, skew, return paths and termination behavior have
   not been simulated; there are no routed traces to assess.
 
-## Automated analysis and triage
+## Historical automated analysis and triage (0.1)
 
-The installed kicad-happy tools were run in addition to KiCad:
+The following analyzer counts describe the prior TPS26631 revision only. They
+were not rerun for this focused component substitution. Fresh 0.2 evidence is
+the independent pin/value/BOM check, KiCad ERC/DRC/parity and rendered inspection
+above. Do not treat the historical counts or MODE/PG warnings below as current.
+
+The installed kicad-happy tools were run in addition to KiCad on 0.1:
 
 | Analyzer | Outcome / limits |
 | --- | --- |
@@ -134,6 +157,26 @@ Reviewed false positives and intentional conditions:
   manufacturer PDFs were retrieved separately and manually checked. Automated
   datasheet coverage is incomplete; other passive qualification remains open.
 
+## 0.2 change and validation scope
+
+The user accepted the TPS25982 Rev. D −15°C lower junction limit. All four DC
+outlets now use TPS259827ONRGET C2155765; positive switching and direct grounded
+returns remain explicit in the independent net model. Current/thermal shutdown
+latches off through grounded RETRY_DLY. PG replaces FLT on the same four MCU pads.
+Each TPS3700 is a firmware-independent voltage inhibit, with automatic recovery;
+this may reset a latched fault and therefore requires ENABLE deassertion in
+firmware when an explicit restart policy is desired. SMCJ18A replaces the input
+20 V TVS; each outlet adds a local SMBJ18A at IN and SS54 at OUT. The 29.2 V TVS
+clamp versus 30 V eFuse absolute maximum needs measured overshoot/temperature
+qualification. This is not a sustained-overvoltage input disconnect.
+
+Symbol pins, two-pad footprint geometry and paste apertures were compared with
+the manufacturer drawings. Board stays 180 × 110 mm, 4-layer and unrouted.
+The previous four USB-C hole-clearance findings remain; no new native DRC
+violations or courtyard overlaps remain. No firmware binary, routing, surge test,
+thermal validation, SPICE, lifecycle audit or complete new automated analysis
+suite is claimed for this change.
+
 ## Changes since the original design
 
 The original PulsarDew remains a separate four-heater project. Its connected
@@ -143,11 +186,10 @@ eFuses and ADC monitoring, replaces the small logic supply with bucks, and adds
 the self-powered USB hub and ESD/power protection. The original's source codes
 for USB-C and barrel connectors were corrected to match the GCT footprints.
 
-During this variant's review, corrections included XT60 polarity, TPS26631
-exposed-pad size, SHDN pull-down strength, IMON overload headroom, 150 µF USB
-bulk, derated heater fuses, inductor/terminal/capacitor land patterns and
-non-overlapping component placement. These changes are reflected in the final
-net checker and source files; earlier draft calculations are not release data.
+The 0.1 review corrected XT60 polarity, the prior TPS26631 exposed-pad size
+and SHDN pull-down, IMON overload headroom, USB bulk capacitance, heater fuses,
+and several land patterns and placement conflicts. Revision 0.2 supersedes the
+TPS26631 circuit as detailed above. Earlier draft calculations are not release data.
 
 ## Review limits and next work
 

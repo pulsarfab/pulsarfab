@@ -82,13 +82,14 @@ for b,y in [(20,73),(30,93)]:
         f"C{b+1}":(71,y-.635,90),f"C{b+2}":(80.5,y+.635,0),f"C{b+3}":(80.5,y-2.5,90),
         f"R{b}":(80,y+5,0),f"R{b+1}":(76,y+5,0)})
     for j in range(4):place[f"C{b+4+j}"]=(102+j*3.2,y-2,90)
-# Output switches get separate heat-spreading regions below the logic section.
+# Outlet blocks: eFuse with distinct VIN/GND exposed pads, local clamps and voltage monitor.
 for i,x in enumerate([128,156,184,212],1):
     b=100*i
-    place.update({f"J{b+1}":(x,146.3,0),f"U{b+1}":(x,133,0),f"D{b+1}":(x+10,141,90),
-        f"C{b+1}":(x-5,129,90),f"C{b+2}":(x+5,129,90),f"C{b+3}":(x-2,139,0),
-        f"C{b+4}":(x+10,126,90)})
-    coords=[(-8,129),(-8,132),(-11,129),(-11,132),(-8,137),(8,135),(2,139),(8,132),(10,123),(5,141),(5,143)]
+    place.update({f"J{b+1}":(x,146.3,0),f"U{b+1}":(x,133,0),f"U{b+2}":(x-8,137,0),
+        f"D{b+1}":(x+8,140,90),f"D{b+2}":(x-1,125,0),
+        f"C{b+1}":(x-4,130,90),f"C{b+2}":(x+4,130,90),f"C{b+3}":(x+4,134,90),
+        f"C{b+4}":(x+10,128,90),f"C{b+5}":(x-8,140,0)})
+    coords=[(-11,130),(-11,133),(-8,130),(-8,133),(-4,137),(8,132),(-1,137),(5,137),(10,125),(-4,140)]
     for off,(dx,yy) in enumerate(coords,1):place[f"R{b+off}"]=(x+dx,yy,90 if off in [1,2,3,4,5,6,8,9] else 0)
 # Four downstream USB ports. ESD is just behind data tails; VBUS switch/bulk to the side.
 for i,x in enumerate([124,148,172,196]):
@@ -124,7 +125,7 @@ for ref,f in footprints.items():
     x,y,a=place[ref];f.SetOrientationDegrees(a);f.SetPosition(pt(x,y))
     r=f.Reference();r.SetTextSize(pt(.8,.8));r.SetTextThickness(p.FromMM(.12));r.SetTextAngle(p.EDA_ANGLE(0,p.DEGREES_T));r.SetKeepUpright(True)
     # Passive references remain available in the fabrication overlay, keeping silk readable.
-    if ref.startswith(("R","C","D")):r.SetLayer(p.F_Fab)
+    if ref.startswith(("R","C","D")) or ref in ["U102","U202","U302","U402"]:r.SetLayer(p.F_Fab)
     box=f.GetBoundingBox(False,False);r.SetPosition(p.VECTOR2I(box.GetCenter().x,box.GetTop()-p.FromMM(.8)))
     if ref.startswith("J"):r.SetLayer(p.F_Fab)
     if ref in ["U502","U602","U702","U802"]:r.SetPosition(pt(x,y+2.8))
@@ -142,9 +143,9 @@ for i,(x,y) in enumerate([(60,59),(220,60),(220,153)],1):
     f.Reference().SetVisible(False);f.Value().SetVisible(False);board.Add(f)
 def text(s,x,y,size=1,layer=p.F_SilkS):
     t=p.PCB_TEXT(board);t.SetText(s);t.SetPosition(pt(x,y));t.SetTextSize(pt(size,size));t.SetTextThickness(p.FromMM(.15));t.SetLayer(layer);board.Add(t)
-text("PulsarDew Hub 0.1",191,109,1.8)
+text("PulsarDew Hub 0.2",191,109,1.8)
 text("2 HEATERS / 4 DC / USB 2.0",191,112,1)
-text("12-20V IN",60,88,1)
+text("12-18V IN",60,88,1)
 text("FIT ONE INPUT",65,96,.8)
 text("BARREL: 5A TOTAL",64,144,.8)
 text("SHT40",222,83,.8)
@@ -162,7 +163,7 @@ poly=z.Outline();poly.NewOutline()
 for x,y in [(221.5,77.3),(222.5,77.3),(222.5,78.7),(221.5,78.7)]:poly.Append(p.FromMM(x),p.FromMM(y))
 board.Add(z)
 board.GetTitleBlock().SetTitle("PulsarDew Hub - unrouted prototype floorplan")
-board.GetTitleBlock().SetRevision("0.1-draft");board.GetTitleBlock().SetCompany("PulsarFab")
+board.GetTitleBlock().SetRevision("0.2-draft");board.GetTitleBlock().SetCompany("PulsarFab")
 board.GetDesignSettings().m_HoleClearance=p.FromMM(.25)
 # pcbnew SaveBoard may rewrite project settings with its default in-memory values.
 # Preserve the separately maintained netclasses, clearances and exclusion policy.

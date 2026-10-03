@@ -1,5 +1,5 @@
 (kicad_sch (version 20260306) (generator "eeschema") (generator_version "10.0") (uuid "06270ea1-4e21-57d8-adbf-ed0c1de93d0e") (paper "A3")
-(title_block (title "PulsarDew Hub - Fused input and reverse-polarity protection") (date "2026-10-03") (rev "0.1-draft") (company "PulsarFab"))
+(title_block (title "PulsarDew Hub - Fused input and reverse-polarity protection") (date "2026-10-03") (rev "0.2-draft") (company "PulsarFab"))
 (lib_symbols
 (symbol "Connector_Generic:Conn_01x02"
   (pin_names
@@ -1201,7 +1201,7 @@
       (fill
         (type none))))
   (embedded_fonts no)))
-(text "POWER INPUT | 12-20 V nominal | XT60 or barrel assembly option" (at 20.3200 16.5100 0) (effects (font (size 2 2)) (justify left top)) (uuid "746f80c1-ba32-5492-90b4-02eb4f33d83f"))
+(text "POWER INPUT | 12-18 V nominal | XT60 or barrel assembly option" (at 20.3200 16.5100 0) (effects (font (size 2 2)) (justify left top)) (uuid "98f6851d-0673-5a3b-9b49-b082fe58cc12"))
 (symbol
   (lib_id "Connector_Generic:Conn_01x02")
   (at 35.56 45.72 0.0)
@@ -1697,7 +1697,7 @@
       (font
         (size 1.27 1.27))
       (justify left)))
-  (property "Value" "SMCJ20A"
+  (property "Value" "SMCJ18A"
     (at 223.52 71.12 90.0)
     (effects
       (font
@@ -1709,25 +1709,25 @@
       (font
         (size 1.27 1.27))
       (hide yes)))
-  (property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/09ca1d9f88cd9aca28a35dad6b6eeb28.pdf?productCode=C2943873"
+  (property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/30c536fe584d45c8d03dea9ed65a638b.pdf?productCode=C438102"
     (at 218.44 68.58 90.0)
     (effects
       (font
         (size 1.27 1.27))
       (hide yes)))
-  (property "LCSC" "C2943873"
+  (property "LCSC" "C438102"
     (at 218.44 68.58 90.0)
     (effects
       (font
         (size 1.27 1.27))
       (hide yes)))
-  (property "MPN" "SMCJ20A"
+  (property "MPN" "SMCJ18A"
     (at 218.44 68.58 90.0)
     (effects
       (font
         (size 1.27 1.27))
       (hide yes)))
-  (property "Manufacturer" "GOODWORK"
+  (property "Manufacturer" "Jingdao Microelectronics"
     (at 218.44 68.58 90.0)
     (effects
       (font
@@ -2008,7 +2008,7 @@
         (reference "#FLG12")
         (unit 1)))))
 (label "VIN"  (at 304.8000 124.4600 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "feb4b94d-94c8-58bc-a8cb-278037fa492c"))
-(text "FIT J10 + F10 OR J11 + F11. Do not populate both input connector paths.\nXT60: provisional 25 A shared continuous budget; fuse, copper and temperature still require validation.\nBarrel: 5 A absolute TOTAL ceiling; 3.5 A provisional continuous budget after fuse derating. Use a current-limited supply.\nLM74700 + Q10 provides reverse-polarity / reverse-current protection. It is not an overvoltage disconnect.\nNever apply more than 20 V nominal. TVS pulse capability is not a sustained overvoltage rating." (at 25.4000 162.5600 0) (effects (font (size 1.5 1.5)) (justify left top)) (uuid "b637ac2d-80ca-509c-a604-0bb09cc4c30b"))
+(text "FIT J10 + F10 OR J11 + F11. Do not populate both input connector paths.\nXT60: provisional 25 A shared continuous budget; fuse, copper and temperature still require validation.\nBarrel: 5 A absolute TOTAL ceiling; 3.5 A provisional continuous budget after fuse derating. Use a current-limited supply.\nLM74700 + Q10 provides reverse-polarity / reverse-current protection. It is not an overvoltage disconnect.\nNever apply more than 18 V nominal. TVS pulse capability is not a sustained overvoltage rating." (at 25.4000 162.5600 0) (effects (font (size 1.5 1.5)) (justify left top)) (uuid "3f33d84f-d93e-5f3e-a285-fb99fbe2d96d"))
 (wire (pts (xy 20.3200 30.4800) (xy 20.3200 45.7200)) (stroke (width 0) (type default)) (uuid "4b372b11-eeb0-5a9a-b99b-46deef57c03e"))
 (wire (pts (xy 20.3200 30.4800) (xy 63.5000 30.4800)) (stroke (width 0) (type default)) (uuid "83a76140-00f3-5354-9218-f696d8ab1aa2"))
 (wire (pts (xy 20.3200 45.7200) (xy 20.3200 48.2600)) (stroke (width 0) (type default)) (uuid "295fe976-7e5d-5379-8d06-fcbb30210c35"))

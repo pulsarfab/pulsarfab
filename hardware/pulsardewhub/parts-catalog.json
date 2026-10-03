@@ -7,14 +7,6 @@
     "source_url": "https://www.lcsc.com/product-detail/C1589.html",
     "checked_date": "2026-10-03"
   },
-  "C4184": {
-    "lcsc_code": "C4184",
-    "mpn": "0603WAF2002T5E",
-    "manufacturer": "UNI-ROYAL",
-    "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C4184",
-    "source_url": "https://www.lcsc.com/product-detail/C4184.html",
-    "checked_date": "2026-10-03"
-  },
   "C7519": {
     "lcsc_code": "C7519",
     "mpn": "USBLC6-2SC6",
@@ -55,22 +47,6 @@
     "source_url": "https://www.lcsc.com/product-detail/C19666.html",
     "checked_date": "2026-10-03"
   },
-  "C21122": {
-    "lcsc_code": "C21122",
-    "mpn": "CL10B223KB8NNNC",
-    "manufacturer": "Samsung Electro-Mechanics",
-    "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf?productCode=C21122",
-    "source_url": "https://www.lcsc.com/product-detail/C21122.html",
-    "checked_date": "2026-10-03"
-  },
-  "C21190": {
-    "lcsc_code": "C21190",
-    "mpn": "0603WAF1001T5E",
-    "manufacturer": "UNI-ROYAL",
-    "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C21190",
-    "source_url": "https://www.lcsc.com/product-detail/C21190.html",
-    "checked_date": "2026-10-03"
-  },
   "C22790": {
     "lcsc_code": "C22790",
     "mpn": "0603WAF1202T5E",
@@ -79,36 +55,12 @@
     "source_url": "https://www.lcsc.com/product-detail/C22790.html",
     "checked_date": "2026-10-03"
   },
-  "C22807": {
-    "lcsc_code": "C22807",
-    "mpn": "0603WAF1503T5E",
-    "manufacturer": "UNI-ROYAL",
-    "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C22807",
-    "source_url": "https://www.lcsc.com/product-detail/C22807.html",
-    "checked_date": "2026-10-03"
-  },
-  "C22978": {
-    "lcsc_code": "C22978",
-    "mpn": "0603WAF3301T5E",
-    "manufacturer": "UNI-ROYAL",
-    "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C22978",
-    "source_url": "https://www.lcsc.com/product-detail/C22978.html",
-    "checked_date": "2026-10-03"
-  },
   "C23053": {
     "lcsc_code": "C23053",
     "mpn": "0603WAF4322T5E",
     "manufacturer": "UNI-ROYAL",
     "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C23053",
     "source_url": "https://www.lcsc.com/product-detail/C23053.html",
-    "checked_date": "2026-10-03"
-  },
-  "C23139": {
-    "lcsc_code": "C23139",
-    "mpn": "0603WAF3323T5E",
-    "manufacturer": "UNI-ROYAL",
-    "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C23139",
-    "source_url": "https://www.lcsc.com/product-detail/C23139.html",
     "checked_date": "2026-10-03"
   },
   "C23162": {
@@ -157,22 +109,6 @@
     "manufacturer": "UNI-ROYAL",
     "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25962",
     "source_url": "https://www.lcsc.com/product-detail/C25962.html",
-    "checked_date": "2026-10-03"
-  },
-  "C25981": {
-    "lcsc_code": "C25981",
-    "mpn": "0603WAF8201T5E",
-    "manufacturer": "UNI-ROYAL",
-    "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25981",
-    "source_url": "https://www.lcsc.com/product-detail/C25981.html",
-    "checked_date": "2026-10-03"
-  },
-  "C31850": {
-    "lcsc_code": "C31850",
-    "mpn": "0603WAF2202T5E",
-    "manufacturer": "UNI-ROYAL",
-    "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C31850",
-    "source_url": "https://www.lcsc.com/product-detail/C31850.html",
     "checked_date": "2026-10-03"
   },
   "C43698": {
@@ -343,14 +279,6 @@
     "source_url": "https://www.lcsc.com/product-detail/C1521556.html",
     "checked_date": "2026-10-03"
   },
-  "C2866319": {
-    "lcsc_code": "C2866319",
-    "mpn": "TPS26631PWPR",
-    "manufacturer": "TI",
-    "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/1e673a9d3411456469018b12bc5dcb14.pdf?productCode=C2866319",
-    "source_url": "https://www.lcsc.com/product-detail/C2866319.html",
-    "checked_date": "2026-10-03"
-  },
   "C2909890": {
     "lcsc_code": "C2909890",
     "mpn": "SHT40-AD1B-R2",
@@ -365,14 +293,6 @@
     "manufacturer": "TI",
     "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/447cabab1808fa061ec80788e97d5328.pdf?productCode=C2941042",
     "source_url": "https://www.lcsc.com/product-detail/C2941042.html",
-    "checked_date": "2026-10-03"
-  },
-  "C2943873": {
-    "lcsc_code": "C2943873",
-    "mpn": "SMCJ20A",
-    "manufacturer": "GOODWORK",
-    "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/09ca1d9f88cd9aca28a35dad6b6eeb28.pdf?productCode=C2943873",
-    "source_url": "https://www.lcsc.com/product-detail/C2943873.html",
     "checked_date": "2026-10-03"
   },
   "C2994640": {
@@ -429,6 +349,86 @@
     "manufacturer": "Global Connector Technology",
     "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/69cc4fb97da31d4274b463dbae6ae45e.pdf?productCode=C6307429",
     "source_url": "https://www.lcsc.com/product-detail/C6307429.html",
+    "checked_date": "2026-10-03"
+  },
+  "C2155765": {
+    "lcsc_code": "C2155765",
+    "mpn": "TPS259827ONRGET",
+    "manufacturer": "TI",
+    "datasheet_url": "https://www.ti.com/lit/ds/symlink/tps25982.pdf",
+    "source_url": "https://www.lcsc.com/product-detail/C2155765.html",
+    "checked_date": "2026-10-03"
+  },
+  "C33002": {
+    "lcsc_code": "C33002",
+    "mpn": "TPS3700DDCR",
+    "manufacturer": "TI",
+    "datasheet_url": "https://www.ti.com/lit/ds/symlink/tps3700.pdf",
+    "source_url": "https://www.lcsc.com/product-detail/C33002.html",
+    "checked_date": "2026-10-03"
+  },
+  "C22452": {
+    "lcsc_code": "C22452",
+    "mpn": "SS54",
+    "manufacturer": "MDD(Microdiode Semiconductor)",
+    "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/3d29bdcdc3c46ec127d6db22edd72e83.pdf?productCode=C22452",
+    "source_url": "https://www.lcsc.com/product-detail/C22452.html",
+    "checked_date": "2026-10-03"
+  },
+  "C438102": {
+    "lcsc_code": "C438102",
+    "mpn": "SMCJ18A",
+    "manufacturer": "Jingdao Microelectronics",
+    "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/30c536fe584d45c8d03dea9ed65a638b.pdf?productCode=C438102",
+    "source_url": "https://www.lcsc.com/product-detail/C438102.html",
+    "checked_date": "2026-10-03"
+  },
+  "C22919": {
+    "lcsc_code": "C22919",
+    "mpn": "0603WAF2490T5E",
+    "manufacturer": "UNI-ROYAL",
+    "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C22919",
+    "source_url": "https://www.lcsc.com/product-detail/C22919.html",
+    "checked_date": "2026-10-03"
+  },
+  "C23253": {
+    "lcsc_code": "C23253",
+    "mpn": "0603WAF8200T5E",
+    "manufacturer": "UNI-ROYAL",
+    "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C23253",
+    "source_url": "https://www.lcsc.com/product-detail/C23253.html",
+    "checked_date": "2026-10-03"
+  },
+  "C22961": {
+    "lcsc_code": "C22961",
+    "mpn": "0603WAF2203T5E",
+    "manufacturer": "UNI-ROYAL",
+    "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C22961",
+    "source_url": "https://www.lcsc.com/product-detail/C22961.html",
+    "checked_date": "2026-10-03"
+  },
+  "C23178": {
+    "lcsc_code": "C23178",
+    "mpn": "0603WAF4703T5E",
+    "manufacturer": "UNI-ROYAL",
+    "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C23178",
+    "source_url": "https://www.lcsc.com/product-detail/C23178.html",
+    "checked_date": "2026-10-03"
+  },
+  "C1621": {
+    "lcsc_code": "C1621",
+    "mpn": "CL10B472KB8NNNC",
+    "manufacturer": "Samsung Electro-Mechanics",
+    "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf?productCode=C1621",
+    "source_url": "https://www.lcsc.com/product-detail/C1621.html",
+    "checked_date": "2026-10-03"
+  },
+  "C353379": {
+    "lcsc_code": "C353379",
+    "mpn": "SMBJ18A",
+    "manufacturer": "Jingdao Microelectronics",
+    "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/e9ed405dd94e697d37ae30ddb40fefa5.pdf?productCode=C353379",
+    "source_url": "https://www.lcsc.com/product-detail/C353379.html",
     "checked_date": "2026-10-03"
   }
 }

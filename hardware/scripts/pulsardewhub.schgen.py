@@ -36,10 +36,11 @@ def block(name,fp,left,right,ds,width=15.24,step=5.08):
  s.append(unit);return s
 
 custom=[]
-custom.append(block('TPS26631PWP','pulsarfab:TI_PWP0020T_EP2.96x2.96mm',
- [(1,'IN','power_in'),(2,'IN','power_in'),(3,'IN','power_in'),(6,'IN_SYS','power_in'),(7,'UVLO','input'),(8,'OVP','input'),(13,'SHDN','input'),(4,'B_GATE','output'),(5,'DRV','output'),(9,'GND','power_in'),(21,'EP_GND','power_in')],
- [(18,'OUT','power_out'),(19,'OUT','passive'),(20,'OUT','passive'),(16,'PGTH','input'),(17,'PGOOD','open_collector'),(15,'~{FLT}','open_collector'),(14,'IMON','output'),(11,'ILIM','passive'),(10,'dVdT','passive'),(12,'MODE','input')],
- 'https://www.ti.com/lit/ds/symlink/tps2663.pdf'))
+custom.append(block('TPS259827ONRGE','pulsarfab:TI_RGE0024M_VQFN24_2EP_4x4mm',
+ [(1,'IN','power_in'),(2,'IN','power_in'),(3,'IN','power_in'),(16,'IN','power_in'),(25,'EP_IN','power_in'),(6,'EN_UVLO','input'),(4,'GND','power_in'),(5,'GND','power_in'),(14,'GND','power_in'),(26,'EP_GND','power_in')],
+ [(17,'OUT','power_out'),(18,'OUT','passive'),(19,'OUT','passive'),(20,'OUT','passive'),(21,'OUT','passive'),(22,'OUT','passive'),(23,'OUT','passive'),(24,'OUT','passive'),(13,'PG','open_collector'),(9,'IMON','output'),(8,'ILIM','passive'),(15,'dVdT','passive'),(7,'ITIMER','passive'),(10,'RETRY_DLY','passive'),(11,'NRETRY','passive'),(12,'LDSTRT','input')],
+ 'https://www.ti.com/lit/ds/symlink/tps25982.pdf',step=3.81))
+custom.append(block('TPS3700DDC',SOT6,[(5,'VDD','power_in'),(3,'INA+','input'),(4,'INB-','input'),(2,'GND','power_in')],[(1,'OUTA','open_collector'),(6,'OUTB','open_collector')],'https://www.ti.com/lit/ds/symlink/tps3700.pdf'))
 custom.append(block('LM74700QDBV',SOT6,[(6,'ANODE','power_in'),(3,'EN','input'),(1,'VCAP','passive'),(2,'GND','power_in')],[(4,'CATHODE','input'),(5,'GATE','output')], 'https://www.ti.com/lit/ds/symlink/lm74700-q1.pdf'))
 custom.append(block('TPS2553DBV',SOT6,[(1,'IN','power_in'),(3,'EN','input'),(2,'GND','power_in')],[(6,'OUT','power_out'),(4,'~{FAULT}','open_collector'),(5,'ILIM','passive')], 'https://www.ti.com/lit/ds/symlink/tps2553.pdf'))
 custom.append(block('TPS3808G33DBV',SOT6,[(6,'VDD','power_in'),(5,'SENSE','input'),(3,'~{MR}','input'),(2,'GND','power_in')],[(1,'~{RESET}','open_collector'),(4,'CT','passive')], 'https://www.ti.com/lit/ds/symlink/tps3808.pdf'))
@@ -62,8 +63,8 @@ paths={name:'/'+rootid+'/'+uid('sheet:'+name) for name,file in sheet_specs}
 
 def make(name,title,paper='A4'):
  return Sheet(name,title,[paths[n] for n,f in sheet_specs if f==name],paper)
-R_CODES={'100k':'C25803','10k':'C25804','4.7k':'C23162','5.1k':'C23186','3.3k':'C22978','22k':'C31850','20k':'C4184','8.2k':'C25981','1k':'C21190','47':'C23182','43.2k':'C23053','12k':'C22790','24.9k':'C25962','150k':'C22807','332k':'C23139'}
-C_CODES={'100n':'C14663','1u':'C15849','4.7u':'C19666','10u':'C138687','220n':'C64705','22u':'C12891','22n':'C21122','10n':'C1589','18p':'C342890'}
+R_CODES={'100k':'C25803','10k':'C25804','4.7k':'C23162','5.1k':'C23186','3.3k':'C22978','22k':'C31850','20k':'C4184','8.2k':'C25981','1k':'C21190','47':'C23182','43.2k':'C23053','12k':'C22790','24.9k':'C25962','150k':'C22807','332k':'C23139','220k':'C22961','470k':'C23178','249':'C22919','820':'C23253'}
+C_CODES={'100n':'C14663','1u':'C15849','4.7u':'C19666','10u':'C138687','220n':'C64705','22u':'C12891','22n':'C21122','10n':'C1589','18p':'C342890','4.7n':'C1621'}
 def put(s,ref,lib,x,y,value=None,fp=None,code='',angle=0,**kw):
  if not code and value:
   first=value.split(' / ')[0]
@@ -95,7 +96,7 @@ def nc_rest(s,ref,used):
 # Input connectors are mutually exclusive assembly options. The small barrel path
 # has its own 5 A fuse; it never bypasses the fuse to the XT60 high-current rail.
 s=make('power_input','Fused input and reverse-polarity protection','A3')
-s.text('POWER INPUT | 12-20 V nominal | XT60 or barrel assembly option',20,16,2)
+s.text('POWER INPUT | 12-18 V nominal | XT60 or barrel assembly option',20,16,2)
 put(s,'J10','Connector_Generic:Conn_01x02',35.56,45.72,'XT60: 2=PLUS, 1=GND','pulsarfab:AMASS_XT60PW-M_Edge','C98732')
 put(s,'J11','Connector:Barrel_Jack_Switch',35.56,86.36,'BARREL input / DNP','pulsarfab:BarrelJack_GCT_DCJ200_Edge','C5280493')
 child(s.symbols['J11'],'dnp')[1]=S('yes')
@@ -113,12 +114,12 @@ for n in [1,2,3]:named(s,'Q10',n,'VIN_RAW')
 named(s,'Q10',5,'VIN');named(s,'Q10',4,'INPUT_GATE')
 for n,name in [(6,'VIN_RAW'),(3,'VIN_RAW'),(1,'VCAP'),(2,'GND'),(4,'VIN'),(5,'INPUT_GATE')]:named(s,'U10',n,name)
 branch(s,'C10','Device:C',93.98,119.38,'100n / 50V','VCAP','VIN_RAW',code='C14663')
-branch(s,'D10','Device:D_Zener',218.44,68.58,'SMCJ20A','VIN','GND','Diode_SMD:D_SMC','C2943873',angle=270)
+branch(s,'D10','Device:D_Zener',218.44,68.58,'SMCJ18A','VIN','GND','Diode_SMD:D_SMC','C438102',angle=270)
 branch(s,'C11','Device:C',248.92,68.58,'100n / 50V','VIN','GND',code='C14663')
 branch(s,'C12','Device:C_Polarized',284.48,68.58,'470u / 35V','VIN','GND','Capacitor_THT:CP_Radial_D10.0mm_P5.00mm','C106703')
 ports(s,[('VIN','output'),('GND','input')],330.2,50.8)
 powerflag(s,'GND',259.08,124.46,10);powerflag(s,'VIN_RAW',279.4,124.46,11);powerflag(s,'VIN',304.8,124.46,12)
-s.text('FIT J10 + F10 OR J11 + F11. Do not populate both input connector paths.\nXT60: provisional 25 A shared continuous budget; fuse, copper and temperature still require validation.\nBarrel: 5 A absolute TOTAL ceiling; 3.5 A provisional continuous budget after fuse derating. Use a current-limited supply.\nLM74700 + Q10 provides reverse-polarity / reverse-current protection. It is not an overvoltage disconnect.\nNever apply more than 20 V nominal. TVS pulse capability is not a sustained overvoltage rating.',25.4,162.56,1.5)
+s.text('FIT J10 + F10 OR J11 + F11. Do not populate both input connector paths.\nXT60: provisional 25 A shared continuous budget; fuse, copper and temperature still require validation.\nBarrel: 5 A absolute TOTAL ceiling; 3.5 A provisional continuous budget after fuse derating. Use a current-limited supply.\nLM74700 + Q10 provides reverse-polarity / reverse-current protection. It is not an overvoltage disconnect.\nNever apply more than 18 V nominal. TVS pulse capability is not a sustained overvoltage rating.',25.4,162.56,1.5)
 s.finish()
 
 # Two identical 36 V-rated buck families keep heat away from the humidity sensor.
@@ -156,7 +157,7 @@ s.finish()
 s=make('controller','STM32 controller and ambient sensor','A3')
 s.text('CONTROLLER | 2 heater PWM + 4 DC enables / ADC current readings / faults',20,16,2)
 put(s,'U1','pulsarfab:STM32G0B1KBU6',132.08,86.36,fp='Package_DFN_QFN:UFQFPN-32-1EP_5x5mm_P0.5mm_EP3.5x3.5mm',code='C5159549')
-gpio={7:'HTR0',8:'HTR1',11:'IMON1',12:'IMON2',13:'IMON3',14:'IMON4',15:'DC_EN1',16:'DC_EN2',17:'DC_EN3',1:'DC_EN4',27:'DC_FLT1',28:'DC_FLT2',29:'DC_FLT3',20:'DC_FLT4',22:'MCU_DM',23:'MCU_DP',19:'USB_ATTACH',24:'SWDIO',25:'SWCLK',30:'SCL',31:'SDA',4:'V3',5:'GND',33:'GND',6:'NRST'}
+gpio={7:'HTR0',8:'HTR1',11:'IMON1',12:'IMON2',13:'IMON3',14:'IMON4',15:'DC_EN1',16:'DC_EN2',17:'DC_EN3',1:'DC_EN4',27:'DC_PG1',28:'DC_PG2',29:'DC_PG3',20:'DC_PG4',22:'MCU_DM',23:'MCU_DP',19:'USB_ATTACH',24:'SWDIO',25:'SWCLK',30:'SCL',31:'SDA',4:'V3',5:'GND',33:'GND',6:'NRST'}
 for n,name in gpio.items():named(s,'U1',n,name)
 nc_rest(s,'U1',gpio)
 for r,x,v in [('C1',68.58,'100n'),('C2',88.9,'4.7u / 16V')]:branch(s,r,'Device:C',x,48.26,v,'V3','GND',code='C14663' if r=='C1' else '')
@@ -170,7 +171,7 @@ put(s,'J1','Connector_Generic:Conn_01x05',325.12,48.26,'SWD','Connector_PinHeade
 for n,name in enumerate(['V3','SWDIO','SWCLK','NRST','GND'],1):named(s,'J1',n,name)
 entries=[('V3','input'),('GND','input'),('HTR0','output'),('HTR1','output'),('MCU_DP','bidirectional'),('MCU_DM','bidirectional'),('USB_ATTACH','input'),('SCL','output'),('SDA','bidirectional')]
 ports(s,entries,25.4,147.32)
-for ch in range(1,5):ports(s,[(f'DC_EN{ch}','output'),(f'IMON{ch}','input'),(f'DC_FLT{ch}','input')],139.7+(ch-1)*63.5,157.48)
+for ch in range(1,5):ports(s,[(f'DC_EN{ch}','output'),(f'IMON{ch}','input'),(f'DC_PG{ch}','input')],139.7+(ch-1)*63.5,157.48)
 s.text('PA0/PA1: active-high TIM2 heater drive. PB0/PB1/PB2/PB9: static DC GPIO only (never PWM).\nPA4..PA7: ADC IMON1..4. PB3/PB4/PB5/PC6: active-low DC faults.\nPA9: internal hub port 1 enable (3.3 V). Attach USB only while high; disable UCPD dead-battery pull-down.\nSHT40 at 0x44; keep physically away from power components. New firmware pin map is required.',25.4,223.52,1.4)
 s.finish()
 
@@ -210,7 +211,7 @@ s.finish()
 
 # Four identical current-monitored high-side outlets. No PWM input exists.
 s=make('dc_outlet','5 A switched DC outlet','A3')
-s.text('SWITCHED DC OUTLET | 5 A target | enable / current / latched fault',20,16,2)
+s.text('SWITCHED DC OUTLET | 12-18 V / 5 A service | hardware voltage inhibit / latched breaker',20,16,1.8)
 def dcput(ref,lib,x,y,value=None,fp=None,code='',angle=0):
  refs=[ref[0]+str(100*i+int(ref[1:])%100) for i in range(1,5)]
  return put(s,ref,lib,x,y,value,fp,code,angle,refs=refs)
@@ -218,40 +219,45 @@ def dcr(ref,x,y,v,n1,n2,code=''):
  p=dcput(ref,'Device:R',x,y,v,RFP,code);named(s,ref,1,n1,5.08);named(s,ref,2,n2,5.08);return p
 def dcc(ref,x,y,v,n1,n2,fp=CFP,code=''):
  p=dcput(ref,'Device:C',x,y,v,fp,code);named(s,ref,1,n1,5.08);named(s,ref,2,n2,5.08);return p
-ports(s,[('VIN','input'),('V3','input'),('GND','input'),('ENABLE','input'),('CURRENT','output'),('FAULT','output')],25.4,38.1)
-dcput('U101','pulsarfab_hub:TPS26631PWP',177.8,99.06,code='C2866319')
-mapping={1:'VIN',2:'VIN',3:'VIN',6:'VIN',7:'UVLO',8:'OVP',13:'ENABLE',9:'GND',21:'GND',18:'OUT',19:'OUT',20:'OUT',16:'PGTH',15:'FAULT',14:'IMON_RAW',11:'ILIM',10:'DVDT'}
+ports(s,[('VIN','input'),('V3','input'),('GND','input'),('ENABLE','input'),('CURRENT','output'),('PGOOD','output')],25.4,38.1)
+dcput('U101','pulsarfab_hub:TPS259827ONRGE',213.36,99.06,code='C2155765')
+mapping={**{n:'VIN' for n in [1,2,3,16,25]},**{n:'GND' for n in [4,5,14,26,10,11,12]},**{n:'OUT' for n in range(17,25)},6:'EN_SW',13:'PGOOD',9:'IMON_RAW',8:'ILIM',15:'DVDT'}
 for n,name in mapping.items():named(s,'U101',n,name)
-nc_rest(s,'U101',mapping) # MODE open = latch-off; B_GATE/DRV deliberately unused.
-dcr('R101',86.36,48.26,'150k','VIN','UVLO');dcr('R102',86.36,88.9,'22k','UVLO','GND')
-dcr('R103',116.84,48.26,'332k','VIN','OVP');dcr('R104',116.84,88.9,'20k','OVP','GND')
-dcr('R105',86.36,139.7,'10k','ENABLE','GND','C25804')
-dcr('R106',116.84,139.7,'10k','V3','FAULT','C25804')
-dcr('R107',243.84,139.7,'3.3k / 1%','ILIM','GND')
-dcr('R108',269.24,139.7,'8.2k / 1%','IMON_RAW','GND')
-dcput('R109','Device:R',304.8,127,'1k',RFP,'',90);named(s,'R109',1,'IMON_RAW');named(s,'R109',2,'CURRENT')
-dcc('C101',269.24,40.64,'100n / 50V','VIN','GND',code='C14663')
-dcc('C102',294.64,83.82,'100n / 50V','OUT','GND',code='C14663')
-dcc('C103',218.44,182.88,'22n / 50V','DVDT','GND')
-dcc('C104',335.28,152.4,'10n','CURRENT','GND')
-dcr('R110',243.84,182.88,'150k','OUT','PGTH');dcr('R111',269.24,182.88,'22k','PGTH','GND')
+nc_rest(s,'U101',mapping) # ITIMER open = fastest overload response. RETRY_DLY grounded = latch off.
+dcput('U102','pulsarfab_hub:TPS3700DDC',154.94,175.26,code='C33002')
+for n,name in {5:'V3',3:'UV_SENSE',4:'OV_SENSE',2:'GND',1:'EN_SW',6:'EN_SW'}.items():named(s,'U102',n,name)
+dcr('R101',83.82,139.7,'220k','VIN','UV_SENSE');dcr('R102',83.82,185.42,'10k','UV_SENSE','GND')
+dcr('R103',111.76,139.7,'470k','VIN','OV_SENSE');dcr('R104',111.76,203.2,'10k','OV_SENSE','GND')
+dcr('R105',264.16,200.66,'100k','EN_SW','GND')
+dcr('R106',322.58,104.14,'10k','V3','PGOOD')
+dcr('R107',241.3,200.66,'249 / 1%','ILIM','GND')
+dcr('R108',289.56,172.72,'820 / 1%','IMON_RAW','GND')
+dcput('R109','Device:R',320.04,149.86,'10k',RFP,'C25804',90);named(s,'R109',1,'IMON_RAW');named(s,'R109',2,'CURRENT')
+dcput('R110','Device:R',231.14,175.26,'10k',RFP,'C25804',90);named(s,'R110',1,'ENABLE');named(s,'R110',2,'EN_SW')
+dcc('C101',172.72,45.72,'100n / 50V','VIN','GND',code='C14663')
+dcc('C102',294.64,68.58,'100n / 50V','OUT','GND',code='C14663')
+dcc('C103',213.36,200.66,'4.7n / 50V','DVDT','GND')
+dcc('C104',353.06,172.72,'10n','CURRENT','GND')
+dcc('C105',154.94,220.98,'100n','V3','GND',code='C14663')
 dcput('J101','Connector:Barrel_Jack_Switch',345.44,48.26,'5A DC / center +','pulsarfab:BarrelJack_GCT_DCJ200_Edge','C5280493')
 named(s,'J101',1,'OUT');named(s,'J101',2,'GND');s.nc(s.pins['J101']['3'])
-dcput('D101','Device:D_Zener',373.38,104.14,'SMBJ20A','Diode_SMD:D_SMB','C364296',270);named(s,'D101',1,'OUT');named(s,'D101',2,'GND')
-# Wire the divider midpoints, parallel power pins, output bypass and ADC filter.
-s.wire(s.pins['R101']['2'],s.pins['R102']['1'])
-s.wire((86.36,68.58),(139.7,68.58),(139.7,93.98),s.pins['U101']['7'])
-s.wire(s.pins['R103']['2'],s.pins['R104']['1'])
-s.wire((116.84,73.66),(137.16,73.66),(137.16,99.06),s.pins['U101']['8'])
-for nn in [1,2,3,6]:s.wire(s.pins['U101'][str(nn)],(149.86,s.pins['U101'][str(nn)][1]))
-s.wire((149.86,73.66),(149.86,88.9))
-for nn in [18,19,20]:s.wire(s.pins['U101'][str(nn)],(218.44,s.pins['U101'][str(nn)][1]))
-s.wire((218.44,73.66),(218.44,83.82))
-s.wire((218.44,73.66),(294.64,73.66),s.pins['C102']['1'])
-s.wire(s.pins['U101']['14'],(228.6,104.14),(228.6,127),s.pins['R109']['1'])
-s.wire(s.pins['R108']['1'],(269.24,127))
-s.wire(s.pins['R109']['2'],(335.28,127),s.pins['C104']['1'])
-s.text('RILIM 3.3k: nominal 5.45 A (5.02..5.90 A including +/-7% IC and 1% resistor).\nTPS26631 permits a 2x overload pulse before limiting/latching: this is not an instantaneous 5 A clamp.\nIMON: 27.9 uA/A x 8.2k = 0.22878 V/A; +/-6% above 2 A, +/-8% at 0.6..2 A; calibrate each outlet.\nUVLO ~9.38 V rising / OVP ~21.1 V. MODE open: latch off, reset with ENABLE low then high.\nNo external blocking FET: do not backfeed power into OUT. Allocate heat-spreading copper and thermal vias.\nENABLE pulldown is 10k: the SHDN internal source can be 10 uA. Plain GPIO switching only; never PWM.',25.4,223.52,1.27)
+dcput('D101','Device:D_Schottky',373.38,104.14,'SS54','Diode_SMD:D_SMA','C22452',270);named(s,'D101',1,'OUT');named(s,'D101',2,'GND')
+dcput('D102','Device:D_Zener',132.08,45.72,'SMBJ18A','Diode_SMD:D_SMB','C353379',270);named(s,'D102',1,'VIN');named(s,'D102',2,'GND')
+# Visible divider, open-drain inhibit, power-pin bus and monitor/filter connections.
+s.wire(s.pins['R101']['2'],s.pins['R102']['1']);s.wire((83.82,172.72),(127,172.72),s.pins['U102']['3'])
+s.wire(s.pins['R103']['2'],s.pins['R104']['1']);s.wire((111.76,177.8),s.pins['U102']['4'])
+for nn in [1,6]:s.wire(s.pins['U102'][str(nn)],(187.96,s.pins['U102'][str(nn)][1]))
+s.wire((187.96,s.pins['U102']['1'][1]),(187.96,s.pins['U102']['6'][1]))
+s.wire(s.pins['R110']['2'],(264.16,175.26),s.pins['R105']['1'])
+for nn in [1,2,3,16,25]:s.wire(s.pins['U101'][str(nn)],(185.42,s.pins['U101'][str(nn)][1]))
+s.wire((185.42,s.pins['U101']['1'][1]),(185.42,s.pins['U101']['25'][1]))
+for nn in range(17,25):s.wire(s.pins['U101'][str(nn)],(256.54,s.pins['U101'][str(nn)][1]))
+s.wire((256.54,s.pins['U101']['17'][1]),(256.54,s.pins['U101']['24'][1]))
+s.wire((256.54,s.pins['U101']['17'][1]),(256.54,55.88),(294.64,55.88),s.pins['C102']['1'])
+s.wire(s.pins['U101']['9'],(274.32,s.pins['U101']['9'][1]),(274.32,149.86),s.pins['R109']['1'])
+s.wire(s.pins['R108']['1'],(289.56,149.86))
+s.wire(s.pins['R109']['2'],(353.06,149.86),s.pins['C104']['1'])
+s.text('TPS259827O: 249R gives 5.97 A nominal breaker threshold; 5 A service target needs tolerance/bench qualification.\nITIMER open: fastest overload response. Fast short trip ~2.1x setpoint. RETRY_DLY grounded: latch off.\nIMON: 246 uA/A x 820R = 0.20172 V/A (1.009 V at 5 A); 10k / 10n ADC filter. Calibrate each outlet.\nTPS3700 independently inhibits EN below ~9.2 V or above ~19.2 V; window recovery can re-enable an asserted GPIO.\nPGOOD is HIGH when ready; LOW also means OFF/startup/inhibit, not exclusively a latched current fault.\nEP25 = VIN, EP26 = GND. -15 C minimum junction rating accepted. No reverse blocking: do not backfeed OUT.\nSMBJ18A input TVS + SS54 output clamp need short loops and hot-plug/inductive-load bench validation.',25.4,241.3,1.27)
 s.finish()
 
 # Each external USB port has independent 500 mA service and a protected 5 V switch.
@@ -356,13 +362,13 @@ root_sheet('Power input','power_input',53.34,43.18,78.74,[('VIN','output','VIN')
 root_sheet('DC supplies','supplies',53.34,104.14,78.74,[(n,d,n) for n,d in [('VIN','input'),('GND','input'),('V5','output'),('V3','output')]])
 root_sheet('Heaters','heaters',53.34,187.96,78.74,[(n,d,n) for n,d in [('VIN','input'),('V5','input'),('GND','input'),('HTR0','input'),('HTR1','input'),('V3','input'),('SCL','input'),('SDA','bidirectional')]])
 ctrl=[(n,d,n) for n,d in [('V3','input'),('GND','input'),('HTR0','output'),('HTR1','output'),('MCU_DP','bidirectional'),('MCU_DM','bidirectional'),('USB_ATTACH','input'),('SCL','output'),('SDA','bidirectional')]]
-for i in range(1,5):ctrl += [(f'DC_EN{i}','output',f'DC_EN{i}'),(f'IMON{i}','input',f'IMON{i}'),(f'DC_FLT{i}','input',f'DC_FLT{i}')]
+for i in range(1,5):ctrl += [(f'DC_EN{i}','output',f'DC_EN{i}'),(f'IMON{i}','input',f'IMON{i}'),(f'DC_PG{i}','input',f'DC_PG{i}')]
 root_sheet('Controller','controller',220.98,43.18,76.2,ctrl)
 hh=[(n,d,n) for n,d in [('V3','input'),('GND','input'),('MCU_DP','bidirectional'),('MCU_DM','bidirectional'),('USB_ATTACH','output')]]
 for i in range(1,5):hh += [(f'USB{i}_DP','bidirectional',f'USB{i}_DP'),(f'USB{i}_DM','bidirectional',f'USB{i}_DM'),(f'USB{i}_EN','output',f'USB{i}_EN'),(f'USB{i}_OC','input',f'USB{i}_OC')]
 root_sheet('USB hub','usb_hub',220.98,190.5,76.2,hh)
 for i in range(1,5):
- root_sheet(f'DC outlet {i}','dc_outlet',375.92,43.18+(i-1)*81.28,68.58,[('VIN','input','VIN'),('V3','input','V3'),('GND','input','GND'),('ENABLE','input',f'DC_EN{i}'),('CURRENT','output',f'IMON{i}'),('FAULT','output',f'DC_FLT{i}')])
+ root_sheet(f'DC outlet {i}','dc_outlet',375.92,43.18+(i-1)*81.28,68.58,[('VIN','input','VIN'),('V3','input','V3'),('GND','input','GND'),('ENABLE','input',f'DC_EN{i}'),('CURRENT','output',f'IMON{i}'),('PGOOD','output',f'DC_PG{i}')])
  root_sheet(f'USB port {i}','usb_port',510.54,43.18+(i-1)*81.28,63.5,[('V5','input','V5'),('GND','input','GND'),('DP','bidirectional',f'USB{i}_DP'),('DM','bidirectional',f'USB{i}_DM'),('ENABLE','input',f'USB{i}_EN'),('OVERCURRENT','output',f'USB{i}_OC')])
 # In the left column, make the input-to-supply/heater power paths visible.
 # Crossings with other rail branches have no junction and remain separate nets.
@@ -373,7 +379,7 @@ for net,x,titles in [('VIN',20.32,['Power input','DC supplies','Heaters']),
  points=[root_ends[(title,net)] for title in titles]
  o.wire((x,min(p[1] for p in points)),(x,max(p[1] for p in points)))
  for p in points:o.wire((x,p[1]),p)
-o.text('RATINGS TO VALIDATE\n12-20 V nominal input\n4 x 5 A DC outlet targets\n2 x 5 A heater targets\n25 A shared XT60 budget\n3.5 A continuous barrel budget\nUSB: 500 mA per port\nNo PWM on DC outlets',25.4,281.94,1.5)
+o.text('RATINGS TO VALIDATE\n12-18 V nominal input\n4 x 5 A DC outlet targets\n2 x 5 A heater targets\n25 A shared XT60 budget\n3.5 A continuous barrel budget\nUSB: 500 mA per port\nNo PWM on DC outlets',25.4,281.94,1.5)
 o.text('Same ground throughout.\nHigh-current and USB return paths\nare separated by placement.\nDo not backfeed DC outputs.',25.4,353.06,1.27)
 o.finish()
 pro=json.loads((BASE/'hardware/pulsardew/pulsardew.kicad_pro').read_text())

@@ -8,16 +8,16 @@
     "exclusions": 0
   },
   "exact_net_check": {
-    "components": 215,
+    "components": 223,
     "connected_nets": 130,
-    "intentional_no_connects": 45,
+    "intentional_no_connects": 33,
     "all_expected_pins_matched": true
   },
   "pcb": {
     "layers": 4,
     "width_mm": 180,
     "height_mm": 110,
-    "schematic_footprints": 215,
+    "schematic_footprints": 223,
     "mounting_holes": 4,
     "fiducials": 3,
     "tracks": 0,
@@ -26,7 +26,6 @@
     "schematic_parity_issues": 0,
     "violations": [
       {
-        "type": "hole_clearance",
         "description": "Hole clearance violation (board setup constraints hole clearance 0.2500 mm; actual 0.1944 mm)",
         "items": [
           {
@@ -45,10 +44,11 @@
             },
             "uuid": "1ff8f91a-56a7-4930-ab25-a41138b0de1c"
           }
-        ]
+        ],
+        "severity": "error",
+        "type": "hole_clearance"
       },
       {
-        "type": "hole_clearance",
         "description": "Hole clearance violation (board setup constraints hole clearance 0.2500 mm; actual 0.1944 mm)",
         "items": [
           {
@@ -67,10 +67,11 @@
             },
             "uuid": "1ff8f91a-56a7-4930-ab25-a41138b0de1c"
           }
-        ]
+        ],
+        "severity": "error",
+        "type": "hole_clearance"
       },
       {
-        "type": "hole_clearance",
         "description": "Hole clearance violation (board setup constraints hole clearance 0.2500 mm; actual 0.1944 mm)",
         "items": [
           {
@@ -89,10 +90,11 @@
             },
             "uuid": "86827c0f-8566-4a7f-aa6d-bd8c6474ee42"
           }
-        ]
+        ],
+        "severity": "error",
+        "type": "hole_clearance"
       },
       {
-        "type": "hole_clearance",
         "description": "Hole clearance violation (board setup constraints hole clearance 0.2500 mm; actual 0.1944 mm)",
         "items": [
           {
@@ -111,27 +113,69 @@
             },
             "uuid": "86827c0f-8566-4a7f-aa6d-bd8c6474ee42"
           }
-        ]
+        ],
+        "severity": "error",
+        "type": "hole_clearance"
       }
-    ]
+    ],
+    "total_footprints": 230
   },
   "source_sha256": {
-    "pulsardewhub/controller.kicad_sch": "f73b74525974a928a536852ab5866fee5190567b13f4c6d1d4c1be11d4158e75",
-    "pulsardewhub/dc_outlet.kicad_sch": "7e33d24d83df6621ae7c42fabc4c2c49f4c795e45bd8c978aaff5178484a3e73",
-    "pulsardewhub/heaters.kicad_sch": "528601b7c957e9d7329f0db23ff5dcebdd1792307fb80bad207d625dd2c43a96",
-    "pulsardewhub/power_input.kicad_sch": "9dbff66a4936c77dae091c7933774b0800e9b7ba33fcb52afdbbe92c25f55e96",
-    "pulsardewhub/pulsardewhub.kicad_pcb": "8459bfa72b3d5aaf9698658b5951ee3cc1aee58eb697fc4f80146ac5bc4cbf78",
+    "pulsardewhub/controller.kicad_sch": "185ea0ee055c83957ba9f94f0aa23081170453937443a5ad3a7df81f096983cd",
+    "pulsardewhub/dc_outlet.kicad_sch": "c146a552a90a411e095d8b22c342fe87c66d61188da9740d1157cc670792c54e",
+    "pulsardewhub/heaters.kicad_sch": "3a38b0cbb26da757526b35b9e51dd77d874698672912526829832194c8b4e37c",
+    "pulsardewhub/power_input.kicad_sch": "bf7d4f3f71634934cbcac56cb2cbf14637146fa1f3acae53089e692f7142b468",
+    "pulsardewhub/pulsardewhub.kicad_pcb": "17af54ca05bc53fefbca580874a4d4b1179857993b1e83290c83144406423186",
     "pulsardewhub/pulsardewhub.kicad_pro": "a4c09e64ae8c7a8fdd154765e1e0b24f2085be8479e359d1c1acea2dd1cdb3ab",
-    "pulsardewhub/pulsardewhub.kicad_sch": "355b5c9c8ffe2e6e7226cf41ceadf38c8c1c385adfbb6935f8bcdff4e9e8d3a3",
-    "pulsardewhub/supplies.kicad_sch": "014a0bfad9db5b5ea2d3c435c34e1d40322118d031c4114342577f2bfa2d29b2",
-    "pulsardewhub/usb_hub.kicad_sch": "46d81a5b55a83f581e69c966bebe2dbc8b5f8aeca15c7d3ff333faf3965ee5b9",
-    "pulsardewhub/usb_port.kicad_sch": "5b33d1dacc95ede67921cf0c8913ab5a6866475540bafc726bf180340966ae09"
+    "pulsardewhub/pulsardewhub.kicad_sch": "08273cd8aade12cf5d5cf0822bacd5930994bc77c23a8d387210c02bcbae0c1a",
+    "pulsardewhub/supplies.kicad_sch": "16ef14f8de3e30b92b697d126b85718c4894817cf6b4c89bdaf3ceddf1957eab",
+    "pulsardewhub/usb_hub.kicad_sch": "2ed5382d5022875043af27bbc303722c4bdbe46a2d65ed4a4019e1ebcb329e68",
+    "pulsardewhub/usb_port.kicad_sch": "644e203be114f39a157d84900ae2b2f10425d8189caa539ea80182f9e75eabc5",
+    "scripts/pulsardewhub.schgen.py": "82b7c041c3b48fd4561fde5b3d357f015fadfe4fcebe8dd504b3598e42104a14",
+    "scripts/verify-pulsardewhub.py": "d57f59064af6b32f21a65fa84d8abc863ab5a05d01505580c80f19b0f2dd7868",
+    "scripts/floorplan-pulsardewhub.py": "59fca8985ca3a5054f152db8e0677bb1d65f121db466eea42847c070cf4bb585",
+    "scripts/wired_schematic.py": "b7fbd3a1e2b1bcf14f004eb92d864adaf538dffe3191189036adfc39d2e2bae5",
+    "lib/symbols/pulsarfab_hub.kicad_sym": "eb10ed1705af2df4219e018993e240e94100463ff37f7e4a775f1f1c3e6b0fe7",
+    "lib/footprints.pretty/TI_RGE0024M_VQFN24_2EP_4x4mm.kicad_mod": "0a20176cb65cecf127186f31298fc2a5a9c3d11fee0bf515811b3c62748e3160",
+    "pulsardewhub/parts-catalog.json": "fcb97d22156fdb5cc573f3f37e32da65954a173ae7df7e86f1851550b4b0f001",
+    "pulsardewhub/parts-review.csv": "3b52f4883918101d6f12ae8c7b06affb72a8fb6438453b3ad402297be750de7d",
+    "pulsardewhub/jlcpcb_bom.csv": "74329984140fa60895d9f1dfe14cdea66334e3a284b718c786c2262b2b9df0ce",
+    "pulsardewhub/docs/datasheet-review-manifest.json": "6a6b2947772b910574a4f2997a53c218d56948e22071869392538089b09801cd",
+    "pulsardewhub/docs/sourcing-2026-10-03.json": "be2846a5d512361c69625832e7a1d2982a5638ff8bcb04e67273f99cf2f254bc"
   },
   "limits": [
-    "No full-load thermal or physical tests",
+    "No full-load thermal or physical tests; 5 A no-trip service and startup SOA require qualification",
     "No SPICE simulator available",
     "Four USB-C hole clearances unresolved",
-    "All 53 populated unique MPN lifecycle results unknown",
-    "Native GUI inspection blocked by locked Mac; rendered files inspected"
-  ]
+    "TPS259827 minimum junction temperature -15 C accepted by user; ambient range not yet qualified",
+    "Input TVS 29.2 V pulse clamp versus eFuse 30 V absolute maximum needs surge/temperature/overshoot testing",
+    "Current 0.2 lifecycle and full automated analyzer suite not run; 0.1 results are historical",
+    "Native GUI inspection blocked by locked Mac; CLI exports and rendered files inspected"
+  ],
+  "revision": "0.2-draft",
+  "negative_checks": [
+    {
+      "case": "EP25 tied to ground",
+      "rejected": true,
+      "message": "FAIL: GND: missing [], unexpected ['U101.25']"
+    },
+    {
+      "case": "wrong 16.9V variant",
+      "rejected": true,
+      "message": "FAIL: wrong voltage/breaker variant"
+    },
+    {
+      "case": "OV inhibit disconnected",
+      "rejected": true,
+      "message": "FAIL: DC1_EN_SW: missing ['U102.6'], unexpected []"
+    }
+  ],
+  "release_check": {
+    "command": "make -C hardware verify-release-pulsardewhub",
+    "status": "blocked_as_expected",
+    "reasons": [
+      "Four unresolved USB-C hole clearances",
+      "499 unconnected items; floorplan only"
+    ]
+  }
 }
