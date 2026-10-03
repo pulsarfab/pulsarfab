@@ -34,6 +34,7 @@ JLC_SCRIPT  := $(SCRIPTS_DIR)/jlcpcb-package.sh
 
 .PHONY: all docs jlc clean-docs clean-jlc help
 .PHONY: verify-pulsardew
+.PHONY: verify-floorplan-pulsardew
 .PHONY: $(foreach p,$(PROJECTS),docs-$(p) images-$(p) bom-$(p) jlc-$(p) gen-$(p) check-$(p) render-$(p))
 
 all: docs
@@ -41,6 +42,9 @@ all: docs
 # Strict electrical checks for the completed PulsarDew schematic.
 verify-pulsardew: pulsardew/pulsardew.kicad_sch
 	@KICAD_CLI=$(KICAD_CLI) python3 $(SCRIPTS_DIR)/verify-pulsardew.py
+
+verify-floorplan-pulsardew: pulsardew/pulsardew.kicad_pcb
+	@KICAD_CLI=$(KICAD_CLI) python3 $(SCRIPTS_DIR)/verify-floorplan.py $<
 
 help:
 	@echo "PulsarFab hardware makefile"

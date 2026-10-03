@@ -69,9 +69,37 @@ Verified with KiCad CLI 10.0.6: **zero ERC errors, warnings or exclusions**.
 The six distinct page designs were also rendered and visually reviewed; four
 heater instances share the same drawing with separate reference numbers/nets.
 
-## Before PCB layout and manufacture
+## PCB floorplan (revision 0.3)
 
-The PCB file is still an empty board. Connectivity verification does not
+The PCB now contains the 58 schematic footprints plus four board-only M3
+mounting holes, within a provisional **100 × 80 mm** outline. Mount centers are
+4 mm from each edge (92 × 72 mm spacing). It opens in KiCad's PCB Editor with
+the schematic UUID links and all 54 named nets preserved.
+
+The left edge carries the alternative DC inputs. Input diode, bulk capacitor,
+shunt and INA226 sit together, with space for Kelvin traces from the shunt.
+Four identical heater stages and their outward-facing terminals occupy the
+bottom edge. The USB connector and MCU are at the top, with MCU bypassing
+adjacent to its supply pins. SHT40 is at the upper-right edge, away from the
+power stages; a rule area prevents routing/pours below its sensing package.
+The MCU uses KiCad's ST UFQFPN-32 footprint, including segmented paste openings,
+instead of the inherited footprint whose silkscreen crossed all perimeter pads.
+
+`make verify-floorplan-pulsardew` checks placement and schematic parity. KiCad
+10.0.6 reports **zero courtyard overlaps, zero schematic parity issues,
+and 130 unconnected items**. Four remaining DRC entries are the two USB-C
+locating holes versus paired ground pads (0.1944 mm actual, 0.25 mm required).
+The strict floorplan check intentionally fails on these; reconcile the connector
+MPN/land pattern before routing release. No exclusions hide this issue. The board was opened and visually reviewed in
+KiCad. It is deliberately a floorplan: no tracks or copper pours are routed.
+Power, USB and sense net classes provide routing starting points; their widths
+are not a current or controlled-impedance certification. Use an uninterrupted
+ground reference under USB, keep heater returns out of the logic/sensor return
+path, and derive final widths/USB geometry from the selected fabrication stackup.
+
+## Before manufacture
+
+Connectivity verification does not
 validate land-pattern geometry, current capacity, thermal behavior, protection
 or assembly sourcing. Existing supplier codes must be reconciled with the exact
 connector/diode packages before ordering; the HT7333-1 orderable variant and
