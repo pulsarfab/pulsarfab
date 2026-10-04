@@ -7,7 +7,7 @@ The [README](../README.md) describes the current circuit and power budget.
 ## Current verification
 
 - **Verified, native KiCad 10.0.6:** zero ERC errors, warnings or exclusions;
-  226 components, 133 exact connected nets, 28 intentional no-connects, and
+  226 components, 133 exact connected nets, 27 intentional no-connects, and
   complete symbol-pin/footprint-pad coverage. Fifteen pages in nine schematic files.
 - **Verified, native PCB DRC:** zero schematic parity issues and zero placement DRC
   violations after the HRO USB-C and XKB barrel replacements. There are 499 unconnected items, zero tracks and zero vias.
@@ -63,7 +63,7 @@ cover the stated sections, not every datasheet specification or production lot.
 
 
 - **XKB substitution:** custom manufacturer slot pattern, positive pin 1 and both return/contact pins grounded; exact nets checked on both products. Stocked-sample plug fit remains unresolved because A0/A1 drawings disagree on diameter.
-- **LMR evaluation only:** [LMR51610 commonality](lmr51610-commonality.md) supports a redesigned 650 mA logic stage; active U20/U30 and regulator purchases are unchanged.
+- **LMR substitution implemented:** U30 is owned LMR51610XDBVR with the redesigned 650 mA logic stage and SOT-23-6 floorplan. U20 remains 5 V / 3 A; its cart quantity drops to 22. See [circuit and qualification notes](lmr51610-commonality.md).
 
 ## Release blockers
 
@@ -134,7 +134,7 @@ part-specific catalog. Some catalog URLs point to a family document.
 | U102/U202/U302/U402 TPS3700 | TI SBVS187G pins, comparator thresholds, UVLO/POR and open-drain behavior. VDD on 3.3 V; both outputs clamp EN_SW; separate UV/OV sense dividers. |
 | D10 / outlet Dxx1/Dxx2 | Jingdao SMCJ18A/SMBJ18A family tables: 18 V stand-off, 29.2 V rated pulse clamp. MDD SS54: 5 A, 40 V, 0.55 V maximum forward drop at 5 A. Input transient and negative output clamp roles checked; bench surge energy qualification is open. |
 | U10 / Q10 | TI LM74700-Q1 pin functions/application circuit and CSD18540Q5B terminal diagram. Correct anode/cathode/gate path, charge-pump capacitor and physical source/drain pad mapping. |
-| U20/U30 LMR33630 | TI pin functions, output-voltage design and application sections. VIN, EN, BOOT/SW, VCC, FB, ground/EP and passive network connections. Input bypasses adjacent to IC in floorplan; routing still pending. |
+| U20 LMR33630 | TI pin functions, output-voltage design and application sections. VIN, EN, BOOT/SW, VCC, FB, ground/EP and passive network connections. Input bypasses adjacent to IC in floorplan; routing still pending. |
 | U501/U601/U701/U801 TPS2553 | TI pin functions/current-limit resistor section. Active-high enable, open-drain fault, input/output and ILIM assignments; 43.2 kΩ target limit around 0.60 A. |
 | U41 TPS3808G33 | TI pin functions/reset-delay section. MR, SENSE and VDD on 3.3 V, CT open, open-drain RESET pull-up. |
 | U50 TC4427A / Q51/Q61 | Microchip non-inverting dual-driver terminal/function diagram; AOS AOD4184A gate/drain/source diagram. Driver inputs and MOSFET gates have pull-downs; active-high heater behavior. |
@@ -287,3 +287,7 @@ switch temperatures, short circuit/overload and startup/brownout behavior, USB
 enumeration and throughput under heater switching, and conducted/radiated ESD/EMC.
 The placement draft is useful for this next engineering phase; it is not a
 manufacturing or current-rating sign-off.
+
+## LMR51610 substitution verification
+
+U30 uses pins 1 CB, 2 GND, 3 FB, 4 EN, 5 VIN, 6 SW. EN/VIN are on 5 V; 100 kΩ over 20 kΩ + 12 kΩ gives 3.3 V. C32 is removed and C31 is 100 nF. The source, native PCB, BOM and shared allocation agree. ERC, full net checks and placement DRC/parity pass; 499 PCB connections remain unrouted. Focused negative checks reject old feedback values, a missing lower resistor, a grounded bootstrap pin and a wrong regulator variant. Automated schematic, PCB and EMC analyzers were rerun for this change; see verification.json for triage and limits. No transient/thermal/SPICE qualification is claimed.

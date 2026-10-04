@@ -10,7 +10,7 @@
   "exact_net_check": {
     "components": 226,
     "connected_nets": 133,
-    "intentional_no_connects": 28,
+    "intentional_no_connects": 27,
     "all_expected_pins_matched": true
   },
   "pcb": {
@@ -32,22 +32,22 @@
     "pulsardewhub/dc_outlet.kicad_sch": "44c35048ca3ff8bf0b8863a3bb8ddc0e6b7ce004e3d4cf6cb93598584108760c",
     "pulsardewhub/heaters.kicad_sch": "529057c6da83699b076573e0061ac59b28d049f5d8cb1568e77a001b7efc6405",
     "pulsardewhub/power_input.kicad_sch": "56456d4c7e6285e92586edb7719db39dc1a05af5b1044b6568e326e35c89f36b",
-    "pulsardewhub/pulsardewhub.kicad_pcb": "d9645c64fe4ce1906528f6d2ca4365d9a71add5d5aa64d9ae381e3ec8a317239",
+    "pulsardewhub/pulsardewhub.kicad_pcb": "1a5b114ad60b3bc19ab1294800513140b8b3239290eb28cf04d96c25518acf6b",
     "pulsardewhub/pulsardewhub.kicad_pro": "a4c09e64ae8c7a8fdd154765e1e0b24f2085be8479e359d1c1acea2dd1cdb3ab",
     "pulsardewhub/pulsardewhub.kicad_sch": "2750ff44987915d40d8d1bec8b0d0696fa8c8963b443b5da8ed0c4a1c2c5d21a",
-    "pulsardewhub/supplies.kicad_sch": "190e0b53aaf91a187dea1f312e98a885651a01ffdf8b046280318a0469649497",
+    "pulsardewhub/supplies.kicad_sch": "307758a5c9e13848b4c39850287c284fdf729ca6b4bdc5cbbf43ad7d65597139",
     "pulsardewhub/usb_hub.kicad_sch": "ec150e549f47816f407412d751ee5488c79865e28659d2cf809d91a1b1d919dc",
     "pulsardewhub/usb_port.kicad_sch": "cc3cefb492feadb8a88ca37f79f071f4c798baaf5bd027965e2a6ca690611671",
-    "scripts/pulsardewhub.schgen.py": "be11013f006b9fb931d53d7a66621a6c029ccf0aea71c731b2abcc35cc5442b8",
-    "scripts/verify-pulsardewhub.py": "95a2f7cb08628a96210b1fde26a7e340c62be67d689d70330a96e9940925c0f5",
-    "scripts/floorplan-pulsardewhub.py": "8cd0bfd9aedd552bb3e6e4aa0db6927ad41d5b08dabaf11e1270e1a9158c0f10",
+    "scripts/pulsardewhub.schgen.py": "75151017e1b9e2bb2d34456ad7144295088225176756a3c10ba047728d2967de",
+    "scripts/verify-pulsardewhub.py": "f56b80449af4abb25ab262f810c8c98946b6e1f1b98e898dd0a6ecfe9bc6b364",
+    "scripts/floorplan-pulsardewhub.py": "a62920717e5f72a8f85c28bca8c2a0fa13b8c97bfe6a5610efdb344cb0f366ed",
     "scripts/wired_schematic.py": "dfc06eaa734ffa8dbfa20b93fd49795d0a6e76ab60fe618b9dc7632834f13d60",
-    "lib/symbols/pulsarfab_hub.kicad_sym": "a7198624c4848d7f2f49108cb194eb1a010271c160062e5eda1083f74e485173",
-    "pulsardewhub/parts-catalog.json": "5eb5cf54ca29239e7903f06f4d9dbc89b9960232e6eafcbbf6867bf3d9b27d5a",
-    "pulsardewhub/parts-review.csv": "9628502ff05de187e45883f4d1853d1bcf869754cdce24e8d5809da88fe6ea6a",
-    "pulsardewhub/jlcpcb_bom.csv": "57dd760a1f2e27a43bc7832c7bf99fac5fcc83abe5eb7c86dc889c22da1c854e",
-    "pulsardewhub/docs/datasheet-review-manifest.json": "e0376a9ca188f8194c61fe0b843f95fc99fdf24bb347f97a01d0fed7a75e066f",
-    "pulsardewhub/docs/sourcing-2026-10-03.json": "cefbf930a98445f5ce2a4843365c0cf3ee0cc8a3e262c7fc2dc71d1974035262",
+    "lib/symbols/pulsarfab_hub.kicad_sym": "577695d73a1c5c28a34552d70c276c493e3697cdcede983910c13738957a031c",
+    "pulsardewhub/parts-catalog.json": "75d6effa2834757e71c6ba2b5c2b1b854989a9f6c09c69949c8542cfb7e600be",
+    "pulsardewhub/parts-review.csv": "a51650acdc7e421c946e164b5e3671f6ae62d52508c031550cb22f9f3f246217",
+    "pulsardewhub/jlcpcb_bom.csv": "5eafe3a3806044d1dfce90eba78e5377554817e06fa1213b228493aa775782e6",
+    "pulsardewhub/docs/datasheet-review-manifest.json": "df0cb3ea093c94285a6553d630f8f3194bcd018e71f6279efab455b74f0259cd",
+    "pulsardewhub/docs/sourcing-2026-10-03.json": "db84ae0402e971f824285421a9557244744660ef0a966554d9e4db476144990c",
     "pulsardewhub/dc_protection.kicad_sch": "9e6798cd0067c96847c0eb3680411ee0d7f2902d73f9cc21b0b4c59bbdf98d06",
     "lib/footprints.pretty/TI_RPW0010A_VQFN10_2x2mm.kicad_mod": "e4dee07e8be6e98983f7851af1602460a5601131f8775b6b1bad4adddbb70e56",
     "lib/footprints.pretty/USB_C_HRO_TYPE-C-31-M-12.kicad_mod": "cb8f29d5a860bcfc2352c8c43e29337680146b1ff5a2b85a5173749889fad216",
@@ -64,9 +64,9 @@
     "Shared voltage window is a common failure point; local OVLO is retained",
     "USB-A body longitudinal datum needs a physical sample check",
     "Current firmware must adopt 0.1055 V/A DC current scaling and tested fault recovery",
-    "Full automated analyzer/lifecycle suite not rerun; historical report below is not current evidence",
     "HRO USB-C first-article fit and solder inspection required; see usb-c-sourcing.md",
-    "XKB A0/A1 drawings disagree on plug diameter; owned-sample fit, continuity, slot and thermal qualification required"
+    "XKB A0/A1 drawings disagree on plug diameter; owned-sample fit, continuity, slot and thermal qualification required",
+    "Focused schematic/PCB/EMC analyzers rerun and triaged; full lifecycle/thermal qualification remains open. LMR51610 populated stage is budgeted at 650 mA, not a guaranteed full 1 A output."
   ],
   "revision": "0.3-draft",
   "negative_checks": [
@@ -99,6 +99,26 @@
       "case": "XKB return/contact pin 3 disconnected",
       "rejected": true,
       "message": "FAIL: GND: missing ['J101.3'], unexpected []"
+    },
+    {
+      "case": "old feedback value",
+      "rejected": true,
+      "message": "FAIL: R31: LMR51610 support value mismatch"
+    },
+    {
+      "case": "missing lower resistor",
+      "rejected": true,
+      "message": "FAIL: GND: missing ['R32.2'], unexpected []"
+    },
+    {
+      "case": "bootstrap grounded",
+      "rejected": true,
+      "message": "FAIL: GND: missing [], unexpected ['U30.1']"
+    },
+    {
+      "case": "wrong regulator variant",
+      "rejected": true,
+      "message": "FAIL: U30: regulator variant mismatch"
     }
   ],
   "release_check": {
@@ -157,5 +177,62 @@
     },
     "visual_review": "Current outlet/input/root schematic SVGs and PCB placement inspected; no connector DRC exceptions",
     "qualification": "Physical sample required: conflicting manufacturer plug diameter drawings"
+  },
+  "lmr51610_revision": {
+    "u30": "LMR51610XDBVR C20539658",
+    "u20_unchanged": "LMR33630ADDAR 5 V / 3 A",
+    "logic_budget_a": 0.65,
+    "nominal_vout_v": 3.3,
+    "static_vout_min_v": 3.1539313725490192,
+    "static_vout_max_v": 3.453071428571428,
+    "worst_screened_ripple_app": 0.6808016768756602,
+    "peak_at_budget_a": 0.9904008384378301,
+    "minimum_peak_limit_a": 1.25,
+    "owned_allocation_qty": 22,
+    "physical_balance_unchanged": 185,
+    "removed": "C32 VCC bypass",
+    "feedback": "100k / (20k+12k)",
+    "visual_review": "Supply sheet SVG and native footprint rendering inspected; final PDF and PCB renders refreshed",
+    "native_change_audit": "Only U30,C30,C31,C33,L30,R30,R31 changed; C32 removed, R32 added; other footprints byte-identical to preceding commit and surviving footprint UUIDs preserved",
+    "qualification": "Prototype startup at -15 C, load steps, PFM ripple, capacitor bias, thermal and EMC checks pending; no SPICE simulator installed"
+  },
+  "focused_analyzer_rerun": {
+    "schematic": {
+      "total_findings": 155,
+      "by_severity": {
+        "error": 8,
+        "warning": 6,
+        "info": 141
+      }
+    },
+    "pcb": {
+      "total_findings": 159,
+      "by_severity": {
+        "error": 140,
+        "warning": 8,
+        "info": 11
+      }
+    },
+    "emc": {
+      "total_findings": 23,
+      "categories_checked": 7,
+      "active": 23,
+      "suppressed": 0,
+      "by_severity": {
+        "error": 3,
+        "warning": 7,
+        "info": 13
+      },
+      "emc_risk_score": 65.5
+    },
+    "triage": [
+      "DS002: local analyzer datasheets directory absent. U30 manually checked against TI SLUSEY1B with document hash in datasheet-review-manifest.json; automated finding is not evidence of missing manual review.",
+      "PP001/PR001 hierarchy inference: native complete-net checker verifies V5 from U20/L20 reaches U30 and other loads; I2C pull-ups R1/R2 exist. These heuristic reports do not establish missing source/pull-up wiring.",
+      "PU001: U20 PG intentionally NC; reset uses MCU internal pull-up plus supervisor; hub strap use is checked independently.",
+      "RT001 (133 nets), thermal-via and ground-plane/stitching findings describe unfinished routing. Native board has 499 unconnected items; routing and EMC qualification remain required.",
+      "SW001 inferred 500 kHz is incorrect for selected U20/U30 400 kHz variants. SW003 uses upstream/shared capacitors rather than the dedicated local C20/21 and C30/31; hot-loop geometry requires routed review.",
+      "IO001 J11 refers to DNP barrel option; EF001 misclassifies output inductor as input EMI filter. No new filter introduced on this heuristic alone.",
+      "Other footprint/orientation/DFM heuristics are advisory; native placement DRC and schematic parity are zero. No full lifecycle/thermal suite or EMC compliance claim."
+    ]
   }
 }

@@ -1,6 +1,115 @@
 (kicad_symbol_lib
   (version 20241209)
   (generator kicad_symbol_editor)
+  (symbol "LMR51610XDBV"
+    (pin_names
+      (offset 0.508))
+    (in_bom yes)
+    (on_board yes)
+    (property "Reference" "U"
+      (at 0.0 15.24 0.0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Value" "LMR51610XDBV"
+      (at 0.0 15.24 0.0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Footprint" "Package_TO_SOT_SMD:SOT-23-6"
+      (at 0.0 15.24 0.0)
+      (effects
+        (font
+          (size 1.27 1.27))
+        (hide yes)))
+    (property "Datasheet" "https://www.ti.com/lit/ds/symlink/lmr51610.pdf"
+      (at 0.0 15.24 0.0)
+      (effects
+        (font
+          (size 1.27 1.27))
+        (hide yes)))
+    (property "Description" "LMR51610XDBV; pin mapping checked against manufacturer datasheet"
+      (at 0.0 15.24 0.0)
+      (effects
+        (font
+          (size 1.27 1.27))
+        (hide yes)))
+    (symbol "LMR51610XDBV_0_1"
+      (rectangle
+        (start -15.24 10.16)
+        (end 15.24 -10.16)
+        (stroke
+          (width 0.254)
+          (type default))
+        (fill
+          (type background))))
+    (symbol "LMR51610XDBV_1_1"
+      (pin power_in line
+        (at -17.78 5.08 0.0)
+        (length 2.54)
+        (name "VIN"
+          (effects
+            (font
+              (size 1.0 1.0))))
+        (number "5"
+          (effects
+            (font
+              (size 1.0 1.0)))))
+      (pin input line
+        (at -17.78 0.0 0.0)
+        (length 2.54)
+        (name "EN"
+          (effects
+            (font
+              (size 1.0 1.0))))
+        (number "4"
+          (effects
+            (font
+              (size 1.0 1.0)))))
+      (pin power_in line
+        (at -17.78 -5.08 0.0)
+        (length 2.54)
+        (name "GND"
+          (effects
+            (font
+              (size 1.0 1.0))))
+        (number "2"
+          (effects
+            (font
+              (size 1.0 1.0)))))
+      (pin passive line
+        (at 17.78 5.08 180.0)
+        (length 2.54)
+        (name "CB"
+          (effects
+            (font
+              (size 1.0 1.0))))
+        (number "1"
+          (effects
+            (font
+              (size 1.0 1.0)))))
+      (pin power_out line
+        (at 17.78 0.0 180.0)
+        (length 2.54)
+        (name "SW"
+          (effects
+            (font
+              (size 1.0 1.0))))
+        (number "6"
+          (effects
+            (font
+              (size 1.0 1.0)))))
+      (pin input line
+        (at 17.78 -5.08 180.0)
+        (length 2.54)
+        (name "FB"
+          (effects
+            (font
+              (size 1.0 1.0))))
+        (number "3"
+          (effects
+            (font
+              (size 1.0 1.0)))))))
   (symbol "TPS25974LRPW"
     (pin_names
       (offset 0.508))

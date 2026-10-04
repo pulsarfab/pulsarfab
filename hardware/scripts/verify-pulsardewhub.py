@@ -50,7 +50,7 @@ def expected_nets():
     pair("C10", "VCAP", "VIN_RAW")
     for ref in ["D10", "C11", "C12"]: pair(ref, "VIN")
     pair("C13","VIN_RAW")
-    for base, vin, out in [(20, "VIN", "V5"), (30, "V5", "V3")]:
+    for base, vin, out in [(20, "VIN", "V5")]:
         sw, fb, vcc, boot = [f"{n}{base}" for n in ["SW", "FB", "VCC", "BOOT"]]
         comp(f"U{base}", {1:"GND",9:"GND",2:vin,3:vin,4:None,5:fb,6:vcc,7:boot,8:sw})
         pair(f"L{base}", sw, out)
@@ -59,6 +59,12 @@ def expected_nets():
         for offset, a, b in [(0,vin,"GND"),(1,vin,"GND"),(2,vcc,"GND"),(3,boot,sw)]:
             pair(f"C{base+offset}",a,b)
         for i in range(4,8):pair(f"C{base+i}",out)
+
+    comp("U30", {1:"BOOT30",2:"GND",3:"FB30",4:"V5",5:"V5",6:"SW30"})
+    pair("L30","SW30","V3");pair("R30","V3","FB30")
+    pair("R31","FB30","FB_RETURN30");pair("R32","FB_RETURN30","GND")
+    pair("C30","V5");pair("C31","V5");pair("C33","BOOT30","SW30")
+    for i in range(34,38):pair(f"C{i}","V3")
 
     comp("U1", {1:"DC_EN4",2:None,3:None,4:"V3",5:"GND",6:"NRST",7:"HTR0",8:"HTR1",
                 9:None,10:None,11:"IMON1",12:"IMON2",13:"IMON3",14:"IMON4",15:"DC_EN1",
@@ -199,6 +205,20 @@ def verify(netlist):
     require(24.7<28,"local flat-clamp vs eFuse input absolute max, specified pulse only")
     require(1e-6*.5>10*2*7250e-12,"gate pump capacitance with two stocked MOSFETs and 50% derating")
     require(25230/(43.2*1.01)**1.016>500,"USB current-limit minimum")
+
+    # Regulator substitution must preserve the upstream 3 A supply and correct feedback reference.
+    for ref,mpn,code in [("U20","LMR33630ADDAR","C841384"),("U30","LMR51610XDBVR","C20539658")]:
+        f={x.attrib["name"]:x.text for x in comps[ref].findall("fields/field")}
+        require(f.get("MPN")==mpn and f.get("LCSC")==code,f"{ref}: regulator variant mismatch")
+    require(comps["U30"].findtext("footprint")=="Package_TO_SOT_SMD:SOT-23-6","LMR51610 footprint")
+    for ref,value in [("R30","100k"),("R31","20k"),("R32","12k"),("C31","100n / 50V"),("C33","100n"),("L30","6.8u / 12A sat")]:
+        require(comps[ref].findtext("value")==value,f"{ref}: LMR51610 support value mismatch")
+    require("C32" not in comps,"LMR51610 has no VCC bypass pin")
+    # Screen +/-2% total resistor allowance, including 1% tolerance and temperature drift.
+    vmin=.788*(1+100*.98/(32*1.02));vmax=.812*(1+100*1.02/(32*.98))
+    require(vmin>3.15 and vmax<3.6,"3.3 V rail tolerance including temperature allowance")
+    ripple=max(v*(5.25-v)/(5.25*6.8e-6*.8*340e3) for v in [vmin,vmax])
+    require(.65+ripple/2<1.25,"650 mA load vs minimum LMR51610 peak limit")
 
     # Pin-pad coverage is separate from physical land-pattern qualification.
     roots=[Path(os.environ[k]) for k in ["KICAD_FOOTPRINT_DIR","KICAD10_FOOTPRINT_DIR"] if k in os.environ]

@@ -110,8 +110,9 @@ for the power budget, schematic, floorplan and remaining release work.
 
 PulsarPower and PulsarDew now share stocked XKB barrel sockets and HRO USB-C sockets;
 SHT40 R2 is retained. The shared procurement CSV allocates 110 owned XKB sockets.
-See the [LMR51610 commonality evaluation](hardware/pulsardewhub/docs/lmr51610-commonality.md)
-for the proposed 3.3 V regulator change; the current 5 V / 3 A USB supply remains.
+U30 now uses 22 allocated owned LMR51610s for the 20-board batch plus spares.
+See the [LMR51610 implementation notes](hardware/pulsardewhub/docs/lmr51610-commonality.md)
+for the 3.3 V / 650 mA logic stage; the 5 V / 3 A USB supply remains.
 
 ## Hardware
 

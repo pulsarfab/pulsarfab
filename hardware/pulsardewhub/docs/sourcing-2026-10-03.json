@@ -259,7 +259,9 @@
           "unit_usd": 0.6666
         }
       ],
-      "status": "LMR commonality evaluation; active regulator BOM unchanged"
+      "status": "Selected U30; allocate 22 owned, balance 185 unchanged",
+      "allocated_owned_qty": 22,
+      "cart_qty": 0
     },
     {
       "lcsc": "C841384",
@@ -298,7 +300,10 @@
           "unit_usd": 0.4406
         }
       ],
-      "status": "LMR commonality evaluation; active regulator BOM unchanged"
+      "status": "Selected U20 only; cart quantity reduced and verified",
+      "cart_qty": 22,
+      "cart_line_usd": 13.81,
+      "unit_usd": 0.6276
     }
   ]
 }

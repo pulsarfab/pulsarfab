@@ -231,7 +231,7 @@
       "mpn": "LMR51610XDBVR",
       "datasheet_url": "https://www.ti.com/lit/ds/symlink/lmr51610.pdf",
       "sha256": "3bcfb87d2af56a0962d3ec02850836579d2c979086282d793800cf60f1ed3567",
-      "review_scope": "XKB drawing or LMR commonality/load-budget evaluation; see README and lmr51610-commonality.md"
+      "review_scope": "Implemented U30: TI pin table, 400 kHz PFM variant, input/boot capacitors, feedback and tolerance, 650 mA load and peak current screen; see lmr51610-commonality.md. Prototype qualification pending."
     },
     {
       "reviewed_file": "stm32g0b1.pdf",

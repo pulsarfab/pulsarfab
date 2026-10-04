@@ -518,5 +518,13 @@
     "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/42a925a8542473f46554cf6f67b6cc91.pdf?productCode=C2880546",
     "source_url": "https://www.lcsc.com/product-detail/C2880546.html",
     "checked_date": "2026-10-03"
+  },
+  "C20539658": {
+    "lcsc_code": "C20539658",
+    "mpn": "LMR51610XDBVR",
+    "manufacturer": "Texas Instruments",
+    "datasheet_url": "https://www.ti.com/lit/ds/symlink/lmr51610.pdf",
+    "source_url": "https://jlcpcb.com/partdetail/C20539658",
+    "checked_date": "2026-10-03"
   }
 }

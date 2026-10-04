@@ -36,6 +36,7 @@ def block(name,fp,left,right,ds,width=15.24,step=5.08):
  s.append(unit);return s
 
 custom=[]
+custom.append(block('LMR51610XDBV',SOT6,[(5,'VIN','power_in'),(4,'EN','input'),(2,'GND','power_in')],[(1,'CB','passive'),(6,'SW','power_out'),(3,'FB','input')],'https://www.ti.com/lit/ds/symlink/lmr51610.pdf'))
 custom.append(block('TPS25974LRPW','pulsarfab:TI_RPW0010A_VQFN10_2x2mm',
  [(5,'IN','power_in'),(1,'EN_UVLO','input'),(2,'OVLO','input'),(8,'GND','power_in')],
  [(6,'OUT','power_out'),(3,'PG','open_collector'),(4,'PGTH','input'),(9,'ILM_IMON','output'),(7,'dVdT','passive'),(10,'ITIMER','passive')],
@@ -144,11 +145,11 @@ powerflag(s,'GND',259.08,124.46,10);powerflag(s,'VIN_RAW',279.4,124.46,11);power
 s.text('FIT J10 + F10 OR J11 + F11. Do not populate both input connector paths.\nXT60: provisional 25 A shared continuous budget; fuse, copper and temperature still require validation.\nBarrel: 5 A absolute TOTAL ceiling; 3.5 A provisional continuous budget after fuse derating. Use a current-limited supply.\nLM74700 + parallel Q10/Q11 provide reverse-polarity / reverse-current protection. It is not an overvoltage disconnect.\nNever apply more than 18 V nominal. TVS pulse capability is not a sustained overvoltage rating.',25.4,162.56,1.5)
 s.finish()
 
-# Two identical 36 V-rated buck families keep heat away from the humidity sensor.
+# Keep the 3 A USB buck; the owned 1 A LMR51610 supplies the 650 mA logic budget.
 s=make('supplies','5 V USB and 3.3 V logic supplies','A3')
-s.text('DC SUPPLIES | LMR33630ADDA, 400 kHz | 5 V / 3 A + 3.3 V logic',20,16,2)
+s.text('DC SUPPLIES | 5 V / 3 A USB + 3.3 V / 650 mA logic budget',20,16,2)
 ports(s,[('VIN','input'),('GND','input'),('V5','output'),('V3','output')],25.4,35.56)
-for idx,(y,vin,vout,lval,fb) in enumerate([(60.96,'VIN','V5','8.2u / 10A sat','24.9k'),(177.8,'V5','V3','6.8u / 12A sat','43.2k')]):
+for idx,(y,vin,vout,lval,fb) in enumerate([(60.96,'VIN','V5','8.2u / 10A sat','24.9k')]):
  b=20+idx*10;u='U'+str(b);cx=134.62
  put(s,u,'Regulator_Switching:LMR33630ADDA',cx,y,code='C841384',fp='Package_SO:Texas_HSOP-8-1EP_3.9x4.9mm_P1.27mm')
  p=s.pins[u]
@@ -172,7 +173,29 @@ for idx,(y,vin,vout,lval,fb) in enumerate([(60.96,'VIN','V5','8.2u / 10A sat','2
  s.wire(ll['2'],(238.76,ll['2'][1]),(238.76,y+10.16),(213.36,y+10.16),rtop['1'])
  s.wire(rtop['2'],rbot['1']);s.wire(p['5'],(177.8,p['5'][1]),(177.8,y+40.64),(213.36,y+40.64));named(s,'R'+str(b+1),2,'GND')
  powerflag(s,vout,355.6,y-2.54,20+idx)
-s.text('Follow TI SNVSAN3F Table 9-2. 5 V uses nearest preferred 8.2 uH to the 8 uH example.\nPlace ceramic input/boot/VCC capacitors at the IC; keep SW copper compact and FB away from SW.\nUSB budget: 4 x 500 mA plus 0.6 A reserved for onboard logic/support. Verify inductor saturation, MLCC bias,\ntransient response and regulator temperature before routing release.',25.4,254,1.27)
+# TI SLUSEY1B: CB=1, GND=2, FB=3, EN=4, VIN=5, SW=6. No VCC pin.
+y=177.8
+put(s,'U30','pulsarfab_hub:LMR51610XDBV',134.62,y,'LMR51610XDBVR',SOT6,'C20539658')
+p=s.pins['U30']
+named(s,'U30',5,'V5');s.wire(p['4'],(109.22,p['4'][1]),(109.22,p['5'][1]),p['5']);named(s,'U30',2,'GND')
+branch(s,'C30','Device:C',83.82,y+17.78,'10u / 50V','V5','GND','Capacitor_SMD:C_1210_3225Metric')
+branch(s,'C31','Device:C',104.14,y+17.78,'100n / 50V','V5','GND',code='C14663')
+cb=put(s,'C33','Device:C',165.1,y-22.86,'100n',CFP,'C14663',90)
+s.wire(p['1'],(p['1'][0],y-22.86),cb['1'])
+swx=187.96;s.wire(cb['2'],(swx,y-22.86),(swx,p['6'][1]),p['6'])
+ll=put(s,'L30','Device:L',213.36,p['6'][1],'6.8u / 12A sat','pulsarfab:L_SXN_SMMS1050','C149542',90)
+s.wire((swx,p['6'][1]),ll['1']);s.wire(ll['2'],(340.36,p['6'][1]));s.label('V3',(340.36,p['6'][1]))
+for j in range(4):
+ cc=C(s,'C'+str(34+j),254+j*25.4,y+22.86,'22u / 25V','Capacitor_SMD:C_1206_3216Metric','')
+ s.wire(cc['1'],(cc['1'][0],p['6'][1]));named(s,'C'+str(34+j),2,'GND')
+rtop=R(s,'R30',213.36,198.12,'100k',code='C25803')
+rbot=R(s,'R31',213.36,213.36,'20k',code='C4184')
+rext=R(s,'R32',213.36,233.68,'12k',code='C22790')
+s.wire(ll['2'],(238.76,ll['2'][1]),(238.76,187.96),(213.36,187.96),rtop['1'])
+s.wire(rtop['2'],rbot['1']);s.wire(p['3'],(177.8,p['3'][1]),(177.8,205.74),(213.36,205.74))
+s.wire(rbot['2'],rext['1']);named(s,'R32',2,'GND')
+powerflag(s,'V3',355.6,175.26,21)
+s.text('5 V: TI SNVSAN3F Table 9-2; 8.2 uH nearest preferred value to 8 uH example.\n3.3 V: TI SLUSEY1B; 0.8 x (1 + 100k / (20k + 12k)) = 3.300 V nominal. C32 removed (no VCC pin).\nLMR51610X is 1 A / 400 kHz / PFM. This populated 6.8 uH stage has a 650 mA design load budget.\nPlace C31 at VIN/GND, C33 at CB/SW; keep the SW loop compact and R30/R31/R32 near FB.\nUSB budget: 4 x 500 mA plus 0.6 A for logic/support. Validate startup, MLCC bias, transients and temperature.',25.4,254,1.27)
 s.finish()
 
 # MCU retains the original chip, SWD and I2C sensor. DC enables use plain GPIOs.

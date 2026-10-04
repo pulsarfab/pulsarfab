@@ -59,7 +59,7 @@ Repeated sheets have distinct references and net identities.
 | Sheet | Circuit |
 | --- | --- |
 | Power input | Alternative fused inputs, LM74700 + two parallel SiR680LDP reverse-polarity/reverse-current stage, SMCJ18A TVS, 470 µF bulk |
-| DC supplies | LMR33630 bucks: input to approximately 5.02 V, then 5 V to approximately 3.31 V |
+| DC supplies | LMR33630 input-to-5.02 V / 3 A; owned LMR51610 5 V-to-3.3 V logic stage, 650 mA budget |
 | Controller | STM32G0B1KBU6, SWD/reset, SHT40, I2C pull-ups, ADC filters and GPIO connections |
 | Heaters | TC4427A active-high gate driver, two AOD4184A switches, individual fuses/clamps, combined-current INA226 and 2 mΩ shunt |
 | DC protection | One TPS3700 UV/OV window plus SN74LVC08 quad AND gate; four independent default-off commands |
@@ -209,7 +209,7 @@ make bom-pulsardewhub
 ```
 
 The electrical check passes with **zero ERC errors, warnings or exclusions**.
-It independently checks all **133 connected nets, 28 intentional no-connects,
+It independently checks all **133 connected nets, 27 intentional no-connects,
 226 component identities**, critical values, rail isolation, GPIO assignments
 and footprint pad coverage. KiCad PCB parity reports zero mismatches and there
 are zero courtyard overlaps. See [review details](docs/design-review.md).
@@ -301,12 +301,15 @@ $360.51. Using 44 MOSFETs from the shared stock avoids the $44.45 CSD18540
 purchase; that is avoided cash spend, not a claim that inventory is free.
 The shared procurement CSV tracks the allocation separately from stock balances.
 
-The verified 20-board/common-Dew parts cart is **$633.18 estimated full value**,
-down from $1,032.21: **$399.03 saved** by the power-circuit and USB-C changes,
-in addition to the earlier $83.38 USB-A saving. Initial checkout is $622.42,
-including a $1.20 deposit on the $11.96 estimated XT60 pre-order portion. **Not ordered.** The 110
-DCJ200 sockets remain unavailable for JLC purchase and are excluded from these
-totals; they require separate sourcing/consignment. Prices are a dated snapshot.
+The 20-board/common-Dew parts plan is now **$623.09 estimated full value**,
+calculated from the prior complete $633.18 cart less the verified **$10.09**
+LMR33630 line reduction. This is **$409.12 below $1,032.21**, in addition to the
+earlier $83.38 USB-A saving. Estimated initial payment is **$612.33**, including
+a $1.20 deposit on the $11.96 estimated XT60 pre-order portion. **Not ordered.**
+The current JLC cart lazily displays subsets; re-review all 48 lines at checkout
+before payment. XKB sockets and LMR51610 regulators are allocated from owned
+stock, and prices remain a dated snapshot.
+
 
 The monitored switch costs $0.6861 at 100. A discrete non-monitoring alternative
 would still need positive-side gate drive and independent overload protection;
@@ -335,7 +338,7 @@ DNP J11 option; the original Dew J2 uses the same part and footprint. The shared
 CSV allocates **110 owned sockets**: 88 for Power and 22 for Dew, including 10%
 spares. The recorded stock balance remains 617. J11 is excluded from the XT60
 purchase scope. The historical $81.55 GCT shortage is removed; it was already
-outside the cart, so the reviewed $633.18 estimated total is unchanged.
+outside the cart, so the socket substitution itself did not change its total.
 
 The custom `BarrelJack_XKB_DC-005K-5A_Edge` footprint uses the manufacturer's
 three 1 × 3 mm plated slots. Relative to rear pin 1, pin 2 is (0, 6.3 mm) and
@@ -356,10 +359,11 @@ recheck showed 16,923 available; the cart retains 44 pieces at $64.38. No R3 cha
 
 ## LMR51610 commonality
 
-The owned **LMR51610XDBVR (185 recorded)** is a suitable candidate for a redesigned
-3.3 V / 650 mA logic stage, saving approximately **$10.09 in purchased ICs** for
-this batch after accounting for the lost LMR33630 price tier. It needs a different
-footprint, feedback network and output-filter qualification. The current regulator
-BOM and cart remain unchanged; **the 5 V / 3 A supply stays**. See the
-[commonality evaluation](docs/lmr51610-commonality.md) for the load budget,
-calculated margins and implementation requirements.
+U30 now uses the owned **LMR51610XDBVR / C20539658**, with a new SOT-23-6
+footprint and 100 kΩ / (20 kΩ + 12 kΩ) feedback network for 3.3 V.
+The stage has a **650 mA logic budget**; **U20 retains the 5 V / 3 A USB supply**.
+The shared CSV allocates 22 of 185 owned ICs without changing the physical balance.
+The purchased LMR33630 cart line is reduced from 44 to 22, saving **$10.09**.
+Existing passive lots cover the changed demand. See the
+[implementation and qualification notes](docs/lmr51610-commonality.md) for load,
+tolerance, current-limit calculations and remaining prototype checks.

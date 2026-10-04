@@ -20,8 +20,7 @@ C25,22u / 25V,Capacitor_SMD:C_1206_3216Metric,C12891,CL31A226KAHNNNE,Samsung Ele
 C26,22u / 25V,Capacitor_SMD:C_1206_3216Metric,C12891,CL31A226KAHNNNE,Samsung Electro-Mechanics,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf?productCode=C12891
 C27,22u / 25V,Capacitor_SMD:C_1206_3216Metric,C12891,CL31A226KAHNNNE,Samsung Electro-Mechanics,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf?productCode=C12891
 C30,10u / 50V,Capacitor_SMD:C_1210_3225Metric,C138687,CL32B106KBJNNNE,Samsung Electro-Mechanics,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/e42a32c717cc8f47823b44fed272ab10.pdf?productCode=C138687
-C31,220n / 50V,Capacitor_SMD:C_0603_1608Metric,C64705,CL10B224KB8NNNC,Samsung Electro-Mechanics,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf?productCode=C64705
-C32,1u / 50V,Capacitor_SMD:C_0603_1608Metric,C15849,CL10A105KB8NNNC,Samsung Electro-Mechanics,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf?productCode=C15849
+C31,100n / 50V,Capacitor_SMD:C_0603_1608Metric,C14663,CC0603KRX7R9BB104,YAGEO,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C14663
 C33,100n,Capacitor_SMD:C_0603_1608Metric,C14663,CC0603KRX7R9BB104,YAGEO,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C14663
 C34,22u / 25V,Capacitor_SMD:C_1206_3216Metric,C12891,CL31A226KAHNNNE,Samsung Electro-Mechanics,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf?productCode=C12891
 C35,22u / 25V,Capacitor_SMD:C_1206_3216Metric,C12891,CL31A226KAHNNNE,Samsung Electro-Mechanics,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf?productCode=C12891
@@ -32,9 +31,10 @@ L30,6.8u / 12A sat,pulsarfab:L_SXN_SMMS1050,C149542,SMMS1050-6R8M,Shun Xiang Nuo
 R20,100k,Resistor_SMD:R_0603_1608Metric,C25803,0603WAF1003T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25803
 R21,24.9k,Resistor_SMD:R_0603_1608Metric,C25962,0603WAF2492T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25962
 R30,100k,Resistor_SMD:R_0603_1608Metric,C25803,0603WAF1003T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25803
-R31,43.2k,Resistor_SMD:R_0603_1608Metric,C23053,0603WAF4322T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C23053
+R31,20k,Resistor_SMD:R_0603_1608Metric,C4184,0603WAF2002T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C4184
+R32,12k,Resistor_SMD:R_0603_1608Metric,C22790,0603WAF1202T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C22790
 U20,LMR33630ADDA,Package_SO:Texas_HSOP-8-1EP_3.9x4.9mm_P1.27mm,C841384,LMR33630ADDAR,TI,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/a9fc243185b3d8658039a6c3f8a8d047.pdf?productCode=C841384
-U30,LMR33630ADDA,Package_SO:Texas_HSOP-8-1EP_3.9x4.9mm_P1.27mm,C841384,LMR33630ADDAR,TI,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/a9fc243185b3d8658039a6c3f8a8d047.pdf?productCode=C841384
+U30,LMR51610XDBVR,Package_TO_SOT_SMD:SOT-23-6,C20539658,LMR51610XDBVR,Texas Instruments,Fit: XT60 configuration,https://www.ti.com/lit/ds/symlink/lmr51610.pdf
 C50,100n,Capacitor_SMD:C_0603_1608Metric,C14663,CC0603KRX7R9BB104,YAGEO,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C14663
 C51,1u / 50V,Capacitor_SMD:C_0603_1608Metric,C15849,CL10A105KB8NNNC,Samsung Electro-Mechanics,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf?productCode=C15849
 C52,100n,Capacitor_SMD:C_0603_1608Metric,C14663,CC0603KRX7R9BB104,YAGEO,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C14663
