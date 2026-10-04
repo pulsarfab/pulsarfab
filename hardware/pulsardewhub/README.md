@@ -253,6 +253,39 @@ there before regeneration. The initial placement script requires KiCad's
 refuses to erase a board containing tracks. It preserves project routing rules.
 Use KiCad directly for subsequent routing and treat the native PCB as authoritative.
 
+## Cost-reduction review — 2026-10-03
+
+The post-USB-A cart for 20 PulsarPower boards plus common parts for 20 PulsarDew
+boards is $1,032.21 estimated in parts, including spares and quantity breaks.
+It excludes the unavailable 110 DCJ200 sockets (another $81.55 estimated).
+These are component-purchase totals, not assembled-board costs.
+
+Further opportunities are **screened candidates, not applied substitutions**:
+
+| Priority | Opportunity | Purchase impact and remaining work |
+| --- | --- | --- |
+| 1 | Share the VIN window monitor | All four TPS3700 circuits sense the same VIN. One per board could reduce the $89.42 purchase to $25.75: **$63.67 gross**, before independent enable gating and assembly. Preserve default-off behavior and hardware UV/OV inhibition; do not short the four enable nodes together. Review common failure behavior and power sequencing. |
+| 2 | Reuse SiR680LDP input MOSFET stock | The shared inventory records 230 C3279524. Qualifying 22 for Q10 could avoid **$44.45** of new CSD18540 purchases. Confirm other-project allocations first. This is avoided cash spending, not free recurring BOM cost. The [Vishay datasheet](https://www.vishay.com/docs/77478/sir680ldp.pdf) specifies 80 V, ±20 V gate rating and 3.55 mΩ maximum at 4.5 V: about 2.22 W at 25 A at 25°C before hot derating. Check gate charge, SOA, reverse recovery, thermal copper and the PowerPAK footprint. |
+| 3 | Revisit the outlet switch | The 88 TPS259827 devices cost **$360.51**, the largest line. Adjustable TPS1HB16/TPS2HB16 variants merit further sourcing and circuit review. No cheaper qualified replacement has been selected. |
+| 4 | Source durable 5 A barrel sockets | Resolve both the cost and the unavailable C5280493 purchase. Require a verified 5 A rating and compatible plug dimensions; a part name containing “5A” is not sufficient evidence. |
+| 5 | Review upstream USB connector | The 44 USB4105 devices cost $40.73 and cover both products. A through-hole USB-B option would change cable compatibility and requires deliberate changes to both designs. |
+
+The inexpensive TPS2HB16FQPWPRQ1 / C2879380 was **rejected as a direct replacement**:
+the [TI datasheet](https://www.ti.com/lit/ds/symlink/tps2hb16-q1.pdf) specifies a
+fixed **60 A**, not 6 A, limit. JLCPCB showed only 32 available versus 44 needed
+for two dual switches per board including spares. The shared-stock TPS1H100B
+would dissipate about 2.5 W per 5 A outlet from its 100 mΩ typical resistance;
+that is not an acceptable cost-only substitution without thermal redesign.
+
+Keep the USB2517 until a replacement supports four external USB ports **plus**
+the internal MCU connection; a single four-port hub cannot preserve that topology.
+Keep heater-current sensing. Existing passive quantity breaks remain useful;
+buying 250 of the current DC switch would raise spending from $360.51 to $938.43.
+No additional candidate has been put in the schematic, allocated from shared
+inventory, or added to the cart by this review. The private procurement folder
+contains `cost-review/cost-ranking.csv`, `opportunities.csv`, source snapshots
+and downloaded candidate datasheets.
+
 ## Primary references
 
 - [Microchip USB2517 datasheet](https://ww1.microchip.com/downloads/en/DeviceDoc/00001598C.pdf)
