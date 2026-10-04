@@ -21,7 +21,7 @@
 "20","J40","USB-C upstream","pulsarfab:USB_C_HRO_TYPE-C-31-M-12","1","C165948","TYPE-C-31-M-12","Korean Hroparts Elec"
 "21","J51","HEATER 1","pulsarfab:TerminalBlock_KEFA_KF128_2P_P5.08mm","1","C474952","KF128-5.08-2P-AA","Cixi Kefa Elec"
 "22","J61","HEATER 2","pulsarfab:TerminalBlock_KEFA_KF128_2P_P5.08mm","1","C474952","KF128-5.08-2P-AA","Cixi Kefa Elec"
-"23","J101,J201,J301,J401","5A DC / center +","pulsarfab:BarrelJack_GCT_DCJ200_Edge","4","C5280493","DCJ200-10-A-K1-K","Global Connector Technology"
+"23","J101,J201,J301,J401","5A DC / center +","pulsarfab:BarrelJack_XKB_DC-005K-5A_Edge","4","C2880546","DC-005K-5A-2.0","XKB Connection"
 "24","J501,J601,J701,J801","USB-A / 500mA","pulsarfab:USB_A_SHOUHAN_AF90ZJWG_THT","4","C456019","AF 90 ZJWG","SHOU HAN"
 "25","L20","8.2u / 10A sat","pulsarfab:L_SXN_SMMS1050","1","C149543","SMMS1050-8R2M","Shun Xiang Nuo"
 "26","L30","6.8u / 12A sat","pulsarfab:L_SXN_SMMS1050","1","C149542","SMMS1050-6R8M","Shun Xiang Nuo"

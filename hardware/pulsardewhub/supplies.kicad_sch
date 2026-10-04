@@ -2285,7 +2285,7 @@
         (reference "#FLG21")
         (unit 1)))))
 (label "V3"  (at 355.6000 175.2600 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "00fbe4f6-638f-5e21-825b-62bc7631ed16"))
-(text "Follow TI SNVSAN3F Table 9-2. 5 V uses nearest preferred 8.2 uH to the 8 uH example.\nPlace ceramic input/boot/VCC capacitors at the IC; keep SW copper compact and FB away from SW.\nUSB budget: 4 x 500 mA plus about 0.4 A for logic at full activity. Verify inductor saturation, MLCC bias,\ntransient response and regulator temperature before routing release." (at 25.4000 254.0000 0) (effects (font (size 1.27 1.27)) (justify left top)) (uuid "aa96103d-fb1b-52ec-8e68-0894c31b103e"))
+(text "Follow TI SNVSAN3F Table 9-2. 5 V uses nearest preferred 8.2 uH to the 8 uH example.\nPlace ceramic input/boot/VCC capacitors at the IC; keep SW copper compact and FB away from SW.\nUSB budget: 4 x 500 mA plus 0.6 A reserved for onboard logic/support. Verify inductor saturation, MLCC bias,\ntransient response and regulator temperature before routing release." (at 25.4000 254.0000 0) (effects (font (size 1.27 1.27)) (justify left top)) (uuid "d3756616-fc15-5b57-b060-91233adc5004"))
 (wire (pts (xy 25.4000 35.5600) (xy 45.7200 35.5600)) (stroke (width 0) (type default)) (uuid "23c9a6c6-c54f-50ec-86d5-7a502ec97185"))
 (wire (pts (xy 25.4000 43.1800) (xy 45.7200 43.1800)) (stroke (width 0) (type default)) (uuid "74d62c68-d336-5d5a-bc17-3453e3c919b5"))
 (wire (pts (xy 25.4000 50.8000) (xy 45.7200 50.8000)) (stroke (width 0) (type default)) (uuid "673fd188-f380-5318-b94c-3d347335a332"))

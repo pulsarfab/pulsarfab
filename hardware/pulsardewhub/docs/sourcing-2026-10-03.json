@@ -171,6 +171,134 @@
       "cart_qty": 50,
       "cart_line_usd": 7.34,
       "unit_usd": 0.1467
+    },
+    {
+      "lcsc": "C2880546",
+      "mpn": "DC-005K-5A-2.0",
+      "source_url": "https://jlcpcb.com/partdetail/C2880546",
+      "status": "selected from owned inventory; first-article sample qualification pending",
+      "owned_snapshot_qty": 617,
+      "power_allocated_qty": 88,
+      "dew_allocated_qty": 22,
+      "cart_qty": 0,
+      "cart_line_usd": 0
+    },
+    {
+      "lcsc": "C2909890",
+      "mpn": "SHT40-AD1B-R2",
+      "checked_utc": "2026-10-04T06:15:22.530414+00:00",
+      "available_order_qty": 16923,
+      "tiers": [
+        {
+          "qty": 1,
+          "end": 9,
+          "unit_usd": 1.9037
+        },
+        {
+          "qty": 10,
+          "end": 29,
+          "unit_usd": 1.6322
+        },
+        {
+          "qty": 30,
+          "end": 99,
+          "unit_usd": 1.4631
+        },
+        {
+          "qty": 500,
+          "end": 999,
+          "unit_usd": 1.164
+        },
+        {
+          "qty": 1000,
+          "end": -1,
+          "unit_usd": 1.1299
+        },
+        {
+          "qty": 100,
+          "end": 499,
+          "unit_usd": 1.2892
+        }
+      ],
+      "status": "R2 retained in cart"
+    },
+    {
+      "lcsc": "C20539658",
+      "mpn": "LMR51610XDBVR",
+      "checked_utc": "2026-10-04T06:15:24.387875+00:00",
+      "available_order_qty": 6706,
+      "tiers": [
+        {
+          "qty": 10,
+          "end": 29,
+          "unit_usd": 0.5479
+        },
+        {
+          "qty": 30,
+          "end": 99,
+          "unit_usd": 0.4877
+        },
+        {
+          "qty": 100,
+          "end": 499,
+          "unit_usd": 0.4292
+        },
+        {
+          "qty": 500,
+          "end": 999,
+          "unit_usd": 0.3935
+        },
+        {
+          "qty": 1000,
+          "end": -1,
+          "unit_usd": 0.3756
+        },
+        {
+          "qty": 1,
+          "end": 9,
+          "unit_usd": 0.6666
+        }
+      ],
+      "status": "LMR commonality evaluation; active regulator BOM unchanged"
+    },
+    {
+      "lcsc": "C841384",
+      "mpn": "LMR33630ADDAR",
+      "checked_utc": "2026-10-04T06:15:25.995614+00:00",
+      "available_order_qty": 43420,
+      "tiers": [
+        {
+          "qty": 1,
+          "end": 9,
+          "unit_usd": 0.7479
+        },
+        {
+          "qty": 10,
+          "end": 29,
+          "unit_usd": 0.6276
+        },
+        {
+          "qty": 30,
+          "end": 99,
+          "unit_usd": 0.543
+        },
+        {
+          "qty": 100,
+          "end": 499,
+          "unit_usd": 0.4731
+        },
+        {
+          "qty": 500,
+          "end": 999,
+          "unit_usd": 0.4536
+        },
+        {
+          "qty": 1000,
+          "end": -1,
+          "unit_usd": 0.4406
+        }
+      ],
+      "status": "LMR commonality evaluation; active regulator BOM unchanged"
     }
   ]
 }

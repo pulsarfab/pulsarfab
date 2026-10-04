@@ -63,7 +63,7 @@ make render-pulsardew
 ```
 
 `verify-pulsardew` runs KiCad ERC with all severities, including exclusions,
-then checks exact pin membership of all 32 connected nets and all 22 intentional
+then checks exact pin membership of all 32 connected nets and all 21 intentional
 no-connects. It requires 58 uniquely referenced components and checks that
 every schematic pin has a pad in its assigned footprint. This catches shorts
 between rails/channels, incorrect semiconductor pin mapping, missing USB pin
@@ -91,7 +91,7 @@ instead of the inherited footprint whose silkscreen crossed all perimeter pads.
 
 `make verify-floorplan-pulsardew` checks placement and schematic parity. KiCad
 10.0.6 reports **zero courtyard overlaps, zero schematic parity issues,
-and 130 unconnected items**. The HRO USB-C replacement resolves the former
+and 131 unconnected items**. The HRO USB-C replacement resolves the former
 locator-hole clearance violations; the strict placement check now passes with
 zero DRC violations and no exclusions. It is deliberately a floorplan: no
 tracks or copper pours are routed.
@@ -106,8 +106,8 @@ Connectivity verification does not
 validate land-pattern geometry, current capacity, thermal behavior, protection
 or assembly sourcing. USB-C J1 now sources HRO TYPE-C-31-M-12 (C165948), using its own
 project footprint; see the [connector review](../pulsardewhub/docs/usb-c-sourcing.md). Barrel J2
-sources GCT DCJ200-10-A-K1-K (C5280493), matching their assigned footprints.
-The old DEALON/XKB source codes did not match those land patterns.
+now sources owned XKB DC-005K-5A-2.0 (C2880546) with its own slot pattern; pins 2 and 3 are both grounded.
+See the [XKB drawing/sample qualification note](../pulsardewhub/README.md#stocked-barrel-sockets-and-retained-sensor).
 Remaining supplier codes must be reconciled with the exact packages before ordering; the HT7333-1 orderable variant and
 capacitor effective values at bias need BOM confirmation.
 

@@ -7,10 +7,10 @@ The [README](../README.md) describes the current circuit and power budget.
 ## Current verification
 
 - **Verified, native KiCad 10.0.6:** zero ERC errors, warnings or exclusions;
-  226 components, 133 exact connected nets, 33 intentional no-connects, and
+  226 components, 133 exact connected nets, 28 intentional no-connects, and
   complete symbol-pin/footprint-pad coverage. Fifteen pages in nine schematic files.
 - **Verified, native PCB DRC:** zero schematic parity issues and zero placement DRC
-  violations after the HRO USB-C replacement (see [connector review](usb-c-sourcing.md)). There are 499 unconnected items, zero tracks and zero vias.
+  violations after the HRO USB-C and XKB barrel replacements. There are 499 unconnected items, zero tracks and zero vias.
 - **Verified, independent fault injection:** disconnected shared inhibit, shorted
   enables, grounded eFuse power land, wrong automatic-retry variant, and grounded
   input-FET source are all rejected. See [verification.json](verification.json).
@@ -54,17 +54,21 @@ cover the stated sections, not every datasheet specification or production lot.
   at maximum 25°C/4.5 V resistance; a 1.6× hot-resistance assumption gives
   1.78 W. Use balanced short copper and thermal spreading. This does not prove
   current sharing, SOA, reverse transients or the full 25 A system rating.
-- **Unchanged budget:** 5 V regulator rated 3 A (15 W), four USB ports budgeted
-  500 mA each, provisional 0.4 A logic equivalent, roughly 0.6 A headroom.
+- **Revised conservative budget:** 5 V regulator rated 3 A (15 W), four USB ports budgeted
+  500 mA each, provisional 0.6 A logic equivalent, roughly 0.4 A headroom.
   Six simultaneous 5 A external loads exceed the shared 25 A XT60 target.
 - **Limit:** no reverse blocking at the DC outlet eFuses; do not backfeed them.
   Firmware should clear commands following unexpected PG loss; voltage recovery
   can reset a latch and re-enable a still-asserted command.
 
+
+- **XKB substitution:** custom manufacturer slot pattern, positive pin 1 and both return/contact pins grounded; exact nets checked on both products. Stocked-sample plug fit remains unresolved because A0/A1 drawings disagree on diameter.
+- **LMR evaluation only:** [LMR51610 commonality](lmr51610-commonality.md) supports a redesigned 650 mA logic stage; active U20/U30 and regulator purchases are unchanged.
+
 ## Release blockers
 
 Routing and thermal vias, USB connector first-article fit/solder inspection,
-USB-A body datum sample check, power/fuse/cable temperature, surge and overload qualification, firmware
+USB-A body datum and XKB plug/slot/continuity sample checks, power/fuse/cable temperature, surge and overload qualification, firmware
 fault behavior, USB signal integrity, and exact assembly availability remain open.
 The release target continues to fail instead of emitting a fabrication package.
 

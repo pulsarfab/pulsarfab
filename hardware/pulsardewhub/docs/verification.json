@@ -10,7 +10,7 @@
   "exact_net_check": {
     "components": 226,
     "connected_nets": 133,
-    "intentional_no_connects": 33,
+    "intentional_no_connects": 28,
     "all_expected_pins_matched": true
   },
   "pcb": {
@@ -29,28 +29,33 @@
   },
   "source_sha256": {
     "pulsardewhub/controller.kicad_sch": "d727ab2f867d7b9667b6a3782872471be3403c277e6a228323b6ed8cc9ad835d",
-    "pulsardewhub/dc_outlet.kicad_sch": "5f108a583ebb8fa110509becf81596c9e08557f3da77b199bbf86ee7f4f03f1c",
+    "pulsardewhub/dc_outlet.kicad_sch": "44c35048ca3ff8bf0b8863a3bb8ddc0e6b7ce004e3d4cf6cb93598584108760c",
     "pulsardewhub/heaters.kicad_sch": "529057c6da83699b076573e0061ac59b28d049f5d8cb1568e77a001b7efc6405",
-    "pulsardewhub/power_input.kicad_sch": "73802787d15a9b3f5cdc20f5fd279b63a9b4c67b2d5f0ac86eb016aa689b59ab",
-    "pulsardewhub/pulsardewhub.kicad_pcb": "da00f06cbedbaedd72521588b414dafdff2dcdd4306128f2874f63a73bcae54a",
+    "pulsardewhub/power_input.kicad_sch": "56456d4c7e6285e92586edb7719db39dc1a05af5b1044b6568e326e35c89f36b",
+    "pulsardewhub/pulsardewhub.kicad_pcb": "d9645c64fe4ce1906528f6d2ca4365d9a71add5d5aa64d9ae381e3ec8a317239",
     "pulsardewhub/pulsardewhub.kicad_pro": "a4c09e64ae8c7a8fdd154765e1e0b24f2085be8479e359d1c1acea2dd1cdb3ab",
     "pulsardewhub/pulsardewhub.kicad_sch": "2750ff44987915d40d8d1bec8b0d0696fa8c8963b443b5da8ed0c4a1c2c5d21a",
-    "pulsardewhub/supplies.kicad_sch": "497c4f0b71f277885ef00849db215e49cd1b97c32f93ccbb013faccffcaf5512",
+    "pulsardewhub/supplies.kicad_sch": "190e0b53aaf91a187dea1f312e98a885651a01ffdf8b046280318a0469649497",
     "pulsardewhub/usb_hub.kicad_sch": "ec150e549f47816f407412d751ee5488c79865e28659d2cf809d91a1b1d919dc",
     "pulsardewhub/usb_port.kicad_sch": "cc3cefb492feadb8a88ca37f79f071f4c798baaf5bd027965e2a6ca690611671",
-    "scripts/pulsardewhub.schgen.py": "80870dc5e9b0a02667bfff0d0e125412c1014a44aa241fcb2340f38744e55672",
-    "scripts/verify-pulsardewhub.py": "3057c1f58f89be324f3218a1372c810024bc54ba34bb7a56baf77cca7eb10e89",
+    "scripts/pulsardewhub.schgen.py": "be11013f006b9fb931d53d7a66621a6c029ccf0aea71c731b2abcc35cc5442b8",
+    "scripts/verify-pulsardewhub.py": "95a2f7cb08628a96210b1fde26a7e340c62be67d689d70330a96e9940925c0f5",
     "scripts/floorplan-pulsardewhub.py": "8cd0bfd9aedd552bb3e6e4aa0db6927ad41d5b08dabaf11e1270e1a9158c0f10",
     "scripts/wired_schematic.py": "dfc06eaa734ffa8dbfa20b93fd49795d0a6e76ab60fe618b9dc7632834f13d60",
     "lib/symbols/pulsarfab_hub.kicad_sym": "a7198624c4848d7f2f49108cb194eb1a010271c160062e5eda1083f74e485173",
-    "pulsardewhub/parts-catalog.json": "e74e5660cd41fc5542b0d315581efa53667b625294c6599472dbb3171b62029c",
-    "pulsardewhub/parts-review.csv": "8e5a749b7ddaa76476d329c48bd3bc839b195b3a1835fc133f5522ca2f516b94",
-    "pulsardewhub/jlcpcb_bom.csv": "fd1c63b21aeb0a6bf82159924b4151bb42fab73d50e2d52cd332c29071daccb2",
-    "pulsardewhub/docs/datasheet-review-manifest.json": "030daffe2553b1fc9813c63edbe6c4de152736da3930672055dd9a3f8d39a764",
-    "pulsardewhub/docs/sourcing-2026-10-03.json": "71657bca4a24092c3549d25695176500c61ff5f8bdd96df455d70a4ea61e8430",
+    "pulsardewhub/parts-catalog.json": "5eb5cf54ca29239e7903f06f4d9dbc89b9960232e6eafcbbf6867bf3d9b27d5a",
+    "pulsardewhub/parts-review.csv": "9628502ff05de187e45883f4d1853d1bcf869754cdce24e8d5809da88fe6ea6a",
+    "pulsardewhub/jlcpcb_bom.csv": "57dd760a1f2e27a43bc7832c7bf99fac5fcc83abe5eb7c86dc889c22da1c854e",
+    "pulsardewhub/docs/datasheet-review-manifest.json": "e0376a9ca188f8194c61fe0b843f95fc99fdf24bb347f97a01d0fed7a75e066f",
+    "pulsardewhub/docs/sourcing-2026-10-03.json": "cefbf930a98445f5ce2a4843365c0cf3ee0cc8a3e262c7fc2dc71d1974035262",
     "pulsardewhub/dc_protection.kicad_sch": "9e6798cd0067c96847c0eb3680411ee0d7f2902d73f9cc21b0b4c59bbdf98d06",
     "lib/footprints.pretty/TI_RPW0010A_VQFN10_2x2mm.kicad_mod": "e4dee07e8be6e98983f7851af1602460a5601131f8775b6b1bad4adddbb70e56",
-    "lib/footprints.pretty/USB_C_HRO_TYPE-C-31-M-12.kicad_mod": "cb8f29d5a860bcfc2352c8c43e29337680146b1ff5a2b85a5173749889fad216"
+    "lib/footprints.pretty/USB_C_HRO_TYPE-C-31-M-12.kicad_mod": "cb8f29d5a860bcfc2352c8c43e29337680146b1ff5a2b85a5173749889fad216",
+    "lib/footprints.pretty/BarrelJack_XKB_DC-005K-5A_Edge.kicad_mod": "1b8589d9bd63baac547c2c2ce1a9007fefe87de21d72c86a9187c5efdfab99da",
+    "pulsardew/pulsardew.kicad_sch": "8ad98e95936037aec3c81b6b92fd929129fa12a3a5dbd21dce7f2d03f10d88e0",
+    "pulsardew/pulsardew.kicad_pcb": "a312a099290f2d24100127afe6ed25b26bb5f0e473a9a26cd827d60389a14498",
+    "scripts/verify-pulsardew.py": "61975f7ca340b5680d937fe0024fd0bcd931803c7f5ff52c3635a2d24cd68081",
+    "pulsardew/jlcpcb_bom.csv": "3a6abce93fcc9533e40b62dd5661b265716067c1c37c3bd1daa75dbcad2d4864"
   },
   "limits": [
     "Unrouted floorplan: 499 unconnected items; not for fabrication",
@@ -60,7 +65,8 @@
     "USB-A body longitudinal datum needs a physical sample check",
     "Current firmware must adopt 0.1055 V/A DC current scaling and tested fault recovery",
     "Full automated analyzer/lifecycle suite not rerun; historical report below is not current evidence",
-    "HRO USB-C first-article fit and solder inspection required; see usb-c-sourcing.md"
+    "HRO USB-C first-article fit and solder inspection required; see usb-c-sourcing.md",
+    "XKB A0/A1 drawings disagree on plug diameter; owned-sample fit, continuity, slot and thermal qualification required"
   ],
   "revision": "0.3-draft",
   "negative_checks": [
@@ -88,6 +94,11 @@
       "case": "input MOSFET source grounded",
       "rejected": true,
       "message": "FAIL: GND: missing [], unexpected ['Q11.1']"
+    },
+    {
+      "case": "XKB return/contact pin 3 disconnected",
+      "rejected": true,
+      "message": "FAIL: GND: missing ['J101.3'], unexpected []"
     }
   ],
   "release_check": {
@@ -116,5 +127,35 @@
     "body_to_pin_longitudinal_datum": "provisional; sample check before fabrication"
   },
   "native_gui": "0.3 root hierarchy opened and visually inspected in KiCad Schematic Editor",
-  "usb_c_revision": "HRO C165948 selected for both products; strict placement checks pass without exclusions. See usb-c-sourcing.md."
+  "usb_c_revision": "HRO C165948 selected for both products; strict placement checks pass without exclusions. See usb-c-sourcing.md.",
+  "xkb_revision": {
+    "part": "DC-005K-5A-2.0",
+    "lcsc": "C2880546",
+    "power_refs": [
+      "J11",
+      "J101",
+      "J201",
+      "J301",
+      "J401"
+    ],
+    "dew_refs": [
+      "J2"
+    ],
+    "grounded_pads": [
+      "2",
+      "3"
+    ],
+    "owned_allocation": 110,
+    "dew_check": {
+      "components": 58,
+      "connected_nets": 32,
+      "intentional_no_connects": 21,
+      "erc_violations": 0,
+      "placement_drc_violations": 0,
+      "schematic_parity_issues": 0,
+      "unconnected_items": 131
+    },
+    "visual_review": "Current outlet/input/root schematic SVGs and PCB placement inspected; no connector DRC exceptions",
+    "qualification": "Physical sample required: conflicting manufacturer plug diameter drawings"
+  }
 }

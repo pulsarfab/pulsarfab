@@ -635,18 +635,18 @@
     (effects
       (font
         (size 1.27 1.27))))
-  (property "Value" "DCJ200 / 2.0mm / 5A"
+  (property "Value" "XKB DC-005K / 5A"
     (at 30.48 30.48 0.0)
     (effects
       (font
         (size 1.27 1.27))))
-  (property "Footprint" "Connector_BarrelJack:BarrelJack_GCT_DCJ200-10-A_Horizontal"
+  (property "Footprint" "pulsarfab:BarrelJack_XKB_DC-005K-5A_Edge"
     (at 30.48 48.26 0.0)
     (effects
       (font
         (size 1.27 1.27))
       (hide yes)))
-  (property "Datasheet" "https://gct.co/files/drawings/dcj200.pdf"
+  (property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/42a925a8542473f46554cf6f67b6cc91.pdf?productCode=C2880546"
     (at 30.48 48.26 0.0)
     (effects
       (font
@@ -658,13 +658,13 @@
       (font
         (size 1.27 1.27))
       (hide yes)))
-  (property "LCSC" "C5280493"
+  (property "LCSC" "C2880546"
     (at 30.48 48.26 0.0)
     (effects
       (font
         (size 1.27 1.27))
       (hide yes)))
-  (property "MPN" "DCJ200-10-A-K1-K"
+  (property "MPN" "DC-005K-5A-2.0"
     (at 30.48 48.26 0.0)
     (effects
       (font
@@ -680,7 +680,7 @@
     (project "pulsardew"
       (path "/4235aaa6-671a-4985-9062-abb1f1decfe0"
         (reference "J2")
-        (unit 1))))(property "Manufacturer" "GCT"
+        (unit 1))))(property "Manufacturer" "XKB Connection"
   (at 30.48 48.26 0.0)
   (effects
     (font
@@ -862,7 +862,8 @@
       (path "/4235aaa6-671a-4985-9062-abb1f1decfe0"
         (reference "C10")
         (unit 1)))))
-(no_connect (at 38.1000 48.2600) (uuid "fce37592-36d2-5134-aed1-5aec58d395f4"))
+(wire (pts (xy 38.1 48.26) (xy 45.72 48.26)) (stroke (width 0) (type default)) (uuid "493edf7d-0379-440b-8753-42758e291641"))
+(label "GND" (at 45.72 48.26 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "882e29c9-9e2d-4eee-b0fb-06dbece12a31"))
 (label "GND"  (at 45.7200 101.6000 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "38c97e67-a826-5323-a505-4cebf13bac1d"))
 (symbol
   (lib_id "power:PWR_FLAG")

@@ -10,7 +10,7 @@
 "9","D101,D201,D301,D401","BZT52C12 12V","Diode_SMD:D_SOD-123","4","C19077410","BZT52C12",""
 "10","D102,D202,D302,D402","SMBJ20A","Diode_SMD:D_SMB_Handsoldering","4","C364296","SMBJ20A",""
 "11","J1","USB-C","pulsarfab:USB_C_HRO_TYPE-C-31-M-12","1","C165948","TYPE-C-31-M-12","Korean Hroparts Elec"
-"12","J2","DCJ200 / 2.0mm / 5A","Connector_BarrelJack:BarrelJack_GCT_DCJ200-10-A_Horizontal","1","C5280493","DCJ200-10-A-K1-K","GCT"
+"12","J2","XKB DC-005K / 5A","pulsarfab:BarrelJack_XKB_DC-005K-5A_Edge","1","C2880546","DC-005K-5A-2.0","XKB Connection"
 "13","J3","Phoenix 2-pos","TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal","1","","",""
 "14","J4","SWD","Connector_PinHeader_2.54mm:PinHeader_1x05_P2.54mm_Vertical","1","","",""
 "15","J101,J201,J301,J401","HEATER","TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal","4","","",""

@@ -40,3 +40,10 @@ Select plated/filled/capped thermal vias during routing and assembly review.
 The copper/drill pattern follows the drawing. Body-to-pin longitudinal registration
 is illustrative because the drawing omits that datum; sample confirmation remains
 a release requirement. No third-party footprint or substitute 3D model is embedded.
+
+## XKB DC-005K-5A barrel socket
+
+`BarrelJack_XKB_DC-005K-5A_Edge` is project-authored from the XKB A0/A1
+manufacturer drawings, using three 1 × 3 mm plated slots. It is not copied from
+the GCT footprint. Drawing URLs, hashes and the sample qualification limit are
+recorded in `../pulsardewhub/docs/datasheet-review-manifest.json` and the project README.

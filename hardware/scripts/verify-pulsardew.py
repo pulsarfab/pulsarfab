@@ -59,7 +59,7 @@ def verify(netlist):
         "VIN_PROT": "D10.1 C10.1 C20.1 C22.1 R30.1 U2.2 U3.10",
         "VIN_HEAT": "R30.2 U3.9 U3.8 J101.1 J201.1 J301.1 J401.1 R102.1 R202.1 R302.1 R402.1",
         "3V3": "U2.3 U1.4 U3.6 U4.3 C1.1 C3.1 C21.1 C23.1 C30.1 C40.1 J4.1 R20.1 R21.1 R101.1 R201.1 R301.1 R401.1",
-        "GND": "U1.5 U1.33 U2.1 U3.1 U3.2 U3.7 U4.4 C1.2 C2.2 C3.2 C10.2 C20.2 C21.2 C22.2 C23.2 C30.2 C40.2 J1.A1 J1.A12 J1.B1 J1.B12 J1.SH J2.2 J3.2 J4.5 R10.2 R11.2 R13.2 "
+        "GND": "U1.5 U1.33 U2.1 U3.1 U3.2 U3.7 U4.4 C1.2 C2.2 C3.2 C10.2 C20.2 C21.2 C22.2 C23.2 C30.2 C40.2 J1.A1 J1.A12 J1.B1 J1.B12 J1.SH J2.2 J2.3 J3.2 J4.5 R10.2 R11.2 R13.2 "
                + " ".join(f"{ref}{ch}{suffix}.{pin}" for ch in range(1, 5)
                           for ref, suffix, pin in [("Q", "01", 2), ("Q", "02", 3),
                                                    ("D", "01", 2), ("D", "02", 2)]),
@@ -94,7 +94,7 @@ def verify(netlist):
         checked.add(name)
 
     unused = {f"U1.{p}" for p in [1, 2, 3, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 26, 27, 28, 29, 32]}
-    unused.update(["J1.A8", "J1.B8", "J2.3", "U3.3"])
+    unused.update(["J1.A8", "J1.B8", "U3.3"])
     for pin in unused:
         require(pin in pins, f"missing intentionally unused pin {pin}")
         name = pins[pin]

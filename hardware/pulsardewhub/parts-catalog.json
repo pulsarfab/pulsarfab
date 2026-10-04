@@ -510,5 +510,13 @@
     "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/9e56b777c022540fcce7c7f67825f55e.pdf?productCode=C165948",
     "source_url": "https://jlcpcb.com/partdetail/C165948",
     "checked_date": "2026-10-03"
+  },
+  "C2880546": {
+    "lcsc_code": "C2880546",
+    "mpn": "DC-005K-5A-2.0",
+    "manufacturer": "XKB Connection",
+    "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/42a925a8542473f46554cf6f67b6cc91.pdf?productCode=C2880546",
+    "source_url": "https://www.lcsc.com/product-detail/C2880546.html",
+    "checked_date": "2026-10-03"
   }
 }

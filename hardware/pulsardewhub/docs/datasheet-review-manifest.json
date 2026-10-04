@@ -65,7 +65,8 @@
       "lcsc": "C5280493",
       "mpn": "DCJ200-10-A-K1-K",
       "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/9e28732f65d9d59bee76802895b2add9.pdf?productCode=C5280493",
-      "sha256": "990ba338c8b5d3c19ca75cf564f6192f640a32503b0e8de35c67b3a973355ae9"
+      "sha256": "990ba338c8b5d3c19ca75cf564f6192f640a32503b0e8de35c67b3a973355ae9",
+      "status": "superseded by XKB C2880546; historical evidence"
     },
     {
       "reviewed_file": "fuse30.pdf",
@@ -207,6 +208,46 @@
       "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/9e56b777c022540fcce7c7f67825f55e.pdf?productCode=C165948",
       "sha256": "6ae33d50ac47820114661138dc4e4659f40fdc5d4f485b46685dfec338da1a9e",
       "review": "2020-12-08 manufacturer drawing, pin table and mechanical dimensions visually reviewed; see usb-c-sourcing.md"
+    },
+    {
+      "reviewed_file": "XKB-DC005K-A0.pdf",
+      "lcsc": "C2880546",
+      "mpn": "DC-005K-5A-2.0",
+      "datasheet_url": "https://web-static.partgenie.ai/component/docs/a9b30b5066b770e98a403dfcb74276b8_2110112230_XKB-Connection-DC-005K-5A-2-0_C2880546.pdf",
+      "sha256": "b7a9aa2d29ab2a7ebffa3581b3f7dca813536c8adf67d0b8e7f38986033b44b3",
+      "review_scope": "XKB drawing or LMR commonality/load-budget evaluation; see README and lmr51610-commonality.md"
+    },
+    {
+      "reviewed_file": "XKB-DC005K-A1.pdf",
+      "lcsc": "C2880546",
+      "mpn": "DC-005K-5A-2.0",
+      "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/42a925a8542473f46554cf6f67b6cc91.pdf?productCode=C2880546",
+      "sha256": "edad53d351ef7a9a4ae4d695b41912456c2842858741d29de5f360d0b081003f",
+      "review_scope": "XKB drawing or LMR commonality/load-budget evaluation; see README and lmr51610-commonality.md"
+    },
+    {
+      "reviewed_file": "lmr51610.pdf",
+      "lcsc": "C20539658",
+      "mpn": "LMR51610XDBVR",
+      "datasheet_url": "https://www.ti.com/lit/ds/symlink/lmr51610.pdf",
+      "sha256": "3bcfb87d2af56a0962d3ec02850836579d2c979086282d793800cf60f1ed3567",
+      "review_scope": "XKB drawing or LMR commonality/load-budget evaluation; see README and lmr51610-commonality.md"
+    },
+    {
+      "reviewed_file": "stm32g0b1.pdf",
+      "lcsc": "C5159549",
+      "mpn": "STM32G0B1KBU6",
+      "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/3d64feb4cdc2a68a0c23eb6ae93b103c.pdf?productCode=C5159549",
+      "sha256": "19ad77934ee0849dbf613999149675086b13912adbafca09b8c37b8bfa76b053",
+      "review_scope": "XKB drawing or LMR commonality/load-budget evaluation; see README and lmr51610-commonality.md"
+    },
+    {
+      "reviewed_file": "sht4x.pdf",
+      "lcsc": "C2909890",
+      "mpn": "SHT40-AD1B-R2",
+      "datasheet_url": "https://sensirion.com/resource/datasheet/sht4x",
+      "sha256": "8db4a43f17149b76811cfb504caaeca4ef844ddc710cb9b45905c51c7ddfe3c2",
+      "review_scope": "XKB drawing or LMR commonality/load-budget evaluation; see README and lmr51610-commonality.md"
     }
   ]
 }

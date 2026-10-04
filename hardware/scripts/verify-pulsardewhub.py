@@ -38,7 +38,7 @@ def expected_nets():
     def esd(ref, dp, dm, vbus):
         comp(ref, {1: dm, 6: dm, 3: dp, 4: dp, 5: vbus, 2: "GND"})
     def barrel(ref, positive):
-        comp(ref, {1: positive, 2: "GND", 3: None})
+        comp(ref, {1: positive, 2: "GND", 3: "GND"})
 
     # XT60 library has '+' at physical pad 2, '-' at pad 1.
     pair("J10", "GND", "XT60_IN")

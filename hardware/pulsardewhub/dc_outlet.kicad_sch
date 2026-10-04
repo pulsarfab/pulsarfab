@@ -1890,31 +1890,31 @@
     (effects
       (font
         (size 1.27 1.27))))
-  (property "Footprint" "pulsarfab:BarrelJack_GCT_DCJ200_Edge"
+  (property "Footprint" "pulsarfab:BarrelJack_XKB_DC-005K-5A_Edge"
     (at 345.44 48.26 0.0)
     (effects
       (font
         (size 1.27 1.27))
       (hide yes)))
-  (property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/9e28732f65d9d59bee76802895b2add9.pdf?productCode=C5280493"
+  (property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/42a925a8542473f46554cf6f67b6cc91.pdf?productCode=C2880546"
     (at 345.44 48.26 0.0)
     (effects
       (font
         (size 1.27 1.27))
       (hide yes)))
-  (property "LCSC" "C5280493"
+  (property "LCSC" "C2880546"
     (at 345.44 48.26 0.0)
     (effects
       (font
         (size 1.27 1.27))
       (hide yes)))
-  (property "MPN" "DCJ200-10-A-K1-K"
+  (property "MPN" "DC-005K-5A-2.0"
     (at 345.44 48.26 0.0)
     (effects
       (font
         (size 1.27 1.27))
       (hide yes)))
-  (property "Manufacturer" "Global Connector Technology"
+  (property "Manufacturer" "XKB Connection"
     (at 345.44 48.26 0.0)
     (effects
       (font
@@ -1948,7 +1948,7 @@
         (unit 1)))))
 (label "OUT"  (at 360.6800 45.7200 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "320a6973-ab9f-5f8d-a63d-1d4e9c306327"))
 (label "GND"  (at 360.6800 50.8000 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "11f265ad-c487-5ece-8bb5-c44014a74bff"))
-(no_connect (at 353.0600 48.2600) (uuid "9ea227c8-723f-5aee-a3a0-6e42393ce8b6"))
+(label "GND"  (at 360.6800 48.2600 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "df70d3e9-5c89-598d-93a6-777b82e0fa4c"))
 (symbol
   (lib_id "Device:D_Schottky")
   (at 373.38 104.14 270.0)
@@ -2176,6 +2176,7 @@
 (wire (pts (xy 323.8500 139.7000) (xy 331.4700 139.7000)) (stroke (width 0) (type default)) (uuid "8dd4175f-74a8-5fc7-afc4-41cf96524fba"))
 (wire (pts (xy 331.4700 139.7000) (xy 353.0600 139.7000)) (stroke (width 0) (type default)) (uuid "2a14800d-66cc-5d1e-8745-e09eb75d15f1"))
 (wire (pts (xy 353.0600 45.7200) (xy 360.6800 45.7200)) (stroke (width 0) (type default)) (uuid "ca32f475-699b-5b91-b8ab-b4fffe6e4361"))
+(wire (pts (xy 353.0600 48.2600) (xy 360.6800 48.2600)) (stroke (width 0) (type default)) (uuid "bcdfc04f-67e6-5114-855d-99d3d4f6ce1a"))
 (wire (pts (xy 353.0600 50.8000) (xy 360.6800 50.8000)) (stroke (width 0) (type default)) (uuid "ae9bccdb-50bf-541f-b752-59c3a7053d3e"))
 (wire (pts (xy 353.0600 139.7000) (xy 353.0600 163.8300)) (stroke (width 0) (type default)) (uuid "d6f35df1-86c2-5cdc-9678-cb4a58f805a7"))
 (wire (pts (xy 353.0600 163.8300) (xy 353.0600 168.9100)) (stroke (width 0) (type default)) (uuid "ba9d7c65-9f6e-5b83-8c99-358b9bb27645"))

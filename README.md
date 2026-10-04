@@ -108,6 +108,11 @@ adaptation is pending. Cost reductions retain outlet current monitoring: TPS2597
 switches, one shared voltage window and two owned SiR680LDP input FETs. See the [PulsarPower design README](hardware/pulsardewhub/README.md)
 for the power budget, schematic, floorplan and remaining release work.
 
+PulsarPower and PulsarDew now share stocked XKB barrel sockets and HRO USB-C sockets;
+SHT40 R2 is retained. The shared procurement CSV allocates 110 owned XKB sockets.
+See the [LMR51610 commonality evaluation](hardware/pulsardewhub/docs/lmr51610-commonality.md)
+for the proposed 3.3 V regulator change; the current 5 V / 3 A USB supply remains.
+
 ## Hardware
 
 ### PulsarDew (STM32G0B1KBU6)

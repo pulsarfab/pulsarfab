@@ -33,8 +33,8 @@ Review the [15-page schematic PDF](docs/schematic.pdf) and
 | USB | Four USB-A downstream ports, 500 mA service per port; USB-C upstream data connection |
 
 The **5 V regulator is rated for 3 A total**. Four USB ports reserve 2 A at
-500 mA each; a provisional 0.4 A equivalent budget for onboard logic/support
-leaves about 0.6 A margin. This is a design budget pending thermal and transient
+500 mA each; a provisional 0.6 A equivalent budget for onboard logic/support
+leaves about 0.4 A margin. This is a design budget pending thermal and transient
 testing, not an additional external 5 V output rating.
 
 **Populate one input path only. Do not fit/connect both inputs.** J11 and F11
@@ -209,7 +209,7 @@ make bom-pulsardewhub
 ```
 
 The electrical check passes with **zero ERC errors, warnings or exclusions**.
-It independently checks all **133 connected nets, 33 intentional no-connects,
+It independently checks all **133 connected nets, 28 intentional no-connects,
 226 component identities**, critical values, rail isolation, GPIO assignments
 and footprint pad coverage. KiCad PCB parity reports zero mismatches and there
 are zero courtyard overlaps. See [review details](docs/design-review.md).
@@ -254,10 +254,11 @@ VQFN (**long pad 5: VIN; long pad 6: OUT; neither is ground**), S1032 fuse,
 SMMS1050 inductors, RVT 6.3 mm capacitor
 and KF128 5.08 mm terminal. Dimensions and pin mappings were checked against
 manufacturer documents; record a second footprint review before fabrication.
-The active `*_Edge` connector footprints derive from the KiCad 10 library: AMASS
-XT60PW-M and GCT DCJ200. They retain the original copper, drills and fabrication
-outlines, with front silkscreen trimmed at the board edge. KiCad
-library attribution/license is recorded in [library notes](../lib/ATTRIBUTIONS.md).
+The AMASS XT60 edge footprint derives from the KiCad 10 library, retaining its
+copper, drills and fabrication outline with trimmed front silkscreen. The XKB
+barrel footprint is drawn from the manufacturer slot pattern; it replaces the
+former GCT footprint. KiCad library attribution/license is recorded in
+[library notes](../lib/ATTRIBUTIONS.md).
 XT60 positive is physical **pad 2**, negative pad 1.
 
 The four downstream USB-A sockets are **SHOU HAN AF 90 ZJWG / C456019**,
@@ -327,25 +328,38 @@ measures the heater pair rather than the four DC outlets.
 The installed [kicad-happy skills](https://github.com/aklofas/kicad-happy) were
 used for KiCad analysis, exact LCSC lookups, datasheet retrieval and JLCPCB review.
 
-## Stocked barrel-socket candidate — pending substitution
+## Stocked barrel sockets and retained sensor
 
-The shared inventory records **617 XKB DC-005K-5A-2.0 / C2880546** sockets.
-The [JLCPCB listing](https://jlcpcb.com/partdetail/C2880546) specifies 5 A,
-24 V, −20 to +70°C and right-angle through-hole mounting. This is the preferred
-owned-stock candidate for replacing the unavailable GCT socket; **the active
-BOM/footprint and inventory allocation have not yet been changed**.
+**XKB DC-005K-5A-2.0 / C2880546** now supplies J101/J201/J301/J401 and the
+DNP J11 option; the original Dew J2 uses the same part and footprint. The shared
+CSV allocates **110 owned sockets**: 88 for Power and 22 for Dew, including 10%
+spares. The recorded stock balance remains 617. J11 is excluded from the XT60
+purchase scope. The historical $81.55 GCT shortage is removed; it was already
+outside the cart, so the reviewed $633.18 estimated total is unchanged.
 
-The older [XKB A0 manufacturer drawing](https://web-static.partgenie.ai/component/docs/a9b30b5066b770e98a403dfcb74276b8_2110112230_XKB-Connection-DC-005K-5A-2-0_C2880546.pdf)
-shows a 2.0 mm center pin and a 5.5 × 2.1 mm mating plug. The newer
-[A1 drawing](https://datasheet.lcsc.com/datasheet/pdf/42a925a8542473f46554cf6f67b6cc91.pdf?productCode=C2880546)
-labels the pin 2.5 mm despite the same -2.0 part title. Check a stocked sample's
-plug fit, sleeve/contact continuity and dimensions before accepting substitution.
-The XKB land pattern calls for three 1.0 × 3.0 mm slots; its side terminal is
-5.0 mm off-axis and 3.0 mm forward of pin 1. The present GCT footprint uses
-4.8 mm and 2.9 mm respectively, so copying the source code alone is insufficient.
+The custom `BarrelJack_XKB_DC-005K-5A_Edge` footprint uses the manufacturer's
+three 1 × 3 mm plated slots. Relative to rear pin 1, pin 2 is (0, 6.3 mm) and
+pin 3 is (5.0, 3.0 mm), in top view with the mouth toward +Y. Pin 1 is positive;
+**both pins 2 and 3 are grounded**, disabling the unused jack contact switch.
+DC outlet returns are permanently grounded; only their positive supply is switched.
 
-Four outlets on 20 boards plus 10% spares would use 88 sockets. Another 22
-would cover the original Dew input only after its own footprint/pin mapping is
-qualified. This potential 110-part allocation is not deducted from the 617 balance.
-The historical DCBuddy BOM uses a generic PJ-0XX/CUI-PJ-002A_V description,
-not the exact XKB MPN; it cannot establish the fitted part's 5 A rating.
+[JLCPCB](https://jlcpcb.com/partdetail/C2880546) lists 5 A, 24 V and −20 to +70°C.
+The [A0 drawing](https://web-static.partgenie.ai/component/docs/a9b30b5066b770e98a403dfcb74276b8_2110112230_XKB-Connection-DC-005K-5A-2-0_C2880546.pdf)
+shows a 2.0 mm pin and 5.5 × 2.1 mm plug, while
+[A1](https://datasheet.lcsc.com/datasheet/pdf/42a925a8542473f46554cf6f67b6cc91.pdf?productCode=C2880546)
+says 2.5 mm despite the -2.0 title. **Before fabrication, check an owned sample's
+plug fit, pin continuity, slots and body dimensions.** Neither the generic DCBuddy
+BOM nor the vendor's nominal rating proves 5 A thermal service on this PCB.
+
+**SHT40-AD1B-R2 / C2909890 stays selected** on both products. Public JLCPCB stock
+recheck showed 16,923 available; the cart retains 44 pieces at $64.38. No R3 change.
+
+## LMR51610 commonality
+
+The owned **LMR51610XDBVR (185 recorded)** is a suitable candidate for a redesigned
+3.3 V / 650 mA logic stage, saving approximately **$10.09 in purchased ICs** for
+this batch after accounting for the lost LMR33630 price tier. It needs a different
+footprint, feedback network and output-filter qualification. The current regulator
+BOM and cart remain unchanged; **the 5 V / 3 A supply stays**. See the
+[commonality evaluation](docs/lmr51610-commonality.md) for the load budget,
+calculated margins and implementation requirements.
