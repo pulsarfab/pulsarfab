@@ -365,7 +365,7 @@ s.nc(s.pins['U41']['4']) # CT open: 20 ms reset delay per TI datasheet.
 branch(s,'R920','Device:R',533.4,297.18,'10k','V3','HUB_RESET',code='C25804')
 branch(s,'C914','Device:C',472.44,345.44,'100n','V3','GND',code='C14663')
 # Upstream USB-C is data + VBUS sense only, with two independent Rd resistors.
-put(s,'J40','Connector:USB_C_Receptacle_USB2.0_16P',350.52,66.04,'USB-C upstream','Connector_USB:USB_C_Receptacle_GCT_USB4105-xx-A_16P_TopMnt_Horizontal','C3020560')
+put(s,'J40','Connector:USB_C_Receptacle_USB2.0_16P',350.52,66.04,'USB-C upstream','pulsarfab:USB_C_HRO_TYPE-C-31-M-12','C165948')
 j=s.pins['J40']
 jends={p:named(s,'J40',p,name) for p,name in [('A4','HOST_VBUS'),('A1','GND'),('SH','GND'),('A6','UP_DP'),('B6','UP_DP'),('A7','UP_DM'),('B7','UP_DM'),('A5','CC1'),('B5','CC2')]}
 s.wire(jends['A6'],jends['B6']);s.wire(jends['A7'],jends['B7'])

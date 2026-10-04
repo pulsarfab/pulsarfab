@@ -214,13 +214,11 @@ It independently checks all **133 connected nets, 33 intentional no-connects,
 and footprint pad coverage. KiCad PCB parity reports zero mismatches and there
 are zero courtyard overlaps. See [review details](docs/design-review.md).
 
-The strict floorplan check currently **fails** on four USB-C mounting-hole to
-ground-pad clearances: **0.1944 mm actual versus 0.25 mm required**. These are
-within the stock GCT USB4105 footprint and require connector/land-pattern and
-fabricator reconciliation. No DRC exclusions hide them. There are also **499
-unconnected PCB items**. `make jlc-pulsardewhub` is blocked by strict ERC, DRC,
-parity and routing checks, so this draft cannot accidentally generate a package
-through that target.
+The strict floorplan check now **passes with zero placement DRC violations
+and zero schematic parity issues**. The stocked HRO USB-C replacement resolves
+the former GCT locator-hole clearances without exclusions. There are still
+**499 unconnected PCB items**. `make jlc-pulsardewhub` remains blocked by the
+completed-routing requirement. See [USB-C sourcing and footprint review](docs/usb-c-sourcing.md).
 
 At 5 A, each TPS25974 dissipates **0.245 W typical at 25°C**, or 0.98 W across
 four switches. The 18.3 mΩ maximum RDS(on) figure is specified at 25°C, giving
@@ -272,7 +270,8 @@ uses these hole dimensions and 1.6/3.2 mm copper pads. **The drawing omits the
 longitudinal body-to-pin datum: the body outline and mating-face position are
 provisional and must be checked on a sample before fabrication or enclosure design.**
 No substitute 3D model is attached. Through-hole soldering must be included in
-the assembly quote. The upstream USB-C socket remains USB4105-GF-A.
+the assembly quote. The upstream USB-C socket is now HRO TYPE-C-31-M-12 (C165948);
+see [the connector review](docs/usb-c-sourcing.md).
 
 JLCPCB showed 10,126 available to order on 2026-10-03, at $0.0386 each for 100.
 The procurement plan uses 100 ($3.86), which costs less than 88 ($4.29) at the
@@ -301,10 +300,10 @@ $360.51. Using 44 MOSFETs from the shared stock avoids the $44.45 CSD18540
 purchase; that is avoided cash spend, not a claim that inventory is free.
 The shared procurement CSV tracks the allocation separately from stock balances.
 
-The verified 20-board/common-Dew parts cart is **$666.57 estimated full value**,
-down from $1,032.21: **$365.64 saved** in this revision, in addition to the
-earlier $83.38 USB-A saving. Initial checkout is $619.15 including the 10%
-deposit on the $52.69 estimated pre-order portion. **Not ordered.** The 110
+The verified 20-board/common-Dew parts cart is **$633.18 estimated full value**,
+down from $1,032.21: **$399.03 saved** by the power-circuit and USB-C changes,
+in addition to the earlier $83.38 USB-A saving. Initial checkout is $622.42,
+including a $1.20 deposit on the $11.96 estimated XT60 pre-order portion. **Not ordered.** The 110
 DCJ200 sockets remain unavailable for JLC purchase and are excluded from these
 totals; they require separate sourcing/consignment. Prices are a dated snapshot.
 
@@ -322,7 +321,7 @@ measures the heater pair rather than the four DC outlets.
 - [TI LM74700-Q1](https://www.ti.com/lit/ds/symlink/lm74700-q1.pdf), [SiR680LDP](https://www.vishay.com/docs/77478/sir680ldp.pdf)
 - [TI LMR33630](https://www.ti.com/lit/ds/symlink/lmr33630.pdf), [TPS3808](https://www.ti.com/lit/ds/symlink/tps3808.pdf), [INA226](https://www.ti.com/lit/ds/symlink/ina226.pdf)
 - [ST STM32G0B1](https://www.st.com/resource/en/datasheet/stm32g0b1me.pdf), [USBLC6-2](https://www.st.com/resource/en/datasheet/usblc6-2.pdf)
-- [GCT USB4105 drawing](https://gct.co/files/drawings/usb4105.pdf), [DCJ200 drawing](https://gct.co/files/drawings/dcj200.pdf)
+- [HRO USB-C drawing](https://datasheet.lcsc.com/datasheet/pdf/9e56b777c022540fcce7c7f67825f55e.pdf?productCode=C165948), [DCJ200 drawing](https://gct.co/files/drawings/dcj200.pdf)
 - [Reviewed document hashes and catalog links](docs/datasheet-review-manifest.json)
 
 The installed [kicad-happy skills](https://github.com/aklofas/kicad-happy) were

@@ -91,11 +91,10 @@ instead of the inherited footprint whose silkscreen crossed all perimeter pads.
 
 `make verify-floorplan-pulsardew` checks placement and schematic parity. KiCad
 10.0.6 reports **zero courtyard overlaps, zero schematic parity issues,
-and 130 unconnected items**. Four remaining DRC entries are the two USB-C
-locating holes versus paired ground pads (0.1944 mm actual, 0.25 mm required).
-The strict floorplan check intentionally fails on these; reconcile the connector
-land pattern before routing release (the selected GCT drawing agrees with KiCad, but its hole-to-copper spacing still needs fabrication review). No exclusions hide this issue. The board was opened and visually reviewed in
-KiCad. It is deliberately a floorplan: no tracks or copper pours are routed.
+and 130 unconnected items**. The HRO USB-C replacement resolves the former
+locator-hole clearance violations; the strict placement check now passes with
+zero DRC violations and no exclusions. It is deliberately a floorplan: no
+tracks or copper pours are routed.
 Power, USB and sense net classes provide routing starting points; their widths
 are not a current or controlled-impedance certification. Use an uninterrupted
 ground reference under USB, keep heater returns out of the logic/sensor return
@@ -105,7 +104,8 @@ path, and derive final widths/USB geometry from the selected fabrication stackup
 
 Connectivity verification does not
 validate land-pattern geometry, current capacity, thermal behavior, protection
-or assembly sourcing. USB-C J1 now sources GCT USB4105-GF-A (C3020560), and barrel J2
+or assembly sourcing. USB-C J1 now sources HRO TYPE-C-31-M-12 (C165948), using its own
+project footprint; see the [connector review](../pulsardewhub/docs/usb-c-sourcing.md). Barrel J2
 sources GCT DCJ200-10-A-K1-K (C5280493), matching their assigned footprints.
 The old DEALON/XKB source codes did not match those land patterns.
 Remaining supplier codes must be reconciled with the exact packages before ordering; the HT7333-1 orderable variant and

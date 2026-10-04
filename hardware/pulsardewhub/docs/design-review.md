@@ -9,9 +9,8 @@ The [README](../README.md) describes the current circuit and power budget.
 - **Verified, native KiCad 10.0.6:** zero ERC errors, warnings or exclusions;
   226 components, 133 exact connected nets, 33 intentional no-connects, and
   complete symbol-pin/footprint-pad coverage. Fifteen pages in nine schematic files.
-- **Verified, native PCB DRC:** zero schematic parity issues and no new placement
-  violations. The four existing USB-C hole clearances remain (0.1944 mm versus
-  0.25 mm rule). There are 499 unconnected items, zero tracks and zero vias.
+- **Verified, native PCB DRC:** zero schematic parity issues and zero placement DRC
+  violations after the HRO USB-C replacement (see [connector review](usb-c-sourcing.md)). There are 499 unconnected items, zero tracks and zero vias.
 - **Verified, independent fault injection:** disconnected shared inhibit, shorted
   enables, grounded eFuse power land, wrong automatic-retry variant, and grounded
   input-FET source are all rejected. See [verification.json](verification.json).
@@ -64,8 +63,8 @@ cover the stated sections, not every datasheet specification or production lot.
 
 ## Release blockers
 
-Routing and thermal vias, the four USB-C clearances, USB-A body datum sample
-check, power/fuse/cable temperature, surge and overload qualification, firmware
+Routing and thermal vias, USB connector first-article fit/solder inspection,
+USB-A body datum sample check, power/fuse/cable temperature, surge and overload qualification, firmware
 fault behavior, USB signal integrity, and exact assembly availability remain open.
 The release target continues to fail instead of emitting a fabrication package.
 

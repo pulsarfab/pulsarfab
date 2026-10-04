@@ -160,6 +160,17 @@
       "cart_line_usd": 3.4,
       "unit_usd": 0.0034,
       "status": "in-stock cart; not ordered"
+    },
+    {
+      "lcsc": "C165948",
+      "mpn": "TYPE-C-31-M-12",
+      "source_url": "https://jlcpcb.com/partdetail/C165948",
+      "displayed_stock": 424757,
+      "available_without_preorder": 412863,
+      "status": "current candidate; selected and in cart, not ordered",
+      "cart_qty": 50,
+      "cart_line_usd": 7.34,
+      "unit_usd": 0.1467
     }
   ]
 }

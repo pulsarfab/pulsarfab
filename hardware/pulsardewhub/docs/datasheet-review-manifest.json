@@ -57,7 +57,8 @@
       "lcsc": "C3020560",
       "mpn": "USB4105-GF-A",
       "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/76718c6dacc0a6125953c12b5ebc82df.pdf?productCode=C3020560",
-      "sha256": "0ff2526fc28bbfdcb46a61fd394454be865854212c677e5aa55fc305368a01b1"
+      "sha256": "0ff2526fc28bbfdcb46a61fd394454be865854212c677e5aa55fc305368a01b1",
+      "status": "superseded by HRO C165948; historical evidence"
     },
     {
       "reviewed_file": "dcj200.pdf",
@@ -198,6 +199,14 @@
       "datasheet_url": "https://www.vishay.com/docs/77478/sir680ldp.pdf",
       "sha256": "209da800bc3cd169339a7a76a3ed1a19d60f1ecc16eb17622a03f1b3de0d0d30",
       "status": "0.3 manufacturer document review"
+    },
+    {
+      "reviewed_file": "HRO-TYPE-C-31-M-12.pdf",
+      "lcsc": "C165948",
+      "mpn": "TYPE-C-31-M-12",
+      "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/9e56b777c022540fcce7c7f67825f55e.pdf?productCode=C165948",
+      "sha256": "6ae33d50ac47820114661138dc4e4659f40fdc5d4f485b46685dfec338da1a9e",
+      "review": "2020-12-08 manufacturer drawing, pin table and mechanical dimensions visually reviewed; see usb-c-sourcing.md"
     }
   ]
 }

@@ -502,5 +502,13 @@
     "datasheet_url": "https://www.ti.com/lit/ds/symlink/tps2597.pdf",
     "source_url": "https://jlcpcb.com/partdetail/C3662931",
     "checked_date": "2026-10-03"
+  },
+  "C165948": {
+    "lcsc_code": "C165948",
+    "mpn": "TYPE-C-31-M-12",
+    "manufacturer": "Korean Hroparts Elec",
+    "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/9e56b777c022540fcce7c7f67825f55e.pdf?productCode=C165948",
+    "source_url": "https://jlcpcb.com/partdetail/C165948",
+    "checked_date": "2026-10-03"
   }
 }

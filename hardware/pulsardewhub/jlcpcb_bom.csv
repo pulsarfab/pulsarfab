@@ -18,7 +18,7 @@
 "17","F51,F61","7A heater fuse","Fuse:Fuse_Littelfuse-NANO2-451_453","2","C99548","0451007.MRL","Littelfuse"
 "18","J1","SWD","Connector_PinHeader_2.54mm:PinHeader_1x05_P2.54mm_Vertical","1","C492404","PZ254V-11-05P","XFCN"
 "19","J10","XT60: 2=PLUS, 1=GND","pulsarfab:AMASS_XT60PW-M_Edge","1","C98732","XT60PW-M","Changzhou Amass Elec"
-"20","J40","USB-C upstream","Connector_USB:USB_C_Receptacle_GCT_USB4105-xx-A_16P_TopMnt_Horizontal","1","C3020560","USB4105-GF-A","Global Connector Technology"
+"20","J40","USB-C upstream","pulsarfab:USB_C_HRO_TYPE-C-31-M-12","1","C165948","TYPE-C-31-M-12","Korean Hroparts Elec"
 "21","J51","HEATER 1","pulsarfab:TerminalBlock_KEFA_KF128_2P_P5.08mm","1","C474952","KF128-5.08-2P-AA","Cixi Kefa Elec"
 "22","J61","HEATER 2","pulsarfab:TerminalBlock_KEFA_KF128_2P_P5.08mm","1","C474952","KF128-5.08-2P-AA","Cixi Kefa Elec"
 "23","J101,J201,J301,J401","5A DC / center +","pulsarfab:BarrelJack_GCT_DCJ200_Edge","4","C5280493","DCJ200-10-A-K1-K","Global Connector Technology"
