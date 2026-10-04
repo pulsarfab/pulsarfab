@@ -102,9 +102,10 @@ idf.py flash                     # Flash via USB
 PulsarDew remains the original dedicated dew controller. **PulsarPower** is the
 expanded product, previously called **PulsarDew Hub** during development. Its
 KiCad files and Makefile targets currently retain the `pulsardewhub` identifier.
-The 0.2 draft has a connected schematic and an unrouted four-layer floorplan;
+The 0.3 draft has a connected schematic and an unrouted four-layer floorplan;
 current ratings require routing and prototype qualification, and firmware
-adaptation is pending. See the [PulsarPower design README](hardware/pulsardewhub/README.md)
+adaptation is pending. Cost reductions retain outlet current monitoring: TPS25974L
+switches, one shared voltage window and two owned SiR680LDP input FETs. See the [PulsarPower design README](hardware/pulsardewhub/README.md)
 for the power budget, schematic, floorplan and remaining release work.
 
 ## Hardware

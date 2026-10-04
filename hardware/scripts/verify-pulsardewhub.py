@@ -45,10 +45,11 @@ def expected_nets():
     pair("F10", "XT60_IN", "VIN_RAW")
     barrel("J11", "BARREL_IN")
     pair("F11", "BARREL_IN", "VIN_RAW")
-    comp("Q10", {1: "VIN_RAW", 2: "VIN_RAW", 3: "VIN_RAW", 4: "INPUT_GATE", 5: "VIN"})
+    for q in ["Q10","Q11"]:comp(q, {1: "VIN_RAW", 2: "VIN_RAW", 3: "VIN_RAW", 4: "INPUT_GATE", 5: "VIN"})
     comp("U10", {6: "VIN_RAW", 3: "VIN_RAW", 1: "VCAP", 2: "GND", 4: "VIN", 5: "INPUT_GATE"})
     pair("C10", "VCAP", "VIN_RAW")
     for ref in ["D10", "C11", "C12"]: pair(ref, "VIN")
+    pair("C13","VIN_RAW")
     for base, vin, out in [(20, "VIN", "V5"), (30, "V5", "V3")]:
         sw, fb, vcc, boot = [f"{n}{base}" for n in ["SW", "FB", "VCC", "BOOT"]]
         comp(f"U{base}", {1:"GND",9:"GND",2:vin,3:vin,4:None,5:fb,6:vcc,7:boot,8:sw})
@@ -85,17 +86,25 @@ def expected_nets():
         pair(f"F{b}","HTR_VIN",fused)
         pair(f"J{b}",fused,low)
 
+    comp("U70", {5:"V3",2:"GND",3:"UV_SHARED",4:"OV_SHARED",1:"WINDOW_OK",6:"WINDOW_OK"})
+    comp("U71", {14:"V3",7:"GND",1:"DC_EN1",4:"DC_EN2",9:"DC_EN3",12:"DC_EN4",
+                  2:"WINDOW_OK",5:"WINDOW_OK",10:"WINDOW_OK",13:"WINDOW_OK",
+                  3:"DC_SAFE1",6:"DC_SAFE2",8:"DC_SAFE3",11:"DC_SAFE4"})
+    pair("R70","VIN","UV_SHARED");pair("R71","UV_SHARED")
+    pair("R72","VIN","OV_SHARED");pair("R73","OV_SHARED")
+    pair("R74","V3","WINDOW_OK");pair("C70","V3");pair("C71","V3")
+    for i in range(1,5):pair(f"R{74+i}",f"DC_EN{i}")
     for i in range(1,5):
         b=i*100; n=lambda suffix:f"DC{i}_{suffix}"
-        comp(f"U{b+1}",{**{p:"VIN" for p in [1,2,3,16,25]},
-             **{p:"GND" for p in [4,5,14,26,10,11,12]},**{p:n("OUT") for p in range(17,25)},
-             6:n("EN_SW"),7:None,8:n("ILIM"),9:n("RAW"),13:f"DC_PG{i}",15:n("DVDT")})
-        comp(f"U{b+2}",{1:n("EN_SW"),2:"GND",3:n("UV"),4:n("OV"),5:"V3",6:n("EN_SW")})
-        for off,a,z in [(1,"VIN",n("UV")),(2,n("UV"),"GND"),(3,"VIN",n("OV")),(4,n("OV"),"GND"),
-             (5,n("EN_SW"),"GND"),(6,"V3",f"DC_PG{i}"),(7,n("ILIM"),"GND"),(8,n("RAW"),"GND"),
-             (9,n("RAW"),f"IMON{i}"),(10,f"DC_EN{i}",n("EN_SW"))]:pair(f"R{b+off}",a,z)
-        for off,a in [(1,"VIN"),(2,n("OUT")),(3,n("DVDT")),(4,f"IMON{i}"),(5,"V3")]:pair(f"C{b+off}",a)
-        barrel(f"J{b+1}",n("OUT"));pair(f"D{b+1}",n("OUT"));pair(f"D{b+2}","VIN")
+        # TI SLVSGG5D table 5-1: separate IN/OUT power leads, combined ILM/monitor.
+        comp(f"U{b+1}",{1:n("EN_SW"),2:n("OV"),3:f"DC_PG{i}",4:n("PGTH"),
+                         5:"VIN",6:n("OUT"),7:n("DVDT"),8:"GND",9:n("RAW"),10:None})
+        comp(f"U{b+2}",{1:"GND",2:"GND",3:"GND",4:"VIN",5:"VIN",6:"VIN",7:"GND"})
+        for off,a,z in [(1,n("OUT"),n("PGTH")),(2,n("PGTH"),"GND"),(3,"VIN",n("OV")),(4,n("OV"),"GND"),
+             (5,n("EN_SW"),"GND"),(6,"V3",f"DC_PG{i}"),(7,n("RAW"),"GND"),
+             (9,n("RAW"),f"IMON{i}"),(10,f"DC_SAFE{i}",n("EN_SW"))]:pair(f"R{b+off}",a,z)
+        for off,a in [(1,"VIN"),(2,n("OUT")),(3,n("DVDT")),(4,f"IMON{i}")]:pair(f"C{b+off}",a)
+        barrel(f"J{b+1}",n("OUT"));pair(f"D{b+1}",n("OUT"))
 
     for i,b in enumerate([500,600,700,800],1):
         vbus,ilim = f"USB{i}_VBUS",f"USB{i}_ILIM"
@@ -157,28 +166,38 @@ def verify(netlist):
     require(checked==set(actual),f"unreviewed nets: {set(actual)-checked}")
     require(set(comps)=={p.split('.')[0] for members in expected.values() for p in members},"unexpected component inventory")
 
-    # Independent manufacturer pin map above includes EP25=VIN and EP26=GND.
     for i in range(1,5):
         b=i*100
-        for ref,value in [(f"R{b+1}","220k"),(f"R{b+2}","10k"),(f"R{b+3}","470k"),(f"R{b+4}","10k"),
-                (f"R{b+5}","100k"),(f"R{b+7}","249 / 1%"),(f"R{b+8}","820 / 1%"),
-                (f"R{b+9}","10k"),(f"R{b+10}","10k"),(f"C{b+3}","4.7n / 50V"),(f"D{b+1}","SS54"),(f"D{b+2}","SMBJ18A")]:
+        for ref,value in [(f"R{b+1}","100k"),(f"R{b+2}","20k"),(f"R{b+3}","150k"),(f"R{b+4}","10k"),
+                (f"R{b+5}","10k"),(f"R{b+7}","1k / 1%"),
+                (f"R{b+9}","10k"),(f"R{b+10}","1k"),(f"C{b+3}","4.7n / 50V"),(f"D{b+1}","SS54")]:
             require(comps[ref].findtext("value")==value,f"{ref}: changed protection/current scaling")
-        require(comps[f"U{b+1}"].findtext("footprint")=="pulsarfab:TI_RGE0024M_VQFN24_2EP_4x4mm","TPS25982 two-pad footprint mismatch")
-        f={x.attrib["name"]:x.text for x in comps[f"U{b+1}"].findall("fields/field")}
-        require(f.get("MPN")=="TPS259827ONRGET" and f.get("LCSC")=="C2155765","wrong voltage/breaker variant")
-        f={x.attrib["name"]:x.text for x in comps[f"U{b+2}"].findall("fields/field")}
-        require(f.get("MPN")=="TPS3700DDCR","voltage window monitor mismatch")
-    require(comps["D10"].findtext("value")=="SMCJ18A","input TVS must be the 18 V version")
+        require(comps[f"U{b+1}"].findtext("footprint")=="pulsarfab:TI_RPW0010A_VQFN10_2x2mm","TPS25974 footprint mismatch")
+        for off,mpn,code in [(1,"TPS25974LRPWR","C3662931"),(2,"TVS1800DRVR","C2649846")]:
+            f={x.attrib["name"]:x.text for x in comps[f"U{b+off}"].findall("fields/field")}
+            require(f.get("MPN")==mpn and f.get("LCSC")==code,"wrong eFuse/clamp variant")
+    for ref,mpn in [("U70","TPS3700DDCR"),("U71","SN74LVC08APWR"),("Q10","SIR680LDP-T1-RE3"),("Q11","SIR680LDP-T1-RE3")]:
+        f={x.attrib["name"]:x.text for x in comps[ref].findall("fields/field")}
+        require(f.get("MPN")==mpn,f"{ref}: qualified part mismatch")
+    for ref,value in [("R70","220k"),("R71","10k"),("R72","470k"),("R73","10k"),("R74","10k"),
+                      ("R75","10k"),("R76","10k"),("R77","10k"),("R78","10k"),("C10","1u / 50V")]:
+        require(comps[ref].findtext("value")==value,f"{ref}: shared inhibit/gate drive value")
+    require(comps["D10"].findtext("value")=="SMCJ18A","input bulk TVS")
     for b in [500,600,700,800]:
         require(comps[f"C{b+2}"].findtext("value")=="150u / 10V / 20%","USB VBUS minimum capacitance")
         require(comps[f"R{b+1}"].findtext("value")=="43.2k / 1%","USB current-limit resistor")
-    # Eq.4 nominal only: the datasheet does not guarantee full-temperature limits at 249 ohms.
-    require(5.9 < 1460/249+.11 < 6.1,"nominal breaker threshold")
-    require(253.4e-6*820*1.01*15<3.2,"ADC monitor range screening up to 15 A")
+    require(5.7 < 5747/1000 < 5.8,"nominal breaker threshold")
+    # +/-10% threshold, 1% resistor and 1% additional TCR allowance; prototype check still required.
+    require(5747*.9/(1000*1.02)>5,"5 A no-trip screening")
+    require(114e-6*1000*1.02*14<3.2,"ADC range screening at twice breaker setpoint")
     ov_min=.396*(1+470e3*.99/(10e3*1.01));ov_max=.404*(1+470e3*1.01/(10e3*.99))
-    require(ov_min>18 and ov_max<20,"OV threshold worst-case tolerance window")
-    require(3.2*100e3*.99/(10e3*1.01+100e3*.99)>1.23,"enabled logic-high margin")
+    require(ov_min>18 and ov_max<20,"shared OV threshold tolerance")
+    require(1.183*(1+150*.99/(10*1.01))>18,"local OVLO passes 18 V")
+    require(1.228*(1+150*1.01/(10*.99))+.015<20.1,"local OVLO threshold")
+    require(2.05*10/11>1.228 and .6<1.076,"AND gate/eFuse enable logic margins")
+    require(3.1-4*20e-6*10e3>2,"shared window fan-out logic margin")
+    require(24.7<28,"local flat-clamp vs eFuse input absolute max, specified pulse only")
+    require(1e-6*.5>10*2*7250e-12,"gate pump capacitance with two stocked MOSFETs and 50% derating")
     require(25230/(43.2*1.01)**1.016>500,"USB current-limit minimum")
 
     # Pin-pad coverage is separate from physical land-pattern qualification.

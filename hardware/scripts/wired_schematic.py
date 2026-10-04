@@ -36,7 +36,7 @@ class Sheet:
  def __init__(self,name,title,paths,paper='A4'):
   self.name=name; self.paths=paths; self.items=[]; self.cache={}; self.pins={}; self.symbols={}; self.wires=[]; self.joints=set()
   self.id=rootid if name==PROJECT else uid('file:'+name)
-  self.header=f'(kicad_sch (version 20260306) (generator "eeschema") (generator_version "10.0") (uuid "{self.id}") (paper "{paper}")\n(title_block (title {q("PulsarDew Hub - "+title)}) (date "2026-10-03") (rev "0.2-draft") (company "PulsarFab"))'
+  self.header=f'(kicad_sch (version 20260306) (generator "eeschema") (generator_version "10.0") (uuid "{self.id}") (paper "{paper}")\n(title_block (title {q("PulsarPower - "+title)}) (date "2026-10-03") (rev "0.3-draft") (company "PulsarFab"))'
  def add(self,s):self.items.append(s)
  def text(self,t,x,y,size=1.27):self.add(f'(text {q(t)} (at {xy(pt(x,y))} 0) (effects (font (size {size} {size})) (justify left top)) (uuid "{uid(self.name+":text:"+t)}"))')
  def wire(self,*points):

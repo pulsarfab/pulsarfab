@@ -1,3 +1,79 @@
+# PulsarPower design review (0.3-draft) — 2026-10-03
+
+**Verdict: connected schematic and matching placement draft; not ready for fabrication.**
+Current monitoring is retained while implementing all three approved cost changes.
+The [README](../README.md) describes the current circuit and power budget.
+
+## Current verification
+
+- **Verified, native KiCad 10.0.6:** zero ERC errors, warnings or exclusions;
+  226 components, 133 exact connected nets, 33 intentional no-connects, and
+  complete symbol-pin/footprint-pad coverage. Fifteen pages in nine schematic files.
+- **Verified, native PCB DRC:** zero schematic parity issues and no new placement
+  violations. The four existing USB-C hole clearances remain (0.1944 mm versus
+  0.25 mm rule). There are 499 unconnected items, zero tracks and zero vias.
+- **Verified, independent fault injection:** disconnected shared inhibit, shorted
+  enables, grounded eFuse power land, wrong automatic-retry variant, and grounded
+  input-FET source are all rejected. See [verification.json](verification.json).
+- **Visual review:** exported input, outlet, shared protection, root and PCB
+  placement documents inspected. The current 15-page hierarchy also opened
+  successfully in the native KiCad Schematic Editor. CLI verification does not establish analog,
+  thermal or EMC compliance. Historical analyzer output below is not current.
+
+## Changes and manufacturer evidence
+
+| Change | Evidence and engineering consequence |
+| --- | --- |
+| Four TPS25974LRPWR, C3662931 | **Verified datasheet:** TI TPS2597 pin table, variant table, electrical characteristics, current-monitor/breaker equations and RPW0010A drawing. 2.7–23 V operating, 28 V input absolute maximum, adjustable OVLO, latch-off breaker. 5 A per port remains a qualification target. Both long lands are power: pad 5 VIN, pad 6 OUT. Grounds are never switched. |
+| Shared TPS3700 plus SN74LVC08A | **Verified datasheets and nets:** one 9.2/19.2 V nominal window gates four independent MCU commands. Local 19.2 V nominal OVLO remains in each eFuse. A shared window is a common failure point, not redundant protection. Pull-downs establish default-off intent; startup/brownout behavior needs measurement. |
+| Four TVS1800 clamps | **Verified datasheet:** 18 V standoff; 24.7 V maximum clamp at the specified 35 A, 8/20 µs, 125°C pulse. Replaces local SMBJ18A, whose 29.2 V clamp would exceed the new 28 V input limit. Keep loops short; actual cable energy and overshoot remain unqualified. D10 SMCJ18A remains the upstream bulk absorber. |
+| Two parallel SiR680LDP input FETs | **Verified Vishay datasheet:** 80 V, 3.55 mΩ maximum at 4.5 V gate drive and 25°C, 90 nC typical/135 nC maximum gate charge at 10 V per FET. PowerPAK pad 5 represents all drains; 1–3 source, 4 gate. LM74700 C10 increased to 1 µF; 50% derated capacitance exceeds ten times combined typical input capacitance. Dynamic gate drive and current sharing still need bench validation. |
+
+Document hashes and original URLs are recorded in
+[datasheet-review-manifest.json](datasheet-review-manifest.json). These checks
+cover the stated sections, not every datasheet specification or production lot.
+
+## Calculations and limits
+
+- **Calculated:** 1 kΩ ILM gives 5.747 A nominal breaker threshold and
+  0.1055 V/A nominal ADC signal (0.5275 V at 5 A). A ±10% threshold / ±2%
+  resistance screening gives 5.07–6.45 A; this is not a separately guaranteed
+  datasheet bin at 1 kΩ. Validate 5 A no-trip service over temperature.
+  Monitor gain limits are 98–114 µA/A within the specified current range.
+  Firmware must adopt the new gain and calibrate; 10k/10n ADC filter is 100 µs.
+- **Calculated:** 4.7 nF dVdt gives 0.702 V/ms, about 25.6 ms at 18 V.
+  ITIMER is open for the fastest response. Validate capacitive and resistive
+  startup loads, fault energy, short trip and latch reset before connecting loads.
+- **Calculated:** local PG threshold is 7.2 V nominal (100k/20k), qualified by
+  completed startup. PG is not a guaranteed voltage measurement while unpowered.
+- **Calculated:** each switch dissipates 0.245 W using typical 25°C resistance,
+  or 0.458 W using maximum 25°C resistance at 5 A. A conservative 2× hot
+  resistance assumption gives 0.915 W per port; it is an assumption, not a
+  guaranteed hot resistance. Four ports, bucks, heaters and input FETs need
+  an all-load thermal test on the routed board and final enclosure.
+- **Calculated:** two input FETs equally sharing 25 A dissipate 1.11 W together
+  at maximum 25°C/4.5 V resistance; a 1.6× hot-resistance assumption gives
+  1.78 W. Use balanced short copper and thermal spreading. This does not prove
+  current sharing, SOA, reverse transients or the full 25 A system rating.
+- **Unchanged budget:** 5 V regulator rated 3 A (15 W), four USB ports budgeted
+  500 mA each, provisional 0.4 A logic equivalent, roughly 0.6 A headroom.
+  Six simultaneous 5 A external loads exceed the shared 25 A XT60 target.
+- **Limit:** no reverse blocking at the DC outlet eFuses; do not backfeed them.
+  Firmware should clear commands following unexpected PG loss; voltage recovery
+  can reset a latch and re-enable a still-asserted command.
+
+## Release blockers
+
+Routing and thermal vias, the four USB-C clearances, USB-A body datum sample
+check, power/fuse/cable temperature, surge and overload qualification, firmware
+fault behavior, USB signal integrity, and exact assembly availability remain open.
+The release target continues to fail instead of emitting a fabrication package.
+
+## Historical review — 0.2 and earlier, superseded where changed above
+
+The following is retained as review history only. Its old switch values, counts,
+ratings and placement evidence must not be used for the current 0.3 design.
+
 # PulsarDew Hub design review (0.2-draft) — 2026-10-03
 
 **Verdict:** connected schematic and editable placement draft; **not ready for

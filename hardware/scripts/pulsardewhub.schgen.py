@@ -36,10 +36,27 @@ def block(name,fp,left,right,ds,width=15.24,step=5.08):
  s.append(unit);return s
 
 custom=[]
-custom.append(block('TPS259827ONRGE','pulsarfab:TI_RGE0024M_VQFN24_2EP_4x4mm',
- [(1,'IN','power_in'),(2,'IN','power_in'),(3,'IN','power_in'),(16,'IN','power_in'),(25,'EP_IN','power_in'),(6,'EN_UVLO','input'),(4,'GND','power_in'),(5,'GND','power_in'),(14,'GND','power_in'),(26,'EP_GND','power_in')],
- [(17,'OUT','power_out'),(18,'OUT','passive'),(19,'OUT','passive'),(20,'OUT','passive'),(21,'OUT','passive'),(22,'OUT','passive'),(23,'OUT','passive'),(24,'OUT','passive'),(13,'PG','open_collector'),(9,'IMON','output'),(8,'ILIM','passive'),(15,'dVdT','passive'),(7,'ITIMER','passive'),(10,'RETRY_DLY','passive'),(11,'NRETRY','passive'),(12,'LDSTRT','input')],
- 'https://www.ti.com/lit/ds/symlink/tps25982.pdf',step=3.81))
+custom.append(block('TPS25974LRPW','pulsarfab:TI_RPW0010A_VQFN10_2x2mm',
+ [(5,'IN','power_in'),(1,'EN_UVLO','input'),(2,'OVLO','input'),(8,'GND','power_in')],
+ [(6,'OUT','power_out'),(3,'PG','open_collector'),(4,'PGTH','input'),(9,'ILM_IMON','output'),(7,'dVdT','passive'),(10,'ITIMER','passive')],
+ 'https://www.ti.com/lit/ds/symlink/tps2597.pdf'))
+custom.append(block('SN74LVC08APW','Package_SO:TSSOP-14_4.4x5mm_P0.65mm',
+ [(14,'VCC','power_in'),(1,'1A','input'),(2,'1B','input'),(4,'2A','input'),(5,'2B','input'),(9,'3A','input'),(10,'3B','input'),(12,'4A','input'),(13,'4B','input'),(7,'GND','power_in')],
+ [(3,'1Y','output'),(6,'2Y','output'),(8,'3Y','output'),(11,'4Y','output')],
+ 'https://www.ti.com/lit/ds/symlink/sn74lvc08a.pdf'))
+custom.append(block('TVS1800DRV','Package_SON:WSON-6-1EP_2x2mm_P0.65mm_EP1x1.6mm',
+ [(4,'IN','passive'),(5,'IN','passive'),(6,'IN','passive')],
+ [(1,'GND','passive'),(2,'GND','passive'),(3,'GND','passive'),(7,'EP_GND','passive')],
+ 'https://www.ti.com/lit/ds/symlink/tvs1800.pdf'))
+# Vishay PowerPAK single-MOSFET land pattern groups physical drain leads 5-8 and exposed drain under pad 5.
+mos=symbol('Transistor_FET:CSD18540Q5B');mos[1]='SiR680LDP'
+for u in children(mos,'symbol'):u[1]=u[1].replace('CSD18540Q5B','SiR680LDP')
+for prop in children(mos,'property'):
+ if prop[1]=='Value':prop[2]='SiR680LDP'
+ if prop[1]=='Footprint':prop[2]='Package_SO:PowerPAK_SO-8_Single'
+ if prop[1]=='Datasheet':prop[2]='https://www.vishay.com/docs/77478/sir680ldp.pdf'
+ if prop[1]=='Description':prop[2]='SiR680LDP; S=1,2,3 G=4 D=5 (physical 5,6,7,8 plus exposed drain)'
+custom.append(mos)
 custom.append(block('TPS3700DDC',SOT6,[(5,'VDD','power_in'),(3,'INA+','input'),(4,'INB-','input'),(2,'GND','power_in')],[(1,'OUTA','open_collector'),(6,'OUTB','open_collector')],'https://www.ti.com/lit/ds/symlink/tps3700.pdf'))
 custom.append(block('LM74700QDBV',SOT6,[(6,'ANODE','power_in'),(3,'EN','input'),(1,'VCAP','passive'),(2,'GND','power_in')],[(4,'CATHODE','input'),(5,'GATE','output')], 'https://www.ti.com/lit/ds/symlink/lm74700-q1.pdf'))
 custom.append(block('TPS2553DBV',SOT6,[(1,'IN','power_in'),(3,'EN','input'),(2,'GND','power_in')],[(6,'OUT','power_out'),(4,'~{FAULT}','open_collector'),(5,'ILIM','passive')], 'https://www.ti.com/lit/ds/symlink/tps2553.pdf'))
@@ -56,14 +73,14 @@ assert sorted(p[0] for p in left+right)==list(range(1,66))
 custom.append(block('USB2517-JZX','Package_DFN_QFN:QFN-64-1EP_9x9mm_P0.5mm_EP4.7x4.7mm',left,right,'https://ww1.microchip.com/downloads/en/DeviceDoc/00001598C.pdf',width=20.32,step=3.81))
 (BASE/'hardware/lib/symbols/pulsarfab_hub.kicad_sym').write_text(dump([S('kicad_symbol_lib'),node('version',S('20241209')),node('generator',S('kicad_symbol_editor')),*custom])+'\n')
 
-sheet_specs=[('Power input','power_input'),('DC supplies','supplies'),('Controller','controller'),('USB hub','usb_hub'),('Heaters','heaters')]
+sheet_specs=[('Power input','power_input'),('DC supplies','supplies'),('Controller','controller'),('USB hub','usb_hub'),('Heaters','heaters'),('DC protection','dc_protection')]
 sheet_specs += [(f'DC outlet {i}','dc_outlet') for i in range(1,5)]
 sheet_specs += [(f'USB port {i}','usb_port') for i in range(1,5)]
 paths={name:'/'+rootid+'/'+uid('sheet:'+name) for name,file in sheet_specs}
 
 def make(name,title,paper='A4'):
  return Sheet(name,title,[paths[n] for n,f in sheet_specs if f==name],paper)
-R_CODES={'100k':'C25803','10k':'C25804','4.7k':'C23162','5.1k':'C23186','3.3k':'C22978','22k':'C31850','20k':'C4184','8.2k':'C25981','1k':'C21190','47':'C23182','43.2k':'C23053','12k':'C22790','24.9k':'C25962','150k':'C22807','332k':'C23139','220k':'C22961','470k':'C23178','249':'C22919','820':'C23253'}
+R_CODES={'100k':'C25803','10k':'C25804','4.7k':'C23162','5.1k':'C23186','3.3k':'C22978','22k':'C31850','20k':'C4184','8.2k':'C25981','1k':'C21190','47':'C23182','43.2k':'C23053','12k':'C22790','24.9k':'C25962','150k':'C22807','332k':'C23139','220k':'C22961','470k':'C23178','249':'C22919','820':'C23253','560':'C23204'}
 C_CODES={'100n':'C14663','1u':'C15849','4.7u':'C19666','10u':'C138687','220n':'C64705','22u':'C12891','22n':'C21122','10n':'C1589','18p':'C342890','4.7n':'C1621'}
 def put(s,ref,lib,x,y,value=None,fp=None,code='',angle=0,**kw):
  if not code and value:
@@ -108,18 +125,23 @@ s.wire(s.pins['J11']['1'],s.pins['F11']['1'])
 for ref,num in [('J10',1),('J11',2)]:named(s,ref,num,'GND')
 s.nc(s.pins['J11']['3'])
 for ref in ('F10','F11'):named(s,ref,2,'VIN_RAW')
-put(s,'Q10','Transistor_FET:CSD18540Q5B',157.48,50.8,code='C86513')
+for ref,x in [('Q10',157.48),('Q11',208.28)]:
+ put(s,ref,'pulsarfab_hub:SiR680LDP',x,50.8,code='C3279524')
+ named(s,ref,4,'INPUT_GATE')
+ s.wire(s.pins[ref]['1'],(s.pins[ref]['1'][0],71.12))
+ s.wire(s.pins[ref]['5'],(s.pins[ref]['5'][0],30.48))
+s.wire((160.02,71.12),(210.82,71.12));s.label('VIN_RAW',(210.82,71.12))
+s.wire((160.02,30.48),(210.82,30.48));s.label('VIN',(210.82,30.48))
 put(s,'U10','pulsarfab_hub:LM74700QDBV',139.7,101.6,code='C2941042')
-for n in [1,2,3]:named(s,'Q10',n,'VIN_RAW')
-named(s,'Q10',5,'VIN');named(s,'Q10',4,'INPUT_GATE')
 for n,name in [(6,'VIN_RAW'),(3,'VIN_RAW'),(1,'VCAP'),(2,'GND'),(4,'VIN'),(5,'INPUT_GATE')]:named(s,'U10',n,name)
-branch(s,'C10','Device:C',93.98,119.38,'100n / 50V','VCAP','VIN_RAW',code='C14663')
-branch(s,'D10','Device:D_Zener',218.44,68.58,'SMCJ18A','VIN','GND','Diode_SMD:D_SMC','C438102',angle=270)
-branch(s,'C11','Device:C',248.92,68.58,'100n / 50V','VIN','GND',code='C14663')
-branch(s,'C12','Device:C_Polarized',284.48,68.58,'470u / 35V','VIN','GND','Capacitor_THT:CP_Radial_D10.0mm_P5.00mm','C106703')
+branch(s,'C10','Device:C',93.98,119.38,'1u / 50V','VCAP','VIN_RAW',code='C15849')
+branch(s,'C13','Device:C',208.28,119.38,'100n / 50V','VIN_RAW','GND',code='C14663')
+branch(s,'D10','Device:D_Zener',248.92,68.58,'SMCJ18A','VIN','GND','Diode_SMD:D_SMC','C438102',angle=270)
+branch(s,'C11','Device:C',279.4,68.58,'100n / 50V','VIN','GND',code='C14663')
+branch(s,'C12','Device:C_Polarized',309.88,68.58,'470u / 35V','VIN','GND','Capacitor_THT:CP_Radial_D10.0mm_P5.00mm','C106703')
 ports(s,[('VIN','output'),('GND','input')],330.2,50.8)
 powerflag(s,'GND',259.08,124.46,10);powerflag(s,'VIN_RAW',279.4,124.46,11);powerflag(s,'VIN',304.8,124.46,12)
-s.text('FIT J10 + F10 OR J11 + F11. Do not populate both input connector paths.\nXT60: provisional 25 A shared continuous budget; fuse, copper and temperature still require validation.\nBarrel: 5 A absolute TOTAL ceiling; 3.5 A provisional continuous budget after fuse derating. Use a current-limited supply.\nLM74700 + Q10 provides reverse-polarity / reverse-current protection. It is not an overvoltage disconnect.\nNever apply more than 18 V nominal. TVS pulse capability is not a sustained overvoltage rating.',25.4,162.56,1.5)
+s.text('FIT J10 + F10 OR J11 + F11. Do not populate both input connector paths.\nXT60: provisional 25 A shared continuous budget; fuse, copper and temperature still require validation.\nBarrel: 5 A absolute TOTAL ceiling; 3.5 A provisional continuous budget after fuse derating. Use a current-limited supply.\nLM74700 + parallel Q10/Q11 provide reverse-polarity / reverse-current protection. It is not an overvoltage disconnect.\nNever apply more than 18 V nominal. TVS pulse capability is not a sustained overvoltage rating.',25.4,162.56,1.5)
 s.finish()
 
 # Two identical 36 V-rated buck families keep heat away from the humidity sensor.
@@ -209,6 +231,33 @@ powerflag(s,'HTR_VIN',208.28,218.44,51)
 s.text('J51/J61 pin 1 = fused VIN; pin 2 = switched return. Do not bond switched return to system ground.\n10k input pulldowns + 100k gate pulldowns request OFF during reset or missing logic power.\n5 A/channel is a design target, subject to MOSFET, connector, fuse and copper thermal validation.\nUse low-frequency heater PWM; verify gate waveform and shutdown behavior during brownout.',233.68,182.88,1.27)
 s.finish()
 
+# One shared voltage window qualifies four independent static GPIO commands.
+s=make('dc_protection','Shared outlet voltage window and enable gates','A3')
+s.text('DC PROTECTION | one hardware voltage window | four independent default-off commands',20,16,1.8)
+ports(s,[('VIN','input'),('V3','input'),('GND','input')]+[(f'CMD{i}','input') for i in range(1,5)]+[(f'EN{i}','output') for i in range(1,5)],25.4,38.1)
+put(s,'U70','pulsarfab_hub:TPS3700DDC',167.64,78.74,code='C33002')
+for n,name in {5:'V3',3:'UV_SENSE',4:'OV_SENSE',2:'GND',1:'WINDOW_OK',6:'WINDOW_OK'}.items():named(s,'U70',n,name)
+for ref,x,v,top,mid in [('R70',83.82,'220k','VIN','UV_SENSE'),('R72',111.76,'470k','VIN','OV_SENSE')]:
+ branch(s,ref,'Device:R',x,50.8,v,top,mid)
+ branch(s,'R'+str(int(ref[1:])+1),'Device:R',x,109.22,'10k',mid,'GND')
+ s.wire(s.pins[ref]['2'],s.pins['R'+str(int(ref[1:])+1)]['1'])
+s.wire((83.82,s.pins['U70']['3'][1]),s.pins['U70']['3'])
+s.wire((111.76,s.pins['U70']['4'][1]),s.pins['U70']['4'])
+s.wire(s.pins['U70']['1'],(200.66,s.pins['U70']['1'][1]),(200.66,s.pins['U70']['6'][1]),s.pins['U70']['6'])
+branch(s,'R74','Device:R',218.44,50.8,'10k','V3','WINDOW_OK')
+branch(s,'C70','Device:C',167.64,129.54,'100n','V3','GND')
+put(s,'U71','pulsarfab_hub:SN74LVC08APW',309.88,91.44,code='C465737')
+for n,name in {14:'V3',7:'GND',1:'CMD1',4:'CMD2',9:'CMD3',12:'CMD4',2:'WINDOW_OK',5:'WINDOW_OK',10:'WINDOW_OK',13:'WINDOW_OK',3:'EN1',6:'EN2',8:'EN3',11:'EN4'}.items():named(s,'U71',n,name)
+# The shared inhibit fan-out is visible; CMD wires stop short of this vertical bus.
+wy=s.pins['U70']['1'][1]
+s.wire((200.66,wy),(276.86,wy),(276.86,s.pins['U71']['13'][1]))
+s.wire(s.pins['R74']['2'],(218.44,wy))
+for pn in [2,5,10,13]:s.wire((276.86,s.pins['U71'][str(pn)][1]),s.pins['U71'][str(pn)])
+for i in range(4):branch(s,f'R{75+i}','Device:R',248.92+i*30.48,175.26,'10k',f'CMD{i+1}','GND')
+branch(s,'C71','Device:C',208.28,129.54,'100n','V3','GND')
+s.text('TPS3700: 9.2 V UV rising / 19.2 V OV rising nominal. Open-drain outputs wired together.\n74LVC08: ENi = CMDi AND WINDOW_OK; each command has a 10k pulldown.\nEach outlet also has an EN pulldown: reset, missing logic supply and disconnected command request OFF.\nA voltage recovery can re-enable an asserted command and reset a latched breaker; firmware must deassert on unexpected PG loss.\nShared inhibit is a common failure point, not a redundant safety channel. Local eFuse OVLO remains independent.\nThis circuit does not disconnect VIN from the regulator, heater stages or eFuse input pins.',25.4,226.06,1.5)
+s.finish()
+
 # Four identical current-monitored high-side outlets. No PWM input exists.
 s=make('dc_outlet','5 A switched DC outlet','A3')
 s.text('SWITCHED DC OUTLET | 12-18 V / 5 A service | hardware voltage inhibit / latched breaker',20,16,1.8)
@@ -220,44 +269,36 @@ def dcr(ref,x,y,v,n1,n2,code=''):
 def dcc(ref,x,y,v,n1,n2,fp=CFP,code=''):
  p=dcput(ref,'Device:C',x,y,v,fp,code);named(s,ref,1,n1,5.08);named(s,ref,2,n2,5.08);return p
 ports(s,[('VIN','input'),('V3','input'),('GND','input'),('ENABLE','input'),('CURRENT','output'),('PGOOD','output')],25.4,38.1)
-dcput('U101','pulsarfab_hub:TPS259827ONRGE',213.36,99.06,code='C2155765')
-mapping={**{n:'VIN' for n in [1,2,3,16,25]},**{n:'GND' for n in [4,5,14,26,10,11,12]},**{n:'OUT' for n in range(17,25)},6:'EN_SW',13:'PGOOD',9:'IMON_RAW',8:'ILIM',15:'DVDT'}
+dcput('U101','pulsarfab_hub:TPS25974LRPW',213.36,83.82,code='C3662931')
+mapping={5:'VIN',8:'GND',6:'OUT',1:'EN_SW',2:'OV_SENSE',3:'PGOOD',4:'PG_SENSE',9:'IMON_RAW',7:'DVDT'}
 for n,name in mapping.items():named(s,'U101',n,name)
-nc_rest(s,'U101',mapping) # ITIMER open = fastest overload response. RETRY_DLY grounded = latch off.
-dcput('U102','pulsarfab_hub:TPS3700DDC',154.94,175.26,code='C33002')
-for n,name in {5:'V3',3:'UV_SENSE',4:'OV_SENSE',2:'GND',1:'EN_SW',6:'EN_SW'}.items():named(s,'U102',n,name)
-dcr('R101',83.82,139.7,'220k','VIN','UV_SENSE');dcr('R102',83.82,185.42,'10k','UV_SENSE','GND')
-dcr('R103',111.76,139.7,'470k','VIN','OV_SENSE');dcr('R104',111.76,203.2,'10k','OV_SENSE','GND')
-dcr('R105',264.16,200.66,'100k','EN_SW','GND')
+nc_rest(s,'U101',mapping) # ITIMER open: fastest overload response. L variant: latch-off.
+dcr('R101',83.82,139.7,'100k','OUT','PG_SENSE');dcr('R102',83.82,185.42,'20k','PG_SENSE','GND')
+dcr('R103',119.38,139.7,'150k','VIN','OV_SENSE');dcr('R104',119.38,185.42,'10k','OV_SENSE','GND')
+dcr('R105',241.3,200.66,'10k','EN_SW','GND')
 dcr('R106',322.58,104.14,'10k','V3','PGOOD')
-dcr('R107',241.3,200.66,'249 / 1%','ILIM','GND')
-dcr('R108',289.56,172.72,'820 / 1%','IMON_RAW','GND')
-dcput('R109','Device:R',320.04,149.86,'10k',RFP,'C25804',90);named(s,'R109',1,'IMON_RAW');named(s,'R109',2,'CURRENT')
-dcput('R110','Device:R',231.14,175.26,'10k',RFP,'C25804',90);named(s,'R110',1,'ENABLE');named(s,'R110',2,'EN_SW')
+dcr('R107',289.56,172.72,'1k / 1%','IMON_RAW','GND')
+dcput('R109','Device:R',320.04,139.7,'10k',RFP,'C25804',90);named(s,'R109',1,'IMON_RAW');named(s,'R109',2,'CURRENT')
+dcput('R110','Device:R',210.82,175.26,'1k',RFP,'C21190',90);named(s,'R110',1,'ENABLE');named(s,'R110',2,'EN_SW')
 dcc('C101',172.72,45.72,'100n / 50V','VIN','GND',code='C14663')
 dcc('C102',294.64,68.58,'100n / 50V','OUT','GND',code='C14663')
-dcc('C103',213.36,200.66,'4.7n / 50V','DVDT','GND')
+dcc('C103',208.28,220.98,'4.7n / 50V','DVDT','GND')
 dcc('C104',353.06,172.72,'10n','CURRENT','GND')
-dcc('C105',154.94,220.98,'100n','V3','GND',code='C14663')
 dcput('J101','Connector:Barrel_Jack_Switch',345.44,48.26,'5A DC / center +','pulsarfab:BarrelJack_GCT_DCJ200_Edge','C5280493')
 named(s,'J101',1,'OUT');named(s,'J101',2,'GND');s.nc(s.pins['J101']['3'])
 dcput('D101','Device:D_Schottky',373.38,104.14,'SS54','Diode_SMD:D_SMA','C22452',270);named(s,'D101',1,'OUT');named(s,'D101',2,'GND')
-dcput('D102','Device:D_Zener',132.08,45.72,'SMBJ18A','Diode_SMD:D_SMB','C353379',270);named(s,'D102',1,'VIN');named(s,'D102',2,'GND')
-# Visible divider, open-drain inhibit, power-pin bus and monitor/filter connections.
-s.wire(s.pins['R101']['2'],s.pins['R102']['1']);s.wire((83.82,172.72),(127,172.72),s.pins['U102']['3'])
-s.wire(s.pins['R103']['2'],s.pins['R104']['1']);s.wire((111.76,177.8),s.pins['U102']['4'])
-for nn in [1,6]:s.wire(s.pins['U102'][str(nn)],(187.96,s.pins['U102'][str(nn)][1]))
-s.wire((187.96,s.pins['U102']['1'][1]),(187.96,s.pins['U102']['6'][1]))
-s.wire(s.pins['R110']['2'],(264.16,175.26),s.pins['R105']['1'])
-for nn in [1,2,3,16,25]:s.wire(s.pins['U101'][str(nn)],(185.42,s.pins['U101'][str(nn)][1]))
-s.wire((185.42,s.pins['U101']['1'][1]),(185.42,s.pins['U101']['25'][1]))
-for nn in range(17,25):s.wire(s.pins['U101'][str(nn)],(256.54,s.pins['U101'][str(nn)][1]))
-s.wire((256.54,s.pins['U101']['17'][1]),(256.54,s.pins['U101']['24'][1]))
-s.wire((256.54,s.pins['U101']['17'][1]),(256.54,55.88),(294.64,55.88),s.pins['C102']['1'])
-s.wire(s.pins['U101']['9'],(274.32,s.pins['U101']['9'][1]),(274.32,149.86),s.pins['R109']['1'])
-s.wire(s.pins['R108']['1'],(289.56,149.86))
-s.wire(s.pins['R109']['2'],(353.06,149.86),s.pins['C104']['1'])
-s.text('TPS259827O: 249R gives 5.97 A nominal breaker threshold; 5 A service target needs tolerance/bench qualification.\nITIMER open: fastest overload response. Fast short trip ~2.1x setpoint. RETRY_DLY grounded: latch off.\nIMON: 246 uA/A x 820R = 0.20172 V/A (1.009 V at 5 A); 10k / 10n ADC filter. Calibrate each outlet.\nTPS3700 independently inhibits EN below ~9.2 V or above ~19.2 V; window recovery can re-enable an asserted GPIO.\nPGOOD is HIGH when ready; LOW also means OFF/startup/inhibit, not exclusively a latched current fault.\nEP25 = VIN, EP26 = GND. -15 C minimum junction rating accepted. No reverse blocking: do not backfeed OUT.\nSMBJ18A input TVS + SS54 output clamp need short loops and hot-plug/inductive-load bench validation.',25.4,241.3,1.27)
+dcput('U102','pulsarfab_hub:TVS1800DRV',111.76,68.58,code='C2649846')
+for nn in [4,5,6]:named(s,'U102',nn,'VIN')
+for nn in [1,2,3,7]:named(s,'U102',nn,'GND')
+# Visible divider and sense-filter connections; power and control nets remain distinct.
+s.wire(s.pins['R101']['2'],s.pins['R102']['1'])
+s.wire(s.pins['R103']['2'],s.pins['R104']['1'])
+s.wire(s.pins['U101']['6'],(269.24,s.pins['U101']['6'][1]),(269.24,55.88),(294.64,55.88),s.pins['C102']['1'])
+s.wire(s.pins['U101']['9'],(274.32,s.pins['U101']['9'][1]),(274.32,139.7),s.pins['R109']['1'])
+s.wire(s.pins['R107']['1'],(289.56,139.7))
+s.wire(s.pins['R109']['2'],(353.06,139.7),s.pins['C104']['1'])
+s.wire(s.pins['R110']['2'],(241.3,175.26),s.pins['R105']['1'])
+s.text('TPS25974L: 1k sets 5.75 A nominal breaker threshold for 5 A service. ITIMER open; latch-off.\nILM is BOTH current setting and monitoring: 105.5 uA/A x 1k = 0.1055 V/A; 0.528 V at 5 A.\n10k/10n filter isolates ADC capacitance from ILM. Calibrate channels; do not attach a capacitor directly to ILM.\nIndependent local OVLO: 150k/10k -> 19.2 V nominal. PG threshold: 100k/20k -> 7.2 V nominal.\nPositive line switched; ground permanently connected. No reverse blocking: do not backfeed outputs.\nIN pad5 / OUT pad6 are power/thermal rails, NOT GND. Reserve copper and thermal-via space.\nTVS1800 flat clamp replaces SMBJ18A: 24.7 V max at specified 35 A / 8-20 us / 125 C pulse; verify loop overshoot.',25.4,246.38,1.27)
 s.finish()
 
 # Each external USB port has independent 500 mA service and a protected 5 V switch.
@@ -344,7 +385,7 @@ s.finish()
 # Root hierarchy: visible power branches plus named inter-block signal links.
 from wired_schematic import n
 o=Sheet(PROJECT,'System interconnect',['/'+rootid],'A2')
-o.text('PULSARDEW HUB | 2 heaters + 4 monitored DC outlets + 4 USB 2.0 ports',20,16,2.5)
+o.text('PULSARPOWER | 2 heaters + 4 monitored DC outlets + 4 USB 2.0 ports',20,16,2.5)
 o.text('PROTOTYPE FLOORPLAN — routing, full-load thermal validation and new firmware are still required.',20,24,1.5)
 page=2
 root_ends={}
@@ -368,8 +409,9 @@ hh=[(n,d,n) for n,d in [('V3','input'),('GND','input'),('MCU_DP','bidirectional'
 for i in range(1,5):hh += [(f'USB{i}_DP','bidirectional',f'USB{i}_DP'),(f'USB{i}_DM','bidirectional',f'USB{i}_DM'),(f'USB{i}_EN','output',f'USB{i}_EN'),(f'USB{i}_OC','input',f'USB{i}_OC')]
 root_sheet('USB hub','usb_hub',220.98,190.5,76.2,hh)
 for i in range(1,5):
- root_sheet(f'DC outlet {i}','dc_outlet',375.92,43.18+(i-1)*81.28,68.58,[('VIN','input','VIN'),('V3','input','V3'),('GND','input','GND'),('ENABLE','input',f'DC_EN{i}'),('CURRENT','output',f'IMON{i}'),('PGOOD','output',f'DC_PG{i}')])
+ root_sheet(f'DC outlet {i}','dc_outlet',375.92,43.18+(i-1)*81.28,68.58,[('VIN','input','VIN'),('V3','input','V3'),('GND','input','GND'),('ENABLE','input',f'DC_SAFE{i}'),('CURRENT','output',f'IMON{i}'),('PGOOD','output',f'DC_PG{i}')])
  root_sheet(f'USB port {i}','usb_port',510.54,43.18+(i-1)*81.28,63.5,[('V5','input','V5'),('GND','input','GND'),('DP','bidirectional',f'USB{i}_DP'),('DM','bidirectional',f'USB{i}_DM'),('ENABLE','input',f'USB{i}_EN'),('OVERCURRENT','output',f'USB{i}_OC')])
+root_sheet('DC protection','dc_protection',220.98,335.28,76.2,[('VIN','input','VIN'),('V3','input','V3'),('GND','input','GND')]+[(f'CMD{i}','input',f'DC_EN{i}') for i in range(1,5)]+[(f'EN{i}','output',f'DC_SAFE{i}') for i in range(1,5)])
 # In the left column, make the input-to-supply/heater power paths visible.
 # Crossings with other rail branches have no junction and remain separate nets.
 for net,x,titles in [('VIN',20.32,['Power input','DC supplies','Heaters']),
@@ -388,4 +430,4 @@ pro['meta']['filename']=PROJECT+'.kicad_pro'
 pro.get('erc',{})['erc_exclusions']=[]
 if not (OUT/(PROJECT+'.kicad_pro')).exists():
  (OUT/(PROJECT+'.kicad_pro')).write_text(json.dumps(pro,indent=2)+'\n')
-print('Wrote 14 connected schematic pages in 8 files; PCB is not regenerated.')
+print('Wrote 15 connected schematic pages in 9 files; PCB is not regenerated.')

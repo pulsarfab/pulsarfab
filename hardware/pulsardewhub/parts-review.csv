@@ -1,13 +1,15 @@
 Reference,Value,Footprint,LCSC,MPN,Manufacturer,Population,Datasheet
-C10,100n / 50V,Capacitor_SMD:C_0603_1608Metric,C14663,CC0603KRX7R9BB104,YAGEO,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C14663
+C10,1u / 50V,Capacitor_SMD:C_0603_1608Metric,C15849,CL10A105KB8NNNC,Samsung Electro-Mechanics,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf?productCode=C15849
 C11,100n / 50V,Capacitor_SMD:C_0603_1608Metric,C14663,CC0603KRX7R9BB104,YAGEO,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C14663
 C12,470u / 35V,Capacitor_THT:CP_Radial_D10.0mm_P5.00mm,C106703,ERS1VM471G16OT,AISHI,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/8c66fb21bbd21f0bcbbdf88fdf292042.pdf?productCode=C106703
+C13,100n / 50V,Capacitor_SMD:C_0603_1608Metric,C14663,CC0603KRX7R9BB104,YAGEO,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C14663
 D10,SMCJ18A,Diode_SMD:D_SMC,C438102,SMCJ18A,Jingdao Microelectronics,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/30c536fe584d45c8d03dea9ed65a638b.pdf?productCode=C438102
 F10,30A / upstream budget,pulsarfab:Fuse_S1032_10.3x3.2mm,C553917,S1032-F-30.0A,SART,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/a325524594d89b598a3518fc8c90e44b.pdf?productCode=C553917
 F11,5A / barrel only,Fuse:Fuse_Littelfuse-NANO2-451_453,C48467,0451005.MRL,Littelfuse,DNP: barrel input alternative,https://datasheet.lcsc.com/datasheet/pdf/64ff7c9a3f50498894e4bc5a89970379.pdf?productCode=C48467
 J10,"XT60: 2=PLUS, 1=GND",pulsarfab:AMASS_XT60PW-M_Edge,C98732,XT60PW-M,Changzhou Amass Elec,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/e258adf1ce44622bb05a5787d35fc0fa.pdf?productCode=C98732
 J11,BARREL input / DNP,pulsarfab:BarrelJack_GCT_DCJ200_Edge,C5280493,DCJ200-10-A-K1-K,Global Connector Technology,DNP: barrel input alternative,https://datasheet.lcsc.com/datasheet/pdf/9e28732f65d9d59bee76802895b2add9.pdf?productCode=C5280493
-Q10,CSD18540Q5B,Package_TO_SOT_SMD:TDSON-8-1,C86513,CSD18540Q5B,TI,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/45425ebd9f23a1198c031b3c2fd5a108.pdf?productCode=C86513
+Q10,SiR680LDP,Package_SO:PowerPAK_SO-8_Single,C3279524,SIR680LDP-T1-RE3,Vishay,Fit: XT60 configuration,https://www.vishay.com/docs/77478/sir680ldp.pdf
+Q11,SiR680LDP,Package_SO:PowerPAK_SO-8_Single,C3279524,SIR680LDP-T1-RE3,Vishay,Fit: XT60 configuration,https://www.vishay.com/docs/77478/sir680ldp.pdf
 U10,LM74700QDBV,Package_TO_SOT_SMD:SOT-23-6,C2941042,LM74700QDBVRQ1,TI,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/447cabab1808fa061ec80788e97d5328.pdf?productCode=C2941042
 C20,10u / 50V,Capacitor_SMD:C_1210_3225Metric,C138687,CL32B106KBJNNNE,Samsung Electro-Mechanics,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/e42a32c717cc8f47823b44fed272ab10.pdf?productCode=C138687
 C21,220n / 50V,Capacitor_SMD:C_0603_1608Metric,C64705,CL10B224KB8NNNC,Samsung Electro-Mechanics,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf?productCode=C64705
@@ -114,22 +116,19 @@ C101,100n / 50V,Capacitor_SMD:C_0603_1608Metric,C14663,CC0603KRX7R9BB104,YAGEO,F
 C102,100n / 50V,Capacitor_SMD:C_0603_1608Metric,C14663,CC0603KRX7R9BB104,YAGEO,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C14663
 C103,4.7n / 50V,Capacitor_SMD:C_0603_1608Metric,C1621,CL10B472KB8NNNC,Samsung Electro-Mechanics,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf?productCode=C1621
 C104,10n,Capacitor_SMD:C_0603_1608Metric,C1589,CL10B103KB8NNNC,Samsung Electro-Mechanics,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf?productCode=C1589
-C105,100n,Capacitor_SMD:C_0603_1608Metric,C14663,CC0603KRX7R9BB104,YAGEO,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C14663
 D101,SS54,Diode_SMD:D_SMA,C22452,SS54,MDD(Microdiode Semiconductor),Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/3d29bdcdc3c46ec127d6db22edd72e83.pdf?productCode=C22452
-D102,SMBJ18A,Diode_SMD:D_SMB,C353379,SMBJ18A,Jingdao Microelectronics,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/e9ed405dd94e697d37ae30ddb40fefa5.pdf?productCode=C353379
 J101,5A DC / center +,pulsarfab:BarrelJack_GCT_DCJ200_Edge,C5280493,DCJ200-10-A-K1-K,Global Connector Technology,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/9e28732f65d9d59bee76802895b2add9.pdf?productCode=C5280493
-R101,220k,Resistor_SMD:R_0603_1608Metric,C22961,0603WAF2203T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C22961
-R102,10k,Resistor_SMD:R_0603_1608Metric,C25804,0603WAF1002T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25804
-R103,470k,Resistor_SMD:R_0603_1608Metric,C23178,0603WAF4703T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C23178
+R101,100k,Resistor_SMD:R_0603_1608Metric,C25803,0603WAF1003T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25803
+R102,20k,Resistor_SMD:R_0603_1608Metric,C4184,0603WAF2002T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C4184
+R103,150k,Resistor_SMD:R_0603_1608Metric,C22807,0603WAF1503T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C22807
 R104,10k,Resistor_SMD:R_0603_1608Metric,C25804,0603WAF1002T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25804
-R105,100k,Resistor_SMD:R_0603_1608Metric,C25803,0603WAF1003T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25803
+R105,10k,Resistor_SMD:R_0603_1608Metric,C25804,0603WAF1002T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25804
 R106,10k,Resistor_SMD:R_0603_1608Metric,C25804,0603WAF1002T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25804
-R107,249 / 1%,Resistor_SMD:R_0603_1608Metric,C22919,0603WAF2490T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C22919
-R108,820 / 1%,Resistor_SMD:R_0603_1608Metric,C23253,0603WAF8200T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C23253
+R107,1k / 1%,Resistor_SMD:R_0603_1608Metric,C21190,0603WAF1001T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C21190
 R109,10k,Resistor_SMD:R_0603_1608Metric,C25804,0603WAF1002T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25804
-R110,10k,Resistor_SMD:R_0603_1608Metric,C25804,0603WAF1002T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25804
-U101,TPS259827ONRGE,pulsarfab:TI_RGE0024M_VQFN24_2EP_4x4mm,C2155765,TPS259827ONRGET,TI,Fit: XT60 configuration,https://www.ti.com/lit/ds/symlink/tps25982.pdf
-U102,TPS3700DDC,Package_TO_SOT_SMD:SOT-23-6,C33002,TPS3700DDCR,TI,Fit: XT60 configuration,https://www.ti.com/lit/ds/symlink/tps3700.pdf
+R110,1k,Resistor_SMD:R_0603_1608Metric,C21190,0603WAF1001T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C21190
+U101,TPS25974LRPW,pulsarfab:TI_RPW0010A_VQFN10_2x2mm,C3662931,TPS25974LRPWR,Texas Instruments,Fit: XT60 configuration,https://www.ti.com/lit/ds/symlink/tps2597.pdf
+U102,TVS1800DRV,Package_SON:WSON-6-1EP_2x2mm_P0.65mm_EP1x1.6mm,C2649846,TVS1800DRVR,Texas Instruments,Fit: XT60 configuration,https://www.ti.com/lit/ds/symlink/tvs1800.pdf
 C501,100n,Capacitor_SMD:C_0603_1608Metric,C14663,CC0603KRX7R9BB104,YAGEO,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C14663
 C502,150u / 10V / 20%,pulsarfab:CP_RVT_D6.3mm_L5.4mm,C970688,RVT1A151M0605 150UF 10V,DMBJ,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/f0a865b841864fb1f67292a6eb3bf84a.pdf?productCode=C970688
 C503,100n,Capacitor_SMD:C_0603_1608Metric,C14663,CC0603KRX7R9BB104,YAGEO,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C14663
@@ -142,22 +141,19 @@ C201,100n / 50V,Capacitor_SMD:C_0603_1608Metric,C14663,CC0603KRX7R9BB104,YAGEO,F
 C202,100n / 50V,Capacitor_SMD:C_0603_1608Metric,C14663,CC0603KRX7R9BB104,YAGEO,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C14663
 C203,4.7n / 50V,Capacitor_SMD:C_0603_1608Metric,C1621,CL10B472KB8NNNC,Samsung Electro-Mechanics,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf?productCode=C1621
 C204,10n,Capacitor_SMD:C_0603_1608Metric,C1589,CL10B103KB8NNNC,Samsung Electro-Mechanics,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf?productCode=C1589
-C205,100n,Capacitor_SMD:C_0603_1608Metric,C14663,CC0603KRX7R9BB104,YAGEO,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C14663
 D201,SS54,Diode_SMD:D_SMA,C22452,SS54,MDD(Microdiode Semiconductor),Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/3d29bdcdc3c46ec127d6db22edd72e83.pdf?productCode=C22452
-D202,SMBJ18A,Diode_SMD:D_SMB,C353379,SMBJ18A,Jingdao Microelectronics,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/e9ed405dd94e697d37ae30ddb40fefa5.pdf?productCode=C353379
 J201,5A DC / center +,pulsarfab:BarrelJack_GCT_DCJ200_Edge,C5280493,DCJ200-10-A-K1-K,Global Connector Technology,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/9e28732f65d9d59bee76802895b2add9.pdf?productCode=C5280493
-R201,220k,Resistor_SMD:R_0603_1608Metric,C22961,0603WAF2203T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C22961
-R202,10k,Resistor_SMD:R_0603_1608Metric,C25804,0603WAF1002T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25804
-R203,470k,Resistor_SMD:R_0603_1608Metric,C23178,0603WAF4703T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C23178
+R201,100k,Resistor_SMD:R_0603_1608Metric,C25803,0603WAF1003T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25803
+R202,20k,Resistor_SMD:R_0603_1608Metric,C4184,0603WAF2002T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C4184
+R203,150k,Resistor_SMD:R_0603_1608Metric,C22807,0603WAF1503T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C22807
 R204,10k,Resistor_SMD:R_0603_1608Metric,C25804,0603WAF1002T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25804
-R205,100k,Resistor_SMD:R_0603_1608Metric,C25803,0603WAF1003T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25803
+R205,10k,Resistor_SMD:R_0603_1608Metric,C25804,0603WAF1002T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25804
 R206,10k,Resistor_SMD:R_0603_1608Metric,C25804,0603WAF1002T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25804
-R207,249 / 1%,Resistor_SMD:R_0603_1608Metric,C22919,0603WAF2490T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C22919
-R208,820 / 1%,Resistor_SMD:R_0603_1608Metric,C23253,0603WAF8200T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C23253
+R207,1k / 1%,Resistor_SMD:R_0603_1608Metric,C21190,0603WAF1001T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C21190
 R209,10k,Resistor_SMD:R_0603_1608Metric,C25804,0603WAF1002T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25804
-R210,10k,Resistor_SMD:R_0603_1608Metric,C25804,0603WAF1002T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25804
-U201,TPS259827ONRGE,pulsarfab:TI_RGE0024M_VQFN24_2EP_4x4mm,C2155765,TPS259827ONRGET,TI,Fit: XT60 configuration,https://www.ti.com/lit/ds/symlink/tps25982.pdf
-U202,TPS3700DDC,Package_TO_SOT_SMD:SOT-23-6,C33002,TPS3700DDCR,TI,Fit: XT60 configuration,https://www.ti.com/lit/ds/symlink/tps3700.pdf
+R210,1k,Resistor_SMD:R_0603_1608Metric,C21190,0603WAF1001T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C21190
+U201,TPS25974LRPW,pulsarfab:TI_RPW0010A_VQFN10_2x2mm,C3662931,TPS25974LRPWR,Texas Instruments,Fit: XT60 configuration,https://www.ti.com/lit/ds/symlink/tps2597.pdf
+U202,TVS1800DRV,Package_SON:WSON-6-1EP_2x2mm_P0.65mm_EP1x1.6mm,C2649846,TVS1800DRVR,Texas Instruments,Fit: XT60 configuration,https://www.ti.com/lit/ds/symlink/tvs1800.pdf
 C601,100n,Capacitor_SMD:C_0603_1608Metric,C14663,CC0603KRX7R9BB104,YAGEO,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C14663
 C602,150u / 10V / 20%,pulsarfab:CP_RVT_D6.3mm_L5.4mm,C970688,RVT1A151M0605 150UF 10V,DMBJ,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/f0a865b841864fb1f67292a6eb3bf84a.pdf?productCode=C970688
 C603,100n,Capacitor_SMD:C_0603_1608Metric,C14663,CC0603KRX7R9BB104,YAGEO,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C14663
@@ -170,22 +166,19 @@ C301,100n / 50V,Capacitor_SMD:C_0603_1608Metric,C14663,CC0603KRX7R9BB104,YAGEO,F
 C302,100n / 50V,Capacitor_SMD:C_0603_1608Metric,C14663,CC0603KRX7R9BB104,YAGEO,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C14663
 C303,4.7n / 50V,Capacitor_SMD:C_0603_1608Metric,C1621,CL10B472KB8NNNC,Samsung Electro-Mechanics,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf?productCode=C1621
 C304,10n,Capacitor_SMD:C_0603_1608Metric,C1589,CL10B103KB8NNNC,Samsung Electro-Mechanics,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf?productCode=C1589
-C305,100n,Capacitor_SMD:C_0603_1608Metric,C14663,CC0603KRX7R9BB104,YAGEO,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C14663
 D301,SS54,Diode_SMD:D_SMA,C22452,SS54,MDD(Microdiode Semiconductor),Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/3d29bdcdc3c46ec127d6db22edd72e83.pdf?productCode=C22452
-D302,SMBJ18A,Diode_SMD:D_SMB,C353379,SMBJ18A,Jingdao Microelectronics,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/e9ed405dd94e697d37ae30ddb40fefa5.pdf?productCode=C353379
 J301,5A DC / center +,pulsarfab:BarrelJack_GCT_DCJ200_Edge,C5280493,DCJ200-10-A-K1-K,Global Connector Technology,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/9e28732f65d9d59bee76802895b2add9.pdf?productCode=C5280493
-R301,220k,Resistor_SMD:R_0603_1608Metric,C22961,0603WAF2203T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C22961
-R302,10k,Resistor_SMD:R_0603_1608Metric,C25804,0603WAF1002T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25804
-R303,470k,Resistor_SMD:R_0603_1608Metric,C23178,0603WAF4703T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C23178
+R301,100k,Resistor_SMD:R_0603_1608Metric,C25803,0603WAF1003T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25803
+R302,20k,Resistor_SMD:R_0603_1608Metric,C4184,0603WAF2002T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C4184
+R303,150k,Resistor_SMD:R_0603_1608Metric,C22807,0603WAF1503T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C22807
 R304,10k,Resistor_SMD:R_0603_1608Metric,C25804,0603WAF1002T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25804
-R305,100k,Resistor_SMD:R_0603_1608Metric,C25803,0603WAF1003T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25803
+R305,10k,Resistor_SMD:R_0603_1608Metric,C25804,0603WAF1002T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25804
 R306,10k,Resistor_SMD:R_0603_1608Metric,C25804,0603WAF1002T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25804
-R307,249 / 1%,Resistor_SMD:R_0603_1608Metric,C22919,0603WAF2490T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C22919
-R308,820 / 1%,Resistor_SMD:R_0603_1608Metric,C23253,0603WAF8200T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C23253
+R307,1k / 1%,Resistor_SMD:R_0603_1608Metric,C21190,0603WAF1001T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C21190
 R309,10k,Resistor_SMD:R_0603_1608Metric,C25804,0603WAF1002T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25804
-R310,10k,Resistor_SMD:R_0603_1608Metric,C25804,0603WAF1002T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25804
-U301,TPS259827ONRGE,pulsarfab:TI_RGE0024M_VQFN24_2EP_4x4mm,C2155765,TPS259827ONRGET,TI,Fit: XT60 configuration,https://www.ti.com/lit/ds/symlink/tps25982.pdf
-U302,TPS3700DDC,Package_TO_SOT_SMD:SOT-23-6,C33002,TPS3700DDCR,TI,Fit: XT60 configuration,https://www.ti.com/lit/ds/symlink/tps3700.pdf
+R310,1k,Resistor_SMD:R_0603_1608Metric,C21190,0603WAF1001T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C21190
+U301,TPS25974LRPW,pulsarfab:TI_RPW0010A_VQFN10_2x2mm,C3662931,TPS25974LRPWR,Texas Instruments,Fit: XT60 configuration,https://www.ti.com/lit/ds/symlink/tps2597.pdf
+U302,TVS1800DRV,Package_SON:WSON-6-1EP_2x2mm_P0.65mm_EP1x1.6mm,C2649846,TVS1800DRVR,Texas Instruments,Fit: XT60 configuration,https://www.ti.com/lit/ds/symlink/tvs1800.pdf
 C701,100n,Capacitor_SMD:C_0603_1608Metric,C14663,CC0603KRX7R9BB104,YAGEO,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C14663
 C702,150u / 10V / 20%,pulsarfab:CP_RVT_D6.3mm_L5.4mm,C970688,RVT1A151M0605 150UF 10V,DMBJ,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/f0a865b841864fb1f67292a6eb3bf84a.pdf?productCode=C970688
 C703,100n,Capacitor_SMD:C_0603_1608Metric,C14663,CC0603KRX7R9BB104,YAGEO,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C14663
@@ -198,22 +191,19 @@ C401,100n / 50V,Capacitor_SMD:C_0603_1608Metric,C14663,CC0603KRX7R9BB104,YAGEO,F
 C402,100n / 50V,Capacitor_SMD:C_0603_1608Metric,C14663,CC0603KRX7R9BB104,YAGEO,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C14663
 C403,4.7n / 50V,Capacitor_SMD:C_0603_1608Metric,C1621,CL10B472KB8NNNC,Samsung Electro-Mechanics,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf?productCode=C1621
 C404,10n,Capacitor_SMD:C_0603_1608Metric,C1589,CL10B103KB8NNNC,Samsung Electro-Mechanics,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf?productCode=C1589
-C405,100n,Capacitor_SMD:C_0603_1608Metric,C14663,CC0603KRX7R9BB104,YAGEO,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C14663
 D401,SS54,Diode_SMD:D_SMA,C22452,SS54,MDD(Microdiode Semiconductor),Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/3d29bdcdc3c46ec127d6db22edd72e83.pdf?productCode=C22452
-D402,SMBJ18A,Diode_SMD:D_SMB,C353379,SMBJ18A,Jingdao Microelectronics,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/e9ed405dd94e697d37ae30ddb40fefa5.pdf?productCode=C353379
 J401,5A DC / center +,pulsarfab:BarrelJack_GCT_DCJ200_Edge,C5280493,DCJ200-10-A-K1-K,Global Connector Technology,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/9e28732f65d9d59bee76802895b2add9.pdf?productCode=C5280493
-R401,220k,Resistor_SMD:R_0603_1608Metric,C22961,0603WAF2203T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C22961
-R402,10k,Resistor_SMD:R_0603_1608Metric,C25804,0603WAF1002T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25804
-R403,470k,Resistor_SMD:R_0603_1608Metric,C23178,0603WAF4703T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C23178
+R401,100k,Resistor_SMD:R_0603_1608Metric,C25803,0603WAF1003T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25803
+R402,20k,Resistor_SMD:R_0603_1608Metric,C4184,0603WAF2002T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C4184
+R403,150k,Resistor_SMD:R_0603_1608Metric,C22807,0603WAF1503T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C22807
 R404,10k,Resistor_SMD:R_0603_1608Metric,C25804,0603WAF1002T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25804
-R405,100k,Resistor_SMD:R_0603_1608Metric,C25803,0603WAF1003T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25803
+R405,10k,Resistor_SMD:R_0603_1608Metric,C25804,0603WAF1002T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25804
 R406,10k,Resistor_SMD:R_0603_1608Metric,C25804,0603WAF1002T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25804
-R407,249 / 1%,Resistor_SMD:R_0603_1608Metric,C22919,0603WAF2490T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C22919
-R408,820 / 1%,Resistor_SMD:R_0603_1608Metric,C23253,0603WAF8200T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C23253
+R407,1k / 1%,Resistor_SMD:R_0603_1608Metric,C21190,0603WAF1001T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C21190
 R409,10k,Resistor_SMD:R_0603_1608Metric,C25804,0603WAF1002T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25804
-R410,10k,Resistor_SMD:R_0603_1608Metric,C25804,0603WAF1002T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25804
-U401,TPS259827ONRGE,pulsarfab:TI_RGE0024M_VQFN24_2EP_4x4mm,C2155765,TPS259827ONRGET,TI,Fit: XT60 configuration,https://www.ti.com/lit/ds/symlink/tps25982.pdf
-U402,TPS3700DDC,Package_TO_SOT_SMD:SOT-23-6,C33002,TPS3700DDCR,TI,Fit: XT60 configuration,https://www.ti.com/lit/ds/symlink/tps3700.pdf
+R410,1k,Resistor_SMD:R_0603_1608Metric,C21190,0603WAF1001T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C21190
+U401,TPS25974LRPW,pulsarfab:TI_RPW0010A_VQFN10_2x2mm,C3662931,TPS25974LRPWR,Texas Instruments,Fit: XT60 configuration,https://www.ti.com/lit/ds/symlink/tps2597.pdf
+U402,TVS1800DRV,Package_SON:WSON-6-1EP_2x2mm_P0.65mm_EP1x1.6mm,C2649846,TVS1800DRVR,Texas Instruments,Fit: XT60 configuration,https://www.ti.com/lit/ds/symlink/tvs1800.pdf
 C801,100n,Capacitor_SMD:C_0603_1608Metric,C14663,CC0603KRX7R9BB104,YAGEO,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C14663
 C802,150u / 10V / 20%,pulsarfab:CP_RVT_D6.3mm_L5.4mm,C970688,RVT1A151M0605 150UF 10V,DMBJ,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/f0a865b841864fb1f67292a6eb3bf84a.pdf?productCode=C970688
 C803,100n,Capacitor_SMD:C_0603_1608Metric,C14663,CC0603KRX7R9BB104,YAGEO,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C14663
@@ -222,3 +212,16 @@ R801,43.2k / 1%,Resistor_SMD:R_0603_1608Metric,C23053,0603WAF4322T5E,UNI-ROYAL,F
 R802,100k,Resistor_SMD:R_0603_1608Metric,C25803,0603WAF1003T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25803
 U801,TPS2553DBV,Package_TO_SOT_SMD:SOT-23-6,C55266,TPS2553DBVR,TI,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/3f52aa0e50da4026aed12c215a8c407a.pdf?productCode=C55266
 U802,USBLC6-2SC6,Package_TO_SOT_SMD:SOT-23-6,C7519,USBLC6-2SC6,ST,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0d3a2ab954b34651a0695e7ccf534db0.pdf?productCode=C7519
+C70,100n,Capacitor_SMD:C_0603_1608Metric,C14663,CC0603KRX7R9BB104,YAGEO,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C14663
+C71,100n,Capacitor_SMD:C_0603_1608Metric,C14663,CC0603KRX7R9BB104,YAGEO,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C14663
+R70,220k,Resistor_SMD:R_0603_1608Metric,C22961,0603WAF2203T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C22961
+R71,10k,Resistor_SMD:R_0603_1608Metric,C25804,0603WAF1002T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25804
+R72,470k,Resistor_SMD:R_0603_1608Metric,C23178,0603WAF4703T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C23178
+R73,10k,Resistor_SMD:R_0603_1608Metric,C25804,0603WAF1002T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25804
+R74,10k,Resistor_SMD:R_0603_1608Metric,C25804,0603WAF1002T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25804
+R75,10k,Resistor_SMD:R_0603_1608Metric,C25804,0603WAF1002T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25804
+R76,10k,Resistor_SMD:R_0603_1608Metric,C25804,0603WAF1002T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25804
+R77,10k,Resistor_SMD:R_0603_1608Metric,C25804,0603WAF1002T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25804
+R78,10k,Resistor_SMD:R_0603_1608Metric,C25804,0603WAF1002T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25804
+U70,TPS3700DDC,Package_TO_SOT_SMD:SOT-23-6,C33002,TPS3700DDCR,TI,Fit: XT60 configuration,https://www.ti.com/lit/ds/symlink/tps3700.pdf
+U71,SN74LVC08APW,Package_SO:TSSOP-14_4.4x5mm_P0.65mm,C465737,SN74LVC08APWR,Texas Instruments,Fit: XT60 configuration,https://www.ti.com/lit/ds/symlink/sn74lvc08a.pdf

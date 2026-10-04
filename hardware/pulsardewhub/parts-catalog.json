@@ -430,5 +430,77 @@
     "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/13e3587bf595c7e2c810c5f268cf321c.pdf?productCode=C456019",
     "source_url": "https://jlcpcb.com/partdetail/C456019",
     "checked_date": "2026-10-03"
+  },
+  "C2864845": {
+    "lcsc_code": "C2864845",
+    "mpn": "TPS259474LRPWR",
+    "manufacturer": "Texas Instruments",
+    "datasheet_url": "https://www.ti.com/lit/ds/symlink/tps25947.pdf",
+    "source_url": "https://jlcpcb.com/partdetail/C2864845",
+    "checked_date": "2026-10-03"
+  },
+  "C465737": {
+    "lcsc_code": "C465737",
+    "mpn": "SN74LVC08APWR",
+    "manufacturer": "Texas Instruments",
+    "datasheet_url": "https://www.ti.com/lit/ds/symlink/sn74lvc08a.pdf",
+    "source_url": "https://jlcpcb.com/partdetail/C465737",
+    "checked_date": "2026-10-03"
+  },
+  "C2649846": {
+    "lcsc_code": "C2649846",
+    "mpn": "TVS1800DRVR",
+    "manufacturer": "Texas Instruments",
+    "datasheet_url": "https://www.ti.com/lit/ds/symlink/tvs1800.pdf",
+    "source_url": "https://jlcpcb.com/partdetail/C2649846",
+    "checked_date": "2026-10-03"
+  },
+  "C3279524": {
+    "lcsc_code": "C3279524",
+    "mpn": "SIR680LDP-T1-RE3",
+    "manufacturer": "Vishay",
+    "datasheet_url": "https://www.vishay.com/docs/77478/sir680ldp.pdf",
+    "source_url": "https://jlcpcb.com/partdetail/C3279524",
+    "checked_date": "2026-10-03"
+  },
+  "C23204": {
+    "lcsc_code": "C23204",
+    "mpn": "0603WAF5600T5E",
+    "manufacturer": "UNI-ROYAL",
+    "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C22919",
+    "source_url": "https://jlcpcb.com/partdetail/C23204",
+    "checked_date": "2026-10-03"
+  },
+  "C4184": {
+    "lcsc_code": "C4184",
+    "mpn": "0603WAF2002T5E",
+    "manufacturer": "UNI-ROYAL",
+    "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C4184",
+    "source_url": "https://jlcpcb.com/partdetail/C4184",
+    "checked_date": "2026-10-03"
+  },
+  "C22807": {
+    "lcsc_code": "C22807",
+    "mpn": "0603WAF1503T5E",
+    "manufacturer": "UNI-ROYAL",
+    "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C22807",
+    "source_url": "https://jlcpcb.com/partdetail/C22807",
+    "checked_date": "2026-10-03"
+  },
+  "C21190": {
+    "lcsc_code": "C21190",
+    "mpn": "0603WAF1001T5E",
+    "manufacturer": "UNI-ROYAL",
+    "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C21190",
+    "source_url": "https://jlcpcb.com/partdetail/C21190",
+    "checked_date": "2026-10-03"
+  },
+  "C3662931": {
+    "lcsc_code": "C3662931",
+    "mpn": "TPS25974LRPWR",
+    "manufacturer": "Texas Instruments",
+    "datasheet_url": "https://www.ti.com/lit/ds/symlink/tps2597.pdf",
+    "source_url": "https://jlcpcb.com/partdetail/C3662931",
+    "checked_date": "2026-10-03"
   }
 }

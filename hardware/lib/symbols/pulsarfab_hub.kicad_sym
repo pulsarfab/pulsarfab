@@ -1,53 +1,64 @@
 (kicad_symbol_lib
   (version 20241209)
   (generator kicad_symbol_editor)
-  (symbol "TPS259827ONRGE"
+  (symbol "TPS25974LRPW"
     (pin_names
       (offset 0.508))
     (in_bom yes)
     (on_board yes)
     (property "Reference" "U"
-      (at 0.0 36.83 0.0)
+      (at 0.0 22.86 0.0)
       (effects
         (font
           (size 1.27 1.27))))
-    (property "Value" "TPS259827ONRGE"
-      (at 0.0 36.83 0.0)
+    (property "Value" "TPS25974LRPW"
+      (at 0.0 22.86 0.0)
       (effects
         (font
           (size 1.27 1.27))))
-    (property "Footprint" "pulsarfab:TI_RGE0024M_VQFN24_2EP_4x4mm"
-      (at 0.0 36.83 0.0)
+    (property "Footprint" "pulsarfab:TI_RPW0010A_VQFN10_2x2mm"
+      (at 0.0 22.86 0.0)
       (effects
         (font
           (size 1.27 1.27))
         (hide yes)))
-    (property "Datasheet" "https://www.ti.com/lit/ds/symlink/tps25982.pdf"
-      (at 0.0 36.83 0.0)
+    (property "Datasheet" "https://www.ti.com/lit/ds/symlink/tps2597.pdf"
+      (at 0.0 22.86 0.0)
       (effects
         (font
           (size 1.27 1.27))
         (hide yes)))
-    (property "Description" "TPS259827ONRGE; pin mapping checked against manufacturer datasheet"
-      (at 0.0 36.83 0.0)
+    (property "Description" "TPS25974LRPW; pin mapping checked against manufacturer datasheet"
+      (at 0.0 22.86 0.0)
       (effects
         (font
           (size 1.27 1.27))
         (hide yes)))
-    (symbol "TPS259827ONRGE_0_1"
+    (symbol "TPS25974LRPW_0_1"
       (rectangle
-        (start -15.24 31.75)
-        (end 15.24 -31.75)
+        (start -15.24 17.78)
+        (end 15.24 -17.78)
         (stroke
           (width 0.254)
           (type default))
         (fill
           (type background))))
-    (symbol "TPS259827ONRGE_1_1"
+    (symbol "TPS25974LRPW_1_1"
       (pin power_in line
-        (at -17.78 27.94 0.0)
+        (at -17.78 12.7 0.0)
         (length 2.54)
         (name "IN"
+          (effects
+            (font
+              (size 1.0 1.0))))
+        (number "5"
+          (effects
+            (font
+              (size 1.0 1.0)))))
+      (pin input line
+        (at -17.78 7.62 0.0)
+        (length 2.54)
+        (name "EN_UVLO"
           (effects
             (font
               (size 1.0 1.0))))
@@ -55,80 +66,14 @@
           (effects
             (font
               (size 1.0 1.0)))))
-      (pin power_in line
-        (at -17.78 24.13 0.0)
+      (pin input line
+        (at -17.78 2.54 0.0)
         (length 2.54)
-        (name "IN"
+        (name "OVLO"
           (effects
             (font
               (size 1.0 1.0))))
         (number "2"
-          (effects
-            (font
-              (size 1.0 1.0)))))
-      (pin power_in line
-        (at -17.78 20.32 0.0)
-        (length 2.54)
-        (name "IN"
-          (effects
-            (font
-              (size 1.0 1.0))))
-        (number "3"
-          (effects
-            (font
-              (size 1.0 1.0)))))
-      (pin power_in line
-        (at -17.78 16.51 0.0)
-        (length 2.54)
-        (name "IN"
-          (effects
-            (font
-              (size 1.0 1.0))))
-        (number "16"
-          (effects
-            (font
-              (size 1.0 1.0)))))
-      (pin power_in line
-        (at -17.78 12.7 0.0)
-        (length 2.54)
-        (name "EP_IN"
-          (effects
-            (font
-              (size 1.0 1.0))))
-        (number "25"
-          (effects
-            (font
-              (size 1.0 1.0)))))
-      (pin input line
-        (at -17.78 8.89 0.0)
-        (length 2.54)
-        (name "EN_UVLO"
-          (effects
-            (font
-              (size 1.0 1.0))))
-        (number "6"
-          (effects
-            (font
-              (size 1.0 1.0)))))
-      (pin power_in line
-        (at -17.78 5.08 0.0)
-        (length 2.54)
-        (name "GND"
-          (effects
-            (font
-              (size 1.0 1.0))))
-        (number "4"
-          (effects
-            (font
-              (size 1.0 1.0)))))
-      (pin power_in line
-        (at -17.78 1.27 0.0)
-        (length 2.54)
-        (name "GND"
-          (effects
-            (font
-              (size 1.0 1.0))))
-        (number "5"
           (effects
             (font
               (size 1.0 1.0)))))
@@ -139,124 +84,47 @@
           (effects
             (font
               (size 1.0 1.0))))
-        (number "14"
-          (effects
-            (font
-              (size 1.0 1.0)))))
-      (pin power_in line
-        (at -17.78 -6.35 0.0)
-        (length 2.54)
-        (name "EP_GND"
-          (effects
-            (font
-              (size 1.0 1.0))))
-        (number "26"
+        (number "8"
           (effects
             (font
               (size 1.0 1.0)))))
       (pin power_out line
-        (at 17.78 27.94 180.0)
-        (length 2.54)
-        (name "OUT"
-          (effects
-            (font
-              (size 1.0 1.0))))
-        (number "17"
-          (effects
-            (font
-              (size 1.0 1.0)))))
-      (pin passive line
-        (at 17.78 24.13 180.0)
-        (length 2.54)
-        (name "OUT"
-          (effects
-            (font
-              (size 1.0 1.0))))
-        (number "18"
-          (effects
-            (font
-              (size 1.0 1.0)))))
-      (pin passive line
-        (at 17.78 20.32 180.0)
-        (length 2.54)
-        (name "OUT"
-          (effects
-            (font
-              (size 1.0 1.0))))
-        (number "19"
-          (effects
-            (font
-              (size 1.0 1.0)))))
-      (pin passive line
-        (at 17.78 16.51 180.0)
-        (length 2.54)
-        (name "OUT"
-          (effects
-            (font
-              (size 1.0 1.0))))
-        (number "20"
-          (effects
-            (font
-              (size 1.0 1.0)))))
-      (pin passive line
         (at 17.78 12.7 180.0)
         (length 2.54)
         (name "OUT"
           (effects
             (font
               (size 1.0 1.0))))
-        (number "21"
-          (effects
-            (font
-              (size 1.0 1.0)))))
-      (pin passive line
-        (at 17.78 8.89 180.0)
-        (length 2.54)
-        (name "OUT"
-          (effects
-            (font
-              (size 1.0 1.0))))
-        (number "22"
-          (effects
-            (font
-              (size 1.0 1.0)))))
-      (pin passive line
-        (at 17.78 5.08 180.0)
-        (length 2.54)
-        (name "OUT"
-          (effects
-            (font
-              (size 1.0 1.0))))
-        (number "23"
-          (effects
-            (font
-              (size 1.0 1.0)))))
-      (pin passive line
-        (at 17.78 1.27 180.0)
-        (length 2.54)
-        (name "OUT"
-          (effects
-            (font
-              (size 1.0 1.0))))
-        (number "24"
+        (number "6"
           (effects
             (font
               (size 1.0 1.0)))))
       (pin open_collector line
-        (at 17.78 -2.54 180.0)
+        (at 17.78 7.62 180.0)
         (length 2.54)
         (name "PG"
           (effects
             (font
               (size 1.0 1.0))))
-        (number "13"
+        (number "3"
+          (effects
+            (font
+              (size 1.0 1.0)))))
+      (pin input line
+        (at 17.78 2.54 180.0)
+        (length 2.54)
+        (name "PGTH"
+          (effects
+            (font
+              (size 1.0 1.0))))
+        (number "4"
           (effects
             (font
               (size 1.0 1.0)))))
       (pin output line
-        (at 17.78 -6.35 180.0)
+        (at 17.78 -2.54 180.0)
         (length 2.54)
-        (name "IMON"
+        (name "ILM_IMON"
           (effects
             (font
               (size 1.0 1.0))))
@@ -265,31 +133,9 @@
             (font
               (size 1.0 1.0)))))
       (pin passive line
-        (at 17.78 -10.16 180.0)
-        (length 2.54)
-        (name "ILIM"
-          (effects
-            (font
-              (size 1.0 1.0))))
-        (number "8"
-          (effects
-            (font
-              (size 1.0 1.0)))))
-      (pin passive line
-        (at 17.78 -13.97 180.0)
+        (at 17.78 -7.62 180.0)
         (length 2.54)
         (name "dVdT"
-          (effects
-            (font
-              (size 1.0 1.0))))
-        (number "15"
-          (effects
-            (font
-              (size 1.0 1.0)))))
-      (pin passive line
-        (at 17.78 -17.78 180.0)
-        (length 2.54)
-        (name "ITIMER"
           (effects
             (font
               (size 1.0 1.0))))
@@ -298,9 +144,129 @@
             (font
               (size 1.0 1.0)))))
       (pin passive line
-        (at 17.78 -21.59 180.0)
+        (at 17.78 -12.7 180.0)
         (length 2.54)
-        (name "RETRY_DLY"
+        (name "ITIMER"
+          (effects
+            (font
+              (size 1.0 1.0))))
+        (number "10"
+          (effects
+            (font
+              (size 1.0 1.0)))))))
+  (symbol "SN74LVC08APW"
+    (pin_names
+      (offset 0.508))
+    (in_bom yes)
+    (on_board yes)
+    (property "Reference" "U"
+      (at 0.0 33.02 0.0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Value" "SN74LVC08APW"
+      (at 0.0 33.02 0.0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Footprint" "Package_SO:TSSOP-14_4.4x5mm_P0.65mm"
+      (at 0.0 33.02 0.0)
+      (effects
+        (font
+          (size 1.27 1.27))
+        (hide yes)))
+    (property "Datasheet" "https://www.ti.com/lit/ds/symlink/sn74lvc08a.pdf"
+      (at 0.0 33.02 0.0)
+      (effects
+        (font
+          (size 1.27 1.27))
+        (hide yes)))
+    (property "Description" "SN74LVC08APW; pin mapping checked against manufacturer datasheet"
+      (at 0.0 33.02 0.0)
+      (effects
+        (font
+          (size 1.27 1.27))
+        (hide yes)))
+    (symbol "SN74LVC08APW_0_1"
+      (rectangle
+        (start -15.24 27.94)
+        (end 15.24 -27.94)
+        (stroke
+          (width 0.254)
+          (type default))
+        (fill
+          (type background))))
+    (symbol "SN74LVC08APW_1_1"
+      (pin power_in line
+        (at -17.78 22.86 0.0)
+        (length 2.54)
+        (name "VCC"
+          (effects
+            (font
+              (size 1.0 1.0))))
+        (number "14"
+          (effects
+            (font
+              (size 1.0 1.0)))))
+      (pin input line
+        (at -17.78 17.78 0.0)
+        (length 2.54)
+        (name "1A"
+          (effects
+            (font
+              (size 1.0 1.0))))
+        (number "1"
+          (effects
+            (font
+              (size 1.0 1.0)))))
+      (pin input line
+        (at -17.78 12.7 0.0)
+        (length 2.54)
+        (name "1B"
+          (effects
+            (font
+              (size 1.0 1.0))))
+        (number "2"
+          (effects
+            (font
+              (size 1.0 1.0)))))
+      (pin input line
+        (at -17.78 7.62 0.0)
+        (length 2.54)
+        (name "2A"
+          (effects
+            (font
+              (size 1.0 1.0))))
+        (number "4"
+          (effects
+            (font
+              (size 1.0 1.0)))))
+      (pin input line
+        (at -17.78 2.54 0.0)
+        (length 2.54)
+        (name "2B"
+          (effects
+            (font
+              (size 1.0 1.0))))
+        (number "5"
+          (effects
+            (font
+              (size 1.0 1.0)))))
+      (pin input line
+        (at -17.78 -2.54 0.0)
+        (length 2.54)
+        (name "3A"
+          (effects
+            (font
+              (size 1.0 1.0))))
+        (number "9"
+          (effects
+            (font
+              (size 1.0 1.0)))))
+      (pin input line
+        (at -17.78 -7.62 0.0)
+        (length 2.54)
+        (name "3B"
           (effects
             (font
               (size 1.0 1.0))))
@@ -308,28 +274,463 @@
           (effects
             (font
               (size 1.0 1.0)))))
-      (pin passive line
-        (at 17.78 -25.4 180.0)
-        (length 2.54)
-        (name "NRETRY"
-          (effects
-            (font
-              (size 1.0 1.0))))
-        (number "11"
-          (effects
-            (font
-              (size 1.0 1.0)))))
       (pin input line
-        (at 17.78 -29.21 180.0)
+        (at -17.78 -12.7 0.0)
         (length 2.54)
-        (name "LDSTRT"
+        (name "4A"
           (effects
             (font
               (size 1.0 1.0))))
         (number "12"
           (effects
             (font
+              (size 1.0 1.0)))))
+      (pin input line
+        (at -17.78 -17.78 0.0)
+        (length 2.54)
+        (name "4B"
+          (effects
+            (font
+              (size 1.0 1.0))))
+        (number "13"
+          (effects
+            (font
+              (size 1.0 1.0)))))
+      (pin power_in line
+        (at -17.78 -22.86 0.0)
+        (length 2.54)
+        (name "GND"
+          (effects
+            (font
+              (size 1.0 1.0))))
+        (number "7"
+          (effects
+            (font
+              (size 1.0 1.0)))))
+      (pin output line
+        (at 17.78 22.86 180.0)
+        (length 2.54)
+        (name "1Y"
+          (effects
+            (font
+              (size 1.0 1.0))))
+        (number "3"
+          (effects
+            (font
+              (size 1.0 1.0)))))
+      (pin output line
+        (at 17.78 17.78 180.0)
+        (length 2.54)
+        (name "2Y"
+          (effects
+            (font
+              (size 1.0 1.0))))
+        (number "6"
+          (effects
+            (font
+              (size 1.0 1.0)))))
+      (pin output line
+        (at 17.78 12.7 180.0)
+        (length 2.54)
+        (name "3Y"
+          (effects
+            (font
+              (size 1.0 1.0))))
+        (number "8"
+          (effects
+            (font
+              (size 1.0 1.0)))))
+      (pin output line
+        (at 17.78 7.62 180.0)
+        (length 2.54)
+        (name "4Y"
+          (effects
+            (font
+              (size 1.0 1.0))))
+        (number "11"
+          (effects
+            (font
               (size 1.0 1.0)))))))
+  (symbol "TVS1800DRV"
+    (pin_names
+      (offset 0.508))
+    (in_bom yes)
+    (on_board yes)
+    (property "Reference" "U"
+      (at 0.0 17.78 0.0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Value" "TVS1800DRV"
+      (at 0.0 17.78 0.0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Footprint" "Package_SON:WSON-6-1EP_2x2mm_P0.65mm_EP1x1.6mm"
+      (at 0.0 17.78 0.0)
+      (effects
+        (font
+          (size 1.27 1.27))
+        (hide yes)))
+    (property "Datasheet" "https://www.ti.com/lit/ds/symlink/tvs1800.pdf"
+      (at 0.0 17.78 0.0)
+      (effects
+        (font
+          (size 1.27 1.27))
+        (hide yes)))
+    (property "Description" "TVS1800DRV; pin mapping checked against manufacturer datasheet"
+      (at 0.0 17.78 0.0)
+      (effects
+        (font
+          (size 1.27 1.27))
+        (hide yes)))
+    (symbol "TVS1800DRV_0_1"
+      (rectangle
+        (start -15.24 12.7)
+        (end 15.24 -12.7)
+        (stroke
+          (width 0.254)
+          (type default))
+        (fill
+          (type background))))
+    (symbol "TVS1800DRV_1_1"
+      (pin passive line
+        (at -17.78 7.62 0.0)
+        (length 2.54)
+        (name "IN"
+          (effects
+            (font
+              (size 1.0 1.0))))
+        (number "4"
+          (effects
+            (font
+              (size 1.0 1.0)))))
+      (pin passive line
+        (at -17.78 2.54 0.0)
+        (length 2.54)
+        (name "IN"
+          (effects
+            (font
+              (size 1.0 1.0))))
+        (number "5"
+          (effects
+            (font
+              (size 1.0 1.0)))))
+      (pin passive line
+        (at -17.78 -2.54 0.0)
+        (length 2.54)
+        (name "IN"
+          (effects
+            (font
+              (size 1.0 1.0))))
+        (number "6"
+          (effects
+            (font
+              (size 1.0 1.0)))))
+      (pin passive line
+        (at 17.78 7.62 180.0)
+        (length 2.54)
+        (name "GND"
+          (effects
+            (font
+              (size 1.0 1.0))))
+        (number "1"
+          (effects
+            (font
+              (size 1.0 1.0)))))
+      (pin passive line
+        (at 17.78 2.54 180.0)
+        (length 2.54)
+        (name "GND"
+          (effects
+            (font
+              (size 1.0 1.0))))
+        (number "2"
+          (effects
+            (font
+              (size 1.0 1.0)))))
+      (pin passive line
+        (at 17.78 -2.54 180.0)
+        (length 2.54)
+        (name "GND"
+          (effects
+            (font
+              (size 1.0 1.0))))
+        (number "3"
+          (effects
+            (font
+              (size 1.0 1.0)))))
+      (pin passive line
+        (at 17.78 -7.62 180.0)
+        (length 2.54)
+        (name "EP_GND"
+          (effects
+            (font
+              (size 1.0 1.0))))
+        (number "7"
+          (effects
+            (font
+              (size 1.0 1.0)))))))
+  (symbol "SiR680LDP"
+    (pin_names
+      (offset 0)
+      (hide yes))
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (in_pos_files yes)
+    (duplicate_pin_numbers_are_jumpers no)
+    (symbol "SiR680LDP_0_1"
+      (polyline
+        (pts
+          (xy 0.254 1.905)
+          (xy 0.254 -1.905))
+        (stroke
+          (width 0.254)
+          (type default))
+        (fill
+          (type none)))
+      (polyline
+        (pts
+          (xy 0.254 0)
+          (xy -2.54 0))
+        (stroke
+          (width 0)
+          (type default))
+        (fill
+          (type none)))
+      (polyline
+        (pts
+          (xy 0.762 2.286)
+          (xy 0.762 1.27))
+        (stroke
+          (width 0.254)
+          (type default))
+        (fill
+          (type none)))
+      (polyline
+        (pts
+          (xy 0.762 0.508)
+          (xy 0.762 -0.508))
+        (stroke
+          (width 0.254)
+          (type default))
+        (fill
+          (type none)))
+      (polyline
+        (pts
+          (xy 0.762 -1.27)
+          (xy 0.762 -2.286))
+        (stroke
+          (width 0.254)
+          (type default))
+        (fill
+          (type none)))
+      (polyline
+        (pts
+          (xy 0.762 -1.778)
+          (xy 3.302 -1.778)
+          (xy 3.302 1.778)
+          (xy 0.762 1.778))
+        (stroke
+          (width 0)
+          (type default))
+        (fill
+          (type none)))
+      (polyline
+        (pts
+          (xy 1.016 0)
+          (xy 2.032 0.381)
+          (xy 2.032 -0.381)
+          (xy 1.016 0))
+        (stroke
+          (width 0)
+          (type default))
+        (fill
+          (type outline)))
+      (circle
+        (center 1.651 0)
+        (radius 2.794)
+        (stroke
+          (width 0.254)
+          (type default))
+        (fill
+          (type none)))
+      (polyline
+        (pts
+          (xy 2.54 2.54)
+          (xy 2.54 1.778))
+        (stroke
+          (width 0)
+          (type default))
+        (fill
+          (type none)))
+      (circle
+        (center 2.54 1.778)
+        (radius 0.254)
+        (stroke
+          (width 0)
+          (type default))
+        (fill
+          (type outline)))
+      (circle
+        (center 2.54 -1.778)
+        (radius 0.254)
+        (stroke
+          (width 0)
+          (type default))
+        (fill
+          (type outline)))
+      (polyline
+        (pts
+          (xy 2.54 -2.54)
+          (xy 2.54 0)
+          (xy 0.762 0))
+        (stroke
+          (width 0)
+          (type default))
+        (fill
+          (type none)))
+      (polyline
+        (pts
+          (xy 2.794 0.508)
+          (xy 2.921 0.381)
+          (xy 3.683 0.381)
+          (xy 3.81 0.254))
+        (stroke
+          (width 0)
+          (type default))
+        (fill
+          (type none)))
+      (polyline
+        (pts
+          (xy 3.302 0.381)
+          (xy 2.921 -0.254)
+          (xy 3.683 -0.254)
+          (xy 3.302 0.381))
+        (stroke
+          (width 0)
+          (type default))
+        (fill
+          (type none))))
+    (symbol "SiR680LDP_1_1"
+      (pin passive line
+        (at 2.54 -5.08 90)
+        (length 2.54)
+        (name "S"
+          (effects
+            (font
+              (size 1.27 1.27))))
+        (number "1"
+          (effects
+            (font
+              (size 1.27 1.27)))))
+      (pin passive line
+        (at 2.54 -5.08 90)
+        (length 2.54)
+        (hide yes)
+        (name "S"
+          (effects
+            (font
+              (size 1.27 1.27))))
+        (number "2"
+          (effects
+            (font
+              (size 1.27 1.27)))))
+      (pin passive line
+        (at 2.54 -5.08 90)
+        (length 2.54)
+        (hide yes)
+        (name "S"
+          (effects
+            (font
+              (size 1.27 1.27))))
+        (number "3"
+          (effects
+            (font
+              (size 1.27 1.27)))))
+      (pin input line
+        (at -5.08 0 0)
+        (length 5.08)
+        (name "G"
+          (effects
+            (font
+              (size 1.27 1.27))))
+        (number "4"
+          (effects
+            (font
+              (size 1.27 1.27)))))
+      (pin passive line
+        (at 2.54 5.08 270)
+        (length 2.54)
+        (name "D"
+          (effects
+            (font
+              (size 1.27 1.27))))
+        (number "5"
+          (effects
+            (font
+              (size 1.27 1.27))))))
+    (embedded_fonts no)
+    (property "Reference" "Q"
+      (at 5.08 1.905 0)
+      (show_name no)
+      (do_not_autoplace no)
+      (effects
+        (font
+          (size 1.27 1.27))
+        (justify left)))
+    (property "Value" "SiR680LDP"
+      (at 5.08 0 0)
+      (show_name no)
+      (do_not_autoplace no)
+      (effects
+        (font
+          (size 1.27 1.27))
+        (justify left)))
+    (property "Footprint" "Package_SO:PowerPAK_SO-8_Single"
+      (at 5.08 -1.905 0)
+      (show_name no)
+      (do_not_autoplace no)
+      (hide yes)
+      (effects
+        (font
+          (size 1.27 1.27)
+          (italic yes))
+        (justify left)))
+    (property "Datasheet" "https://www.vishay.com/docs/77478/sir680ldp.pdf"
+      (at 5.08 -3.81 0)
+      (show_name no)
+      (do_not_autoplace no)
+      (hide yes)
+      (effects
+        (font
+          (size 1.27 1.27))
+        (justify left)))
+    (property "Description" "SiR680LDP; S=1,2,3 G=4 D=5 (physical 5,6,7,8 plus exposed drain)"
+      (at 0 0 0)
+      (show_name no)
+      (do_not_autoplace no)
+      (hide yes)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "ki_keywords" "NexFET Power MOSFET N-MOS"
+      (at 0 0 0)
+      (show_name no)
+      (do_not_autoplace no)
+      (hide yes)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "ki_fp_filters" "TDSON*"
+      (at 0 0 0)
+      (show_name no)
+      (do_not_autoplace no)
+      (hide yes)
+      (effects
+        (font
+          (size 1.27 1.27)))))
   (symbol "TPS3700DDC"
     (pin_names
       (offset 0.508))

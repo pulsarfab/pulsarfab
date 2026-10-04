@@ -1,5 +1,5 @@
 (kicad_sch (version 20260306) (generator "eeschema") (generator_version "10.0") (uuid "0187bf81-2928-5428-a422-165086c3193f") (paper "A2")
-(title_block (title "PulsarDew Hub - USB 2.0 hub and upstream interface") (date "2026-10-03") (rev "0.2-draft") (company "PulsarFab"))
+(title_block (title "PulsarPower - USB 2.0 hub and upstream interface") (date "2026-10-03") (rev "0.3-draft") (company "PulsarFab"))
 (lib_symbols
 (symbol "pulsarfab_hub:USB2517-JZX"
   (pin_names

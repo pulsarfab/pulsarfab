@@ -21,7 +21,8 @@
       "lcsc": "C86513",
       "mpn": "CSD18540Q5B",
       "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/45425ebd9f23a1198c031b3c2fd5a108.pdf?productCode=C86513",
-      "sha256": "2e43c4a2ac82af8a089be0a9e413282326f8d7857254ac07390b458deca854e0"
+      "sha256": "2e43c4a2ac82af8a089be0a9e413282326f8d7857254ac07390b458deca854e0",
+      "status": "superseded in 0.3; historical evidence"
     },
     {
       "reviewed_file": "tc4427.pdf",
@@ -126,7 +127,8 @@
       "lcsc": "C2155765",
       "mpn": "TPS259827ONRGET",
       "datasheet_url": "https://www.ti.com/lit/ds/symlink/tps25982.pdf",
-      "sha256": "655c21dbf6b91a3c98b7ab26cd3bf0020d3eb7d765f411c71030d22fa4b6bc1f"
+      "sha256": "655c21dbf6b91a3c98b7ab26cd3bf0020d3eb7d765f411c71030d22fa4b6bc1f",
+      "status": "superseded in 0.3; historical evidence"
     },
     {
       "reviewed_file": "tps3700.pdf",
@@ -154,7 +156,8 @@
       "lcsc": "C353379",
       "mpn": "SMBJ18A",
       "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/e9ed405dd94e697d37ae30ddb40fefa5.pdf?productCode=C353379",
-      "sha256": "11a0cb29fa635344f99349867b20a7c8e2d6dd8995f1f3eeb747e8935239c4b2"
+      "sha256": "11a0cb29fa635344f99349867b20a7c8e2d6dd8995f1f3eeb747e8935239c4b2",
+      "status": "superseded in 0.3; historical evidence"
     },
     {
       "reviewed_file": "C456019.pdf",
@@ -163,6 +166,38 @@
       "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/13e3587bf595c7e2c810c5f268cf321c.pdf?productCode=C456019",
       "sha256": "59a26d132fd73521ebff0e63fc3cc99042272d450abab9ccafcc061638e3273b",
       "review": "Pages 1 and 3: PTH drill pattern, contact numbering, 30V/1.5A, -25 to +85 C, 5000 cycles. Body-to-pin longitudinal datum absent; illustrative body placement requires sample check."
+    },
+    {
+      "reviewed_file": "TPS2597.pdf",
+      "lcsc": "C3662931",
+      "mpn": "TPS25974LRPWR",
+      "datasheet_url": "https://www.ti.com/lit/ds/symlink/tps2597.pdf",
+      "sha256": "7775b948396dd9fa8c527ac4f133555c4db5eb7857a456b9fea1da2087b9b033",
+      "status": "0.3 manufacturer document review"
+    },
+    {
+      "reviewed_file": "TVS1800.pdf",
+      "lcsc": "C2649846",
+      "mpn": "TVS1800DRVR",
+      "datasheet_url": "https://www.ti.com/lit/ds/symlink/tvs1800.pdf",
+      "sha256": "78c285dc8ea1c31e9d66e298055a7a34b55ef81e68f59d2306cafa8bc5b1f25d",
+      "status": "0.3 manufacturer document review"
+    },
+    {
+      "reviewed_file": "SN74LVC08A.pdf",
+      "lcsc": "C465737",
+      "mpn": "SN74LVC08APWR",
+      "datasheet_url": "https://www.ti.com/lit/ds/symlink/sn74lvc08a.pdf",
+      "sha256": "e5af3b29e61782a243d18a2e0a24e0f8bbda23a4c46cdea98b01dae91a96e97d",
+      "status": "0.3 manufacturer document review"
+    },
+    {
+      "reviewed_file": "SiR680LDP.pdf",
+      "lcsc": "C3279524",
+      "mpn": "SIR680LDP-T1-RE3",
+      "datasheet_url": "https://www.vishay.com/docs/77478/sir680ldp.pdf",
+      "sha256": "209da800bc3cd169339a7a76a3ed1a19d60f1ecc16eb17622a03f1b3de0d0d30",
+      "status": "0.3 manufacturer document review"
     }
   ]
 }

@@ -1,76 +1,89 @@
 {
   "checked_date": "2026-10-03",
-  "scope": "Parts introduced in the TPS259827 outlet revision; JLCPCB page metadata, not reservations. LCSC and mirror inventory are not substituted. Through-hole USB-A replacement appended from live JLCPCB product page/cart.",
+  "scope": "0.3 cost revision. Public JLCPCB product metadata and verified browser cart, not reservations. Superseded records retained as historical evidence.",
   "parts": [
     {
       "lcsc": "C2155765",
       "mpn": "TPS259827ONRGET",
       "source_url": "https://jlcpcb.com/partdetail/TPS259827ONRGET/C2155765",
       "displayed_stock": 762,
-      "available_without_preorder": 665
+      "available_without_preorder": 665,
+      "status": "historical; superseded"
     },
     {
       "lcsc": "C33002",
       "mpn": "TPS3700DDCR",
       "source_url": "https://jlcpcb.com/partdetail/TPS3700DDCR/C33002",
       "displayed_stock": 14776,
-      "available_without_preorder": 14518
+      "available_without_preorder": 14518,
+      "status": "current candidate",
+      "cart_qty": 22,
+      "cart_line_usd": 25.76,
+      "unit_usd": 1.1705
     },
     {
       "lcsc": "C22452",
       "mpn": "SS54",
       "source_url": "https://jlcpcb.com/partdetail/SS54/C22452",
       "displayed_stock": 2393322,
-      "available_without_preorder": 2321224
+      "available_without_preorder": 2321224,
+      "status": "current candidate"
     },
     {
       "lcsc": "C438102",
       "mpn": "SMCJ18A",
       "source_url": "https://jlcpcb.com/partdetail/SMCJ18A/C438102",
       "displayed_stock": 2734,
-      "available_without_preorder": 2698
+      "available_without_preorder": 2698,
+      "status": "current candidate"
     },
     {
       "lcsc": "C22919",
       "mpn": "0603WAF2490T5E",
       "source_url": "https://jlcpcb.com/partdetail/0603WAF2490T5E/C22919",
       "displayed_stock": 40844,
-      "available_without_preorder": 25475
+      "available_without_preorder": 25475,
+      "status": "historical; superseded"
     },
     {
       "lcsc": "C23253",
       "mpn": "0603WAF8200T5E",
       "source_url": "https://jlcpcb.com/partdetail/0603WAF8200T5E/C23253",
       "displayed_stock": 1095973,
-      "available_without_preorder": 1028439
+      "available_without_preorder": 1028439,
+      "status": "historical; superseded"
     },
     {
       "lcsc": "C22961",
       "mpn": "0603WAF2203T5E",
       "source_url": "https://jlcpcb.com/partdetail/0603WAF2203T5E/C22961",
       "displayed_stock": 1440699,
-      "available_without_preorder": 1373918
+      "available_without_preorder": 1373918,
+      "status": "current candidate"
     },
     {
       "lcsc": "C23178",
       "mpn": "0603WAF4703T5E",
       "source_url": "https://jlcpcb.com/partdetail/0603WAF4703T5E/C23178",
       "displayed_stock": 1454486,
-      "available_without_preorder": 1343473
+      "available_without_preorder": 1343473,
+      "status": "current candidate"
     },
     {
       "lcsc": "C1621",
       "mpn": "CL10B472KB8NNNC",
       "source_url": "https://jlcpcb.com/partdetail/CL10B472KB8NNNC/C1621",
       "displayed_stock": 517416,
-      "available_without_preorder": 507415
+      "available_without_preorder": 507415,
+      "status": "current candidate"
     },
     {
       "lcsc": "C353379",
       "mpn": "SMBJ18A",
       "source_url": "https://jlcpcb.com/partdetail/SMBJ18A/C353379",
       "displayed_stock": 56880,
-      "available_without_preorder": 56667
+      "available_without_preorder": 56667,
+      "status": "historical; superseded"
     },
     {
       "lcsc": "C456019",
@@ -79,7 +92,74 @@
       "displayed_stock": 10182,
       "available_without_preorder": 10126,
       "price_100_usd": 0.0386,
-      "replaces": "C6307429"
+      "replaces": "C6307429",
+      "status": "current candidate"
+    },
+    {
+      "lcsc": "C3662931",
+      "mpn": "TPS25974LRPWR",
+      "source_url": "https://jlcpcb.com/partdetail/C3662931",
+      "displayed_stock": 2781,
+      "available_without_preorder": 2774,
+      "cart_qty": 100,
+      "cart_line_usd": 68.61,
+      "unit_usd": 0.6861,
+      "status": "in-stock cart; not ordered"
+    },
+    {
+      "lcsc": "C2649846",
+      "mpn": "TVS1800DRVR",
+      "source_url": "https://jlcpcb.com/partdetail/C2649846",
+      "displayed_stock": 2222,
+      "available_without_preorder": 2131,
+      "cart_qty": 100,
+      "cart_line_usd": 24.55,
+      "unit_usd": 0.2455,
+      "status": "in-stock cart; not ordered"
+    },
+    {
+      "lcsc": "C465737",
+      "mpn": "SN74LVC08APWR",
+      "source_url": "https://jlcpcb.com/partdetail/C465737",
+      "displayed_stock": 18710,
+      "available_without_preorder": 18641,
+      "cart_qty": 22,
+      "cart_line_usd": 8.23,
+      "unit_usd": 0.3738,
+      "status": "in-stock cart; not ordered"
+    },
+    {
+      "lcsc": "C21190",
+      "mpn": "0603WAF1001T5E",
+      "source_url": "https://jlcpcb.com/partdetail/C21190",
+      "displayed_stock": 21582769,
+      "available_without_preorder": 16203454,
+      "cart_qty": 1000,
+      "cart_line_usd": 2.0,
+      "unit_usd": 0.002,
+      "status": "in-stock cart; not ordered"
+    },
+    {
+      "lcsc": "C4184",
+      "mpn": "0603WAF2002T5E",
+      "source_url": "https://jlcpcb.com/partdetail/C4184",
+      "displayed_stock": 8032883,
+      "available_without_preorder": 7277596,
+      "cart_qty": 1000,
+      "cart_line_usd": 1.8,
+      "unit_usd": 0.0018,
+      "status": "in-stock cart; not ordered"
+    },
+    {
+      "lcsc": "C22807",
+      "mpn": "0603WAF1503T5E",
+      "source_url": "https://jlcpcb.com/partdetail/C22807",
+      "displayed_stock": 603932,
+      "available_without_preorder": 477891,
+      "cart_qty": 1000,
+      "cart_line_usd": 3.4,
+      "unit_usd": 0.0034,
+      "status": "in-stock cart; not ordered"
     }
   ]
 }

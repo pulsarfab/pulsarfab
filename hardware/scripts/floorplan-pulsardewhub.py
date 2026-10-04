@@ -82,15 +82,19 @@ for b,y in [(20,73),(30,93)]:
         f"C{b+1}":(71,y-.635,90),f"C{b+2}":(80.5,y+.635,0),f"C{b+3}":(80.5,y-2.5,90),
         f"R{b}":(80,y+5,0),f"R{b+1}":(76,y+5,0)})
     for j in range(4):place[f"C{b+4+j}"]=(102+j*3.2,y-2,90)
-# Outlet blocks: eFuse with distinct VIN/GND exposed pads, local clamps and voltage monitor.
+# Shared window sits between logic and high-current corridor; commands stay separate.
+place.update({"Q11":(103,111,90),"C13":(96,105,0),
+ "U70":(183,115,0),"U71":(202,115,0),"C70":(180,115,90),"C71":(207,115,90),
+ "R70":(175,112,90),"R71":(175,116,90),"R72":(178,111,90),"R73":(178,119,90),"R74":(188,113,90)})
+for j in range(4):place[f"R{75+j}"]=(194+j*4,121,0)
+# Local flat-clamp and eFuse; leave central IN/OUT pad fan-out and thermal copper room.
 for i,x in enumerate([128,156,184,212],1):
     b=100*i
-    place.update({f"J{b+1}":(x,146.3,0),f"U{b+1}":(x,133,0),f"U{b+2}":(x-8,137,0),
-        f"D{b+1}":(x+8,140,90),f"D{b+2}":(x-1,125,0),
-        f"C{b+1}":(x-4,130,90),f"C{b+2}":(x+4,130,90),f"C{b+3}":(x+4,134,90),
-        f"C{b+4}":(x+10,128,90),f"C{b+5}":(x-8,140,0)})
-    coords=[(-11,130),(-11,133),(-8,130),(-8,133),(-4,137),(8,132),(-1,137),(5,137),(10,125),(-4,140)]
-    for off,(dx,yy) in enumerate(coords,1):place[f"R{b+off}"]=(x+dx,yy,90 if off in [1,2,3,4,5,6,8,9] else 0)
+    place.update({f"J{b+1}":(x,146.3,0),f"U{b+1}":(x,133,0),f"U{b+2}":(x-1,126,0),
+        f"D{b+1}":(x+8,140,90),f"C{b+1}":(x-4,130,90),f"C{b+2}":(x+4,130,90),
+        f"C{b+3}":(x+4,134,90),f"C{b+4}":(x+10,128,90)})
+    coords={1:(-11,130),2:(-11,133),3:(-8,130),4:(-8,133),5:(-4,137),6:(8,132),7:(2,137),9:(10,125),10:(-4,140)}
+    for off,(dx,yy) in coords.items():place[f"R{b+off}"]=(x+dx,yy,90 if off in [1,2,3,4,5,6,9] else 0)
 # Four downstream USB ports. ESD is just behind data tails; VBUS switch/bulk to the side.
 for i,x in enumerate([124,148,172,196]):
     b=500+i*100
@@ -143,8 +147,8 @@ for i,(x,y) in enumerate([(60,59),(220,60),(220,153)],1):
     f.Reference().SetVisible(False);f.Value().SetVisible(False);board.Add(f)
 def text(s,x,y,size=1,layer=p.F_SilkS):
     t=p.PCB_TEXT(board);t.SetText(s);t.SetPosition(pt(x,y));t.SetTextSize(pt(size,size));t.SetTextThickness(p.FromMM(.15));t.SetLayer(layer);board.Add(t)
-text("PulsarDew Hub 0.2",191,109,1.8)
-text("2 HEATERS / 4 DC / USB 2.0",191,112,1)
+text("PulsarPower 0.3",210,90,1.5)
+text("2 HEATERS / 4 DC / USB 2.0",210,94,1)
 text("12-18V IN",60,88,1)
 text("FIT ONE INPUT",65,96,.8)
 text("BARREL: 5A TOTAL",64,144,.8)
@@ -162,8 +166,8 @@ z=p.ZONE(board);z.SetIsRuleArea(True);z.SetLayerSet(p.LSET.AllCuMask());z.SetDoN
 poly=z.Outline();poly.NewOutline()
 for x,y in [(221.5,77.3),(222.5,77.3),(222.5,78.7),(221.5,78.7)]:poly.Append(p.FromMM(x),p.FromMM(y))
 board.Add(z)
-board.GetTitleBlock().SetTitle("PulsarDew Hub - unrouted prototype floorplan")
-board.GetTitleBlock().SetRevision("0.2-draft");board.GetTitleBlock().SetCompany("PulsarFab")
+board.GetTitleBlock().SetTitle("PulsarPower - unrouted prototype floorplan")
+board.GetTitleBlock().SetRevision("0.3-draft");board.GetTitleBlock().SetCompany("PulsarFab")
 board.GetDesignSettings().m_HoleClearance=p.FromMM(.25)
 # pcbnew SaveBoard may rewrite project settings with its default in-memory values.
 # Preserve the separately maintained netclasses, clearances and exclusion policy.

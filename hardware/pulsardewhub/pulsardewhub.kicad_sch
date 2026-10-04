@@ -1,8 +1,8 @@
 (kicad_sch (version 20260306) (generator "eeschema") (generator_version "10.0") (uuid "e52b73dc-d0d2-4d83-a7ea-224e97decc28") (paper "A2")
-(title_block (title "PulsarDew Hub - System interconnect") (date "2026-10-03") (rev "0.2-draft") (company "PulsarFab"))
+(title_block (title "PulsarPower - System interconnect") (date "2026-10-03") (rev "0.3-draft") (company "PulsarFab"))
 (lib_symbols
 )
-(text "PULSARDEW HUB | 2 heaters + 4 monitored DC outlets + 4 USB 2.0 ports" (at 20.3200 16.5100 0) (effects (font (size 2.5 2.5)) (justify left top)) (uuid "77dc4b69-983e-5106-9239-543054506599"))
+(text "PULSARPOWER | 2 heaters + 4 monitored DC outlets + 4 USB 2.0 ports" (at 20.3200 16.5100 0) (effects (font (size 2.5 2.5)) (justify left top)) (uuid "64bc43c1-9e2c-53e1-9663-5dc45316045b"))
 (text "PROTOTYPE FLOORPLAN — routing, full-load thermal validation and new firmware are still required." (at 20.3200 24.1300 0) (effects (font (size 1.5 1.5)) (justify left top)) (uuid "2ab0ad11-74f7-538f-9f67-7aa90999185c"))
 (label "VIN"  (at 40.6400 53.3400 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "78f46b5f-a824-5ccf-b8be-660f3b3f9307"))
 (label "GND"  (at 40.6400 58.4200 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "397375e4-aca5-5a2a-a99f-a30615015513"))
@@ -580,7 +580,7 @@
 (label "VIN"  (at 363.2200 53.3400 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "e924f935-8e76-5447-aa72-f558bd3f75b2"))
 (label "V3"  (at 363.2200 58.4200 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "ba7392d7-8b0c-552f-a91e-99ed35797ff8"))
 (label "GND"  (at 363.2200 63.5000 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "051372a3-7a63-5451-8a51-4a84ef3d8d9f"))
-(label "DC_EN1"  (at 363.2200 68.5800 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "3d6c09b7-3330-562c-8678-8b039c1f8553"))
+(label "DC_SAFE1"  (at 363.2200 68.5800 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "4d2fa65b-ccce-5459-9f46-dc0158922541"))
 (label "IMON1"  (at 363.2200 73.6600 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "51f8769c-bfb4-5bfd-a915-c32aa582893a"))
 (label "DC_PG1"  (at 363.2200 78.7400 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "8513db1d-39b2-5e7e-a20e-d81395ca7b49"))
 (sheet
@@ -726,7 +726,7 @@
 (label "VIN"  (at 363.2200 134.6200 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "da4933d6-a847-5e60-ae98-3ae77bc858e8"))
 (label "V3"  (at 363.2200 139.7000 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "2fe40c59-bcd2-528d-8017-e45ca9400f75"))
 (label "GND"  (at 363.2200 144.7800 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "eb0b49c8-f35c-58b4-b6b3-5909e8594d4b"))
-(label "DC_EN2"  (at 363.2200 149.8600 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "443981e6-7cb8-5ec4-a3e0-e8f8fa430f3f"))
+(label "DC_SAFE2"  (at 363.2200 149.8600 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "501d5106-0771-518c-96d5-e08bb2e60ccb"))
 (label "IMON2"  (at 363.2200 154.9400 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "482f0001-7d71-5382-9d98-2e65c9fd83cc"))
 (label "DC_PG2"  (at 363.2200 160.0200 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "db517d19-e71f-52b9-ae15-a2a2adbcacc0"))
 (sheet
@@ -872,7 +872,7 @@
 (label "VIN"  (at 363.2200 215.9000 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "da62058a-e8c4-5433-8d34-d348836a171a"))
 (label "V3"  (at 363.2200 220.9800 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "f4c07847-62c2-59ed-8013-1daba98537e5"))
 (label "GND"  (at 363.2200 226.0600 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "0d03344a-c77c-5bb5-ab72-1842a368c182"))
-(label "DC_EN3"  (at 363.2200 231.1400 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "0f2b364c-f5f8-57ee-89a5-f4161ec46cf9"))
+(label "DC_SAFE3"  (at 363.2200 231.1400 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "ee2f4bec-5a57-57f0-a05f-dbd2c09f47c1"))
 (label "IMON3"  (at 363.2200 236.2200 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "7a89a580-dde3-5eaa-883b-bc1a429274ab"))
 (label "DC_PG3"  (at 363.2200 241.3000 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "7ff6a87b-9855-5d82-a30f-69fc7f20aba9"))
 (sheet
@@ -1018,7 +1018,7 @@
 (label "VIN"  (at 363.2200 297.1800 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "ee8b6d20-d4ed-5619-9cb3-6e63427e0968"))
 (label "V3"  (at 363.2200 302.2600 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "78c16f17-04b1-56aa-b703-4edab04f22dc"))
 (label "GND"  (at 363.2200 307.3400 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "839aad11-72ac-5e6f-ab98-d370b6e37b6b"))
-(label "DC_EN4"  (at 363.2200 312.4200 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "34ac9486-e7d8-5e3c-9de6-f7c91ac1b599"))
+(label "DC_SAFE4"  (at 363.2200 312.4200 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "fcd140a3-a8b2-5ab0-9e55-4877d09a2735"))
 (label "IMON4"  (at 363.2200 317.5000 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "0016271d-1bc3-5a2a-9c7c-4a3756b5a258"))
 (label "DC_PG4"  (at 363.2200 322.5800 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "8684b239-8fad-5a17-8a03-a07b19fe590b"))
 (sheet
@@ -1161,6 +1161,119 @@
     (project "pulsardewhub"
       (path "/e52b73dc-d0d2-4d83-a7ea-224e97decc28"
         (page "14")))))
+(label "VIN"  (at 208.2800 345.4400 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "09bffd1d-c236-55a1-a06a-1aa1897f5543"))
+(label "V3"  (at 208.2800 350.5200 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "21eddacd-c691-5d49-bab5-95c77e3fb7f2"))
+(label "GND"  (at 208.2800 355.6000 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "31e4a098-e955-51b2-aa04-c19c60436510"))
+(label "DC_EN1"  (at 208.2800 360.6800 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "89921bd0-918d-5c8c-a12c-04821bc64931"))
+(label "DC_EN2"  (at 208.2800 365.7600 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "22aceefe-e804-549c-be53-73c6ab949cfe"))
+(label "DC_EN3"  (at 208.2800 370.8400 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "34131ce3-7246-500d-83d5-0b80591bc8cb"))
+(label "DC_EN4"  (at 208.2800 375.9200 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "9100c48e-03b0-5721-90f3-a0502626b2b3"))
+(label "DC_SAFE1"  (at 208.2800 381.0000 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "1504aa60-6153-5b4e-9c00-d10c229f9fb9"))
+(label "DC_SAFE2"  (at 208.2800 386.0800 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "80405311-086c-5aa7-a932-5324379efdf7"))
+(label "DC_SAFE3"  (at 208.2800 391.1600 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "f4316c53-75b9-5210-8254-8043950f1bd2"))
+(label "DC_SAFE4"  (at 208.2800 396.2400 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "327751d8-3215-5f7c-aef2-d68ed7815dcd"))
+(sheet
+  (at 220.98 335.28)
+  (size 76.2 71.12)
+  (stroke
+    (width 0.1524)
+    (type default))
+  (fill
+    (color 0 0 0 0))
+  (uuid "6275fc1b-9e76-5d07-81d2-751de29ec613")
+  (property "Sheetname" "DC protection"
+    (at 220.98 332.74 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (property "Sheetfile" "dc_protection.kicad_sch"
+    (at 220.98 408.94 0.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left)))
+  (pin "VIN" input
+    (at 220.98 345.44 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "73213b6b-07ac-5b4a-8764-d5d530870820"))
+  (pin "V3" input
+    (at 220.98 350.52 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "239b5e24-7660-5937-bcd4-8e61ac1a0540"))
+  (pin "GND" input
+    (at 220.98 355.6 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "54e6f513-9da8-574d-8e93-98b044aa6b11"))
+  (pin "CMD1" input
+    (at 220.98 360.68 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "9d7e5f67-ab89-5b99-9d15-1ce869d81c60"))
+  (pin "CMD2" input
+    (at 220.98 365.76 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "a7f78a02-13fb-55c1-82c9-b33910382079"))
+  (pin "CMD3" input
+    (at 220.98 370.84 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "80a6f600-8eb2-567e-910e-46f42f73ed27"))
+  (pin "CMD4" input
+    (at 220.98 375.92 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "073b6b69-c517-5bcb-a488-71bb27fd7c62"))
+  (pin "EN1" output
+    (at 220.98 381.0 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "e33183db-8093-5ab9-8e73-b0f44af79db9"))
+  (pin "EN2" output
+    (at 220.98 386.08 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "88eb0cc9-fd2c-5b9a-8f8c-450a89e6db71"))
+  (pin "EN3" output
+    (at 220.98 391.16 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "7e15ab4c-4b13-52b4-a881-c3cde77ad6d2"))
+  (pin "EN4" output
+    (at 220.98 396.24 180.0)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify left))
+    (uuid "e45a5df6-435f-556a-bd72-53a9ebfd1cb6"))
+  (instances
+    (project "pulsardewhub"
+      (path "/e52b73dc-d0d2-4d83-a7ea-224e97decc28"
+        (page "15")))))
 (text "RATINGS TO VALIDATE\n12-18 V nominal input\n4 x 5 A DC outlet targets\n2 x 5 A heater targets\n25 A shared XT60 budget\n3.5 A continuous barrel budget\nUSB: 500 mA per port\nNo PWM on DC outlets" (at 25.4000 281.9400 0) (effects (font (size 1.5 1.5)) (justify left top)) (uuid "01650d46-4b4a-56c1-a8f5-69c4dee463d4"))
 (text "Same ground throughout.\nHigh-current and USB return paths\nare separated by placement.\nDo not backfeed DC outputs." (at 25.4000 353.0600 0) (effects (font (size 1.27 1.27)) (justify left top)) (uuid "c7225a9d-3261-540e-986d-d67a7b916deb"))
 (wire (pts (xy 17.7800 58.4200) (xy 17.7800 119.3800)) (stroke (width 0) (type default)) (uuid "ae7fc294-d71e-5f58-a3de-69bafcc1ba39"))
@@ -1235,6 +1348,17 @@
 (wire (pts (xy 208.2800 292.1000) (xy 220.9800 292.1000)) (stroke (width 0) (type default)) (uuid "63e664cc-11b6-5ead-843c-0b645d6dfc03"))
 (wire (pts (xy 208.2800 297.1800) (xy 220.9800 297.1800)) (stroke (width 0) (type default)) (uuid "65458422-18e6-5d28-8e2d-b2a7009b740a"))
 (wire (pts (xy 208.2800 302.2600) (xy 220.9800 302.2600)) (stroke (width 0) (type default)) (uuid "853671e3-d887-5772-8371-83be13830cba"))
+(wire (pts (xy 208.2800 345.4400) (xy 220.9800 345.4400)) (stroke (width 0) (type default)) (uuid "c52140dd-7797-5be5-b7f4-ce740de72489"))
+(wire (pts (xy 208.2800 350.5200) (xy 220.9800 350.5200)) (stroke (width 0) (type default)) (uuid "f30912f2-1c8b-59cf-905b-66e732d5d1a1"))
+(wire (pts (xy 208.2800 355.6000) (xy 220.9800 355.6000)) (stroke (width 0) (type default)) (uuid "4ab4f82d-756c-55e7-bed8-f2d9b5644377"))
+(wire (pts (xy 208.2800 360.6800) (xy 220.9800 360.6800)) (stroke (width 0) (type default)) (uuid "be75a10b-5cc5-58fd-b263-43f70229060a"))
+(wire (pts (xy 208.2800 365.7600) (xy 220.9800 365.7600)) (stroke (width 0) (type default)) (uuid "7633054b-3121-55d1-882a-b8862ea6135f"))
+(wire (pts (xy 208.2800 370.8400) (xy 220.9800 370.8400)) (stroke (width 0) (type default)) (uuid "e0e847d9-f289-56ee-80ca-07790a402f6e"))
+(wire (pts (xy 208.2800 375.9200) (xy 220.9800 375.9200)) (stroke (width 0) (type default)) (uuid "447c3404-0870-5cba-98a1-1c5060d26eed"))
+(wire (pts (xy 208.2800 381.0000) (xy 220.9800 381.0000)) (stroke (width 0) (type default)) (uuid "441c6b72-ad43-512b-85ea-fae96a805c5c"))
+(wire (pts (xy 208.2800 386.0800) (xy 220.9800 386.0800)) (stroke (width 0) (type default)) (uuid "6794828c-40cc-5b05-ad72-7735d8a1815f"))
+(wire (pts (xy 208.2800 391.1600) (xy 220.9800 391.1600)) (stroke (width 0) (type default)) (uuid "94f2ab2c-4250-5ecc-963e-d727bdc0fdb9"))
+(wire (pts (xy 208.2800 396.2400) (xy 220.9800 396.2400)) (stroke (width 0) (type default)) (uuid "393783a1-1deb-58d8-b1a3-42ff0dc105fb"))
 (wire (pts (xy 363.2200 53.3400) (xy 375.9200 53.3400)) (stroke (width 0) (type default)) (uuid "75e9d539-72a0-5e9f-9cfe-a7d9ffcb968f"))
 (wire (pts (xy 363.2200 58.4200) (xy 375.9200 58.4200)) (stroke (width 0) (type default)) (uuid "bc3e4d96-6c18-5d1e-970f-63bdadc50622"))
 (wire (pts (xy 363.2200 63.5000) (xy 375.9200 63.5000)) (stroke (width 0) (type default)) (uuid "82c6492d-d7d0-5329-a02b-bf04f3a59ab1"))

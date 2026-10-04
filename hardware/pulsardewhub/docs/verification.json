@@ -8,8 +8,8 @@
     "exclusions": 0
   },
   "exact_net_check": {
-    "components": 223,
-    "connected_nets": 130,
+    "components": 226,
+    "connected_nets": 133,
     "intentional_no_connects": 33,
     "all_expected_pins_matched": true
   },
@@ -17,7 +17,7 @@
     "layers": 4,
     "width_mm": 180,
     "height_mm": 110,
-    "schematic_footprints": 223,
+    "schematic_footprints": 226,
     "mounting_holes": 4,
     "fiducials": 3,
     "tracks": 0,
@@ -118,56 +118,68 @@
         "type": "hole_clearance"
       }
     ],
-    "total_footprints": 230
+    "total_footprints": 233
   },
   "source_sha256": {
-    "pulsardewhub/controller.kicad_sch": "185ea0ee055c83957ba9f94f0aa23081170453937443a5ad3a7df81f096983cd",
-    "pulsardewhub/dc_outlet.kicad_sch": "c146a552a90a411e095d8b22c342fe87c66d61188da9740d1157cc670792c54e",
-    "pulsardewhub/heaters.kicad_sch": "3a38b0cbb26da757526b35b9e51dd77d874698672912526829832194c8b4e37c",
-    "pulsardewhub/power_input.kicad_sch": "bf7d4f3f71634934cbcac56cb2cbf14637146fa1f3acae53089e692f7142b468",
-    "pulsardewhub/pulsardewhub.kicad_pcb": "17af54ca05bc53fefbca580874a4d4b1179857993b1e83290c83144406423186",
+    "pulsardewhub/controller.kicad_sch": "d727ab2f867d7b9667b6a3782872471be3403c277e6a228323b6ed8cc9ad835d",
+    "pulsardewhub/dc_outlet.kicad_sch": "5f108a583ebb8fa110509becf81596c9e08557f3da77b199bbf86ee7f4f03f1c",
+    "pulsardewhub/heaters.kicad_sch": "529057c6da83699b076573e0061ac59b28d049f5d8cb1568e77a001b7efc6405",
+    "pulsardewhub/power_input.kicad_sch": "73802787d15a9b3f5cdc20f5fd279b63a9b4c67b2d5f0ac86eb016aa689b59ab",
+    "pulsardewhub/pulsardewhub.kicad_pcb": "64df385e3b5ff4f3084a650a9d6e3419fe5aa8614c18f7164a5209f47973d8d6",
     "pulsardewhub/pulsardewhub.kicad_pro": "a4c09e64ae8c7a8fdd154765e1e0b24f2085be8479e359d1c1acea2dd1cdb3ab",
-    "pulsardewhub/pulsardewhub.kicad_sch": "08273cd8aade12cf5d5cf0822bacd5930994bc77c23a8d387210c02bcbae0c1a",
-    "pulsardewhub/supplies.kicad_sch": "16ef14f8de3e30b92b697d126b85718c4894817cf6b4c89bdaf3ceddf1957eab",
-    "pulsardewhub/usb_hub.kicad_sch": "2ed5382d5022875043af27bbc303722c4bdbe46a2d65ed4a4019e1ebcb329e68",
-    "pulsardewhub/usb_port.kicad_sch": "644e203be114f39a157d84900ae2b2f10425d8189caa539ea80182f9e75eabc5",
-    "scripts/pulsardewhub.schgen.py": "82b7c041c3b48fd4561fde5b3d357f015fadfe4fcebe8dd504b3598e42104a14",
-    "scripts/verify-pulsardewhub.py": "d57f59064af6b32f21a65fa84d8abc863ab5a05d01505580c80f19b0f2dd7868",
-    "scripts/floorplan-pulsardewhub.py": "59fca8985ca3a5054f152db8e0677bb1d65f121db466eea42847c070cf4bb585",
-    "scripts/wired_schematic.py": "b7fbd3a1e2b1bcf14f004eb92d864adaf538dffe3191189036adfc39d2e2bae5",
-    "lib/symbols/pulsarfab_hub.kicad_sym": "eb10ed1705af2df4219e018993e240e94100463ff37f7e4a775f1f1c3e6b0fe7",
-    "lib/footprints.pretty/TI_RGE0024M_VQFN24_2EP_4x4mm.kicad_mod": "0a20176cb65cecf127186f31298fc2a5a9c3d11fee0bf515811b3c62748e3160",
-    "pulsardewhub/parts-catalog.json": "fcb97d22156fdb5cc573f3f37e32da65954a173ae7df7e86f1851550b4b0f001",
-    "pulsardewhub/parts-review.csv": "3b52f4883918101d6f12ae8c7b06affb72a8fb6438453b3ad402297be750de7d",
-    "pulsardewhub/jlcpcb_bom.csv": "74329984140fa60895d9f1dfe14cdea66334e3a284b718c786c2262b2b9df0ce",
-    "pulsardewhub/docs/datasheet-review-manifest.json": "6a6b2947772b910574a4f2997a53c218d56948e22071869392538089b09801cd",
-    "pulsardewhub/docs/sourcing-2026-10-03.json": "be2846a5d512361c69625832e7a1d2982a5638ff8bcb04e67273f99cf2f254bc"
+    "pulsardewhub/pulsardewhub.kicad_sch": "2750ff44987915d40d8d1bec8b0d0696fa8c8963b443b5da8ed0c4a1c2c5d21a",
+    "pulsardewhub/supplies.kicad_sch": "497c4f0b71f277885ef00849db215e49cd1b97c32f93ccbb013faccffcaf5512",
+    "pulsardewhub/usb_hub.kicad_sch": "a48dc247cbe0a2652b0f128d52259fddc106d87a4d26aa5abfa049a2315ce992",
+    "pulsardewhub/usb_port.kicad_sch": "cc3cefb492feadb8a88ca37f79f071f4c798baaf5bd027965e2a6ca690611671",
+    "scripts/pulsardewhub.schgen.py": "6988723be70631902720158a244578d916154c2f572c64695f1e35c96b3ea16e",
+    "scripts/verify-pulsardewhub.py": "3057c1f58f89be324f3218a1372c810024bc54ba34bb7a56baf77cca7eb10e89",
+    "scripts/floorplan-pulsardewhub.py": "e82d152435bcbee52fb52171f5165699281bd916b1089d32e2fb543e88e708d1",
+    "scripts/wired_schematic.py": "dfc06eaa734ffa8dbfa20b93fd49795d0a6e76ab60fe618b9dc7632834f13d60",
+    "lib/symbols/pulsarfab_hub.kicad_sym": "a7198624c4848d7f2f49108cb194eb1a010271c160062e5eda1083f74e485173",
+    "pulsardewhub/parts-catalog.json": "024c6b610bf11fc598a3acc12bf606a494d43088e34634113622675ffecc00f6",
+    "pulsardewhub/parts-review.csv": "b1c7b61eea4e4b4655f0f3f2adae801c36134d9288d66245964d2d5b733c039a",
+    "pulsardewhub/jlcpcb_bom.csv": "68366926afe84a07e52c09285f1c675136509268d2345f607d1ca2aac2b67f31",
+    "pulsardewhub/docs/datasheet-review-manifest.json": "2de51a596106a4d67ed7faa3d555329d99a55a09cccd55922e4f38e634286835",
+    "pulsardewhub/docs/sourcing-2026-10-03.json": "2aea59c3bc5d5c5b2e23ad65cda82b6288616aa4956bc86b1fae2715be72f0bc",
+    "pulsardewhub/dc_protection.kicad_sch": "9e6798cd0067c96847c0eb3680411ee0d7f2902d73f9cc21b0b4c59bbdf98d06",
+    "lib/footprints.pretty/TI_RPW0010A_VQFN10_2x2mm.kicad_mod": "e4dee07e8be6e98983f7851af1602460a5601131f8775b6b1bad4adddbb70e56"
   },
   "limits": [
-    "No full-load thermal or physical tests; 5 A no-trip service and startup SOA require qualification",
-    "No SPICE simulator available",
+    "Unrouted floorplan: 499 unconnected items; not for fabrication",
     "Four USB-C hole clearances unresolved",
-    "TPS259827 minimum junction temperature -15 C accepted by user; ambient range not yet qualified",
-    "Input TVS 29.2 V pulse clamp versus eFuse 30 V absolute maximum needs surge/temperature/overshoot testing",
-    "Current 0.2 lifecycle and full automated analyzer suite not run; 0.1 results are historical",
-    "Native GUI inspection blocked by locked Mac; CLI exports and rendered files inspected"
+    "No measured thermal, startup SOA, surge or short-circuit results; 5 A service requires qualification",
+    "TVS1800 24.7 V maximum applies to specified pulse; routing overshoot and energy remain unqualified",
+    "Shared voltage window is a common failure point; local OVLO is retained",
+    "USB-A body longitudinal datum needs a physical sample check",
+    "Current firmware must adopt 0.1055 V/A DC current scaling and tested fault recovery",
+    "Full automated analyzer/lifecycle suite not rerun; historical report below is not current evidence"
   ],
-  "revision": "0.2-draft",
+  "revision": "0.3-draft",
   "negative_checks": [
     {
-      "case": "EP25 tied to ground",
+      "case": "shared window disconnected",
       "rejected": true,
-      "message": "FAIL: GND: missing [], unexpected ['U101.25']"
+      "message": "FAIL: WINDOW_OK: missing ['U71.2'], unexpected []"
     },
     {
-      "case": "wrong 16.9V variant",
+      "case": "two enables shorted",
       "rejected": true,
-      "message": "FAIL: wrong voltage/breaker variant"
+      "message": "FAIL: DC_SAFE1: missing ['U71.3'], unexpected []"
     },
     {
-      "case": "OV inhibit disconnected",
+      "case": "power input land grounded",
       "rejected": true,
-      "message": "FAIL: DC1_EN_SW: missing ['U102.6'], unexpected []"
+      "message": "FAIL: GND: missing [], unexpected ['U101.5']"
+    },
+    {
+      "case": "wrong automatic-retry variant",
+      "rejected": true,
+      "message": "FAIL: wrong eFuse/clamp variant"
+    },
+    {
+      "case": "input MOSFET source grounded",
+      "rejected": true,
+      "message": "FAIL: GND: missing [], unexpected ['Q11.1']"
     }
   ],
   "release_check": {
@@ -195,5 +207,6 @@
     "schematic_erc": "zero errors/warnings/exclusions",
     "new_pcb_drc_issues": 0,
     "body_to_pin_longitudinal_datum": "provisional; sample check before fabrication"
-  }
+  },
+  "native_gui": "0.3 root hierarchy opened and visually inspected in KiCad Schematic Editor"
 }

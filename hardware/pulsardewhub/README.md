@@ -6,7 +6,7 @@ switched DC outlets, two dew heaters and a four-port USB 2.0 hub. Earlier design
 documents call it **PulsarDew Hub**; the directory, KiCad filenames and Makefile
 targets currently retain `pulsardewhub` as their internal project identifier.
 
-Revision **0.2-draft**, reviewed with KiCad 10.0.6 on 2026-10-03. Open
+Revision **0.3-draft**, reviewed with KiCad 10.0.6 on 2026-10-03. Open
 `pulsardewhub.kicad_pro` in KiCad. This is a separate design derived from
 PulsarDew, with **two PWM heaters, four individually switched and current-monitored
 DC outlets, and four external USB 2.0 ports**. DC outlets use static on/off GPIO;
@@ -16,7 +16,7 @@ The schematic is electrically connected and the native PCB is a placed,
 **unrouted 180 × 110 mm four-layer floorplan**. It is not ready for fabrication.
 There are no tracks, vias or copper fills. No enclosure is assumed.
 
-Review the [14-page schematic PDF](docs/schematic.pdf) and
+Review the [15-page schematic PDF](docs/schematic.pdf) and
 [annotated footprint placement](docs/pcb-placement.png) without opening KiCad.
 
 ![PCB floorplan](docs/pcb-floorplan.png)
@@ -25,7 +25,7 @@ Review the [14-page schematic PDF](docs/schematic.pdf) and
 
 | Item | Design target / constraint |
 | --- | --- |
-| Input | **12–18 V nominal**, as selected for this revision |
+| Input | **12–18 V DC (18 V maximum including supply tolerance)**, as selected for this revision |
 | XT60 configuration | Fit J10 + F10; **25 A shared continuous target**, pending thermal/copper validation |
 | Barrel configuration | Fit J11 + F11 instead; **5 A absolute total ceiling**, **3.5 A provisional continuous budget** after fuse derating |
 | DC outlets | Four center-positive **2.0 mm** barrel sockets, 5 A service target each; independent high-side switch, analog current monitor and power-good signal |
@@ -52,17 +52,18 @@ temperature, enclosure, cable ratings and time/current curves still govern.
 
 ## Connected hierarchy
 
-There are 14 schematic pages in eight source files. Root-sheet wires connect
+There are 15 schematic pages in nine source files. Root-sheet wires connect
 the system rails, I2C, heater control, four DC interfaces and USB data/control.
 Repeated sheets have distinct references and net identities.
 
 | Sheet | Circuit |
 | --- | --- |
-| Power input | Alternative fused inputs, LM74700 + CSD18540 reverse-polarity/reverse-current stage, SMCJ18A TVS, 470 µF bulk |
+| Power input | Alternative fused inputs, LM74700 + two parallel SiR680LDP reverse-polarity/reverse-current stage, SMCJ18A TVS, 470 µF bulk |
 | DC supplies | LMR33630 bucks: input to approximately 5.02 V, then 5 V to approximately 3.31 V |
 | Controller | STM32G0B1KBU6, SWD/reset, SHT40, I2C pull-ups, ADC filters and GPIO connections |
 | Heaters | TC4427A active-high gate driver, two AOD4184A switches, individual fuses/clamps, combined-current INA226 and 2 mΩ shunt |
-| DC outlet ×4 | TPS259827ONRGET circuit breaker, TPS3700 hardware UV/OV inhibit, IMON filter, latch-off, PG pull-up, input TVS and output Schottky clamp |
+| DC protection | One TPS3700 UV/OV window plus SN74LVC08 quad AND gate; four independent default-off commands |
+| DC outlet ×4 | TPS25974LRPWR circuit breaker, local OVLO, ILM/current filter, latch-off, PG divider/pull-up, TVS1800 input clamp and SS54 output clamp |
 | USB hub | USB2517, 24 MHz crystal, reset supervisor, configuration straps, protected USB-C upstream connection |
 | USB port ×4 | TPS2553 current-limited VBUS switch, USBLC6 ESD, USB-A socket, 150 µF bulk and ceramic bypass |
 
@@ -108,41 +109,65 @@ Heater inputs and gates have pull-downs, and the new non-inverting driver
 addresses the original driver's dependence on a live 3.3 V rail for default-off
 behavior. Validate startup, brownout and loss of each rail on hardware; this is
 not a certified safety shutdown. The INA226 measures **combined heater current**;
-the four DC currents are measured independently through TPS259827 IMON outputs.
+the four DC currents are measured independently through TPS25974 ILM outputs.
 
-With an 820 Ω IMON resistor, the nominal ADC slope is **0.20172 V/A**
-(**1.009 V at 5 A**). The 10 kΩ / 10 nF filter has a nominal 100 µs time constant;
-include the monitor source impedance in ADC acquisition-time settings. TI
-specifies gain limits of 238.6–253.4 µA/A for 3 A to the set limit and ambient
-up to 75°C; low-current accuracy and calibration need prototype validation.
+With a **1 kΩ ILM resistor**, the nominal ADC slope is **0.1055 V/A**
+(**0.5275 V at 5 A**). ILM sets the breaker threshold and provides the current
+signal. The 10 kΩ / 10 nF filter isolates ADC capacitance from this pin; do not
+put a capacitor directly on ILM. Gain limits are 98–114 µA/A for currents from
+1 A to the configured limit. Include source impedance in ADC acquisition-time
+settings and calibrate each channel. Readings during a short are not guaranteed.
 
-A 249 Ω, 1% ILIM resistor gives **5.97 A nominal** using TI equation 4. This is
-an overload trip threshold for a **5 A service target**, not a precise 5 A clamp.
-TI publishes full-temperature threshold limits at selected resistor values,
-not 249 Ω; the 5 A minimum no-trip margin is **not yet guaranteed**. Measure it
-across supply and temperature before release. ITIMER is open for the fastest
-normal overload response. Severe shorts use a separate fast trip around 2.1×
-the setpoint. RETRY_DLY, NRETRY and LDSTRT are grounded; load handshake is disabled
-and overcurrent/thermal shutdown latches off. The 4.7 nF slew capacitor targets
-about 0.979 V/ms, or 18.4 ms at 18 V; verify startup with actual capacitive loads.
+The nominal breaker setting is **5747 / 1000 = 5.747 A**, allowing a **5 A
+service target**. A ±10% threshold screening plus 1% resistor tolerance and an
+additional 1% TCR allowance gives approximately **5.07–6.45 A**; this calculation
+is not a substitute for measured trip/no-trip limits. ITIMER is open for the
+fastest response. The **L** variant latches after overcurrent/thermal faults;
+cycle enable to recover. The separate fast-trip threshold is nominally 2.01×
+ILIM (1.70–2.40× specified ratio). The 4.7 nF slew capacitor targets 0.702 V/ms,
+or about 25.6 ms at 18 V. Verify startup with actual capacitive loads.
 
-Each TPS3700 monitors VIN independently of firmware and clamps the switch enable
-through open-drain outputs. Nominal thresholds are **9.2 V rising UV** and
-**19.2 V rising OV**, using 220 kΩ/10 kΩ and 470 kΩ/10 kΩ dividers. OV tolerances
-are approximately 18.62–19.78 V including 1% resistors and comparator threshold
-limits; input leakage adds less than 8 mV. The 10 kΩ GPIO series resistor avoids
-output contention; 100 kΩ at the switch enable requests OFF during reset.
-This inhibits the DC outputs; it does not disconnect VIN from the ICs, bucks or
-heaters, and is not protection against arbitrary sustained excess input voltage.
+One **TPS3700** provides the common hardware voltage window: **9.2 V rising
+UV** and **19.2 V rising OV**, using 220 kΩ/10 kΩ and 470 kΩ/10 kΩ dividers.
+Its open-drain outputs are tied together and pulled up through 10 kΩ. A
+**SN74LVC08** computes `outlet_enable[i] = command[i] AND window_ok` independently
+for each port. Each command has a 10 kΩ pull-down. Each eFuse has a 10 kΩ enable
+pull-down and 1 kΩ series input resistor. The shared window is a common failure
+point, not a redundant safety circuit. Reset, brownout and loss-of-rail tests
+remain required.
 
-**−15°C minimum switch junction temperature is accepted for this design.** The
-TPS25982 Rev. D datasheet changed this limit in May 2026. Upper junction limit is
-125°C; board ambient limits still require thermal qualification. Do not substitute
-a TPS259822/3/4 variant: their fixed overvoltage cutoff is below the full 18 V range.
+Each eFuse retains its own fast OVLO divider (150 kΩ / 10 kΩ, 19.2 V nominal;
+about 18.57–20.04 V including thresholds, resistor tolerances and leakage).
+PGTH uses 100 kΩ / 20 kΩ for about 7.2 V rising. PG high also requires completion
+of startup; it is an output-ready indication, not a precision output voltmeter.
+Neither inhibit disconnects VIN from the ICs, bucks or heaters. Recovery can
+re-enable an asserted GPIO, so firmware must deassert the command after an
+unexpected PG loss when manual restart is required.
+
+The new eFuse supports −40°C to +125°C junction temperature; **−15°C remains the
+accepted lower product target**. Its input absolute maximum is 28 V. Each old
+SMBJ18A local clamp was replaced by **TVS1800DRVR**, whose 24.7 V maximum clamp
+applies to the datasheet's specified 35 A, 8/20 µs, 125°C pulse condition. This
+leaves voltage margin, but does not establish a system surge rating: final
+loops, source impedance, pulse energy and overshoot must be tested. The TVS1800
+has an 18 V standoff rating; supply tolerance must stay within that limit.
+
+**Q10 and Q11 are parallel SiR680LDP input MOSFETs from shared stock.** They are
+80 V parts with ±20 V gates and 2.5 V maximum threshold. At 25 A total, equal
+sharing and 3.55 mΩ maximum RDS(on) at 4.5 V gate drive/25°C give **1.11 W total**
+conduction loss. Applying an illustrative 1.6× hot-resistance factor gives
+1.78 W total; current sharing and temperature remain layout/bench checks.
+Use symmetric short source/drain paths, common low-inductance gate routing,
+and thermal copper. The Vishay PowerPAK SO-8 footprint uses pad 5 for the
+exposed drain and physical drain leads 5–8; source is 1–3 and gate is 4.
+C10 is now 1 µF/50 V, exceeding LM74700's `10 × combined Ciss` recommendation
+(145 nF for two 7.25 nF devices) with substantial capacitance margin. C13 adds
+local raw-input bypass. Gate charge is 90 nC typical/135 nC maximum **per FET at
+10 V**, and startup/body-diode stress must be checked with the selected supply.
 
 ## PCB floorplan and routing intent
 
-The floorplan contains 223 schematic footprints, four M3 holes and three
+The floorplan contains 226 schematic footprints, four M3 holes and three
 fiducials. Mount centers are 4 mm from the edges (172 × 102 mm spacing).
 USB connectors occupy the top edge; their switches, ESD devices and bulk caps
 are nearby. The hub is behind the downstream ports with the MCU to its left.
@@ -154,11 +179,14 @@ sensing element and separation from the major heat sources.
 Use L2 as a continuous ground reference. Reserve the lower central corridor
 for wide input/return copper and keep high-current returns out of signal/ADC
 paths. Use Kelvin connections at the heater shunt. Add exposed-pad thermal
-vias and pours at the four TPS259827 devices, power FETs and bucks. Route the
+vias and pours at the four TPS25974 devices, power FETs and bucks. Route the
 actual buck input hot loops compactly, away from crystal, USB and ADC wiring.
-For TPS259827, **pad 25 is VIN; pad 26 is GND**. The large pad must not be tied
-to the ground plane. Keep both pads thermally coupled and use VIN-connected vias
-on pad 25. Place the SMBJ18A and SS54 close to the protected IN/OUT pins.
+For TPS25974, **pad 5 is VIN and pad 6 is OUT**; neither long power pad is
+ground. The custom RPW0010A footprint follows TI drawing 4225183/A, with 0.3 ×
+2.4 mm power lands, 0.45/0.475 mm signal spacing and L-shaped corner pads.
+Provide thermal paths on the correct nets. Place each TVS1800, input bypass
+and SS54 output clamp close to the corresponding eFuse with short return loops.
+The TVS1800 exposed pad is ground.
 
 The netclasses are **starting geometry**, not validated ratings: 8 mm input
 bus, 3 mm DC/heater routes, 0.6 mm low-voltage power, 0.2 mm sense and provisional
@@ -181,8 +209,8 @@ make bom-pulsardewhub
 ```
 
 The electrical check passes with **zero ERC errors, warnings or exclusions**.
-It independently checks all **130 connected nets, 33 intentional no-connects,
-223 component identities**, critical values, rail isolation, GPIO assignments
+It independently checks all **133 connected nets, 33 intentional no-connects,
+226 component identities**, critical values, rail isolation, GPIO assignments
 and footprint pad coverage. KiCad PCB parity reports zero mismatches and there
 are zero courtyard overlaps. See [review details](docs/design-review.md).
 
@@ -194,31 +222,37 @@ unconnected PCB items**. `make jlc-pulsardewhub` is blocked by strict ERC, DRC,
 parity and routing checks, so this draft cannot accidentally generate a package
 through that target.
 
-At 5 A, each TPS259827 dissipates about **0.0675 W typical / 0.1125 W using
-maximum hot on-resistance**, or about 0.27–0.45 W across four switches, excluding
-quiescent loss. These are conduction calculations, not measured temperatures.
+At 5 A, each TPS25974 dissipates **0.245 W typical at 25°C**, or 0.98 W across
+four switches. The 18.3 mΩ maximum RDS(on) figure is specified at 25°C, giving
+0.458 W per port there; do not present it as a guaranteed hot value. A
+conservative 2× hot-resistance screening assumption gives 0.915 W per port.
+TI's 49.7°C/W custom-board thermal figure would imply about 45.5°C rise at that
+assumed loss; the 71.8°C/W no-via case gives 65.7°C. These are screening
+calculations, not temperatures established for this board. All four outlets,
+input FETs, bucks and heaters require a combined thermal test.
 Thermal validation, current-carrying copper, USB signal integrity, EMC/ESD,
 connector temperatures, assembly pad geometry and firmware remain release work.
-SMCJ18A/SMBJ18A have a 29.2 V specified pulse clamp versus the eFuse's 30 V
-absolute maximum: layout inductance, temperature and pulse energy leave little
-margin and must be checked on hardware. SS54 clamps negative output transients;
+Each outlet now has a TVS1800 flat clamp: 24.7 V maximum for its specified
+35 A, 8/20 µs, 125°C pulse versus the switch's 28 V input absolute maximum.
+Layout overshoot, temperature and actual cable/load pulse energy require testing.
+The upstream SMCJ18A alone would not protect this lower-voltage switch. SS54 clamps negative output transients;
 its pulse energy/current capability also needs load-specific validation.
 No SPICE or physical testing has been performed.
 
 ## Sourcing and footprint review
 
-[JLCPCB BOM](jlcpcb_bom.csv) includes the default 221 populated schematic parts.
+[JLCPCB BOM](jlcpcb_bom.csv) includes the default 224 populated schematic parts.
 [Full review BOM](parts-review.csv) also includes the two DNP input-option parts.
-[Parts catalog](parts-catalog.json) records 54 exact LCSC codes, MPNs and datasheet
+[Parts catalog](parts-catalog.json) records exact LCSC codes, MPNs and datasheet
 links. These are sourcing candidates, not reserved stock or confirmation that
 every through-hole part is supported by a particular JLC assembly tier.
 The original 0.1
 lifecycle audit returned unknown for all 53 populated unique parts. It is historical evidence, not a current lifecycle audit. Check lifecycle
-and stock before procurement. TPS259827ONRGET is C2155765; JLCPCB showed 665
-available without preorder on 2026-10-03, not reserved inventory.
+and stock before procurement. TPS25974LRPWR is C3662931; JLCPCB showed 2,774
+available to order during this review, not reserved inventory.
 
-Custom footprints in `../lib/footprints.pretty` include the TI RGE0024M two-pad
-QFN (**pad 25: 2.7 × 1.45 mm VIN; pad 26: 2.7 × 0.85 mm GND**), S1032 fuse,
+Custom footprints in `../lib/footprints.pretty` include the TI RPW0010A
+VQFN (**long pad 5: VIN; long pad 6: OUT; neither is ground**), S1032 fuse,
 SMMS1050 inductors, RVT 6.3 mm capacitor
 and KF128 5.08 mm terminal. Dimensions and pin mappings were checked against
 manufacturer documents; record a second footprint review before fabrication.
@@ -253,44 +287,39 @@ there before regeneration. The initial placement script requires KiCad's
 refuses to erase a board containing tracks. It preserves project routing rules.
 Use KiCad directly for subsequent routing and treat the native PCB as authoritative.
 
-## Cost-reduction review — 2026-10-03
+## Cost-reduction revision — 2026-10-03
 
-The post-USB-A cart for 20 PulsarPower boards plus common parts for 20 PulsarDew
-boards is $1,032.21 estimated in parts, including spares and quantity breaks.
-It excludes the unavailable 110 DCJ200 sockets (another $81.55 estimated).
-These are component-purchase totals, not assembled-board costs.
+All three approved optimizations are implemented in 0.3: one shared TPS3700
+window with independent logic gates, two owned SiR680LDP input MOSFETs, and
+TPS25974L outlet switches. Current monitoring is retained. The four new
+TVS1800 clamps are included in the cost comparison; simply reusing SMBJ18A
+would not guarantee protection below the new switch's 28 V absolute maximum.
 
-Further opportunities are **screened candidates, not applied substitutions**:
+Live JLCPCB pricing: 100 TPS25974L at **$68.61**, 100 TVS1800 at **$24.55**,
+and 22 SN74LVC08 at about **$8.23**. The old 88 TPS259827 switches alone were
+$360.51. Using 44 MOSFETs from the shared stock avoids the $44.45 CSD18540
+purchase; that is avoided cash spend, not a claim that inventory is free.
+The shared procurement CSV tracks the allocation separately from stock balances.
 
-| Priority | Opportunity | Purchase impact and remaining work |
-| --- | --- | --- |
-| 1 | Share the VIN window monitor | All four TPS3700 circuits sense the same VIN. One per board could reduce the $89.42 purchase to $25.75: **$63.67 gross**, before independent enable gating and assembly. Preserve default-off behavior and hardware UV/OV inhibition; do not short the four enable nodes together. Review common failure behavior and power sequencing. |
-| 2 | Reuse SiR680LDP input MOSFET stock | The shared inventory records 230 C3279524. Qualifying 22 for Q10 could avoid **$44.45** of new CSD18540 purchases. Confirm other-project allocations first. This is avoided cash spending, not free recurring BOM cost. The [Vishay datasheet](https://www.vishay.com/docs/77478/sir680ldp.pdf) specifies 80 V, ±20 V gate rating and 3.55 mΩ maximum at 4.5 V: about 2.22 W at 25 A at 25°C before hot derating. Check gate charge, SOA, reverse recovery, thermal copper and the PowerPAK footprint. |
-| 3 | Revisit the outlet switch | The 88 TPS259827 devices cost **$360.51**, the largest line. Adjustable TPS1HB16/TPS2HB16 variants merit further sourcing and circuit review. No cheaper qualified replacement has been selected. |
-| 4 | Source durable 5 A barrel sockets | Resolve both the cost and the unavailable C5280493 purchase. Require a verified 5 A rating and compatible plug dimensions; a part name containing “5A” is not sufficient evidence. |
-| 5 | Review upstream USB connector | The 44 USB4105 devices cost $40.73 and cover both products. A through-hole USB-B option would change cable compatibility and requires deliberate changes to both designs. |
+The verified 20-board/common-Dew parts cart is **$666.57 estimated full value**,
+down from $1,032.21: **$365.64 saved** in this revision, in addition to the
+earlier $83.38 USB-A saving. Initial checkout is $619.15 including the 10%
+deposit on the $52.69 estimated pre-order portion. **Not ordered.** The 110
+DCJ200 sockets remain unavailable for JLC purchase and are excluded from these
+totals; they require separate sourcing/consignment. Prices are a dated snapshot.
 
-The inexpensive TPS2HB16FQPWPRQ1 / C2879380 was **rejected as a direct replacement**:
-the [TI datasheet](https://www.ti.com/lit/ds/symlink/tps2hb16-q1.pdf) specifies a
-fixed **60 A**, not 6 A, limit. JLCPCB showed only 32 available versus 44 needed
-for two dual switches per board including spares. The shared-stock TPS1H100B
-would dissipate about 2.5 W per 5 A outlet from its 100 mΩ typical resistance;
-that is not an acceptable cost-only substitution without thermal redesign.
+The monitored switch costs $0.6861 at 100. A discrete non-monitoring alternative
+would still need positive-side gate drive and independent overload protection;
+removing sensing is unnecessary for this revision's saving. USB2517 and the
+heater INA226 remain: the MCU requires a fifth internal hub port, and INA226
+measures the heater pair rather than the four DC outlets.
 
-Keep the USB2517 until a replacement supports four external USB ports **plus**
-the internal MCU connection; a single four-port hub cannot preserve that topology.
-Keep heater-current sensing. Existing passive quantity breaks remain useful;
-buying 250 of the current DC switch would raise spending from $360.51 to $938.43.
-No additional candidate has been put in the schematic, allocated from shared
-inventory, or added to the cart by this review. The private procurement folder
-contains `cost-review/cost-ranking.csv`, `opportunities.csv`, source snapshots
-and downloaded candidate datasheets.
 
 ## Primary references
 
 - [Microchip USB2517 datasheet](https://ww1.microchip.com/downloads/en/DeviceDoc/00001598C.pdf)
-- [TI TPS25982 Rev. D](https://www.ti.com/lit/ds/symlink/tps25982.pdf), [TPS3700](https://www.ti.com/lit/ds/symlink/tps3700.pdf), [TPS2553](https://www.ti.com/lit/ds/symlink/tps2553.pdf)
-- [TI LM74700-Q1](https://www.ti.com/lit/ds/symlink/lm74700-q1.pdf), [CSD18540Q5B](https://www.ti.com/lit/ds/symlink/csd18540q5b.pdf)
+- [TI TPS2597](https://www.ti.com/lit/ds/symlink/tps2597.pdf), [TVS1800](https://www.ti.com/lit/ds/symlink/tvs1800.pdf), [SN74LVC08A](https://www.ti.com/lit/ds/symlink/sn74lvc08a.pdf), [TPS3700](https://www.ti.com/lit/ds/symlink/tps3700.pdf), [TPS2553](https://www.ti.com/lit/ds/symlink/tps2553.pdf)
+- [TI LM74700-Q1](https://www.ti.com/lit/ds/symlink/lm74700-q1.pdf), [SiR680LDP](https://www.vishay.com/docs/77478/sir680ldp.pdf)
 - [TI LMR33630](https://www.ti.com/lit/ds/symlink/lmr33630.pdf), [TPS3808](https://www.ti.com/lit/ds/symlink/tps3808.pdf), [INA226](https://www.ti.com/lit/ds/symlink/ina226.pdf)
 - [ST STM32G0B1](https://www.st.com/resource/en/datasheet/stm32g0b1me.pdf), [USBLC6-2](https://www.st.com/resource/en/datasheet/usblc6-2.pdf)
 - [GCT USB4105 drawing](https://gct.co/files/drawings/usb4105.pdf), [DCJ200 drawing](https://gct.co/files/drawings/dcj200.pdf)
