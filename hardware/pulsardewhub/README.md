@@ -327,3 +327,26 @@ measures the heater pair rather than the four DC outlets.
 
 The installed [kicad-happy skills](https://github.com/aklofas/kicad-happy) were
 used for KiCad analysis, exact LCSC lookups, datasheet retrieval and JLCPCB review.
+
+## Stocked barrel-socket candidate — pending substitution
+
+The shared inventory records **617 XKB DC-005K-5A-2.0 / C2880546** sockets.
+The [JLCPCB listing](https://jlcpcb.com/partdetail/C2880546) specifies 5 A,
+24 V, −20 to +70°C and right-angle through-hole mounting. This is the preferred
+owned-stock candidate for replacing the unavailable GCT socket; **the active
+BOM/footprint and inventory allocation have not yet been changed**.
+
+The older [XKB A0 manufacturer drawing](https://web-static.partgenie.ai/component/docs/a9b30b5066b770e98a403dfcb74276b8_2110112230_XKB-Connection-DC-005K-5A-2-0_C2880546.pdf)
+shows a 2.0 mm center pin and a 5.5 × 2.1 mm mating plug. The newer
+[A1 drawing](https://datasheet.lcsc.com/datasheet/pdf/42a925a8542473f46554cf6f67b6cc91.pdf?productCode=C2880546)
+labels the pin 2.5 mm despite the same -2.0 part title. Check a stocked sample's
+plug fit, sleeve/contact continuity and dimensions before accepting substitution.
+The XKB land pattern calls for three 1.0 × 3.0 mm slots; its side terminal is
+5.0 mm off-axis and 3.0 mm forward of pin 1. The present GCT footprint uses
+4.8 mm and 2.9 mm respectively, so copying the source code alone is insufficient.
+
+Four outlets on 20 boards plus 10% spares would use 88 sockets. Another 22
+would cover the original Dew input only after its own footprint/pin mapping is
+qualified. This potential 110-part allocation is not deducted from the 617 balance.
+The historical DCBuddy BOM uses a generic PJ-0XX/CUI-PJ-002A_V description,
+not the exact XKB MPN; it cannot establish the fitted part's 5 A rating.
