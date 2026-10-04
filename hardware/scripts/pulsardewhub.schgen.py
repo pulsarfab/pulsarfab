@@ -273,7 +273,7 @@ usbput('R501','Device:R',83.82,101.6,'43.2k / 1%',RFP);named(s,'R501',1,'ILIM');
 usbput('R502','Device:R',109.22,101.6,'100k',RFP,'C25803');named(s,'R502',1,'ENABLE');named(s,'R502',2,'GND')
 usbput('C501','Device:C',177.8,40.64,'100n',CFP,'C14663');named(s,'C501',1,'V5');named(s,'C501',2,'GND')
 usbput('C502','Device:C_Polarized',203.2,40.64,'150u / 10V / 20%','pulsarfab:CP_RVT_D6.3mm_L5.4mm','C970688');named(s,'C502',1,'VBUS');named(s,'C502',2,'GND')
-usbput('J501','Connector:USB_A',243.84,99.06,'USB-A / 500mA','pulsarfab:USB_A_GCT_USB1046_Edge','C6307429')
+usbput('J501','Connector:USB_A',243.84,99.06,'USB-A / 500mA','pulsarfab:USB_A_SHOUHAN_AF90ZJWG_THT','C456019')
 for n,name in [(1,'VBUS'),(4,'GND'),('SH','GND')]:named(s,'J501',n,name)
 usbput('U502','Power_Protection:USBLC6-2SC6',177.8,137.16,code='C7519')
 for n,name in [(1,'DM'),(6,'DM'),(3,'DP'),(4,'DP'),(5,'VBUS'),(2,'GND')]:named(s,'U502',n,name)

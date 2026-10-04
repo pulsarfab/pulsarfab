@@ -177,5 +177,23 @@
       "Four unresolved USB-C hole clearances",
       "499 unconnected items; floorplan only"
     ]
+  },
+  "usb_a_revision": {
+    "lcsc": "C456019",
+    "references": [
+      "J501",
+      "J601",
+      "J701",
+      "J801"
+    ],
+    "contacts": "all four through hole",
+    "shell": "two plated through-hole anchors",
+    "drills_mm": {
+      "contacts": 0.92,
+      "shell": 2.3
+    },
+    "schematic_erc": "zero errors/warnings/exclusions",
+    "new_pcb_drc_issues": 0,
+    "body_to_pin_longitudinal_datum": "provisional; sample check before fabrication"
   }
 }

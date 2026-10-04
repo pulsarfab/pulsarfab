@@ -94,7 +94,7 @@ for i,x in enumerate([128,156,184,212],1):
 # Four downstream USB ports. ESD is just behind data tails; VBUS switch/bulk to the side.
 for i,x in enumerate([124,148,172,196]):
     b=500+i*100
-    place.update({f"J{b+1}":(x,55,180),f"U{b+2}":(x,66,180),f"U{b+1}":(x+8,75,0),
+    place.update({f"J{b+1}":(x,62,180),f"U{b+2}":(x,66,180),f"U{b+1}":(x+8,75,0),
         f"C{b+1}":(x+11.5,75,90),f"C{b+2}":(x+8,68,90),f"C{b+3}":(x+4,63,90),
         f"R{b+1}":(x+8,78.5,0),f"R{b+2}":(x+4.5,77,90)})
 # Reset straps and disabled-port resistors are outside the USB fanout region.

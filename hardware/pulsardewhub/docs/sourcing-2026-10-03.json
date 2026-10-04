@@ -1,6 +1,6 @@
 {
   "checked_date": "2026-10-03",
-  "scope": "Parts introduced in the TPS259827 outlet revision; JLCPCB page metadata, not reservations. LCSC and mirror inventory are not substituted.",
+  "scope": "Parts introduced in the TPS259827 outlet revision; JLCPCB page metadata, not reservations. LCSC and mirror inventory are not substituted. Through-hole USB-A replacement appended from live JLCPCB product page/cart.",
   "parts": [
     {
       "lcsc": "C2155765",
@@ -71,6 +71,15 @@
       "source_url": "https://jlcpcb.com/partdetail/SMBJ18A/C353379",
       "displayed_stock": 56880,
       "available_without_preorder": 56667
+    },
+    {
+      "lcsc": "C456019",
+      "mpn": "AF 90 ZJWG",
+      "source_url": "https://jlcpcb.com/partdetail/C456019",
+      "displayed_stock": 10182,
+      "available_without_preorder": 10126,
+      "price_100_usd": 0.0386,
+      "replaces": "C6307429"
     }
   ]
 }

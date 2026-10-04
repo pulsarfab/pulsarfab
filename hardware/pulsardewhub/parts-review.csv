@@ -133,7 +133,7 @@ U102,TPS3700DDC,Package_TO_SOT_SMD:SOT-23-6,C33002,TPS3700DDCR,TI,Fit: XT60 conf
 C501,100n,Capacitor_SMD:C_0603_1608Metric,C14663,CC0603KRX7R9BB104,YAGEO,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C14663
 C502,150u / 10V / 20%,pulsarfab:CP_RVT_D6.3mm_L5.4mm,C970688,RVT1A151M0605 150UF 10V,DMBJ,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/f0a865b841864fb1f67292a6eb3bf84a.pdf?productCode=C970688
 C503,100n,Capacitor_SMD:C_0603_1608Metric,C14663,CC0603KRX7R9BB104,YAGEO,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C14663
-J501,USB-A / 500mA,pulsarfab:USB_A_GCT_USB1046_Edge,C6307429,USB1046-GF-0190-L-B-A,Global Connector Technology,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/69cc4fb97da31d4274b463dbae6ae45e.pdf?productCode=C6307429
+J501,USB-A / 500mA,pulsarfab:USB_A_SHOUHAN_AF90ZJWG_THT,C456019,AF 90 ZJWG,SHOU HAN,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/13e3587bf595c7e2c810c5f268cf321c.pdf?productCode=C456019
 R501,43.2k / 1%,Resistor_SMD:R_0603_1608Metric,C23053,0603WAF4322T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C23053
 R502,100k,Resistor_SMD:R_0603_1608Metric,C25803,0603WAF1003T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25803
 U501,TPS2553DBV,Package_TO_SOT_SMD:SOT-23-6,C55266,TPS2553DBVR,TI,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/3f52aa0e50da4026aed12c215a8c407a.pdf?productCode=C55266
@@ -161,7 +161,7 @@ U202,TPS3700DDC,Package_TO_SOT_SMD:SOT-23-6,C33002,TPS3700DDCR,TI,Fit: XT60 conf
 C601,100n,Capacitor_SMD:C_0603_1608Metric,C14663,CC0603KRX7R9BB104,YAGEO,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C14663
 C602,150u / 10V / 20%,pulsarfab:CP_RVT_D6.3mm_L5.4mm,C970688,RVT1A151M0605 150UF 10V,DMBJ,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/f0a865b841864fb1f67292a6eb3bf84a.pdf?productCode=C970688
 C603,100n,Capacitor_SMD:C_0603_1608Metric,C14663,CC0603KRX7R9BB104,YAGEO,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C14663
-J601,USB-A / 500mA,pulsarfab:USB_A_GCT_USB1046_Edge,C6307429,USB1046-GF-0190-L-B-A,Global Connector Technology,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/69cc4fb97da31d4274b463dbae6ae45e.pdf?productCode=C6307429
+J601,USB-A / 500mA,pulsarfab:USB_A_SHOUHAN_AF90ZJWG_THT,C456019,AF 90 ZJWG,SHOU HAN,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/13e3587bf595c7e2c810c5f268cf321c.pdf?productCode=C456019
 R601,43.2k / 1%,Resistor_SMD:R_0603_1608Metric,C23053,0603WAF4322T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C23053
 R602,100k,Resistor_SMD:R_0603_1608Metric,C25803,0603WAF1003T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25803
 U601,TPS2553DBV,Package_TO_SOT_SMD:SOT-23-6,C55266,TPS2553DBVR,TI,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/3f52aa0e50da4026aed12c215a8c407a.pdf?productCode=C55266
@@ -189,7 +189,7 @@ U302,TPS3700DDC,Package_TO_SOT_SMD:SOT-23-6,C33002,TPS3700DDCR,TI,Fit: XT60 conf
 C701,100n,Capacitor_SMD:C_0603_1608Metric,C14663,CC0603KRX7R9BB104,YAGEO,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C14663
 C702,150u / 10V / 20%,pulsarfab:CP_RVT_D6.3mm_L5.4mm,C970688,RVT1A151M0605 150UF 10V,DMBJ,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/f0a865b841864fb1f67292a6eb3bf84a.pdf?productCode=C970688
 C703,100n,Capacitor_SMD:C_0603_1608Metric,C14663,CC0603KRX7R9BB104,YAGEO,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C14663
-J701,USB-A / 500mA,pulsarfab:USB_A_GCT_USB1046_Edge,C6307429,USB1046-GF-0190-L-B-A,Global Connector Technology,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/69cc4fb97da31d4274b463dbae6ae45e.pdf?productCode=C6307429
+J701,USB-A / 500mA,pulsarfab:USB_A_SHOUHAN_AF90ZJWG_THT,C456019,AF 90 ZJWG,SHOU HAN,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/13e3587bf595c7e2c810c5f268cf321c.pdf?productCode=C456019
 R701,43.2k / 1%,Resistor_SMD:R_0603_1608Metric,C23053,0603WAF4322T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C23053
 R702,100k,Resistor_SMD:R_0603_1608Metric,C25803,0603WAF1003T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25803
 U701,TPS2553DBV,Package_TO_SOT_SMD:SOT-23-6,C55266,TPS2553DBVR,TI,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/3f52aa0e50da4026aed12c215a8c407a.pdf?productCode=C55266
@@ -217,7 +217,7 @@ U402,TPS3700DDC,Package_TO_SOT_SMD:SOT-23-6,C33002,TPS3700DDCR,TI,Fit: XT60 conf
 C801,100n,Capacitor_SMD:C_0603_1608Metric,C14663,CC0603KRX7R9BB104,YAGEO,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C14663
 C802,150u / 10V / 20%,pulsarfab:CP_RVT_D6.3mm_L5.4mm,C970688,RVT1A151M0605 150UF 10V,DMBJ,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/f0a865b841864fb1f67292a6eb3bf84a.pdf?productCode=C970688
 C803,100n,Capacitor_SMD:C_0603_1608Metric,C14663,CC0603KRX7R9BB104,YAGEO,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C14663
-J801,USB-A / 500mA,pulsarfab:USB_A_GCT_USB1046_Edge,C6307429,USB1046-GF-0190-L-B-A,Global Connector Technology,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/69cc4fb97da31d4274b463dbae6ae45e.pdf?productCode=C6307429
+J801,USB-A / 500mA,pulsarfab:USB_A_SHOUHAN_AF90ZJWG_THT,C456019,AF 90 ZJWG,SHOU HAN,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/13e3587bf595c7e2c810c5f268cf321c.pdf?productCode=C456019
 R801,43.2k / 1%,Resistor_SMD:R_0603_1608Metric,C23053,0603WAF4322T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C23053
 R802,100k,Resistor_SMD:R_0603_1608Metric,C25803,0603WAF1003T5E,UNI-ROYAL,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25803
 U801,TPS2553DBV,Package_TO_SOT_SMD:SOT-23-6,C55266,TPS2553DBVR,TI,Fit: XT60 configuration,https://datasheet.lcsc.com/datasheet/pdf/3f52aa0e50da4026aed12c215a8c407a.pdf?productCode=C55266

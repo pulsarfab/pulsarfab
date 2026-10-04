@@ -343,14 +343,6 @@
     "source_url": "https://www.lcsc.com/product-detail/C5370959.html",
     "checked_date": "2026-10-03"
   },
-  "C6307429": {
-    "lcsc_code": "C6307429",
-    "mpn": "USB1046-GF-0190-L-B-A",
-    "manufacturer": "Global Connector Technology",
-    "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/69cc4fb97da31d4274b463dbae6ae45e.pdf?productCode=C6307429",
-    "source_url": "https://www.lcsc.com/product-detail/C6307429.html",
-    "checked_date": "2026-10-03"
-  },
   "C2155765": {
     "lcsc_code": "C2155765",
     "mpn": "TPS259827ONRGET",
@@ -429,6 +421,14 @@
     "manufacturer": "Jingdao Microelectronics",
     "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/e9ed405dd94e697d37ae30ddb40fefa5.pdf?productCode=C353379",
     "source_url": "https://www.lcsc.com/product-detail/C353379.html",
+    "checked_date": "2026-10-03"
+  },
+  "C456019": {
+    "lcsc_code": "C456019",
+    "mpn": "AF 90 ZJWG",
+    "manufacturer": "SHOU HAN",
+    "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/13e3587bf595c7e2c810c5f268cf321c.pdf?productCode=C456019",
+    "source_url": "https://jlcpcb.com/partdetail/C456019",
     "checked_date": "2026-10-03"
   }
 }

@@ -212,7 +212,7 @@ No SPICE or physical testing has been performed.
 [Parts catalog](parts-catalog.json) records 54 exact LCSC codes, MPNs and datasheet
 links. These are sourcing candidates, not reserved stock or confirmation that
 every through-hole part is supported by a particular JLC assembly tier.
-USB1046 connector availability deserves early rechecking. The original 0.1
+The original 0.1
 lifecycle audit returned unknown for all 53 populated unique parts. It is historical evidence, not a current lifecycle audit. Check lifecycle
 and stock before procurement. TPS259827ONRGET is C2155765; JLCPCB showed 665
 available without preorder on 2026-10-03, not reserved inventory.
@@ -222,11 +222,29 @@ QFN (**pad 25: 2.7 × 1.45 mm VIN; pad 26: 2.7 × 0.85 mm GND**), S1032 fuse,
 SMMS1050 inductors, RVT 6.3 mm capacitor
 and KF128 5.08 mm terminal. Dimensions and pin mappings were checked against
 manufacturer documents; record a second footprint review before fabrication.
-The three `*_Edge` connector footprints derive from the KiCad 10 library: AMASS
-XT60PW-M, GCT DCJ200 and GCT USB1046. They retain the original copper, drills and
-fabrication outlines, with front silkscreen trimmed at the board edge. KiCad
+The active `*_Edge` connector footprints derive from the KiCad 10 library: AMASS
+XT60PW-M and GCT DCJ200. They retain the original copper, drills and fabrication
+outlines, with front silkscreen trimmed at the board edge. KiCad
 library attribution/license is recorded in [library notes](../lib/ATTRIBUTIONS.md).
 XT60 positive is physical **pad 2**, negative pad 1.
+
+The four downstream USB-A sockets are **SHOU HAN AF 90 ZJWG / C456019**,
+right-angle USB 2.0 receptacles with four plated through-hole contacts and two
+plated shell anchors. The drawing specifies 0.92 mm signal drills, 2.30 mm shell
+drills, 13.14 mm shell spacing and a 2.71 mm offset from the signal row. They
+are rated 1.5 A / 30 V, -25 to +85 C and 5,000 mating cycles; each USB port still
+has a 500 mA service budget. The local `USB_A_SHOUHAN_AF90ZJWG_THT` footprint
+uses these hole dimensions and 1.6/3.2 mm copper pads. **The drawing omits the
+longitudinal body-to-pin datum: the body outline and mating-face position are
+provisional and must be checked on a sample before fabrication or enclosure design.**
+No substitute 3D model is attached. Through-hole soldering must be included in
+the assembly quote. The upstream USB-C socket remains USB4105-GF-A.
+
+JLCPCB showed 10,126 available to order on 2026-10-03, at $0.0386 each for 100.
+The procurement plan uses 100 ($3.86), which costs less than 88 ($4.29) at the
+lower quantity tier and replaces the $87.24 GCT USB1046 line. This saves $83.38
+on the planned purchase; stock and quoted prices are not reservations.
+
 
 The native schematic and board are editable. `make gen-pulsardewhub` explicitly
 replaces the schematic from `scripts/pulsardewhub.schgen.py`; capture GUI changes

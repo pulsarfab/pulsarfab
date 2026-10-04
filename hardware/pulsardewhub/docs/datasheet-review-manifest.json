@@ -155,6 +155,14 @@
       "mpn": "SMBJ18A",
       "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/e9ed405dd94e697d37ae30ddb40fefa5.pdf?productCode=C353379",
       "sha256": "11a0cb29fa635344f99349867b20a7c8e2d6dd8995f1f3eeb747e8935239c4b2"
+    },
+    {
+      "reviewed_file": "C456019.pdf",
+      "lcsc": "C456019",
+      "mpn": "AF 90 ZJWG",
+      "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/13e3587bf595c7e2c810c5f268cf321c.pdf?productCode=C456019",
+      "sha256": "59a26d132fd73521ebff0e63fc3cc99042272d450abab9ccafcc061638e3273b",
+      "review": "Pages 1 and 3: PTH drill pattern, contact numbering, 30V/1.5A, -25 to +85 C, 5000 cycles. Body-to-pin longitudinal datum absent; illustrative body placement requires sample check."
     }
   ]
 }

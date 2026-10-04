@@ -32,3 +32,11 @@ RGE0024M, in the TPS25982 Rev. D datasheet (land-pattern and stencil pages).
 Pad 25 is input power and pad 26 is ground; they must remain separate. The
 footprint has the TI example copper/paste dimensions without embedded vias.
 Select plated/filled/capped thermal vias during routing and assembly review.
+
+## SHOU HAN through-hole USB-A
+
+`USB_A_SHOUHAN_AF90ZJWG_THT` is an original project footprint based on the
+[SHOU HAN AF 90 ZJWG manufacturer drawing](https://datasheet.lcsc.com/datasheet/pdf/13e3587bf595c7e2c810c5f268cf321c.pdf?productCode=C456019).
+The copper/drill pattern follows the drawing. Body-to-pin longitudinal registration
+is illustrative because the drawing omits that datum; sample confirmation remains
+a release requirement. No third-party footprint or substitute 3D model is embedded.

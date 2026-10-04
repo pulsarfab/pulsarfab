@@ -64,7 +64,7 @@ part-specific catalog. Some catalog URLs point to a family document.
 | J10 | AMASS XT60PW-M polarity and stock land pattern: **pad 2 positive**, pad 1 ground. Edge variant changes silk only. |
 | Barrel sockets | GCT DCJ200 drawing: center-positive terminal assignment, 2.0 mm pin, 5 A / 20 V rating, slot and pad placement. |
 | J40 | GCT USB4105 drawing and USB-C contact assignments. Both orientations connected, separate 5.1 kΩ CC pull-downs, SBU pins NC. Hole clearance remains open. |
-| USB-A sockets | GCT USB1046 source candidate and KiCad land pattern compared; source/footprint agreement checked, but a second mechanical drawing review and stock check are required before ordering. |
+| USB-A sockets | SHOU HAN AF 90 ZJWG / C456019: manufacturer drawing gives four Ø0.92 mm contact holes, two Ø2.30 mm shell holes, 13.14 mm shell pitch and 2.71 mm row offset; local footprint matches. Pin numbering follows the drawing and USB-A symbol (1 VBUS, 2 D−, 3 D+, 4 GND, SH grounded). 1.5 A rating exceeds the 500 mA port budget. Body-to-pin longitudinal registration is missing from the drawing and remains provisional; check a sample before fab/enclosure release. |
 | J51/J61 / J1 | KEFA KF128 mechanical/pin layout, 5.08 mm pitch and recommended drill; XFCN 2.54 mm single-row header drawing. SWD order: 3V3, SWDIO, SWCLK, NRST, GND. |
 | L20/L30 | SXN SMMS1050 dimensions/recommended land table: 8.2 µH / 6.8 µH; pad lands 4.1 mm square, 5.4 mm inner gap. Saturation/heating margin remains load/temperature dependent. |
 | F10/F11/F51/F61 | SART S1032 size table and Littelfuse 451 family derating/time-current curves. 30 A input, optional 5 A barrel, 7 A heater fuses. Fuse coordination remains a prototype/release check. |

@@ -1455,31 +1455,31 @@
     (effects
       (font
         (size 1.27 1.27))))
-  (property "Footprint" "pulsarfab:USB_A_GCT_USB1046_Edge"
+  (property "Footprint" "pulsarfab:USB_A_SHOUHAN_AF90ZJWG_THT"
     (at 243.84 99.06 0.0)
     (effects
       (font
         (size 1.27 1.27))
       (hide yes)))
-  (property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/69cc4fb97da31d4274b463dbae6ae45e.pdf?productCode=C6307429"
+  (property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/13e3587bf595c7e2c810c5f268cf321c.pdf?productCode=C456019"
     (at 243.84 99.06 0.0)
     (effects
       (font
         (size 1.27 1.27))
       (hide yes)))
-  (property "LCSC" "C6307429"
+  (property "LCSC" "C456019"
     (at 243.84 99.06 0.0)
     (effects
       (font
         (size 1.27 1.27))
       (hide yes)))
-  (property "MPN" "USB1046-GF-0190-L-B-A"
+  (property "MPN" "AF 90 ZJWG"
     (at 243.84 99.06 0.0)
     (effects
       (font
         (size 1.27 1.27))
       (hide yes)))
-  (property "Manufacturer" "Global Connector Technology"
+  (property "Manufacturer" "SHOU HAN"
     (at 243.84 99.06 0.0)
     (effects
       (font
